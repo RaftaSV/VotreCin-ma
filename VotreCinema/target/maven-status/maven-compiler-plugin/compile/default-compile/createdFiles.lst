@@ -1,4 +1,15 @@
-com\unab\edu\sv\Entidades\Horarios.class
+com\unab\edu\sv\Entidades\Proveedores.class
 com\unab\edu\sv\Entidades\Peliculas.class
+com\unab\edu\sv\Entidades\DetallesFacturas.class
+com\unab\edu\sv\Entidades\Estadosala.class
+com\unab\edu\sv\Entidades\Asientos.class
+com\unab\edu\sv\Entidades\Facturas.class
+com\unab\edu\sv\Entidades\Personas.class
+com\unab\edu\sv\Entidades\Productos.class
+com\unab\edu\sv\Entidades\Horarios.class
+com\unab\edu\sv\Entidades\Taquillas.class
+com\unab\edu\sv\Entidades\Roles.class
+com\unab\edu\sv\Entidades\Salas.class
 com\unab\edu\sv\mysql\conexionBD.class
+com\unab\edu\sv\Entidades\EstadoAsientos.class
 com\unab\edu\sv\Entidades\Carteleras.class
