@@ -7,7 +7,7 @@ package com.unab.edu.sv.DAO;
 
 import com.unab.edu.sv.Entidades.Personas;
 import com.unab.edu.sv.mysql.conexionBD;
-import java.sql.Connection;
+import java.sql.*;
 import java.util.*;
 
 /**
@@ -22,10 +22,20 @@ public class ClsPersona {
     public ArrayList<Personas> ListaPersonas() {
         ArrayList<Personas> Personas = new ArrayList<>();
         try {
-CallableStatement
+            CallableStatement Cal = conectar.prepareCall("CALL SP_S_PERSONAS()");
+            ResultSet resultado = Cal.executeQuery();
+            while(resultado.next()){
+            Personas p = new Personas();
+            p.setIdPersona(resultado.getInt("idPersonas"));
+            p.setNombres(resultado.getString("Nombres"));
+            p.setApelidos(resultado.getString("Apellidos"));
+            p.setDUI(resultado.getString("DUI"));
+            p.setEstado(resultado.getInt("Estado"));
+            Personas.add(p);
+            }
         } catch (Exception e) {
             System.out.println("Error" + e);
         }
-return Personas;
+        return Personas;
     }
 }
