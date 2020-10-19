@@ -6,6 +6,7 @@
 package com.unab.edu.sv.Entidades;
 
 import java.util.Date;
+import java.util.HashSet;
 import lombok.Data;
 
 /**
@@ -14,10 +15,14 @@ import lombok.Data;
  */
 @Data
 public class Facturas {
- private int idFactura;
- private int Cajero;
- private Date Fecha;
- private int Cliente;
- private double Total;
- private int Estado;
+
+    private int idFactura;
+    private int Cajero;
+    private Date Fecha;
+    private int Cliente;
+    private double Total;
+    private int Estado;
+
+    
+    
 }
