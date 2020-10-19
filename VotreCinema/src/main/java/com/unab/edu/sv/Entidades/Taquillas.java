@@ -6,13 +6,14 @@
 package com.unab.edu.sv.Entidades;
 
 import lombok.Data;
+import com.unab.edu.sv.Entidades.*;
 
 /**
  *
  * @author Rafael
  */
 @Data
-public class Taquillas {
+public class Taquillas{
   private int idTaquilla;
   private int Id_cartelera;
   private int Id_Asiento;
