@@ -19,7 +19,7 @@ public class conexionBD {
     public conexionBD() {
 
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost/clase01", "root", "root");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost/votrecinéma", "root", "root");
             System.out.println("Conexion exitosa");
 
         } catch (Exception e) {
