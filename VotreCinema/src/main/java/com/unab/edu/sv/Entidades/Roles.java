@@ -9,7 +9,7 @@ package com.unab.edu.sv.Entidades;
  *
  * @author Rafael
  */
-public class Roles {
+public class Roles extends Personas{
     private int idRol;
     private String Usuario;
     private String Pasword;

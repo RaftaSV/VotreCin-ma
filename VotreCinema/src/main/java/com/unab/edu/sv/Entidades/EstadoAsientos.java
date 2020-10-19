@@ -5,6 +5,7 @@
  */
 package com.unab.edu.sv.Entidades;
 
+import java.util.HashSet;
 import lombok.Data;
 
 /**
@@ -12,9 +13,10 @@ import lombok.Data;
  * @author Rafael
  */
 @Data
-public class EstadoAsientos {
+public class EstadoAsientos extends Asientos{
     private int idEstado;
     private int id_Horario;
     private int Id_Asiento;
     private int Estado;
+    
 }

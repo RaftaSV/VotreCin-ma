@@ -12,7 +12,7 @@ import lombok.Data;
  * @author Rafael
  */
 @Data
-public class Asientos {
+public class Asientos extends Salas{
     private int Id_Asiento;
     private int Numero;
     private int Id_Sala;

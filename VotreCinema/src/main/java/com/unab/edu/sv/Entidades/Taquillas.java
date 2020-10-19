@@ -7,6 +7,7 @@ package com.unab.edu.sv.Entidades;
 
 import lombok.Data;
 import com.unab.edu.sv.Entidades.*;
+import java.util.HashSet;
 
 /**
  *
@@ -14,8 +15,9 @@ import com.unab.edu.sv.Entidades.*;
  */
 @Data
 public class Taquillas{
-  private int idTaquilla;
+  public int idTaquilla;
   private int Id_cartelera;
   private int Id_Asiento;
   private int estado;
+ 
 }

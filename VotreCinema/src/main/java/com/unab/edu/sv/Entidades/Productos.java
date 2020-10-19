@@ -12,7 +12,7 @@ import lombok.Data;
  * @author Rafael
  */
 @Data
-public class Productos {
+public class Productos extends Proveedores{
     private int IidProductos;
     private String  Nombre;
     private double precio;
