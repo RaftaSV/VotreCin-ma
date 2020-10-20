@@ -13,5 +13,5 @@ com\unab\edu\sv\Entidades\Roles.class
 com\unab\edu\sv\Entidades\Salas.class
 com\unab\edu\sv\mysql\conexionBD.class
 com\unab\edu\sv\Entidades\EstadoAsientos.class
-com\unab\edu\sv\OperacionesDB\prueba.class
+com\unab\edu\sv\DAO\ClsRoles.class
 com\unab\edu\sv\Entidades\Carteleras.class

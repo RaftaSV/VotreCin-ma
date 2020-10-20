@@ -5,15 +5,18 @@
  */
 package com.unab.edu.sv.Entidades;
 
+import lombok.*;
+
 /**
  *
  * @author Rafael
  */
+@Data
 public class Roles extends Personas{
-    private int idRol;
-    private String Usuario;
-    private String Pasword;
-    private int  TipoRol;
-    private int Id_Persona;
-    private int Estado;
+    protected int idRol;
+    protected String Usuario;
+    protected String Pasword;
+    protected int  TipoRol;
+    protected int Id_Persona;
+    protected int Estado;
 }
