@@ -28,7 +28,7 @@ public class ClsPersona {
             Personas p = new Personas();
             p.setIdPersona(resultado.getInt("idPersonas"));
             p.setNombres(resultado.getString("Nombres"));
-            p.setApelidos(resultado.getString("Apellidos"));
+            p.setApellidos(resultado.getString("Apellidos"));
             p.setDUI(resultado.getString("DUI"));
             p.setEstado(resultado.getInt("Estado"));
             Personas.add(p);
