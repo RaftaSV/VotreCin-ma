@@ -9,6 +9,8 @@ import com.unab.edu.sv.DAO.ClsPersona;
 import com.unab.edu.sv.Entidades.Personas;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,13 +25,14 @@ public class frmPersonas extends javax.swing.JFrame {
     public frmPersonas() {
         initComponents();
         CargarTabla();
+        limpiar();
         this.setLocationRelativeTo(null);
     }
 
     void CargarTabla() {
         String TITULOS[] = {"ID", "Nombres", "Apellidos", "DUI"};
         ClsPersona per = new ClsPersona();
-        DefaultTableModel model = new DefaultTableModel(null,TITULOS);
+        DefaultTableModel model = new DefaultTableModel(null, TITULOS);
         ArrayList<Personas> person = per.ListaPersonas();
         String filas[] = new String[4];
         for (var i : person) {
@@ -52,28 +55,135 @@ public class frmPersonas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         panelFondo = new javax.swing.JPanel();
-        Jtab = new javax.swing.JTabbedPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbPersonas = new javax.swing.JTable();
-        txtNombres = new javax.swing.JTextField();
-        txtDui = new javax.swing.JTextField();
-        txtApellido = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
         lblNombres = new javax.swing.JLabel();
+        txtNombres = new javax.swing.JTextField();
         lblApellidos = new javax.swing.JLabel();
+        txtApellido = new javax.swing.JTextField();
         lblDUI = new javax.swing.JLabel();
+        txtDui = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
         btnElimanar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        TABLA = new javax.swing.JScrollPane();
+        tbPersonas = new javax.swing.JTable();
+        lblEncabezado = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelFondo.setBackground(new java.awt.Color(153, 255, 204));
 
-        jScrollPane1.setBackground(new java.awt.Color(102, 255, 204));
+        jPanel2.setBackground(new java.awt.Color(153, 255, 204));
 
+        lblNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNombres.setText("Nombres");
+
+        txtNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        lblApellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblApellidos.setText("Apellidos");
+
+        txtApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        lblDUI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDUI.setText("DUI");
+
+        txtDui.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        btnElimanar.setText("Eliminar");
+        btnElimanar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElimanarActionPerformed(evt);
+            }
+        });
+
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombres)
+                            .addComponent(txtApellido)
+                            .addComponent(txtDui)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 8, Short.MAX_VALUE)
+                                .addComponent(btnGuardar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnElimanar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnLimpiar)
+                                .addGap(18, 18, 18))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(lblDUI))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(lblApellidos))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(lblNombres)))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNombres)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblApellidos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(lblDUI)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimpiar)
+                    .addComponent(btnElimanar)
+                    .addComponent(btnGuardar))
+                .addContainerGap())
+        );
+
+        tbPersonas = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int collIndex){
+                return false;
+            }
+        };
         tbPersonas.setBackground(new java.awt.Color(102, 255, 204));
-        tbPersonas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -82,96 +192,141 @@ public class frmPersonas extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Nombres", "Apellidos", "DUI"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
-        jScrollPane1.setViewportView(tbPersonas);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        Jtab.addTab("tab1", jScrollPane1);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbPersonas.setCellSelectionEnabled(true);
+        tbPersonas.setGridColor(new java.awt.Color(0, 0, 0));
+        tbPersonas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbPersonasMouseClicked(evt);
+            }
+        });
+        TABLA.setViewportView(tbPersonas);
 
-        txtNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        txtDui.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        txtApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        lblNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblNombres.setText("Nombres");
-
-        lblApellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblApellidos.setText("Apellidos");
-
-        lblDUI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblDUI.setText("DUI");
-
-        btnGuardar.setText("Guardar");
-
-        btnElimanar.setText("Eliminar");
-
-        btnLimpiar.setText("Limpiar");
+        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEncabezado.setText("PERSONAS");
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addComponent(Jtab, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblDUI)
-                        .addGap(127, 127, 127))
+                    .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelFondoLayout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(panelFondoLayout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(lblNombres))
-                            .addGroup(panelFondoLayout.createSequentialGroup()
-                                .addGap(110, 110, 110)
-                                .addComponent(lblApellidos))
-                            .addGroup(panelFondoLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnGuardar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnElimanar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLimpiar)))
-                        .addGap(15, 15, 15))))
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jtab, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(lblNombres)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblApellidos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDUI)
-                .addGap(11, 11, 11)
-                .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar)
-                    .addComponent(btnElimanar)
-                    .addComponent(btnLimpiar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(lblEncabezado)
+                .addGap(42, 42, 42)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(136, Short.MAX_VALUE))
+                    .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
         getContentPane().add(panelFondo, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+int estado = 0;
+    int id = 0;
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if (estado == 0) {
+
+            Personas per = new Personas();
+            per.setNombres(txtNombres.getText());
+            per.setApellidos(txtApellido.getText());
+            per.setDUI(txtDui.getText());
+            ClsPersona cls = new ClsPersona();
+            if (txtDui.getText() == "" || txtDui.getText().isEmpty() || txtDui.getText() == null || txtApellido.getText() == ""
+                    || txtApellido.getText().isEmpty() || txtApellido.getText() == null || txtNombres.getText() == "" || txtNombres.getText().isEmpty() || txtNombres.getText() == null) {
+                JOptionPane.showMessageDialog(null, "todos los campos son obligatorios");
+            } else {
+                cls.AgregarPersona(per);
+                limpiar();
+                CargarTabla();
+            }
+
+
+    }//GEN-LAST:event_btnGuardarActionPerformed
+      else {
+
+            Personas person = new Personas();
+            person.setIdPersona(id);
+            person.setNombres(txtNombres.getText());
+            person.setApellidos(txtApellido.getText());
+            person.setDUI(txtDui.getText());
+            ClsPersona cls = new ClsPersona();
+            if (txtDui.getText() == "" || txtDui.getText().isEmpty() || txtDui.getText() == null || txtApellido.getText() == ""
+                    || txtApellido.getText().isEmpty() || txtApellido.getText() == null || txtNombres.getText() == "" || txtNombres.getText().isEmpty() || txtNombres.getText() == null) {
+                JOptionPane.showMessageDialog(null, "todos los campos son obligatorios");
+            } else {
+                cls.ActualizarPersona(person);
+                limpiar();
+                CargarTabla();
+            }
+
+        }
+
+    }
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        limpiar();
+        CargarTabla();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void tbPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPersonasMouseClicked
+        // TODO add your handling code here:
+        int fila = tbPersonas.getSelectedRow();
+        id = Integer.valueOf(String.valueOf(tbPersonas.getValueAt(fila, 0)));
+        String nombre = String.valueOf(tbPersonas.getValueAt(fila, 1));
+        String apellido = String.valueOf(tbPersonas.getValueAt(fila, 2));
+        String Dui = String.valueOf(tbPersonas.getValueAt(fila, 3));
+        estado = 1;
+        txtApellido.setText(apellido);
+        txtDui.setText(Dui);
+        txtNombres.setText(nombre);
+
+    }//GEN-LAST:event_tbPersonasMouseClicked
+
+    private void btnElimanarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimanarActionPerformed
+        // TODO add your handling code here:
+        Personas p = new Personas();
+        ClsPersona cls = new ClsPersona();
+        p.setIdPersona(id);
+        cls.EliminarPersonas(p);
+        CargarTabla();
+        limpiar();
+    }//GEN-LAST:event_btnElimanarActionPerformed
+
+    void limpiar() {
+        txtApellido.setText("");
+        txtDui.setText("");
+        txtNombres.setText("");
+        estado = 0;
+        id = 0;
+
+    }
 
     /**
      * @param args the command line arguments
@@ -199,6 +354,7 @@ public class frmPersonas extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(frmPersonas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -209,13 +365,15 @@ public class frmPersonas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane Jtab;
+    private javax.swing.JScrollPane TABLA;
     private javax.swing.JButton btnElimanar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblDUI;
+    private javax.swing.JLabel lblEncabezado;
     private javax.swing.JLabel lblNombres;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JTable tbPersonas;
