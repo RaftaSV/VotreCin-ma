@@ -19,10 +19,11 @@ public class frmRoles extends javax.swing.JFrame {
      */
     public frmRoles() {
         initComponents();
+        MostrarTablaRoles();
     }
 
     void MostrarTablaRoles() {
-        String Titulos[] = {"ID", "USUARIO", "PASSWORD", "TIPO ROL", "IDPERSONA", "ESTADO"};
+        String Titulos[] = {"ID", "USUARIO", "PASSWORD", "TIPO ROL", "IDPERSONA"};
         DefaultTableModel df = new DefaultTableModel(null, Titulos);
         ClsRoles ClsRol = new ClsRoles();
         var MostrarRoles = ClsRol.MostrarRoles();
@@ -34,7 +35,7 @@ public class frmRoles extends javax.swing.JFrame {
             filas[2] = String.valueOf(iterador.getPasword());
             filas[3] = String.valueOf(iterador.getTipoRol());
             filas[4] = String.valueOf(iterador.getIdPersona());
-            filas[5] = String.valueOf(iterador.getEstado());
+
             df.addRow(filas);
         }
         
@@ -62,12 +63,10 @@ public class frmRoles extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         txtIdRol = new javax.swing.JTextField();
         txtUsu = new javax.swing.JTextField();
         txtPass = new javax.swing.JTextField();
         txtTipoRol = new javax.swing.JTextField();
-        txtEstado = new javax.swing.JTextField();
         cb_Idpersona = new javax.swing.JComboBox<>();
         btnMostrar = new javax.swing.JButton();
 
@@ -102,8 +101,6 @@ public class frmRoles extends javax.swing.JFrame {
 
         jLabel6.setText("Id Persona");
 
-        jLabel7.setText("Estado");
-
         cb_Idpersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnMostrar.setText("Guardar");
@@ -131,15 +128,13 @@ public class frmRoles extends javax.swing.JFrame {
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7))
+                                    .addComponent(jLabel6))
                                 .addGap(65, 65, 65)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtUsu, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtPass)
                                     .addComponent(txtIdRol)
                                     .addComponent(txtTipoRol)
-                                    .addComponent(txtEstado)
                                     .addComponent(cb_Idpersona, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
@@ -172,13 +167,9 @@ public class frmRoles extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cb_Idpersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(75, 75, 75)
                 .addComponent(btnMostrar)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab3", jPanel2);
@@ -212,7 +203,6 @@ public class frmRoles extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-    MostrarTablaRoles();
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     /**
@@ -259,14 +249,12 @@ public class frmRoles extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable tbMostrarRol;
-    private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtIdRol;
     private javax.swing.JTextField txtPass;
     private javax.swing.JTextField txtTipoRol;
