@@ -104,6 +104,11 @@ public class frmRoles extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(153, 255, 204));
 
+        tbMostrarRol = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int collIndex){
+                return false;
+            }
+        };
         tbMostrarRol.setBackground(new java.awt.Color(153, 255, 204));
         tbMostrarRol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
