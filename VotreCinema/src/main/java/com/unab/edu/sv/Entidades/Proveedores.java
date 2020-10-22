@@ -15,6 +15,8 @@ import lombok.Data;
 public class Proveedores {
     private int idProveedor;
     private String Nombre;
+    private String Telefono;
+    private String Direcion;
     private int estado;
     
 }
