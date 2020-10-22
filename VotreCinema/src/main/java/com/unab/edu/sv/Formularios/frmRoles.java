@@ -5,7 +5,13 @@
  */
 package com.unab.edu.sv.Formularios;
 
+import com.unab.edu.sv.DAO.ClsPersona;
 import com.unab.edu.sv.DAO.ClsRoles;
+import com.unab.edu.sv.Entidades.Personas;
+import com.unab.edu.sv.Entidades.Roles;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,26 +26,46 @@ public class frmRoles extends javax.swing.JFrame {
     public frmRoles() {
         initComponents();
         MostrarTablaRoles();
+        displaymember();
+        this.setLocationRelativeTo(null);
     }
 
     void MostrarTablaRoles() {
-        String Titulos[] = {"ID", "USUARIO", "PASSWORD", "TIPO ROL", "IDPERSONA"};
+        String Titulos[] = {"ID", "PERSONA", "IDPERSONA", "USUARIO", "PASSWORD", "TIPO ROL"};
         DefaultTableModel df = new DefaultTableModel(null, Titulos);
         ClsRoles ClsRol = new ClsRoles();
         var MostrarRoles = ClsRol.MostrarRoles();
-        String filas[] = new String[7];
+        String filas[] = new String[6];
 
         for (var iterador : MostrarRoles) {
             filas[0] = String.valueOf(iterador.getIdRol());
-            filas[1] = iterador.getUsuario();
-            filas[2] = String.valueOf(iterador.getPasword());
-            filas[3] = String.valueOf(iterador.getTipoRol());
-            filas[4] = String.valueOf(iterador.getIdPersona());
-
+            filas[1] = iterador.getNombres();
+            filas[2] = String.valueOf(iterador.getId_Persona());
+            filas[3] = iterador.getUsuario();
+            filas[4] = String.valueOf(iterador.getPasword());
+            if (iterador.getTipoRol() == 0) {
+                filas[5] = String.valueOf("Administrador");
+            } else if (iterador.getTipoRol() == 1) {
+                filas[5] = String.valueOf("Cajero");
+            } else {
+                filas[5] = String.valueOf("Cliente");
+            }
             df.addRow(filas);
         }
-        
+
         tbMostrarRol.setModel(df);
+    }
+
+    void limpiar() {
+        txtUsu.setText("");
+        txtPass.setText("");
+        estado = 0;
+        id = 0;
+        rbAdmin.setSelected(false);
+        rbCajero.setSelected(false);
+        rbCliente.setSelected(false);
+        cb_Idpersona5.setSelectedIndex(0);
+
     }
 
     /**
@@ -51,29 +77,34 @@ public class frmRoles extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         tbMostrarRol = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtIdRol = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        btnLimpiar = new javax.swing.JButton();
         txtUsu = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        btnEliminar = new javax.swing.JButton();
         txtPass = new javax.swing.JTextField();
-        txtTipoRol = new javax.swing.JTextField();
-        cb_Idpersona = new javax.swing.JComboBox<>();
-        btnMostrar = new javax.swing.JButton();
+        cb_Idpersona5 = new javax.swing.JComboBox<>();
+        jLabel34 = new javax.swing.JLabel();
+        btnInsertar5 = new javax.swing.JButton();
+        PanelRadioButton = new javax.swing.JPanel();
+        rbAdmin = new javax.swing.JRadioButton();
+        rbCajero = new javax.swing.JRadioButton();
+        rbCliente = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.addTab("tab1", jTabbedPane2);
+        jPanel7.setBackground(new java.awt.Color(153, 255, 204));
 
+        tbMostrarRol.setBackground(new java.awt.Color(153, 255, 204));
         tbMostrarRol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -85,107 +116,195 @@ public class frmRoles extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tbMostrarRol);
-
-        jTabbedPane1.addTab("tab2", jScrollPane1);
-
-        jLabel1.setText("Id Rol");
-
-        jLabel2.setText("BIENVENIDO/A");
-
-        jLabel3.setText("Usuario");
-
-        jLabel4.setText("Password");
-
-        jLabel5.setText("Tipo Rol");
-
-        jLabel6.setText("Id Persona");
-
-        cb_Idpersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        btnMostrar.setText("Guardar");
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarActionPerformed(evt);
+        tbMostrarRol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbMostrarRolMouseClicked(evt);
             }
         });
+        jScrollPane2.setViewportView(tbMostrarRol);
+
+        jPanel2.setBackground(new java.awt.Color(153, 255, 204));
+
+        jLabel36.setText("Id Persona");
+
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        jLabel35.setText("Tipo Rol");
+
+        jLabel33.setText("Usuario");
+
+        jLabel32.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
+        jLabel32.setText("BIENVENIDO/A");
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        jLabel34.setText("Password");
+
+        btnInsertar5.setText("Guardar");
+        btnInsertar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertar5ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(rbAdmin);
+        rbAdmin.setText("Administrador");
+        rbAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbAdminActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(rbCajero);
+        rbCajero.setText("Cajero");
+        rbCajero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCajeroActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(rbCliente);
+        rbCliente.setText("Cliente");
+        rbCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbClienteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelRadioButtonLayout = new javax.swing.GroupLayout(PanelRadioButton);
+        PanelRadioButton.setLayout(PanelRadioButtonLayout);
+        PanelRadioButtonLayout.setHorizontalGroup(
+            PanelRadioButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelRadioButtonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rbAdmin)
+                .addGap(18, 18, 18)
+                .addComponent(rbCajero)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rbCliente)
+                .addContainerGap())
+        );
+        PanelRadioButtonLayout.setVerticalGroup(
+            PanelRadioButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRadioButtonLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PanelRadioButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbAdmin)
+                    .addComponent(rbCajero)
+                    .addComponent(rbCliente))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(185, 185, 185)
+                .addComponent(jLabel32)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel35)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(65, 65, 65)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtUsu, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel34)
+                                        .addComponent(jLabel33))
+                                    .addComponent(jLabel36))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtUsu)
                                     .addComponent(txtPass)
-                                    .addComponent(txtIdRol)
-                                    .addComponent(txtTipoRol)
-                                    .addComponent(cb_Idpersona, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(cb_Idpersona5, 0, 185, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(btnMostrar)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(286, 286, 286))
+                                .addComponent(btnInsertar5)
+                                .addGap(58, 58, 58)
+                                .addComponent(btnEliminar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                                .addComponent(btnLimpiar))
+                            .addComponent(PanelRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(62, 62, 62))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel2)
-                .addGap(37, 37, 37)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel32)
+                .addGap(41, 41, 41)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtIdRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabel33)
                     .addComponent(txtUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jLabel34)
                     .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtTipoRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel36)
+                    .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel35)
                 .addGap(18, 18, 18)
+                .addComponent(PanelRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cb_Idpersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(75, 75, 75)
-                .addComponent(btnMostrar)
-                .addContainerGap(53, Short.MAX_VALUE))
+                    .addComponent(btnInsertar5)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnLimpiar))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab3", jPanel2);
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+                .addGap(36, 36, 36))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,9 +320,164 @@ public class frmRoles extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    int estado = 0;
+    int id = 0;
+    int dat = 0;
+    private void tbMostrarRolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMostrarRolMouseClicked
+        int fila = tbMostrarRol.getSelectedRow();
+        id = Integer.parseInt(String.valueOf(tbMostrarRol.getValueAt(fila, 0)));
+        String usuario = String.valueOf(tbMostrarRol.getValueAt(fila, 3));
+        String pasword = String.valueOf(tbMostrarRol.getValueAt(fila, 4));
+        String tiporol = String.valueOf(tbMostrarRol.getValueAt(fila, 5));
+        if (tiporol == "Administrador") {
+            rbAdmin.setSelected(true);
+            rbCajero.setSelected(false);
+            rbCliente.setSelected(false);
+        } else if (tiporol == "Cajero") {
+            rbAdmin.setSelected(false);
+            rbCajero.setSelected(true);
+            rbCliente.setSelected(false);
+        } else {
+            rbAdmin.setSelected(false);
+            rbCajero.setSelected(false);
+            rbCliente.setSelected(true);
+        }
 
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-    }//GEN-LAST:event_btnMostrarActionPerformed
+        String idpersona = String.valueOf(tbMostrarRol.getValueAt(fila, 2));
+        txtUsu.setText(usuario);
+        txtPass.setText(pasword);
+        txtUsu.setText(usuario);
+        txtPass.setText(pasword);
+
+        dat = 1;
+        int selectvista = 0;
+        for (var iterar : valuemember) {
+            if (idpersona.equals(iterar)) {
+                cb_Idpersona5.setSelectedIndex(selectvista);
+            }
+            selectvista += 1;
+        }
+        estado = 1;
+    }//GEN-LAST:event_tbMostrarRolMouseClicked
+    int radio = -1;
+
+    void Button() {
+        if (rbAdmin.isSelected()) {
+
+            radio = 0;
+
+        } else if (rbCajero.isSelected()) {
+
+            radio = 1;
+        } else {
+
+            radio = 2;
+        }
+    }
+    private void btnInsertar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertar5ActionPerformed
+
+        try {
+            if (estado == 0) {
+
+                Roles rol = new Roles();
+                rol.setUsuario(txtUsu.getText());
+                rol.setPasword(txtPass.getText());
+                rol.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
+                if (radio != -1) {
+                    rol.setTipoRol(radio);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar un rol");
+                }
+                ClsRoles clsrol = new ClsRoles();
+                if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null || txtUsu.getText() == ""
+                        || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
+                    JOptionPane.showMessageDialog(null, "todos los campos son obligatorios");
+                } else {
+                    clsrol.AgregarRol(rol);
+                    limpiar();
+                    MostrarTablaRoles();
+                }
+
+            } else {
+                Button();
+                Roles roles = new Roles();
+                roles.setIdRol(id);
+                roles.setUsuario(txtUsu.getText());
+                roles.setPasword(txtPass.getText());
+                roles.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
+                if (radio != -1) {
+                    roles.setTipoRol(radio);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar un rol");
+                }
+                ClsRoles clsrol = new ClsRoles();
+                if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null || txtUsu.getText() == ""
+                        || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
+                    JOptionPane.showMessageDialog(null, "todos los campos son obligatorios");
+                } else {
+                    clsrol.ActualizarRol(roles);
+                    limpiar();
+                    MostrarTablaRoles();
+                }
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Debe de llenar todos los campos");
+        }
+    }//GEN-LAST:event_btnInsertar5ActionPerformed
+
+    private void rbAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdminActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_rbAdminActionPerformed
+
+    private void rbCajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCajeroActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_rbCajeroActionPerformed
+
+    private void rbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbClienteActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_rbClienteActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        limpiar();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (id != 0) {
+            Roles rol = new Roles();
+            rol.setIdRol(id);
+            ClsRoles cls = new ClsRoles();
+            cls.EliminarRol(rol);
+            MostrarTablaRoles();
+            limpiar();
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un rol a eliminar");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+    String valuemember[];
+    int contador = 1;
+
+    void displaymember() {
+        DefaultComboBoxModel Defaultcombobox = new DefaultComboBoxModel<>();
+        ClsPersona persona = new ClsPersona();
+        ArrayList<Personas> Persona = persona.ListaPersonas();
+        valuemember = new String[Persona.size() + 1];
+        String filas[] = new String[5];
+        Defaultcombobox.addElement("");
+
+        for (var i : Persona) {
+            filas[0] = String.valueOf(i.getIdPersona());
+            filas[1] = i.getNombres();
+            valuemember[contador] = filas[0];
+            Defaultcombobox.addElement(filas[1]);
+            contador++;
+        }
+        cb_Idpersona5.setModel(Defaultcombobox);
+    }
 
     /**
      * @param args the command line arguments
@@ -241,23 +515,27 @@ public class frmRoles extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMostrar;
-    private javax.swing.JComboBox<String> cb_Idpersona;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel PanelRadioButton;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnInsertar5;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JComboBox<String> cb_Idpersona5;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JRadioButton rbAdmin;
+    private javax.swing.JRadioButton rbCajero;
+    private javax.swing.JRadioButton rbCliente;
     private javax.swing.JTable tbMostrarRol;
-    private javax.swing.JTextField txtIdRol;
     private javax.swing.JTextField txtPass;
-    private javax.swing.JTextField txtTipoRol;
     private javax.swing.JTextField txtUsu;
     // End of variables declaration//GEN-END:variables
 }

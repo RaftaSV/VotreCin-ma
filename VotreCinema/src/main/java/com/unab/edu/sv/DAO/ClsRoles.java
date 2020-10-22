@@ -17,34 +17,76 @@ import javax.swing.JOptionPane;
  * @author 14-ck0013lab
  */
 public class ClsRoles {
+
     conexionBD conn = new conexionBD();
     Connection conect = conn.retornarConexion();
-    
-    public ArrayList<Roles> MostrarRoles (){
-    ArrayList<Roles> Roll = new ArrayList<>();
-    
+
+    public ArrayList<Roles> MostrarRoles() {
+        ArrayList<Roles> Roll = new ArrayList<>();
+
         try {
-          CallableStatement cs = conect.prepareCall("call SP_S_Roles ()");  
+            CallableStatement cs = conect.prepareCall("call SP_S_ROLES ()");
             ResultSet resultado = cs.executeQuery();
-            while(resultado.next()){
-            Roles Rol = new Roles();
-          Rol.setIdRol(resultado.getInt("idRoles"));
-          Rol.setUsuario(resultado.getString("Usuario"));
-          Rol.setPasword(resultado.getString("Pasword"));
-          Rol.setTipoRol(resultado.getInt("TipoRol"));
-          Rol.setId_Persona(resultado.getInt("Id_Persona"));
-          Rol.setEstado(resultado.getInt("Estado"));
-          Roll.add(Rol);
-       
-            
+            while (resultado.next()) {
+                Roles Rol = new Roles();
+                Rol.setIdRol(resultado.getInt("idRoles"));
+                Rol.setUsuario(resultado.getString("Usuario"));
+                Rol.setPasword(resultado.getString("Pasword"));
+                Rol.setTipoRol(resultado.getInt("TipoRol"));
+                Rol.setNombres(resultado.getString("Nombres"));
+                Rol.setId_Persona(resultado.getInt("idPersonas"));
+                Roll.add(Rol);
+
             }
-            
+
             conect.close();
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    
-    return Roll;
+
+        return Roll;
+    }
+
+    public void AgregarRol(Roles r) {
+        try {
+            CallableStatement cs = conect.prepareCall("call SP_I_ROLES(?,?,?,?)");
+            cs.setString("pUsuario", r.getUsuario());
+            cs.setString("pPass", r.getPasword());
+            cs.setInt("pTipoRol", r.getTipoRol());
+            cs.setInt("pIdPersona", r.getId_Persona());
+            cs.execute();
+            JOptionPane.showMessageDialog(null, "Guardado Exitoso");
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+    }
+
+    public void ActualizarRol(Roles r) {
+        try {
+            CallableStatement cs = conect.prepareCall("call SP_U_ROLES(?,?,?,?,?)");
+            cs.setInt("pId", r.getIdRol());
+            cs.setString("pUsuario", r.getUsuario());
+            cs.setString("pPass", r.getPasword());
+            cs.setInt("pTipoRol", r.getTipoRol());
+            cs.setInt("pIdPersona", r.getId_Persona());
+            cs.execute();
+            JOptionPane.showMessageDialog(null, "Actualizado Exitoso");
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+    }
+        public void EliminarRol(Roles r) {
+        try {
+            CallableStatement cs = conect.prepareCall("call SP_D_ROLES(?)");
+            cs.setInt("pIdRol", r.getIdRol());
+            cs.execute();
+            JOptionPane.showMessageDialog(null, "Eliminado Exitoso");
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
     }
 }
