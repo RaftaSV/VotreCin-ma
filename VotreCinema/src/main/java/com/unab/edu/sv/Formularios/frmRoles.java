@@ -377,7 +377,7 @@ public class frmRoles extends javax.swing.JFrame {
 
         try {
             if (estado == 0) {
-
+                Button();
                 Roles rol = new Roles();
                 rol.setUsuario(txtUsu.getText());
                 rol.setPasword(txtPass.getText());
