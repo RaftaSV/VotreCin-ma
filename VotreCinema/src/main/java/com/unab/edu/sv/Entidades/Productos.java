@@ -13,10 +13,9 @@ import lombok.Data;
  */
 @Data
 public class Productos extends Proveedores{
-    private int IidProductos;
-    private String  Nombre;
+    private int idProductos;
+    private String  Nombreprod;
     private double precio;
     private int Cantidad;
-    private int Id_Proveedor;
-    private int Estado;
+
 }
