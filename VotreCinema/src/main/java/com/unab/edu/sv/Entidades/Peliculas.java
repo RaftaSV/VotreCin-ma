@@ -17,7 +17,7 @@ public class Peliculas {
 
     private int idPelicula;
     private String Nombre;
-    private byte [] Portada;
+    private byte  Portada;
     private Date Year;
     private double  Duracion;
     private String Sipnosis;
