@@ -45,6 +45,6 @@ public class ClsPeliculas {
              System.out.println("Error" + e);
         }
         
-        return null;
+        return peliculas;
     }
 }
