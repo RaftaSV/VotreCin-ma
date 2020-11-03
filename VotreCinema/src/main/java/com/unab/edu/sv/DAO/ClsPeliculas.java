@@ -32,7 +32,7 @@ public class ClsPeliculas {
              peli.setIdPelicula(resultado.getInt("idPeliculas"));
              peli.setNombre(resultado.getString("Nombre"));
              peli.setPortada(resultado.getBytes("Portada"));
-             peli.setYear(resultado.getDate("Year"));
+             peli.setYear(resultado.getDate("Yearr"));
              peli.setDuracion(resultado.getDouble("Duracion"));
              peli.setSipnosis(resultado.getString("Sipnosis"));
              peli.setClasificacion(resultado.getInt("Clasificacion"));
