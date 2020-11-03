@@ -21,6 +21,8 @@ public class Peliculas {
     private Date Year;
     private double  Duracion;
     private String Sipnosis;
+    private int Tipo;
+    private int clasificacion;
     
     
 }
