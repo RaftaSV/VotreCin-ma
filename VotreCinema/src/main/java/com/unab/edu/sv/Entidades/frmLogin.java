@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.unab.edu.sv.Formularios;
+package com.unab.edu.sv.Entidades;
 
 import com.unab.edu.sv.DAO.ClsLogin;
 import com.unab.edu.sv.DAO.ClsRoles;

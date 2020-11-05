@@ -5,6 +5,7 @@
  */
 package com.unab.edu.sv.Entidades;
 
+import java.io.File;
 import java.util.Date;
 import lombok.Data;
 
@@ -17,7 +18,7 @@ public class Peliculas {
 
     private int idPelicula;
     private String Nombre;
-    private byte  Portada;
+    private byte[] Portada;
     private Date Year;
     private double  Duracion;
     private String Sipnosis;

@@ -8,10 +8,12 @@ package com.unab.edu.sv.DAO;
 import java.sql.*;
 import java.util.*;
 import com.unab.edu.sv.Entidades.Peliculas;
+import com.unab.edu.sv.Formularios.frmMostrarpeliculas;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import java.io.File;
 
 /**
  *
@@ -31,14 +33,13 @@ public class ClsPeliculas {
                 Peliculas peli = new Peliculas();
                 peli.setIdPelicula(resultado.getInt("idPeliculas"));
                 peli.setNombre(resultado.getString("Nombre"));
-                peli.setPortada(resultado.getByte("Portada"));
+                peli.setPortada(resultado.getBytes("Portada"));
                 peli.setYear(resultado.getDate("Yearr"));
                 peli.setDuracion(resultado.getDouble("Duracion"));
                 peli.setSipnosis(resultado.getString("Sipnosis"));
                 peli.setClasificacion(resultado.getInt("Clasificacion"));
                 peli.setTipo(resultado.getInt("Tipo"));
                 peliculas.add(peli);
-
             }
 
         } catch (Exception e) {
@@ -52,13 +53,18 @@ public class ClsPeliculas {
         try {
             CallableStatement call = conectar.prepareCall("call SP_I_PELICULAS(?,?,?,?,?,?,?)");
             call.setString("pNombre", peli.getNombre());
-            call.setByte("pPortada", peli.getPortada());
+            call.setBytes("pPortada", peli.getPortada());
             call.setDate("pYear",  new java.sql.Date(peli.getYear().getTime()));
             call.setDouble("pDuracion", peli.getDuracion());
             call.setString("pSipnosis", peli.getSipnosis());
             call.setInt("pTipo", peli.getTipo());
             call.setInt("pClasificacion", peli.getClasificacion());
+            call.executeQuery();
             JOptionPane.showMessageDialog(null, "Guardado exitosamente");
+            frmMostrarpeliculas f = new frmMostrarpeliculas();
+            f.cargartabla();
+            f.show();
+            
             call.executeQuery();
         } catch (Exception e) {
             System.out.println(e);
