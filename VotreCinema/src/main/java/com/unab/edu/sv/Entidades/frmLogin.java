@@ -37,6 +37,7 @@ public class frmLogin extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         lblpass = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,27 +63,29 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unab/edu/sv/Formularios/decorvotrecinema.png"))); // NOI18N
+
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addContainerGap(386, Short.MAX_VALUE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsuario)
-                            .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
-                        .addGap(94, 94, 94))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblUsuario)
-                        .addGap(221, 221, 221))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
                         .addComponent(lblpass)
-                        .addGap(226, 226, 226))
+                        .addGap(132, 132, 132))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
                         .addComponent(btnIngresar)
-                        .addGap(201, 201, 201))))
+                        .addGap(107, 107, 107))
+                    .addComponent(txtUsuario)
+                    .addComponent(txtPass)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                        .addComponent(lblUsuario)
+                        .addGap(127, 127, 127)))
+                .addGap(94, 94, 94))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,6 +101,9 @@ public class frmLogin extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(btnIngresar)
                 .addContainerGap(185, Short.MAX_VALUE))
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelFondo, java.awt.BorderLayout.CENTER);
@@ -165,6 +171,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblpass;
     private javax.swing.JPanel panelFondo;
