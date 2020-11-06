@@ -54,18 +54,14 @@ public class ClsPeliculas {
             CallableStatement call = conectar.prepareCall("call SP_I_PELICULAS(?,?,?,?,?,?,?)");
             call.setString("pNombre", peli.getNombre());
             call.setBytes("pPortada", peli.getPortada());
-            call.setDate("pYear",  new java.sql.Date(peli.getYear().getTime()));
+            call.setDate("pYear", new java.sql.Date(peli.getYear().getTime()));
             call.setDouble("pDuracion", peli.getDuracion());
             call.setString("pSipnosis", peli.getSipnosis());
             call.setInt("pTipo", peli.getTipo());
             call.setInt("pClasificacion", peli.getClasificacion());
             call.executeQuery();
             JOptionPane.showMessageDialog(null, "Guardado exitosamente");
-            frmMostrarpeliculas f = new frmMostrarpeliculas();
-            f.cargartabla();
-            f.show();
-            
-            call.executeQuery();
+            conectar.close();
         } catch (Exception e) {
             System.out.println(e);
         }

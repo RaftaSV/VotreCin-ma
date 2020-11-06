@@ -36,6 +36,8 @@ public class frmPeliculas extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        txtSinopsis.setLineWrap(true);
+        txtSinopsis.setWrapStyleWord(true);
        
     }
 
