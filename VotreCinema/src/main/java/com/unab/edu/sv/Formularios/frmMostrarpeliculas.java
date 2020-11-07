@@ -38,8 +38,12 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
     public frmMostrarpeliculas() {
         initComponents();
         cargartabla();
+        ajustartabla();
         this.setLocationRelativeTo(null);
-        TableColumn columna0;
+       
+    }
+    public void ajustartabla(){
+     TableColumn columna0;
         columna0 = tbPeliculas.getColumnModel().getColumn(0);
         columna0.setPreferredWidth(30);
         DefaultTableCellRenderer al = new DefaultTableCellRenderer();
@@ -50,7 +54,6 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         tbPeliculas.getColumnModel().getColumn(4).setCellRenderer(al);
         tbPeliculas.getColumnModel().getColumn(5).setCellRenderer(al);
         tbPeliculas.getColumnModel().getColumn(6).setCellRenderer(al);
-
         TableColumn columna1;
         columna1 = tbPeliculas.getColumnModel().getColumn(1);
         columna1.setPreferredWidth(150);

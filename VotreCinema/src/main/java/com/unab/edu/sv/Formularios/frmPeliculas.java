@@ -38,6 +38,18 @@ public class frmPeliculas extends javax.swing.JFrame {
         this.setResizable(false);
         txtSinopsis.setLineWrap(true);
         txtSinopsis.setWrapStyleWord(true);
+        
+          try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(frmPeliculas.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(frmPeliculas.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(frmPeliculas.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(frmPeliculas.class.getName()).log(Level.SEVERE, null, ex);
+                }
        
     }
 
@@ -369,6 +381,9 @@ public class frmPeliculas extends javax.swing.JFrame {
                                     peli.setYear(jdcAnio.getDate());
                                     ClsPeliculas cls = new ClsPeliculas();
                                     cls.InsertarPelicula(peli);
+                                    Inicio.f.cargartabla();
+                                    Inicio.f.ajustartabla();
+                                    Inicio.f.show();
                                 }
 
                             }
@@ -462,17 +477,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmPeliculas().setVisible(true);
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(frmPeliculas.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InstantiationException ex) {
-                    Logger.getLogger(frmPeliculas.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IllegalAccessException ex) {
-                    Logger.getLogger(frmPeliculas.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (UnsupportedLookAndFeelException ex) {
-                    Logger.getLogger(frmPeliculas.class.getName()).log(Level.SEVERE, null, ex);
-                }
+              
             }
         });
     }
