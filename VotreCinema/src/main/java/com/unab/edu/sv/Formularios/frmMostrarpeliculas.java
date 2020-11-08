@@ -8,6 +8,7 @@ package com.unab.edu.sv.Formularios;
 import com.unab.edu.sv.Entidades.Render;
 import com.unab.edu.sv.DAO.ClsPeliculas;
 import com.unab.edu.sv.Entidades.Peliculas;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -69,8 +70,8 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         columna1.setPreferredWidth(150);
         tbPeliculas.setRowHeight(320);
         tbPeliculas.getColumnModel().getColumn(2).setPreferredWidth(100);
-         tbPeliculas.getColumnModel().getColumn(4).setPreferredWidth(80);
-          tbPeliculas.getColumnModel().getColumn(4).setMaxWidth(90);
+        tbPeliculas.getColumnModel().getColumn(4).setPreferredWidth(80);
+        tbPeliculas.getColumnModel().getColumn(4).setMaxWidth(90);
         TableColumn columna6;
         columna6 = tbPeliculas.getColumnModel().getColumn(6);
         columna6.setPreferredWidth(40);
@@ -102,7 +103,7 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
                 InputStream in = new ByteArrayInputStream(bi);
                 image = ImageIO.read(in);
                 //La imagen redimencionarla al tamaño que se mostrara en la jTable
-                ImageIcon imgi = new ImageIcon(image.getScaledInstance(160, 250, 0));
+                ImageIcon imgi = new ImageIcon(image.getScaledInstance(180, 300, Image.SCALE_DEFAULT ));
                 fila[1] = new JLabel(imgi);
 
             } catch (Exception e) {
@@ -272,8 +273,8 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         // Reemplazamos el codigo html por caracteres en blanco, para poder acceder al ID de la pelicula.
         String idreemplazo = idd.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
         int id = Integer.valueOf(idreemplazo);
-       // Creamos un procedimieno para buscar la pelicula por ID y luego en el formulario
-       // peliculas  poder hacer la edicion o eliminacion de la pelicula.
+        // Creamos un procedimieno para buscar la pelicula por ID y luego en el formulario
+        // peliculas  poder hacer la edicion o eliminacion de la pelicula.
         ClsPeliculas cls = new ClsPeliculas();
         Peliculas p = new Peliculas();
         p.setIdPelicula(id);
@@ -293,7 +294,7 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         f.nuevoActualizarOeliminar(0);
         f.Limpiar();
-        
+
         f.show();
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
