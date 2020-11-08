@@ -8,21 +8,19 @@ package com.unab.edu.sv.Formularios;
 import com.unab.edu.sv.Entidades.Render;
 import com.unab.edu.sv.DAO.ClsPeliculas;
 import com.unab.edu.sv.Entidades.Peliculas;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Blob;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.text.StyledDocument;
 
@@ -40,12 +38,16 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         cargartabla();
         ajustartabla();
         this.setLocationRelativeTo(null);
+        btnEditar.setEnabled(false);
+        btnEliminar.setEnabled(false);
        
     }
-    public void ajustartabla(){
-     TableColumn columna0;
+
+    public void ajustartabla() {
+       
+        TableColumn columna0;
         columna0 = tbPeliculas.getColumnModel().getColumn(0);
-        columna0.setPreferredWidth(30);
+        columna0.setPreferredWidth(0);
         DefaultTableCellRenderer al = new DefaultTableCellRenderer();
         al.setHorizontalAlignment(SwingConstants.CENTER);
         tbPeliculas.getColumnModel().getColumn(0).setCellRenderer(al);
@@ -128,9 +130,11 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         TABLA = new javax.swing.JScrollPane();
         tbPeliculas = new javax.swing.JTable();
         btnNuevo = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.BorderLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelfondo.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -146,7 +150,6 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
             }
         };
         tbPeliculas.setBackground(new java.awt.Color(0, 0, 0));
-        tbPeliculas.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         tbPeliculas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tbPeliculas.setForeground(new java.awt.Color(255, 255, 255));
         tbPeliculas.setModel(new javax.swing.table.DefaultTableModel(
@@ -187,6 +190,20 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
             }
         });
 
+        btnEditar.setText("EDITAR");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelfondoLayout = new javax.swing.GroupLayout(panelfondo);
         panelfondo.setLayout(panelfondoLayout);
         panelfondoLayout.setHorizontalGroup(
@@ -196,34 +213,78 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelfondoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnNuevo)
-                .addGap(72, 72, 72))
+                .addGap(26, 26, 26)
+                .addComponent(btnEditar)
+                .addGap(26, 26, 26)
+                .addComponent(btnEliminar)
+                .addGap(8, 8, 8))
         );
         panelfondoLayout.setVerticalGroup(
             panelfondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelfondoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNuevo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelfondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevo)
+                    .addComponent(btnEditar)
+                    .addComponent(btnEliminar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        getContentPane().add(panelfondo, java.awt.BorderLayout.CENTER);
+        getContentPane().add(panelfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    frmPeliculas f = new frmPeliculas();
     private void tbPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPeliculasMouseClicked
-        // TODO add your handling code here:
+
+        int fila = tbPeliculas.getSelectedRow();
+        String idd = String.valueOf(tbPeliculas.getValueAt(fila, 0));
+        String idreemplazo = idd.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
+        int id = Integer.valueOf(idreemplazo);
+
+        ClsPeliculas cls = new ClsPeliculas();
+        Peliculas p = new Peliculas();
+        p.setIdPelicula(id);
+        ArrayList<Peliculas> pelicula = cls.ListaPeliculasedi(p);
+        f.pel = pelicula;
+        try {
+            f.cargartextbox();
+        } catch (IOException ex) {
+            Logger.getLogger(frmMostrarpeliculas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        f.identificador = 1;
+      btnEditar.setEnabled(true);
+        btnEliminar.setEnabled(true);
 
     }//GEN-LAST:event_tbPeliculasMouseClicked
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-      frmPeliculas nuevo = new frmPeliculas();
-      nuevo.show();
+        f.nuevoActualizarOeliminar(0);
+        f.Limpiar();
+        f.show();
+        btnEditar.setEnabled(false);
+        btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        f.nuevoActualizarOeliminar(0);
+        f.show();
+       btnEditar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        f.nuevoActualizarOeliminar(1);
+        f.show();
+          btnEditar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,6 +323,8 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane TABLA;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JPanel panelfondo;

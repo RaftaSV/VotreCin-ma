@@ -40,6 +40,7 @@ public class ClsPeliculas {
                 peli.setClasificacion(resultado.getInt("Clasificacion"));
                 peli.setTipo(resultado.getInt("Tipo"));
                 peliculas.add(peli);
+                conectar.close();
             }
 
         } catch (Exception e) {
@@ -67,4 +68,64 @@ public class ClsPeliculas {
         }
 
     }
+
+    public void ActualizarPelicula(Peliculas peli) {
+        try {
+            CallableStatement call = conectar.prepareCall("call SP_U_PELICULAS(?,?,?,?,?,?,?,?)");
+            call.setInt("pID", peli.getIdPelicula());
+            call.setString("pNombre", peli.getNombre());
+            call.setBytes("pPortada", peli.getPortada());
+            call.setDate("pYear", new java.sql.Date(peli.getYear().getTime()));
+            call.setDouble("pDuracion", peli.getDuracion());
+            call.setString("pSipnosis", peli.getSipnosis());
+            call.setInt("pTipo", peli.getTipo());
+            call.setInt("pClasificacion", peli.getClasificacion());
+            call.executeQuery();
+            JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
+            conectar.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public ArrayList<Peliculas> ListaPeliculasedi(Peliculas pelicula) {
+        ArrayList<Peliculas> peliculas = new ArrayList<>();
+        try {
+            CallableStatement Cal = conectar.prepareCall("CALL SP_S_BUSCARPELICULA(?)");
+            Cal.setInt("pId", pelicula.getIdPelicula());
+            ResultSet resultado = Cal.executeQuery();
+            while (resultado.next()) {
+                Peliculas peli = new Peliculas();
+                peli.setIdPelicula(resultado.getInt("idPeliculas"));
+                peli.setNombre(resultado.getString("Nombre"));
+                peli.setPortada(resultado.getBytes("Portada"));
+                peli.setYear(resultado.getDate("Yearr"));
+                peli.setDuracion(resultado.getDouble("Duracion"));
+                peli.setSipnosis(resultado.getString("Sipnosis"));
+                peli.setClasificacion(resultado.getInt("Clasificacion"));
+                peli.setTipo(resultado.getInt("Tipo"));
+                peliculas.add(peli);
+             conectar.close();
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+        return peliculas;
+    }
+    
+    public void eliminar(Peliculas pelicula){
+        try {
+            CallableStatement call = conectar.prepareCall("call SP_D_PELICULAS(?)");
+            call.setInt("pId", pelicula.getIdPelicula());
+            ResultSet resultado = call.executeQuery();
+            conectar.close();
+            JOptionPane.showMessageDialog(null, "Eliminado exitosamente");
+        } catch (Exception e) {
+             System.out.println("Error" + e);
+        }
+    
+    }
+
 }
