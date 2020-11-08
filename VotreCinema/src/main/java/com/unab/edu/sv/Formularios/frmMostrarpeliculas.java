@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,14 +41,20 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
-       
+
     }
+    SimpleDateFormat formato = new SimpleDateFormat("d MMM y");
 
     public void ajustartabla() {
-       
-        TableColumn columna0;
-        columna0 = tbPeliculas.getColumnModel().getColumn(0);
-        columna0.setPreferredWidth(0);
+        // Ocultar la columna del ID de la pelicula
+        tbPeliculas.getColumnModel().getColumn(0).setMaxWidth(0);
+        tbPeliculas.getColumnModel().getColumn(0).setMinWidth(0);
+        tbPeliculas.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        tbPeliculas.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+        //Centrar en texto del encabezado de la tabla
+        DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbPeliculas.getTableHeader().getDefaultRenderer();
+        render.setHorizontalAlignment(JLabel.CENTER);
+        //Centrar el contenido de la tabla
         DefaultTableCellRenderer al = new DefaultTableCellRenderer();
         al.setHorizontalAlignment(SwingConstants.CENTER);
         tbPeliculas.getColumnModel().getColumn(0).setCellRenderer(al);
@@ -56,16 +63,20 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         tbPeliculas.getColumnModel().getColumn(4).setCellRenderer(al);
         tbPeliculas.getColumnModel().getColumn(5).setCellRenderer(al);
         tbPeliculas.getColumnModel().getColumn(6).setCellRenderer(al);
+        //Ajustar el tamaño de la celdas
         TableColumn columna1;
         columna1 = tbPeliculas.getColumnModel().getColumn(1);
         columna1.setPreferredWidth(150);
         tbPeliculas.setRowHeight(260);
+        tbPeliculas.getColumnModel().getColumn(2).setPreferredWidth(100);
         TableColumn columna6;
         columna6 = tbPeliculas.getColumnModel().getColumn(6);
         columna6.setPreferredWidth(40);
+        columna6.setMaxWidth(60);
         TableColumn columna7;
         columna7 = tbPeliculas.getColumnModel().getColumn(7);
-        columna7.setPreferredWidth(150);
+        columna7.setPreferredWidth(170);
+        // Alinear el texto de la sinopsis arriba al inicio de la celda
         DefaultTableCellRenderer Alinear = new DefaultTableCellRenderer();
         Alinear.setHorizontalAlignment(SwingConstants.CENTER);
         Alinear.setVerticalAlignment(SwingConstants.TOP);
@@ -74,7 +85,7 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
     }
 
     public void cargartabla() {
-        String[] Titulos = {"ID", "PORTADA", "NOMBRE", "AÑO", "DURACION", "CLASIFICACION", "TIPO", "SINOPSIS"};
+        String[] Titulos = {"ID", "PORTADA", "NOMBRE", "FECHA DE ESTRENO", "DURACION", "CLASIFICACION", "TIPO", "SINOPSIS"};
         DefaultTableModel modelo = new DefaultTableModel(null, Titulos);
         tbPeliculas.setDefaultRenderer(Object.class, new Render());
         ClsPeliculas cls = new ClsPeliculas();
@@ -94,7 +105,7 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
                 fila[1] = new JLabel("No hay imagen");
             }
             fila[2] = "<HTML>" + "<p align=\"justify\">" + i.getNombre() + "</HTML>";
-            fila[3] = "<HTML>" + "<p align=\"justify\">" + i.getYear() + "</HTML>";
+            fila[3] = "<HTML>" + "<p align=\"justify\">" + String.valueOf(formato.format(i.getYear())) + "</HTML>";
             fila[4] = "<HTML>" + "<p align=\"justify\">" + i.getDuracion() + "</HTML>";
             if (i.getClasificacion() == 0) {
                 fila[5] = "<HTML>" + "<p align=\"justify\">" + "Para toda la familia" + "</HTML>";
@@ -134,7 +145,6 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelfondo.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -229,12 +239,21 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
                     .addComponent(btnNuevo)
                     .addComponent(btnEditar)
                     .addComponent(btnEliminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        getContentPane().add(panelfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelfondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelfondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -258,7 +277,7 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
             Logger.getLogger(frmMostrarpeliculas.class.getName()).log(Level.SEVERE, null, ex);
         }
         f.identificador = 1;
-      btnEditar.setEnabled(true);
+        btnEditar.setEnabled(true);
         btnEliminar.setEnabled(true);
 
     }//GEN-LAST:event_tbPeliculasMouseClicked
@@ -274,7 +293,7 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         f.nuevoActualizarOeliminar(0);
         f.show();
-       btnEditar.setEnabled(false);
+        btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -282,7 +301,7 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         // TODO add your handling code here:
         f.nuevoActualizarOeliminar(1);
         f.show();
-          btnEditar.setEnabled(false);
+        btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnEliminarActionPerformed
 

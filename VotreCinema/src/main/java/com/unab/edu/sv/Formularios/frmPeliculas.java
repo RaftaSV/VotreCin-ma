@@ -78,7 +78,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         txtSeleccionar = new javax.swing.JTextField();
         btnSeleccionar = new javax.swing.JButton();
         btnInsertar = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
+        javax.swing.JButton btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jdcAnio = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -114,8 +114,8 @@ public class frmPeliculas extends javax.swing.JFrame {
 
         lblYear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblYear.setForeground(new java.awt.Color(255, 255, 255));
-        lblYear.setText("Year");
-        panelFondo.add(lblYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 216, -1, -1));
+        lblYear.setText("Fecha de estreno");
+        panelFondo.add(lblYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         lblDuracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblDuracion.setForeground(new java.awt.Color(255, 255, 255));
@@ -506,6 +506,7 @@ lblImagen.setIcon(null);
     int tipo;
 
     void radiobutton() {
+        //
         if (rb2D.isSelected()) {
             tipo = 0;
         } else if (rb3D.isSelected()) {
@@ -565,7 +566,6 @@ lblImagen.setIcon(null);
     private javax.swing.ButtonGroup Tipo;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
-    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser jdcAnio;

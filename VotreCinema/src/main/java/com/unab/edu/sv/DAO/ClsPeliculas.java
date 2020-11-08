@@ -40,9 +40,9 @@ public class ClsPeliculas {
                 peli.setClasificacion(resultado.getInt("Clasificacion"));
                 peli.setTipo(resultado.getInt("Tipo"));
                 peliculas.add(peli);
-                conectar.close();
-            }
 
+            }
+            conectar.close();
         } catch (Exception e) {
             System.out.println("Error" + e);
         }
@@ -106,16 +106,16 @@ public class ClsPeliculas {
                 peli.setClasificacion(resultado.getInt("Clasificacion"));
                 peli.setTipo(resultado.getInt("Tipo"));
                 peliculas.add(peli);
-             conectar.close();
-            }
 
+            }
+            conectar.close();
         } catch (Exception e) {
             System.out.println("Error" + e);
         }
         return peliculas;
     }
-    
-    public void eliminar(Peliculas pelicula){
+
+    public void eliminar(Peliculas pelicula) {
         try {
             CallableStatement call = conectar.prepareCall("call SP_D_PELICULAS(?)");
             call.setInt("pId", pelicula.getIdPelicula());
@@ -123,9 +123,9 @@ public class ClsPeliculas {
             conectar.close();
             JOptionPane.showMessageDialog(null, "Eliminado exitosamente");
         } catch (Exception e) {
-             System.out.println("Error" + e);
+            System.out.println("Error" + e);
         }
-    
+
     }
 
 }
