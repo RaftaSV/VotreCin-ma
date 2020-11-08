@@ -67,15 +67,17 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         TableColumn columna1;
         columna1 = tbPeliculas.getColumnModel().getColumn(1);
         columna1.setPreferredWidth(150);
-        tbPeliculas.setRowHeight(260);
+        tbPeliculas.setRowHeight(320);
         tbPeliculas.getColumnModel().getColumn(2).setPreferredWidth(100);
+         tbPeliculas.getColumnModel().getColumn(4).setPreferredWidth(80);
+          tbPeliculas.getColumnModel().getColumn(4).setMaxWidth(90);
         TableColumn columna6;
         columna6 = tbPeliculas.getColumnModel().getColumn(6);
         columna6.setPreferredWidth(40);
         columna6.setMaxWidth(60);
         TableColumn columna7;
         columna7 = tbPeliculas.getColumnModel().getColumn(7);
-        columna7.setPreferredWidth(170);
+        columna7.setPreferredWidth(200);
         // Alinear el texto de la sinopsis arriba al inicio de la celda
         DefaultTableCellRenderer Alinear = new DefaultTableCellRenderer();
         Alinear.setHorizontalAlignment(SwingConstants.CENTER);
@@ -94,16 +96,20 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
         for (var i : lista) {
             fila[0] = "<HTML>" + "<p align=\"justify\">" + i.getIdPelicula() + "</HTML>";
             try {
+                // Cargar la imagen en formato byte
                 byte[] bi = i.getPortada();
                 BufferedImage image = null;
                 InputStream in = new ByteArrayInputStream(bi);
                 image = ImageIO.read(in);
+                //La imagen redimencionarla al tamaño que se mostrara en la jTable
                 ImageIcon imgi = new ImageIcon(image.getScaledInstance(160, 250, 0));
                 fila[1] = new JLabel(imgi);
 
             } catch (Exception e) {
                 fila[1] = new JLabel("No hay imagen");
             }
+            // En las jTables se puede utilizar codigo html, en este caso estamos alineando el texto 
+            // a justicifado
             fila[2] = "<HTML>" + "<p align=\"justify\">" + i.getNombre() + "</HTML>";
             fila[3] = "<HTML>" + "<p align=\"justify\">" + String.valueOf(formato.format(i.getYear())) + "</HTML>";
             fila[4] = "<HTML>" + "<p align=\"justify\">" + i.getDuracion() + "</HTML>";
@@ -263,9 +269,11 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
 
         int fila = tbPeliculas.getSelectedRow();
         String idd = String.valueOf(tbPeliculas.getValueAt(fila, 0));
+        // Reemplazamos el codigo html por caracteres en blanco, para poder acceder al ID de la pelicula.
         String idreemplazo = idd.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
         int id = Integer.valueOf(idreemplazo);
-
+       // Creamos un procedimieno para buscar la pelicula por ID y luego en el formulario
+       // peliculas  poder hacer la edicion o eliminacion de la pelicula.
         ClsPeliculas cls = new ClsPeliculas();
         Peliculas p = new Peliculas();
         p.setIdPelicula(id);
@@ -285,6 +293,7 @@ public class frmMostrarpeliculas extends javax.swing.JFrame {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         f.nuevoActualizarOeliminar(0);
         f.Limpiar();
+        
         f.show();
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);

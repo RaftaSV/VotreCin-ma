@@ -281,24 +281,26 @@ public class frmPeliculas extends javax.swing.JFrame {
             id = i.getIdPelicula();
         }
     }
-public void Limpiar(){
-txtDuracion.setText(null);
-txtNombreP.setText(null);
-txtSeleccionar.setText(null);
-txtSinopsis.setText(null);
-jdcAnio.setDate(null);
-identificador=0;
-pelicula=0;
-imagen=null;
-pelic=null;
-rb2D.setSelected(false);
-rb3D.setSelected(false);
-rbMayoresde15.setSelected(false);
-rbMayoresde18.setSelected(false);
-rbTodos.setSelected(false);
-id=0;
-lblImagen.setIcon(null);
-}
+
+    public void Limpiar() {
+        identificador = 0;
+        txtDuracion.setText(null);
+        txtNombreP.setText(null);
+        txtSeleccionar.setText(null);
+        txtSinopsis.setText(null);
+        jdcAnio.setDate(null);
+        identificador = 0;
+        pelicula = 0;
+        imagen = null;
+        pelic = null;
+        rb2D.setSelected(false);
+        rb3D.setSelected(false);
+        rbMayoresde15.setSelected(false);
+        rbMayoresde18.setSelected(false);
+        rbTodos.setSelected(false);
+        id = 0;
+        lblImagen.setIcon(null);
+    }
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         radiobutton();
@@ -352,6 +354,7 @@ lblImagen.setIcon(null);
                                         peli.setSipnosis(txtSinopsis.getText());
                                         peli.setYear(jdcAnio.getDate());
                                         ClsPeliculas cls = new ClsPeliculas();
+                                      
                                         cls.InsertarPelicula(peli);
                                         Inicio.f.cargartabla();
                                         Inicio.f.ajustartabla();
@@ -407,6 +410,7 @@ lblImagen.setIcon(null);
                                         Inicio.f.cargartabla();
                                         Inicio.f.ajustartabla();
                                         Inicio.f.show();
+                                    
                                         Limpiar();
                                     } else {
                                         try {
@@ -434,6 +438,7 @@ lblImagen.setIcon(null);
                                         Inicio.f.ajustartabla();
                                         Inicio.f.show();
                                         Limpiar();
+                                      
                                     }
                                 }
                             }
