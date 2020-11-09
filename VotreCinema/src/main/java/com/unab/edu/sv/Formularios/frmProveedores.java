@@ -9,7 +9,10 @@ import com.unab.edu.sv.DAO.ClsProveedores;
 import com.unab.edu.sv.Entidades.Productos;
 import com.unab.edu.sv.Entidades.Proveedores;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,11 +27,31 @@ public class frmProveedores extends javax.swing.JFrame {
     public frmProveedores() {
         initComponents();
         CargarTabla();
+        ajustartabla();
         Limpiar();
         this.setLocationRelativeTo(null);
     }
-
+public void ajustartabla() {
+        // Ocultar la columna del ID de la pelicula
+        tbProveedores.getColumnModel().getColumn(0).setMaxWidth(0);
+        tbProveedores.getColumnModel().getColumn(0).setMinWidth(0);
+        tbProveedores.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        tbProveedores.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+        tbProveedores.getColumnModel().getColumn(2).setMinWidth(150);
+        tbProveedores.getColumnModel().getColumn(2).setMaxWidth(180);
+           //Centrar en texto del encabezado de la tabla
+        DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbProveedores.getTableHeader().getDefaultRenderer();
+        render.setHorizontalAlignment(JLabel.CENTER);
+          DefaultTableCellRenderer al = new DefaultTableCellRenderer();
+        al.setHorizontalAlignment(SwingConstants.CENTER);
+        tbProveedores.getColumnModel().getColumn(1).setCellRenderer(al);
+        tbProveedores.getColumnModel().getColumn(2).setCellRenderer(al);
+        tbProveedores.getColumnModel().getColumn(3).setCellRenderer(al);
+        
+        
+}
     void CargarTabla() {
+        
         String TITULOS[] = {"ID", "Nombres", "Telefono", "Direccion"};
         ClsProveedores proveedor = new ClsProveedores();
         DefaultTableModel model = new DefaultTableModel(null, TITULOS);
@@ -71,9 +94,11 @@ public class frmProveedores extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fondo.setBackground(new java.awt.Color(153, 255, 204));
+        fondo.setBackground(new java.awt.Color(0, 0, 0));
 
+        lblEncabezado.setBackground(new java.awt.Color(0, 0, 0));
         lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("PROVEEDORES");
 
@@ -82,9 +107,35 @@ public class frmProveedores extends javax.swing.JFrame {
                 return false;
             }
         };
-        tbProveedores.setBackground(new java.awt.Color(102, 255, 204));
+        tbProveedores.setBackground(new java.awt.Color(0, 0, 0));
+        tbProveedores.setForeground(new java.awt.Color(255, 255, 255));
         tbProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -110,20 +161,24 @@ public class frmProveedores extends javax.swing.JFrame {
             }
         });
         TABLA.setViewportView(tbProveedores);
+        tbProveedores.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        panelCRUD.setBackground(new java.awt.Color(153, 255, 204));
+        panelCRUD.setBackground(new java.awt.Color(0, 0, 0));
 
         lblNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNombres.setForeground(new java.awt.Color(255, 255, 255));
         lblNombres.setText("Nombre");
 
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lblTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTelefono.setForeground(new java.awt.Color(255, 255, 255));
         lblTelefono.setText("Telefono");
 
         txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lblDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDireccion.setForeground(new java.awt.Color(255, 255, 255));
         lblDireccion.setText("Direccion");
 
         txtDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -156,38 +211,40 @@ public class frmProveedores extends javax.swing.JFrame {
             .addGroup(panelCRUDLayout.createSequentialGroup()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombre)
-                            .addComponent(txtTelefono)
-                            .addComponent(txtDireccion)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                                .addGap(0, 8, Short.MAX_VALUE)
-                                .addComponent(btnGuardar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnElimanar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLimpiar)
-                                .addGap(18, 18, 18))))
+                        .addGap(2, 2, 2)
+                        .addComponent(btnGuardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnElimanar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiar))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
+                        .addContainerGap()
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
                         .addComponent(lblDireccion))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(lblNombres))
+                        .addGap(89, 89, 89)
+                        .addComponent(lblTelefono))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(lblTelefono)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addGap(90, 90, 90)
+                        .addComponent(lblNombres)))
+                .addGap(3, 10, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblNombres)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTelefono)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,43 +265,39 @@ public class frmProveedores extends javax.swing.JFrame {
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
                 .addComponent(TABLA)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGap(4, 4, 4))
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 1031, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblEncabezado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 119, Short.MAX_VALUE))))
+                        .addContainerGap())
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -284,6 +337,7 @@ int estado = 0;
                 cls.GuardarProveedor(pro);
                 Limpiar();
                 CargarTabla();
+                ajustartabla();
             }
 
         } else {
@@ -300,6 +354,7 @@ int estado = 0;
                 cls.ActualizarProveedor(proo);
                 Limpiar();
                 CargarTabla();
+                ajustartabla();
             }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -311,6 +366,7 @@ int estado = 0;
           ClsProveedores prov = new ClsProveedores();
           prov.EliminarProveedor(pro);
           CargarTabla();
+          ajustartabla();
           Limpiar();
       }else{
       JOptionPane.showMessageDialog(null, "Seleccione un proveedor");

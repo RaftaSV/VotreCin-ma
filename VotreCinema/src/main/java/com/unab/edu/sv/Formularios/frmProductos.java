@@ -5,16 +5,16 @@
  */
 package com.unab.edu.sv.Formularios;
 
-import com.unab.edu.sv.DAO.ClsPersona;
 import com.unab.edu.sv.DAO.ClsProductos;
 import com.unab.edu.sv.DAO.ClsProveedores;
-import com.unab.edu.sv.Entidades.Personas;
 import com.unab.edu.sv.Entidades.Productos;
 import com.unab.edu.sv.Entidades.Proveedores;
 import java.util.ArrayList;
-import javax.print.DocFlavor;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -31,10 +31,11 @@ public class frmProductos extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         displaymember();
         CargarDatos();
+        ajustartabla();
 
     }
     int indicador = 0;
-    int id=0;
+    int id = 0;
 
     void Limpiar() {
         txtCantidad.setText(null);
@@ -42,6 +43,30 @@ public class frmProductos extends javax.swing.JFrame {
         txtNombre.setText(null);
         cmbProveedor.setSelectedIndex(0);
         indicador = 0;
+        id=0;
+    }
+
+    public void ajustartabla() {
+        // Ocultar la columna del ID de la pelicula
+        tbProductos.getColumnModel().getColumn(0).setMaxWidth(0);
+        tbProductos.getColumnModel().getColumn(0).setMinWidth(0);
+        tbProductos.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        tbProductos.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+        tbProductos.getColumnModel().getColumn(4).setMaxWidth(0);
+        tbProductos.getColumnModel().getColumn(4).setMinWidth(0);
+        tbProductos.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(0);
+        tbProductos.getTableHeader().getColumnModel().getColumn(4).setMinWidth(0);
+
+        //Centrar en texto del encabezado de la tabla
+        DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbProductos.getTableHeader().getDefaultRenderer();
+        render.setHorizontalAlignment(JLabel.CENTER);
+        DefaultTableCellRenderer al = new DefaultTableCellRenderer();
+        al.setHorizontalAlignment(SwingConstants.CENTER);
+        tbProductos.getColumnModel().getColumn(1).setCellRenderer(al);
+        tbProductos.getColumnModel().getColumn(2).setCellRenderer(al);
+        tbProductos.getColumnModel().getColumn(3).setCellRenderer(al);
+        tbProductos.getColumnModel().getColumn(5).setCellRenderer(al);
+
     }
 
     void CargarDatos() {
@@ -111,14 +136,15 @@ public class frmProductos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelFondo.setBackground(new java.awt.Color(153, 255, 204));
+        panelFondo.setBackground(new java.awt.Color(0, 0, 0));
 
         tbProductos = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int collIndex){
                 return false;
             }
         };
-        tbProductos.setBackground(new java.awt.Color(102, 255, 204));
+        tbProductos.setBackground(new java.awt.Color(0, 0, 0));
+        tbProductos.setForeground(new java.awt.Color(255, 255, 255));
         tbProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -163,15 +189,19 @@ public class frmProductos extends javax.swing.JFrame {
         });
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("NOMBRE");
 
         lblPrecio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
         lblPrecio.setText("PRECIO");
 
         lblCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCantidad.setForeground(new java.awt.Color(255, 255, 255));
         lblCantidad.setText("CANTIDAD");
 
         lblProveedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblProveedor.setForeground(new java.awt.Color(255, 255, 255));
         lblProveedor.setText("PROVEEDOR");
 
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -184,6 +214,7 @@ public class frmProductos extends javax.swing.JFrame {
         });
 
         lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("PRODUCTOS");
 
@@ -294,7 +325,7 @@ public class frmProductos extends javax.swing.JFrame {
     private void tbProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductosMouseClicked
         int fila = tbProductos.getSelectedRow();
         String idp = String.valueOf(tbProductos.getValueAt(fila, 0));
-        id=Integer.valueOf(idp);
+        id = Integer.valueOf(idp);
         String nombre = String.valueOf(tbProductos.getValueAt(fila, 1));
         String precio = String.valueOf(tbProductos.getValueAt(fila, 2));
         String cantidad = String.valueOf(tbProductos.getValueAt(fila, 3));
@@ -303,7 +334,7 @@ public class frmProductos extends javax.swing.JFrame {
         txtNombre.setText(nombre);
         txtPrecio.setText(precio);
         txtCantidad.setText(cantidad);
-        
+
         int selectvista = 0;
         for (var iterar : valuemember) {
             if (idprov.equals(iterar)) {
@@ -341,6 +372,7 @@ public class frmProductos extends javax.swing.JFrame {
                             cls.GuardarProducto(pro);
                             Limpiar();
                             CargarDatos();
+                            ajustartabla();
                         }
 
                     }
@@ -371,6 +403,7 @@ public class frmProductos extends javax.swing.JFrame {
                             cls.ActualiarProducto(prod);
                             Limpiar();
                             CargarDatos();
+                            ajustartabla();
                         }
 
                     }
@@ -401,12 +434,18 @@ public class frmProductos extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        if(id!=0){
         Productos produc = new Productos();
         produc.setIdProductos(id);
         ClsProductos cls = new ClsProductos();
         cls.EliminarProducto(produc);
         Limpiar();
         CargarDatos();
+        ajustartabla();
+        }else
+        {
+        JOptionPane.showMessageDialog(null, "Debe de seleccionar un producto");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

@@ -9,8 +9,11 @@ import com.unab.edu.sv.DAO.ClsPersona;
 import com.unab.edu.sv.Entidades.Personas;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,9 +28,28 @@ public class frmPersonas extends javax.swing.JFrame {
     public frmPersonas() {
         initComponents();
         CargarTabla();
+        ajustartabla();
         limpiar();
         this.setLocationRelativeTo(null);
     }
+    public void ajustartabla() {
+        // Ocultar la columna del ID de la pelicula
+        tbPersonas.getColumnModel().getColumn(0).setMaxWidth(0);
+        tbPersonas.getColumnModel().getColumn(0).setMinWidth(0);
+        tbPersonas.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        tbPersonas.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+      
+           //Centrar en texto del encabezado de la tabla
+        DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbPersonas.getTableHeader().getDefaultRenderer();
+        render.setHorizontalAlignment(JLabel.CENTER);
+          DefaultTableCellRenderer al = new DefaultTableCellRenderer();
+        al.setHorizontalAlignment(SwingConstants.CENTER);
+        tbPersonas.getColumnModel().getColumn(1).setCellRenderer(al);
+        tbPersonas.getColumnModel().getColumn(2).setCellRenderer(al);
+        tbPersonas.getColumnModel().getColumn(3).setCellRenderer(al);
+        
+        
+}
 
     void CargarTabla() {
         String TITULOS[] = {"ID", "Nombres", "Apellidos", "DUI"};
@@ -84,21 +106,26 @@ public class frmPersonas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelFondo.setBackground(new java.awt.Color(153, 255, 204));
+        panelFondo.setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel2.setBackground(new java.awt.Color(153, 255, 204));
+        jPanel2.setOpaque(false);
 
+        lblNombres.setBackground(new java.awt.Color(51, 51, 51));
         lblNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNombres.setForeground(new java.awt.Color(255, 255, 255));
         lblNombres.setText("Nombres");
 
         txtNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lblApellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblApellidos.setForeground(new java.awt.Color(255, 255, 255));
         lblApellidos.setText("Apellidos");
 
         txtApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lblDUI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDUI.setForeground(java.awt.Color.white);
         lblDUI.setText("DUI");
 
         txtDui.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -183,7 +210,8 @@ public class frmPersonas extends javax.swing.JFrame {
                 return false;
             }
         };
-        tbPersonas.setBackground(new java.awt.Color(102, 255, 204));
+        tbPersonas.setBackground(new java.awt.Color(0, 0, 0));
+        tbPersonas.setForeground(java.awt.Color.white);
         tbPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -213,6 +241,7 @@ public class frmPersonas extends javax.swing.JFrame {
         TABLA.setViewportView(tbPersonas);
 
         lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("PERSONAS");
 
@@ -264,6 +293,7 @@ int estado = 0;
                 cls.AgregarPersona(per);
                 limpiar();
                 CargarTabla();
+                ajustartabla();
             }
 
 
@@ -283,6 +313,7 @@ int estado = 0;
                 cls.ActualizarPersona(person);
                 limpiar();
                 CargarTabla();
+                ajustartabla();
             }
 
         }
@@ -292,7 +323,7 @@ int estado = 0;
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
         limpiar();
-        CargarTabla();
+     
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void tbPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPersonasMouseClicked
@@ -316,6 +347,7 @@ int estado = 0;
         p.setIdPersona(id);
         cls.EliminarPersonas(p);
         CargarTabla();
+        ajustartabla() ;
         limpiar();
     }//GEN-LAST:event_btnElimanarActionPerformed
 
