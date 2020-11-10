@@ -40,6 +40,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPeliculas = new javax.swing.JButton();
         btnProductos = new javax.swing.JButton();
         btnRoles = new javax.swing.JButton();
+        btnPersonas = new javax.swing.JButton();
         panelcontenedor = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,6 +110,14 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnPersonas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnPersonas.setText("PERSONAS");
+        btnPersonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPersonasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
@@ -117,6 +126,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addComponent(btnProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnRoles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+            .addComponent(btnPersonas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +138,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelcontenedor.setBackground(new java.awt.Color(255, 51, 51));
@@ -141,7 +153,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         panelcontenedorLayout.setVerticalGroup(
             panelcontenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 584, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
@@ -206,6 +218,10 @@ public class frmPrincipal extends javax.swing.JFrame {
                 rol.dispose();
             } catch (Exception e) {
             }
+            try {
+                persona.dispose();
+            } catch (Exception e) {
+            }
             if (pelicula == null || pelicula.isClosed()) {
                 pelicula = new fPeliculas();
                 panelcontenedor.add(pelicula);
@@ -235,6 +251,10 @@ public class frmPrincipal extends javax.swing.JFrame {
                     rol.dispose();
                 } catch (Exception e) {
                 }
+                try {
+                    persona.dispose();
+                } catch (Exception e) {
+                }
                 if (producto == null || producto.isClosed()) {
                     producto = new fProductos();
                     panelcontenedor.add(producto);
@@ -258,6 +278,10 @@ public class frmPrincipal extends javax.swing.JFrame {
                     }
                     try {
                         rol.dispose();
+                    } catch (Exception e) {
+                    }
+                    try {
+                        persona.dispose();
                     } catch (Exception e) {
                     }
                     if (proveedor == null || proveedor.isClosed()) {
@@ -287,6 +311,10 @@ public class frmPrincipal extends javax.swing.JFrame {
                             proveedor.dispose();
                         } catch (Exception e) {
                         }
+                        try {
+                            persona.dispose();
+                        } catch (Exception e) {
+                        }
                         if (rol == null || rol.isClosed()) {
                             rol = new fRoles();
                             try {
@@ -298,10 +326,37 @@ public class frmPrincipal extends javax.swing.JFrame {
                         }
 
                     } else {
+                        if (cerrar == 5) {
+                            try {
+                                producto.dispose();
 
+                            } catch (Exception e) {
+                            }
+                            try {
+                                pelicula.dispose();
+                            } catch (Exception e) {
+                            }
+                            try {
+                                proveedor.dispose();
+                            } catch (Exception e) {
+                            }
+                            try {
+                                rol.dispose();
+                            } catch (Exception e) {
+                            }
+                            if (persona == null || persona.isClosed()) {
+                                persona = new fPersonas();
+                                try {
+                                    persona.setMaximum(true);
+                                } catch (Exception e) {
+                                }
+                                panelcontenedor.add(persona);
+                                persona.setVisible(true);
+                            }
+                        }
                     }
-                }
 
+                }
             }
         }
     }
@@ -331,6 +386,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         cerrar = 4;
         cerrar();
     }//GEN-LAST:event_btnRolesActionPerformed
+    public fPersonas persona;
+    private void btnPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonasActionPerformed
+        // TODO add your handling code here:
+        cerrar = 5;
+        cerrar();
+    }//GEN-LAST:event_btnPersonasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -370,6 +431,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnCerrarMenu;
     private javax.swing.JButton btnPeliculas;
+    private javax.swing.JButton btnPersonas;
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnProveedores;
     private javax.swing.JButton btnRoles;
