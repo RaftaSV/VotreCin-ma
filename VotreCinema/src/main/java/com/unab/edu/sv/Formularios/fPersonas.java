@@ -311,6 +311,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 CargarTabla();
                 ajustartabla();
             }
+        }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
