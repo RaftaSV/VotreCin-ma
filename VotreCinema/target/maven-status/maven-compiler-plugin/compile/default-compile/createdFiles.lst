@@ -37,6 +37,7 @@ com\unab\edu\sv\Formularios\fPeliculas$4.class
 com\unab\edu\sv\Formularios\fRoles$1.class
 com\unab\edu\sv\Formularios\Inicio.class
 com\unab\edu\sv\Entidades\Personas.class
+com\unab\edu\sv\Formularios\fPersona.class
 com\unab\edu\sv\Formularios\frmPrincipal$7.class
 com\unab\edu\sv\Formularios\frmProductos$9.class
 com\unab\edu\sv\Formularios\frmProductos$10.class
@@ -61,7 +62,6 @@ com\unab\edu\sv\Formularios\frmPeliculas$6.class
 com\unab\edu\sv\Formularios\frmPrincipal$1.class
 com\unab\edu\sv\Entidades\Roles.class
 com\unab\edu\sv\Formularios\frmProductos$8.class
-com\unab\edu\sv\Formularios\fPersonas$7.class
 com\unab\edu\sv\Entidades\Carteleras.class
 com\unab\edu\sv\Formularios\frmRoles$5.class
 com\unab\edu\sv\Formularios\fPersonas$2.class
