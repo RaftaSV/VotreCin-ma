@@ -219,7 +219,6 @@ public class frmPeliculas extends javax.swing.JFrame {
         panelFondo.add(lblPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 162, -1, -1));
 
         lblImagen.setBackground(new java.awt.Color(0, 0, 0));
-        lblImagen.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panelFondo.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 115, 260, 347));
 
         rbMayoresde18.setBackground(new java.awt.Color(0, 0, 0));
@@ -354,11 +353,11 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         peli.setSipnosis(txtSinopsis.getText());
                                         peli.setYear(jdcAnio.getDate());
                                         ClsPeliculas cls = new ClsPeliculas();
-                                      
                                         cls.InsertarPelicula(peli);
-                                        Inicio.f.cargartabla();
-                                        Inicio.f.ajustartabla();
-                                        Inicio.f.show();
+                                        frmPrincipal f = new frmPrincipal();
+                                        f.pelicula.cargartabla();
+                                        f.pelicula.ajustartabla();
+
                                         Limpiar();
                                     }
                                 }
@@ -407,10 +406,10 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         pelic.setYear(jdcAnio.getDate());
                                         ClsPeliculas cls = new ClsPeliculas();
                                         cls.ActualizarPelicula(pelic);
-                                        Inicio.f.cargartabla();
-                                        Inicio.f.ajustartabla();
-                                        Inicio.f.show();
-                                    
+                                        frmPrincipal f = new frmPrincipal();
+                                        f.pelicula.cargartabla();
+                                        f.pelicula.ajustartabla();
+
                                         Limpiar();
                                     } else {
                                         try {
@@ -434,11 +433,11 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         pelic.setYear(jdcAnio.getDate());
                                         ClsPeliculas cls = new ClsPeliculas();
                                         cls.ActualizarPelicula(pelic);
-                                        Inicio.f.cargartabla();
-                                        Inicio.f.ajustartabla();
-                                        Inicio.f.show();
+                                        frmPrincipal f = new frmPrincipal();
+                                        f.pelicula.cargartabla();
+                                        f.pelicula.ajustartabla();
                                         Limpiar();
-                                      
+
                                     }
                                 }
                             }
@@ -502,9 +501,9 @@ public class frmPeliculas extends javax.swing.JFrame {
         peli.setIdPelicula(id);
         ClsPeliculas cls = new ClsPeliculas();
         cls.eliminar(peli);
-        Inicio.f.cargartabla();
-        Inicio.f.ajustartabla();
-        Inicio.f.setVisible(true);
+        frmPrincipal f = new frmPrincipal();
+        f.pelicula.cargartabla();
+        f.pelicula.ajustartabla();
         Limpiar();
     }//GEN-LAST:event_btnEliminarActionPerformed
     int clasificacion;
@@ -555,6 +554,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmPeliculas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

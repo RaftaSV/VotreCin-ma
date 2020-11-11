@@ -360,7 +360,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         }
     }
-    public fPeliculas pelicula;
+    public  fPeliculas pelicula;
     private void btnPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeliculasActionPerformed
         cerrar = 1;
         cerrar();

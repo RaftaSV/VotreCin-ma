@@ -227,7 +227,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
                 InputStream in = new ByteArrayInputStream(bi);
                 image = ImageIO.read(in);
                 //La imagen redimencionarla al tamaño que se mostrara en la jTable
-                ImageIcon imgi = new ImageIcon(image.getScaledInstance(180, 300, Image.SCALE_DEFAULT));
+                ImageIcon imgi = new ImageIcon(image.getScaledInstance(180, 300, Image.SCALE_SMOOTH));
                 fila[1] = new JLabel(imgi);
 
             } catch (Exception e) {
@@ -275,7 +275,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
         try {
             f.cargartextbox();
         } catch (IOException ex) {
-            Logger.getLogger(frmMostrarpeliculas.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
         f.identificador = 1;
         btnEditar.setEnabled(true);

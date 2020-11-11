@@ -8,7 +8,6 @@ package com.unab.edu.sv.DAO;
 import java.sql.*;
 import java.util.*;
 import com.unab.edu.sv.Entidades.Peliculas;
-import com.unab.edu.sv.Formularios.frmMostrarpeliculas;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.Connection;
 import java.sql.ResultSet;
