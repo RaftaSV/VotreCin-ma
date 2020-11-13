@@ -74,7 +74,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnCerrarMenu.setBackground(new java.awt.Color(204, 0, 0));
         btnCerrarMenu.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnCerrarMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnCerrarMenu.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rafael\\OneDrive\\Escritorio\\PROYECTOS\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\menu.png")); // NOI18N
+        btnCerrarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/menu.png"))); // NOI18N
         btnCerrarMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCerrarMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -96,7 +96,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btncerrar.setBackground(new java.awt.Color(204, 0, 0));
         btncerrar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btncerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btncerrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rafael\\OneDrive\\Escritorio\\PROYECTOS\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\cerca.png")); // NOI18N
+        btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/cerca.png"))); // NOI18N
         btncerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btncerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
