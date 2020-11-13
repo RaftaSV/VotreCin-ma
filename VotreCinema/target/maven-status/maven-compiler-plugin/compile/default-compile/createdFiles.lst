@@ -12,6 +12,7 @@ com\unab\edu\sv\Formularios\frmPrincipal$2.class
 com\unab\edu\sv\Formularios\fRoles$2.class
 com\unab\edu\sv\Formularios\fPersonas$6.class
 com\unab\edu\sv\Formularios\fProductos$9.class
+com\unab\edu\sv\Formularios\frmPrincipal$8.class
 com\unab\edu\sv\Formularios\frmPeliculas.class
 com\unab\edu\sv\Formularios\frmPrincipal$5.class
 com\unab\edu\sv\Formularios\fRoles$5.class
@@ -33,6 +34,8 @@ com\unab\edu\sv\Entidades\Horarios.class
 com\unab\edu\sv\Formularios\fProveedores$2.class
 com\unab\edu\sv\Formularios\fRoles$8.class
 com\unab\edu\sv\DAO\ClsProveedores.class
+com\unab\edu\sv\Formularios\frmPrincipal$12.class
+com\unab\edu\sv\Formularios\frmPrincipal$9.class
 com\unab\edu\sv\Formularios\frmPeliculas$1.class
 com\unab\edu\sv\DAO\ClsProductos.class
 com\unab\edu\sv\Formularios\frmPeliculas$4.class
@@ -48,6 +51,11 @@ com\unab\edu\sv\Formularios\fRoles$1.class
 com\unab\edu\sv\Formularios\fRoles$4.class
 com\unab\edu\sv\Formularios\frmPeliculas$2.class
 com\unab\edu\sv\Entidades\Personas.class
+<<<<<<< Updated upstream
+=======
+com\unab\edu\sv\Formularios\fPersona.class
+com\unab\edu\sv\Formularios\frmPrincipal$10.class
+>>>>>>> Stashed changes
 com\unab\edu\sv\Formularios\frmPrincipal$7.class
 com\unab\edu\sv\Entidades\Taquillas.class
 com\unab\edu\sv\Entidades\Render.class
@@ -63,6 +71,7 @@ com\unab\edu\sv\Formularios\frmPrincipal$4.class
 com\unab\edu\sv\Entidades\Peliculas.class
 com\unab\edu\sv\Formularios\frmPeliculas$3.class
 com\unab\edu\sv\Formularios\fRoles.class
+com\unab\edu\sv\Formularios\frmPrincipal$11.class
 com\unab\edu\sv\Formularios\fPersonas$1.class
 com\unab\edu\sv\Entidades\Facturas.class
 com\unab\edu\sv\Formularios\fPeliculas$3.class

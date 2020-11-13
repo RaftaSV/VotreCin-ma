@@ -31,7 +31,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         MostrarTablaRoles();
         displaymember();
         ajustartabla();
-         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
     }
 
@@ -415,68 +415,68 @@ public class fRoles extends javax.swing.JInternalFrame {
 
     private void btnInsertar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertar5ActionPerformed
 
-        
-            if (estado == 0) {
-                Button();
-                Roles rol = new Roles();
+        if (estado == 0) {
+            Button();
+            Roles rol = new Roles();
+
+            if (radio != -1) {
+                rol.setTipoRol(radio);
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe seleccionar un rol");
+                rbAdmin.requestFocus();
+            }
+            ClsRoles clsrol = new ClsRoles();
+            if (txtUsu.getText() == "" || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es necesario agregar Usuario");
+                txtUsu.requestFocus();
+            } else if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es necesario agregar Password");
+                txtPass.requestFocus();
+            } else if (Integer.valueOf(cb_Idpersona5.getSelectedIndex()) == 0) {
+                JOptionPane.showMessageDialog(null, "Es necesario seleccionar IdPersona");
+                cb_Idpersona5.requestFocus();
+            } else {
                 rol.setUsuario(txtUsu.getText());
                 rol.setPasword(txtPass.getText());
                 rol.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
-                if (radio != -1) {
-                    rol.setTipoRol(radio);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Debe seleccionar un rol");
-                    rbAdmin.requestFocus();
-                }
-                ClsRoles clsrol = new ClsRoles();
-                if (txtUsu.getText() == "" || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
-                    JOptionPane.showMessageDialog(null, "Es necesario agregar Usuario");
-                    txtUsu.requestFocus();
-                } else if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null) {
-                    JOptionPane.showMessageDialog(null, "Es necesario agregar Password");
-                    txtPass.requestFocus();
-                }else if (Integer.valueOf(cb_Idpersona5.getSelectedIndex())==0) {
-                    JOptionPane.showMessageDialog(null, "Es necesario seleccionar IdPersona");
-                    cb_Idpersona5.requestFocus();
-                }else {
-                    clsrol.AgregarRol(rol);
-                    limpiar();
-                    MostrarTablaRoles();
-                    ajustartabla();
-                }
-
-            } else {
-                Button();
-                Roles roles = new Roles();
-                roles.setIdRol(id);
-                roles.setUsuario(txtUsu.getText());
-                roles.setPasword(txtPass.getText());
-                roles.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
-               if (radio != -1) {
-                    roles.setTipoRol(radio);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Debe seleccionar un rol");
-                    rbAdmin.requestFocus();
-                }
-                ClsRoles clsrol = new ClsRoles();
-                if (txtUsu.getText() == "" || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
-                    JOptionPane.showMessageDialog(null, "Es necesario agregar Usuario");
-                    txtUsu.requestFocus();
-                } else if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null) {
-                    JOptionPane.showMessageDialog(null, "Es necesario agregar Password");
-                    txtPass.requestFocus();
-                }else if (Integer.valueOf(cb_Idpersona5.getSelectedIndex())==0) {
-                    JOptionPane.showMessageDialog(null, "Es necesario seleccionar IdPersona");
-                    cb_Idpersona5.requestFocus();
-                } else {
-                    clsrol.ActualizarRol(roles);
-                    limpiar();
-                    MostrarTablaRoles();
-                    ajustartabla();
-                }
+                clsrol.AgregarRol(rol);
+                limpiar();
+                MostrarTablaRoles();
+                ajustartabla();
             }
 
-       
+        } else {
+            Button();
+            Roles roles = new Roles();
+            roles.setIdRol(id);
+            roles.setUsuario(txtUsu.getText());
+            roles.setPasword(txtPass.getText());
+            roles.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
+            if (radio != -1) {
+                roles.setTipoRol(radio);
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe seleccionar un rol");
+                rbAdmin.requestFocus();
+            }
+            ClsRoles clsrol = new ClsRoles();
+            if (txtUsu.getText() == "" || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es necesario agregar Usuario");
+                txtUsu.requestFocus();
+            } else if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es necesario agregar Password");
+                txtPass.requestFocus();
+            } else if (Integer.valueOf(cb_Idpersona5.getSelectedIndex()) == 0) {
+                JOptionPane.showMessageDialog(null, "Es necesario seleccionar IdPersona");
+                cb_Idpersona5.requestFocus();
+            } else {
+                clsrol.ActualizarRol(roles);
+                limpiar();
+                MostrarTablaRoles();
+                ajustartabla();
+            }
+        }
+
+
     }//GEN-LAST:event_btnInsertar5ActionPerformed
 
     private void rbAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdminActionPerformed
