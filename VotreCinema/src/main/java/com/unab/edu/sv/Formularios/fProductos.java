@@ -388,15 +388,19 @@ public void ajustartabla() {
         if (indicador == 0) {
             if (txtNombre.getText() == "" || txtNombre.getText() == null || txtNombre.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Debe de asignar el nombre");
+                txtNombre.requestFocus();
             } else {
                 if (txtCantidad.getText() == "" || txtCantidad == null || txtCantidad.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Debe de asignar la cantidad");
+                    txtCantidad.requestFocus();
                 } else {
                     if (txtPrecio.getText() == "" || txtPrecio.getText() == null || txtPrecio.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Debe de agirnar el precio ");
+                        txtPrecio.requestFocus();
                     } else {
                         if (Integer.valueOf(cmbProveedor.getSelectedIndex()) == 0) {
                             JOptionPane.showMessageDialog(null, "Debe de asignar un proveedor");
+                            cmbProveedor.requestFocus();
                         } else {
                             Productos pro = new Productos();
                             pro.setNombreprod(txtNombre.getText());
@@ -418,15 +422,19 @@ public void ajustartabla() {
         } else {
             if (txtNombre.getText() == "" || txtNombre.getText() == null || txtNombre.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Debe de asignar el nombre");
+                txtNombre.requestFocus();
             } else {
                 if (txtCantidad.getText() == "" || txtCantidad == null || txtCantidad.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Debe de asignar la cantidad");
+                    txtCantidad.requestFocus();
                 } else {
                     if (txtPrecio.getText() == "" || txtPrecio.getText() == null || txtPrecio.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Debe de agirnar el precio ");
+                        txtPrecio.requestFocus();
                     } else {
                         if (Integer.valueOf(cmbProveedor.getSelectedIndex()) == 0) {
                             JOptionPane.showMessageDialog(null, "Debe de asignar un proveedor");
+                            cmbProveedor.requestFocus();
                         } else {
                             Productos prod = new Productos();
                             prod.setIdProductos(id);

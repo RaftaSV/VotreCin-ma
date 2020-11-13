@@ -331,10 +331,16 @@ public void ajustartabla() {
             pro.setTelefono(txtTelefono.getText());
             pro.setDirecion(txtDireccion.getText());
             ClsProveedores cls = new ClsProveedores();
-            if (txtDireccion.getText() == "" || txtDireccion.getText().isEmpty() || txtDireccion.getText() == null || txtNombre.getText() == ""
-                    || txtNombre.getText().isEmpty() || txtNombre.getText() == null || txtDireccion.getText() == "" || txtDireccion.getText().isEmpty() || txtDireccion.getText() == null) {
-                JOptionPane.showMessageDialog(null, "todos los campos son obligatorios");
-            } else {
+             if ( txtNombre.getText() == "" || txtNombre.getText().isEmpty() || txtNombre.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es obligatorio agregar Nombre");
+                txtNombre.requestFocus();
+            } else if (txtTelefono.getText() == "" || txtTelefono.getText().isEmpty() || txtTelefono.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es obligatorio agregar Telefono");
+                txtTelefono.requestFocus();
+            } else if (txtDireccion.getText() == "" || txtDireccion.getText().isEmpty() || txtDireccion.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es obligatorio agregar Direccion");
+                txtDireccion.requestFocus();
+            }else{ 
                 cls.GuardarProveedor(pro);
                 Limpiar();
                 CargarTabla();
@@ -348,10 +354,16 @@ public void ajustartabla() {
             proo.setTelefono(txtTelefono.getText());
             proo.setDirecion(txtDireccion.getText());
             ClsProveedores cls = new ClsProveedores();
-            if (txtDireccion.getText() == "" || txtDireccion.getText().isEmpty() || txtDireccion.getText() == null || txtNombre.getText() == ""
-                    || txtNombre.getText().isEmpty() || txtNombre.getText() == null || txtDireccion.getText() == "" || txtDireccion.getText().isEmpty() || txtDireccion.getText() == null) {
-                JOptionPane.showMessageDialog(null, "todos los campos son obligatorios");
-            } else {
+            if ( txtNombre.getText() == "" || txtNombre.getText().isEmpty() || txtNombre.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es obligatorio agregar Nombre");
+                txtNombre.requestFocus();
+            } else if (txtTelefono.getText() == "" || txtTelefono.getText().isEmpty() || txtTelefono.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es obligatorio agregar Telefono");
+                txtTelefono.requestFocus();
+            } else if (txtDireccion.getText() == "" || txtDireccion.getText().isEmpty() || txtDireccion.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es obligatorio agregar Direccion");
+                txtDireccion.requestFocus();
+            }else{ 
                 cls.ActualizarProveedor(proo);
                 Limpiar();
                 CargarTabla();

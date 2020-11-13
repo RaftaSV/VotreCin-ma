@@ -137,9 +137,9 @@ public class fRoles extends javax.swing.JInternalFrame {
             .addGroup(PanelRadioButtonLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rbAdmin)
-                .addGap(18, 18, 18)
-                .addComponent(rbCajero)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rbCajero)
+                .addGap(18, 18, 18)
                 .addComponent(rbCliente)
                 .addContainerGap())
         );
@@ -415,7 +415,7 @@ public class fRoles extends javax.swing.JInternalFrame {
 
     private void btnInsertar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertar5ActionPerformed
 
-        try {
+        
             if (estado == 0) {
                 Button();
                 Roles rol = new Roles();
@@ -426,12 +426,19 @@ public class fRoles extends javax.swing.JInternalFrame {
                     rol.setTipoRol(radio);
                 } else {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar un rol");
+                    rbAdmin.requestFocus();
                 }
                 ClsRoles clsrol = new ClsRoles();
-                if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null || txtUsu.getText() == ""
-                        || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
-                    JOptionPane.showMessageDialog(null, "todos los campos son obligatorios");
-                } else {
+                if (txtUsu.getText() == "" || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
+                    JOptionPane.showMessageDialog(null, "Es necesario agregar Usuario");
+                    txtUsu.requestFocus();
+                } else if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null) {
+                    JOptionPane.showMessageDialog(null, "Es necesario agregar Password");
+                    txtPass.requestFocus();
+                }else if (Integer.valueOf(cb_Idpersona5.getSelectedIndex())==0) {
+                    JOptionPane.showMessageDialog(null, "Es necesario seleccionar IdPersona");
+                    cb_Idpersona5.requestFocus();
+                }else {
                     clsrol.AgregarRol(rol);
                     limpiar();
                     MostrarTablaRoles();
@@ -445,15 +452,22 @@ public class fRoles extends javax.swing.JInternalFrame {
                 roles.setUsuario(txtUsu.getText());
                 roles.setPasword(txtPass.getText());
                 roles.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
-                if (radio != -1) {
+               if (radio != -1) {
                     roles.setTipoRol(radio);
                 } else {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar un rol");
+                    rbAdmin.requestFocus();
                 }
                 ClsRoles clsrol = new ClsRoles();
-                if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null || txtUsu.getText() == ""
-                        || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
-                    JOptionPane.showMessageDialog(null, "todos los campos son obligatorios");
+                if (txtUsu.getText() == "" || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
+                    JOptionPane.showMessageDialog(null, "Es necesario agregar Usuario");
+                    txtUsu.requestFocus();
+                } else if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null) {
+                    JOptionPane.showMessageDialog(null, "Es necesario agregar Password");
+                    txtPass.requestFocus();
+                }else if (Integer.valueOf(cb_Idpersona5.getSelectedIndex())==0) {
+                    JOptionPane.showMessageDialog(null, "Es necesario seleccionar IdPersona");
+                    cb_Idpersona5.requestFocus();
                 } else {
                     clsrol.ActualizarRol(roles);
                     limpiar();
@@ -462,9 +476,7 @@ public class fRoles extends javax.swing.JInternalFrame {
                 }
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Debe de llenar todos los campos");
-        }
+       
     }//GEN-LAST:event_btnInsertar5ActionPerformed
 
     private void rbAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdminActionPerformed

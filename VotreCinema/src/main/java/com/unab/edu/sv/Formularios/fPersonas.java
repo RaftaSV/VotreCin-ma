@@ -16,7 +16,6 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  *
  * @author 14-ck0013lab
@@ -34,25 +33,24 @@ public class fPersonas extends javax.swing.JInternalFrame {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
     }
-    
-      public void ajustartabla() {
+
+    public void ajustartabla() {
         // Ocultar la columna del ID de la pelicula
         tbPersonas.getColumnModel().getColumn(0).setMaxWidth(0);
         tbPersonas.getColumnModel().getColumn(0).setMinWidth(0);
         tbPersonas.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
         tbPersonas.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
-      
-           //Centrar en texto del encabezado de la tabla
+
+        //Centrar en texto del encabezado de la tabla
         DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbPersonas.getTableHeader().getDefaultRenderer();
         render.setHorizontalAlignment(JLabel.CENTER);
-          DefaultTableCellRenderer al = new DefaultTableCellRenderer();
+        DefaultTableCellRenderer al = new DefaultTableCellRenderer();
         al.setHorizontalAlignment(SwingConstants.CENTER);
         tbPersonas.getColumnModel().getColumn(1).setCellRenderer(al);
         tbPersonas.getColumnModel().getColumn(2).setCellRenderer(al);
         tbPersonas.getColumnModel().getColumn(3).setCellRenderer(al);
-        
-        
-}
+
+    }
 
     void CargarTabla() {
         String TITULOS[] = {"ID", "Nombres", "Apellidos", "DUI"};
@@ -70,8 +68,8 @@ public class fPersonas extends javax.swing.JInternalFrame {
         tbPersonas.setModel(model);
 
     }
-    
-     void limpiar() {
+
+    void limpiar() {
         txtApellido.setText("");
         txtDui.setText("");
         txtNombres.setText("");
@@ -79,6 +77,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         id = 0;
 
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -294,6 +293,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     int estado = 0;
     int id = 0;
+    
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (estado == 0) {
 
@@ -302,11 +302,40 @@ public class fPersonas extends javax.swing.JInternalFrame {
             per.setApellidos(txtApellido.getText());
             per.setDUI(txtDui.getText());
             ClsPersona cls = new ClsPersona();
-            if (txtDui.getText() == "" || txtDui.getText().isEmpty() || txtDui.getText() == null || txtApellido.getText() == ""
-                || txtApellido.getText().isEmpty() || txtApellido.getText() == null || txtNombres.getText() == "" || txtNombres.getText().isEmpty() || txtNombres.getText() == null) {
-                JOptionPane.showMessageDialog(null, "todos los campos son obligatorios");
+            if (txtNombres.getText() == "" || txtNombres.getText().isEmpty() || txtNombres.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es necesario agregar Nombre");
+                txtNombres.requestFocus(); 
+            } else if (txtApellido.getText() == "" || txtApellido.getText().isEmpty() || txtApellido.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es necesario agregar Apellido");
+                txtApellido.requestFocus();
+            } else if (txtDui.getText() == "" || txtDui.getText().isEmpty() || txtDui.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es necesario agregar Dui");
+                txtDui.requestFocus();
             } else {
                 cls.AgregarPersona(per);
+                limpiar();
+                CargarTabla();
+                ajustartabla();
+            }
+        } 
+       else if (estado == 1) {
+           Personas pers = new Personas();
+            pers.setIdPersona(id);
+            pers.setNombres(txtNombres.getText());
+            pers.setApellidos(txtApellido.getText());
+            pers.setDUI(txtDui.getText());
+            ClsPersona cls = new ClsPersona();
+         if (txtNombres.getText() == "" || txtNombres.getText().isEmpty() || txtNombres.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es necesario agregar Nombre");
+                txtNombres.requestFocus(); 
+            } else if (txtApellido.getText() == "" || txtApellido.getText().isEmpty() || txtApellido.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es necesario agregar Apellido");
+                txtApellido.requestFocus();
+            } else if (txtDui.getText() == "" || txtDui.getText().isEmpty() || txtDui.getText() == null) {
+                JOptionPane.showMessageDialog(null, "Es necesario agregar Dui");
+                txtDui.requestFocus();
+            } else {
+                cls.ActualizarPersona(pers);
                 limpiar();
                 CargarTabla();
                 ajustartabla();
@@ -322,7 +351,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         p.setIdPersona(id);
         cls.EliminarPersonas(p);
         CargarTabla();
-        ajustartabla() ;
+        ajustartabla();
         limpiar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -344,7 +373,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         txtDui.setText(Dui);
         txtNombres.setText(nombre);
     }//GEN-LAST:event_tbPersonasMouseClicked
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane TABLA;
