@@ -5,6 +5,7 @@
  */
 package com.unab.edu.sv.Formularios;
 
+
 import java.awt.AWTEventMulticaster;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
@@ -47,6 +48,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnProductos = new javax.swing.JButton();
         btnRoles = new javax.swing.JButton();
         btnPersonas = new javax.swing.JButton();
+        btnSalas = new javax.swing.JButton();
         panelcontenedor = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -185,6 +187,15 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnSalas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSalas.setText("SALAS");
+        btnSalas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
@@ -194,6 +205,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addComponent(btnProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnRoles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
             .addComponent(btnPersonas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnSalas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +219,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         panelcontenedor.setBackground(new java.awt.Color(255, 51, 51));
@@ -419,6 +433,39 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 panelcontenedor.add(persona);
                                 persona.setVisible(true);
                             }
+                        } else {
+                            if (cerrar == 6) {
+                                try {
+                                    producto.dispose();
+
+                                } catch (Exception e) {
+                                }
+                                try {
+                                    pelicula.dispose();
+                                } catch (Exception e) {
+                                }
+                                try {
+                                    proveedor.dispose();
+                                } catch (Exception e) {
+                                }
+                                try {
+                                    rol.dispose();
+                                } catch (Exception e) {
+                                }
+                                try {
+                                    persona.dispose();
+                                } catch (Exception e) {
+                                }
+                                if (Sala == null || Sala.isClosed()) {
+                                    Sala = new fSalas();
+                                    try {
+                                        Sala.setMaximum(true);
+                                    } catch (Exception e) {
+                                    }
+                                    panelcontenedor.add(Sala);
+                                    Sala.setVisible(true);
+                                }
+                            }
                         }
                     }
 
@@ -499,6 +546,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
     }//GEN-LAST:event_panelBarraMouseDragged
+    public fSalas Sala;
+    private void btnSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalasActionPerformed
+        // TODO add your handling code here:
+        cerrar = 6;
+        cerrar();
+    }//GEN-LAST:event_btnSalasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -544,6 +597,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnProveedores;
     private javax.swing.JButton btnRoles;
+    private javax.swing.JButton btnSalas;
     private javax.swing.JLabel btncerrar;
     private javax.swing.JPanel panelBarra;
     private javax.swing.JPanel panelFondo;

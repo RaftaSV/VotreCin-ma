@@ -13,7 +13,7 @@ import lombok.Data;
  */
 @Data
 public class Salas {
-    private int idSala;
+    public int idSala;
     private int Capacidad;
     private int Numero_Sala;
     private int Estado;
