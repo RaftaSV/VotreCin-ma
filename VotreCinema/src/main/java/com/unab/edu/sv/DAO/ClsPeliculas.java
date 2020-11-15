@@ -8,6 +8,7 @@ package com.unab.edu.sv.DAO;
 import java.sql.*;
 import java.util.*;
 import com.unab.edu.sv.Entidades.Peliculas;
+import com.unab.edu.sv.Formularios.frmLogin;
 import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.Connection;
@@ -84,8 +85,8 @@ public class ClsPeliculas {
             if (res == 0) {
                 call.execute();
                 JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
-                frmPrincipal principal = new frmPrincipal();
-                principal.pelicula.f.Limpiar();
+                 frmLogin log = new frmLogin();
+               log.principal.pelicula.f.Limpiar();
                 conectar.close();
             } else {
 

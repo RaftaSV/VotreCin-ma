@@ -7,6 +7,7 @@ package com.unab.edu.sv.DAO;
 
 import com.unab.edu.sv.Entidades.Personas;
 import com.unab.edu.sv.Entidades.Salas;
+import com.unab.edu.sv.Formularios.frmLogin;
 import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.CallableStatement;
@@ -67,8 +68,8 @@ public class ClsSalas {
             if (res == 0) {
                 call.execute();
                 JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
-                frmPrincipal principal = new frmPrincipal();
-                principal.Sala.limpiar();
+                frmLogin log = new frmLogin();
+                log.principal.Sala.limpiar();
                 conectar.close();
 
             } else {

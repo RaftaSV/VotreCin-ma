@@ -6,6 +6,7 @@
 package com.unab.edu.sv.DAO;
 
 import com.unab.edu.sv.Entidades.Personas;
+import com.unab.edu.sv.Formularios.frmLogin;
 import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.*;
@@ -66,8 +67,8 @@ public class ClsPersona {
             if (res == 0) {
                 call.execute();
                 JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
-                frmPrincipal principal = new frmPrincipal();
-                principal.persona.limpiar();
+                frmLogin log = new frmLogin();
+                log.principal.persona.limpiar();
                 conectar.close();
 
             } else {

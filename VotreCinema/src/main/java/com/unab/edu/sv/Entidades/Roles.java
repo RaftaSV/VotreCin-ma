@@ -5,7 +5,7 @@
  */
 package com.unab.edu.sv.Entidades;
 
-import lombok.*;
+import lombok.Data;
 
 /**
  *
@@ -13,7 +13,7 @@ import lombok.*;
  */
 @Data
 public class Roles extends Personas{
-    protected int idRol;
+      protected int idRol;
     protected String Usuario;
     protected String Pasword;
     protected int  TipoRol;

@@ -6,6 +6,7 @@
 package com.unab.edu.sv.DAO;
 
 import com.unab.edu.sv.Entidades.Productos;
+import com.unab.edu.sv.Formularios.frmLogin;
 import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.CallableStatement;
@@ -74,8 +75,8 @@ public class ClsProductos {
             if (res == 0) {
                 call.execute();
                 JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
-                frmPrincipal principal = new frmPrincipal();
-                principal.producto.Limpiar();       
+                 frmLogin log = new frmLogin();
+                log.principal.producto.Limpiar();       
                 conectar.close();
 
             } else {

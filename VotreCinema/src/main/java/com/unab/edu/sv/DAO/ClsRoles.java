@@ -6,6 +6,7 @@
 package com.unab.edu.sv.DAO;
 
 import com.unab.edu.sv.Entidades.Roles;
+import com.unab.edu.sv.Formularios.frmLogin;
 import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.CallableStatement;
@@ -76,8 +77,8 @@ public class ClsRoles {
             if (res == 0) {
                 cs.execute();
                 JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
-                frmPrincipal principal = new frmPrincipal();
-                principal.rol.limpiar();
+                 frmLogin log = new frmLogin();
+                log.principal.rol.limpiar();
                 conect.close();
 
             } else {
@@ -106,4 +107,19 @@ public class ClsRoles {
         }
 
     }
+    public void InsertarAdmin(Roles rol){
+        try {
+            CallableStatement call= conect.prepareCall("call  votrecinéma.SP_REGISTROADMIN(?,?,?,?,?)");
+            call.setString("pNombres", rol.getNombres());
+            call.setString("PApellidos", rol.getApellidos());
+            call.setString("pDUI", rol.getDUI());
+            call.setString("pUser", rol.getUsuario());
+            call.setString("pPass", rol.getPasword());
+            call.executeQuery();
+            JOptionPane.showMessageDialog(null, "Registro exitoso");
+        } catch (Exception e) {
+            System.out.println("error"+e);
+        }
+    }
+
 }

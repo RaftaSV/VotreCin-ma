@@ -13,13 +13,10 @@ import lombok.Data;
  */
 @Data
 public class Personas {
-public int idPersona;
-private String Nombres;
-private String Apellidos;
-private String DUI;
-private int Estado;
 
-
-
-    
+    public int idPersona;
+    private String Nombres;
+    private String Apellidos;
+    private String DUI;
+    private int Estado;
 }

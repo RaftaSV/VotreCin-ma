@@ -7,6 +7,8 @@ package com.unab.edu.sv.Formularios;
 
 import com.unab.edu.sv.DAO.ClsLogin;
 import com.unab.edu.sv.DAO.ClsRoles;
+import com.unab.edu.sv.Entidades.Roles;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,8 +22,25 @@ public class frmLogin extends javax.swing.JFrame {
      */
     public frmLogin() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        cargarRegistro();
     }
 
+    void cargarRegistro(){
+        try {
+              ClsRoles rol = new ClsRoles();
+        ArrayList<Roles> roll = rol.MostrarRoles();
+        if (roll.size() > 0) {
+            lblRegistro.setVisible(false);
+        } else {
+            lblRegistro.setVisible(true);
+        }
+            
+        } catch (Exception e) {
+        }
+      
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,12 +56,12 @@ public class frmLogin extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         lblpass = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblRegistro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.BorderLayout());
 
-        panelFondo.setBackground(new java.awt.Color(204, 255, 204));
+        panelFondo.setBackground(new java.awt.Color(0, 153, 153));
 
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,29 +83,42 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unab/edu/sv/Formularios/decorvotrecinema.png"))); // NOI18N
+        lblRegistro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblRegistro.setText("Nuevo? aqui puedes registrarte");
+        lblRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRegistroMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblpass)
-                        .addGap(132, 132, 132))
+                        .addComponent(lblpass, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(213, 213, 213))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(btnIngresar)
-                        .addGap(107, 107, 107))
-                    .addComponent(txtUsuario)
-                    .addComponent(txtPass)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblUsuario)
-                        .addGap(127, 127, 127)))
-                .addGap(94, 94, 94))
+                        .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(208, 208, 208))))
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addGap(515, 515, 515)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addComponent(lblRegistro)
+                        .addContainerGap())
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                                .addComponent(btnIngresar)
+                                .addGap(107, 107, 107))
+                            .addComponent(txtUsuario)
+                            .addComponent(txtPass))
+                        .addGap(94, 94, 94))))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,10 +133,9 @@ public class frmLogin extends javax.swing.JFrame {
                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnIngresar)
-                .addContainerGap(185, Short.MAX_VALUE))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblRegistro)
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelFondo, java.awt.BorderLayout.CENTER);
@@ -116,9 +147,10 @@ public class frmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPassActionPerformed
 
+    public static frmPrincipal principal = new frmPrincipal();
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-          ClsLogin log = new ClsLogin();
+        ClsLogin log = new ClsLogin();
         String usu = txtUsuario.getText();
         String pass = txtPass.getText();
           
@@ -126,7 +158,8 @@ public class frmLogin extends javax.swing.JFrame {
  
         if (!usu.isEmpty() && !pass.isEmpty()) {
             if (resutadoCon == true) {
-                JOptionPane.showMessageDialog(null, "Wellcome");
+                JOptionPane.showMessageDialog(null, "Wellcome" + txtUsuario.getText());
+                principal.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Close");
             }
@@ -134,6 +167,11 @@ public class frmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void lblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseClicked
+        frmInsertUser user = new frmInsertUser();
+        user.setVisible(true);
+    }//GEN-LAST:event_lblRegistroMouseClicked
 
     /**
      * @param args the command line arguments
@@ -173,7 +211,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblRegistro;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblpass;
     private javax.swing.JPanel panelFondo;
