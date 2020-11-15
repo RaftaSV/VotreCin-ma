@@ -7,6 +7,7 @@ package com.unab.edu.sv.DAO;
 
 import com.unab.edu.sv.Entidades.Productos;
 import com.unab.edu.sv.Entidades.Proveedores;
+import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.lang.invoke.CallSite;
 import java.sql.CallableStatement;
@@ -67,8 +68,17 @@ public class ClsProveedores {
             call.setString("pNombre", pro.getNombre());
             call.setString("pTelefono", pro.getTelefono());
             call.setString("pDireccion", pro.getDirecion());
-            call.execute();
-            conectar.close();
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.execute();
+                JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
+                frmPrincipal principal = new frmPrincipal();
+                principal.proveedor.Limpiar();
+                conectar.close();
+
+            } else {
+
+            }
             JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
         } catch (Exception e) {
             System.out.println("Error" + e);
@@ -79,9 +89,15 @@ public class ClsProveedores {
         try {
             CallableStatement call = conectar.prepareCall("call SP_D_PROVEEDORES(?)");
             call.setInt("pId", pro.getIdProveedor());
-            call.execute();
+            int res = JOptionPane.showConfirmDialog(null, "Desea ¿Eliminar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.execute();
+                JOptionPane.showMessageDialog(null, "Eliminado exitosamente");
+            } else {
+
+            }
             conectar.close();
-            JOptionPane.showMessageDialog(null, "Eliminado exitosamente");
+
         } catch (Exception e) {
             System.out.println("Error" + e);
         }

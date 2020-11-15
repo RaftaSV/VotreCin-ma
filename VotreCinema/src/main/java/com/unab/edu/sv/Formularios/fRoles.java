@@ -337,7 +337,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         }
     }
 
-    void limpiar() {
+    public void limpiar() {
         radio = -1;
         txtUsu.setText("");
         txtPass.setText("");
@@ -437,7 +437,6 @@ public class fRoles extends javax.swing.JInternalFrame {
                     roles.setPasword(txtPass.getText());
                     roles.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
                     clsrol.ActualizarRol(roles);
-                    limpiar();
                     MostrarTablaRoles();
                     ajustartabla();
                 } else {

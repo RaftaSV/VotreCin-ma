@@ -7,6 +7,7 @@ package com.unab.edu.sv.DAO;
 
 import com.unab.edu.sv.Entidades.Personas;
 import com.unab.edu.sv.Entidades.Salas;
+import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -55,25 +56,41 @@ public class ClsSalas {
         }
 
     }
-    
+
     public void ActualizarSala(Salas S) {
         try {
             CallableStatement call = conectar.prepareCall("call SP_U_SALAS(?,?,?)");
             call.setInt("pid", S.getIdSala());
             call.setInt("pCapacidad", S.getCapacidad());
             call.setInt("pNumero", S.getNumero_Sala());
-            call.execute();
-            JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
+             int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.execute();
+                JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
+                frmPrincipal principal = new frmPrincipal();
+                principal.Sala.limpiar();
+                conectar.close();
+
+            } else {
+
+            }
         } catch (Exception e) {
             System.out.println("Error" + e);
         }
     }
+
     public void EliminarSala(Salas sa) {
         try {
             CallableStatement call = conectar.prepareCall("call SP_D_SALAS(?)");
             call.setInt("pId", sa.idSala);
-            call.execute();
-            JOptionPane.showMessageDialog(null, "Eliminacion Exitosa");
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.execute();
+                JOptionPane.showMessageDialog(null, "Eliminacion Exitosa");
+            } else {
+
+            }
+
         } catch (Exception e) {
             System.out.println("Error" + e);
         }

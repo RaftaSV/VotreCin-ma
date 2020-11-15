@@ -37,7 +37,7 @@ public class fProductos extends javax.swing.JInternalFrame {
     int indicador = 0;
     int id = 0;
 
-    void Limpiar() {
+   public void Limpiar() {
         txtCantidad.setText(null);
         txtPrecio.setText(null);
         txtNombre.setText(null);
@@ -444,7 +444,6 @@ public void ajustartabla() {
                             prod.setIdProveedor(Integer.parseInt(valuemember[cmbProveedor.getSelectedIndex()]));
                             ClsProductos cls = new ClsProductos();
                             cls.ActualiarProducto(prod);
-                            Limpiar();
                             CargarDatos();
                             ajustartabla();
                         }

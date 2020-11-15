@@ -410,7 +410,6 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         f.pelicula.cargartabla();
                                         f.pelicula.ajustartabla();
 
-                                        Limpiar();
                                     } else {
                                         try {
                                             File ruta = new File(txtSeleccionar.getText());
@@ -436,7 +435,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         frmPrincipal f = new frmPrincipal();
                                         f.pelicula.cargartabla();
                                         f.pelicula.ajustartabla();
-                                        Limpiar();
+                                    
 
                                     }
                                 }

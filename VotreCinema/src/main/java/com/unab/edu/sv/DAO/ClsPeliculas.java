@@ -8,6 +8,7 @@ package com.unab.edu.sv.DAO;
 import java.sql.*;
 import java.util.*;
 import com.unab.edu.sv.Entidades.Peliculas;
+import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -79,8 +80,17 @@ public class ClsPeliculas {
             call.setString("pSipnosis", peli.getSipnosis());
             call.setInt("pTipo", peli.getTipo());
             call.setInt("pClasificacion", peli.getClasificacion());
-            call.executeQuery();
-            JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.execute();
+                JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
+                frmPrincipal principal = new frmPrincipal();
+                principal.pelicula.f.Limpiar();
+                conectar.close();
+            } else {
+
+            }
+
             conectar.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -118,9 +128,15 @@ public class ClsPeliculas {
         try {
             CallableStatement call = conectar.prepareCall("call SP_D_PELICULAS(?)");
             call.setInt("pId", pelicula.getIdPelicula());
-            ResultSet resultado = call.executeQuery();
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.execute();
+                JOptionPane.showMessageDialog(null, "Eliminado exitosamente");
+            } else {
+
+            }
             conectar.close();
-            JOptionPane.showMessageDialog(null, "Eliminado exitosamente");
+
         } catch (Exception e) {
             System.out.println("Error" + e);
         }

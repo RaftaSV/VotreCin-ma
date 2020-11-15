@@ -316,7 +316,7 @@ public void ajustartabla() {
         txtTelefono.setText(telefono);
     }//GEN-LAST:event_tbProveedoresMouseClicked
 
-    void Limpiar() {
+    public void Limpiar() {
         txtDireccion.setText("");
         txtNombre.setText("");
         txtTelefono.setText("");
@@ -331,7 +331,7 @@ public void ajustartabla() {
             pro.setTelefono(txtTelefono.getText());
             pro.setDirecion(txtDireccion.getText());
             ClsProveedores cls = new ClsProveedores();
-             if ( txtNombre.getText() == "" || txtNombre.getText().isEmpty() || txtNombre.getText() == null) {
+            if (txtNombre.getText() == "" || txtNombre.getText().isEmpty() || txtNombre.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es obligatorio agregar Nombre");
                 txtNombre.requestFocus();
             } else if (txtTelefono.getText() == "" || txtTelefono.getText().isEmpty() || txtTelefono.getText() == null) {
@@ -340,7 +340,7 @@ public void ajustartabla() {
             } else if (txtDireccion.getText() == "" || txtDireccion.getText().isEmpty() || txtDireccion.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es obligatorio agregar Direccion");
                 txtDireccion.requestFocus();
-            }else{ 
+            } else {
                 cls.GuardarProveedor(pro);
                 Limpiar();
                 CargarTabla();
@@ -354,7 +354,7 @@ public void ajustartabla() {
             proo.setTelefono(txtTelefono.getText());
             proo.setDirecion(txtDireccion.getText());
             ClsProveedores cls = new ClsProveedores();
-            if ( txtNombre.getText() == "" || txtNombre.getText().isEmpty() || txtNombre.getText() == null) {
+            if (txtNombre.getText() == "" || txtNombre.getText().isEmpty() || txtNombre.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es obligatorio agregar Nombre");
                 txtNombre.requestFocus();
             } else if (txtTelefono.getText() == "" || txtTelefono.getText().isEmpty() || txtTelefono.getText() == null) {
@@ -363,9 +363,8 @@ public void ajustartabla() {
             } else if (txtDireccion.getText() == "" || txtDireccion.getText().isEmpty() || txtDireccion.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es obligatorio agregar Direccion");
                 txtDireccion.requestFocus();
-            }else{ 
+            } else {
                 cls.ActualizarProveedor(proo);
-                Limpiar();
                 CargarTabla();
                 ajustartabla();
             }

@@ -69,7 +69,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
 
     }
 
-    void limpiar() {
+    public void limpiar() {
         txtApellido.setText("");
         txtDui.setText("");
         txtNombres.setText("");
@@ -336,7 +336,6 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 txtDui.requestFocus();
             } else {
                 cls.ActualizarPersona(pers);
-                limpiar();
                 CargarTabla();
                 ajustartabla();
             }

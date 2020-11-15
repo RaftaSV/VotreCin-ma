@@ -257,7 +257,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
         tbPeliculas.setModel(modelo);
 
     }
-    frmPeliculas f = new frmPeliculas();
+    public frmPeliculas f = new frmPeliculas();
     private void tbPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPeliculasMouseClicked
 
         int fila = tbPeliculas.getSelectedRow();

@@ -25,8 +25,8 @@ public class fSalas extends javax.swing.JInternalFrame {
      */
     public fSalas() {
         initComponents();
-        ajustartabla();
         CargarTabla();
+        ajustartabla();
         limpiar();
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -263,7 +263,7 @@ public class fSalas extends javax.swing.JInternalFrame {
 
     }
 
-    void limpiar() {
+    public void limpiar() {
         txtCapacidad.setText("");
         txtNumerodeSala.setText("");
         estado = 0;
@@ -308,7 +308,7 @@ public class fSalas extends javax.swing.JInternalFrame {
                 sal.setNumero_Sala(Integer.valueOf(txtNumerodeSala.getText()));
                 ClsSalas salas = new ClsSalas();
                 salas.ActualizarSala(sal);
-                limpiar();
+             
                 CargarTabla();
                 ajustartabla();
             }

@@ -6,6 +6,7 @@
 package com.unab.edu.sv.DAO;
 
 import com.unab.edu.sv.Entidades.Roles;
+import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.CallableStatement;
 import java.sql.*;
@@ -71,19 +72,35 @@ public class ClsRoles {
             cs.setString("pPass", r.getPasword());
             cs.setInt("pTipoRol", r.getTipoRol());
             cs.setInt("pIdPersona", r.getId_Persona());
-            cs.execute();
-            JOptionPane.showMessageDialog(null, "Actualizado Exitoso");
+          int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                cs.execute();
+                JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
+                frmPrincipal principal = new frmPrincipal();
+                principal.rol.limpiar();
+                conect.close();
+
+            } else {
+
+            }
         } catch (Exception e) {
             System.out.println("Error" + e);
         }
 
     }
-        public void EliminarRol(Roles r) {
+
+    public void EliminarRol(Roles r) {
         try {
             CallableStatement cs = conect.prepareCall("call SP_D_ROLES(?)");
             cs.setInt("pIdRol", r.getIdRol());
-            cs.execute();
-            JOptionPane.showMessageDialog(null, "Eliminado Exitoso");
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                cs.execute();
+                JOptionPane.showMessageDialog(null, "Eliminado Exitoso");
+            } else {
+
+            }
+
         } catch (Exception e) {
             System.out.println("Error" + e);
         }

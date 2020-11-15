@@ -6,6 +6,7 @@
 package com.unab.edu.sv.DAO;
 
 import com.unab.edu.sv.Entidades.Personas;
+import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.*;
 import java.util.*;
@@ -61,8 +62,18 @@ public class ClsPersona {
             call.setString("pNombres", p.getNombres());
             call.setString("pApellidos", p.getApellidos());
             call.setString("pDUI", p.getDUI());
-            call.execute();
-            JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.execute();
+                JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
+                frmPrincipal principal = new frmPrincipal();
+                principal.persona.limpiar();
+                conectar.close();
+
+            } else {
+
+            }
+
         } catch (Exception e) {
             System.out.println("Error" + e);
         }
@@ -72,8 +83,14 @@ public class ClsPersona {
         try {
             CallableStatement call = conectar.prepareCall("call SP_D_PERSONAS(?)");
             call.setInt("pId", per.idPersona);
-            call.execute();
-            JOptionPane.showMessageDialog(null, "Eliminacion Exitosa");
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.execute();
+                JOptionPane.showMessageDialog(null, "Eliminacion Exitosa");
+            } else {
+
+            }
+
         } catch (Exception e) {
             System.out.println("Error" + e);
         }

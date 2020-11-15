@@ -121,6 +121,7 @@ public class frmLogin extends javax.swing.JFrame {
           ClsLogin log = new ClsLogin();
         String usu = txtUsuario.getText();
         String pass = txtPass.getText();
+          
         var resutadoCon = log.Rol(usu, pass);
  
         if (!usu.isEmpty() && !pass.isEmpty()) {
