@@ -158,7 +158,8 @@ public class frmLogin extends javax.swing.JFrame {
  
         if (!usu.isEmpty() && !pass.isEmpty()) {
             if (resutadoCon == true) {
-                JOptionPane.showMessageDialog(null, "Wellcome" + txtUsuario.getText());
+                JOptionPane.showMessageDialog(null, "Wellcome " + txtUsuario.getText());
+                this.dispose();
                 principal.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Close");
@@ -205,6 +206,7 @@ public class frmLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmLogin().setVisible(true);
+                lblRegistro.setVisible(false);
             }
         });
     }

@@ -111,7 +111,7 @@ public class ClsRoles {
         try {
             CallableStatement call= conect.prepareCall("call  votrecinéma.SP_REGISTROADMIN(?,?,?,?,?)");
             call.setString("pNombres", rol.getNombres());
-            call.setString("PApellidos", rol.getApellidos());
+            call.setString("pApellidos", rol.getApellidos());
             call.setString("pDUI", rol.getDUI());
             call.setString("pUser", rol.getUsuario());
             call.setString("pPass", rol.getPasword());

@@ -5,6 +5,8 @@
  */
 package com.unab.edu.sv.Formularios;
 
+import com.unab.edu.sv.DAO.ClsRoles;
+import com.unab.edu.sv.Entidades.Roles;
 import javax.swing.JOptionPane;
 
 /**
@@ -267,7 +269,17 @@ public class frmInsertUser extends javax.swing.JFrame {
             txtPass.requestFocus();
         }
         else{
-        JOptionPane.showMessageDialog(null, "Wellcome");
+            try {
+                Roles rol = new Roles();
+                rol.setNombres(txtNombres.getText());
+                rol.setApellidos(txtApellido.getText());
+                rol.setDUI(txtDui.getText());
+                rol.setUsuario(txtUsu.getText());
+                rol.setPasword(txtPass.getText());
+                ClsRoles r = new ClsRoles();
+                r.InsertarAdmin(rol);
+            } catch (Exception e) {
+            }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
