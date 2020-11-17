@@ -238,7 +238,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
             // a justicifado
             fila[2] = "<HTML>" + "<p align=\"justify\">" + i.getNombre() + "</HTML>";
             fila[3] = "<HTML>" + "<p align=\"justify\">" + String.valueOf(formato.format(i.getYear())) + "</HTML>";
-            fila[4] = "<HTML>" + "<p align=\"justify\">" + String.valueOf(formatohora.format(i.getDuracion())) + "</HTML>";
+            fila[4] = "<HTML>" + "<p align=\"justify\">" + String.valueOf(i.getDuracion()) + "</HTML>";
             if (i.getClasificacion() == 0) {
                 fila[5] = "<HTML>" + "<p align=\"justify\">" + "Para toda la familia" + "</HTML>";
             } else if (i.getClasificacion() == 1) {
