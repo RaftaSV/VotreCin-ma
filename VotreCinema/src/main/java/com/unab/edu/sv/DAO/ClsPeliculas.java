@@ -36,7 +36,7 @@ public class ClsPeliculas {
                 peli.setNombre(resultado.getString("Nombre"));
                 peli.setPortada(resultado.getBytes("Portada"));
                 peli.setYear(resultado.getDate("Yearr"));
-                peli.setDuracion(resultado.getDate("Duracion"));
+                peli.setDuracion(resultado.getTime("Duracion"));
                 peli.setSipnosis(resultado.getString("Sipnosis"));
                 peli.setClasificacion(resultado.getInt("Clasificacion"));
                 peli.setTipo(resultado.getInt("Tipo"));
@@ -111,7 +111,7 @@ public class ClsPeliculas {
                 peli.setNombre(resultado.getString("Nombre"));
                 peli.setPortada(resultado.getBytes("Portada"));
                 peli.setYear(resultado.getDate("Yearr"));
-                peli.setDuracion(resultado.getDate("Duracion"));
+                peli.setDuracion(resultado.getTime("Duracion"));
                 peli.setSipnosis(resultado.getString("Sipnosis"));
                 peli.setClasificacion(resultado.getInt("Clasificacion"));
                 peli.setTipo(resultado.getInt("Tipo"));

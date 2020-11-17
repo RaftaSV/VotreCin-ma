@@ -6,6 +6,7 @@
 package com.unab.edu.sv.Entidades;
 
 import java.io.File;
+import java.sql.Time;
 import java.util.Date;
 import lombok.Data;
 
@@ -20,7 +21,7 @@ public class Peliculas {
     private String Nombre;
     private byte[] Portada;
     private Date Year;
-    private Date  Duracion;
+    private Time  Duracion;
     private String Sipnosis;
     private int Tipo;
     private int clasificacion;
