@@ -286,8 +286,16 @@ public class frmPeliculas extends javax.swing.JFrame {
     SimpleDateFormat formatohora = new SimpleDateFormat("hh:mm:ss");
 
     public void cargartextbox() throws IOException {
+        String hora;
+        String horass;
+        String Minuto;
+        String Minutoss;
         for (var i : pel) {
-            // txtDuracion.setText(String.valueOf(i.getDuracion()));
+           hora=String.valueOf(i.getDuracion());
+           horass = hora.substring(0,3);
+           Minuto = String.valueOf(i.getDuracion());
+           Minutoss = Minuto.substring(3,5);
+           horas.setSelectedIndex(Integer.valueOf(horass));
             txtNombreP.setText(i.getNombre());
             txtSinopsis.setText(i.getSipnosis());
             if (i.getTipo() == 0) {
@@ -391,7 +399,6 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         peli.setSipnosis(txtSinopsis.getText());
                                         peli.setYear(jdcAnio.getDate());
                                         ClsPeliculas cls = new ClsPeliculas();
-                                        System.out.println(peli.getDuracion());
                                         cls.InsertarPelicula(peli);
                                         frmPrincipal f = new frmPrincipal();
                                         f.pelicula.cargartabla();
@@ -437,7 +444,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         for (var i : pel) {
                                             pelic.setPortada(i.getPortada());
                                         }
-//                                        pelic.setDuracion(Double.valueOf(txtDuracion.getText()));
+                                        pelic.setDuracion(Time.valueOf(hor + ":00"));
                                         pelic.setTipo(tipo);
                                         pelic.setClasificacion(clasificacion);
                                         pelic.setSipnosis(txtSinopsis.getText());
@@ -463,7 +470,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         pelic.setIdPelicula(id);
                                         pelic.setNombre(txtNombreP.getText());
                                         pelic.setPortada(icono);
-//                                        pelic.setDuracion(Double.valueOf(txtDuracion.getText()));
+                                        pelic.setDuracion(Time.valueOf(hor + ":00"));
                                         pelic.setTipo(tipo);
                                         pelic.setClasificacion(clasificacion);
                                         pelic.setSipnosis(txtSinopsis.getText());
