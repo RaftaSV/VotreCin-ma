@@ -36,7 +36,7 @@ public class ClsPeliculas {
                 peli.setNombre(resultado.getString("Nombre"));
                 peli.setPortada(resultado.getBytes("Portada"));
                 peli.setYear(resultado.getDate("Yearr"));
-                peli.setDuracion(resultado.getDouble("Duracion"));
+                peli.setDuracion(resultado.getDate("Duracion"));
                 peli.setSipnosis(resultado.getString("Sipnosis"));
                 peli.setClasificacion(resultado.getInt("Clasificacion"));
                 peli.setTipo(resultado.getInt("Tipo"));
@@ -57,7 +57,7 @@ public class ClsPeliculas {
             call.setString("pNombre", peli.getNombre());
             call.setBytes("pPortada", peli.getPortada());
             call.setDate("pYear", new java.sql.Date(peli.getYear().getTime()));
-            call.setDouble("pDuracion", peli.getDuracion());
+            call.setDate("pDuracion", new java.sql.Date(peli.getDuracion().getTime()));
             call.setString("pSipnosis", peli.getSipnosis());
             call.setInt("pTipo", peli.getTipo());
             call.setInt("pClasificacion", peli.getClasificacion());
@@ -77,7 +77,7 @@ public class ClsPeliculas {
             call.setString("pNombre", peli.getNombre());
             call.setBytes("pPortada", peli.getPortada());
             call.setDate("pYear", new java.sql.Date(peli.getYear().getTime()));
-            call.setDouble("pDuracion", peli.getDuracion());
+            call.setDate("pDuracion", new java.sql.Date(peli.getDuracion().getTime()));
             call.setString("pSipnosis", peli.getSipnosis());
             call.setInt("pTipo", peli.getTipo());
             call.setInt("pClasificacion", peli.getClasificacion());
@@ -111,7 +111,7 @@ public class ClsPeliculas {
                 peli.setNombre(resultado.getString("Nombre"));
                 peli.setPortada(resultado.getBytes("Portada"));
                 peli.setYear(resultado.getDate("Yearr"));
-                peli.setDuracion(resultado.getDouble("Duracion"));
+                peli.setDuracion(resultado.getDate("Duracion"));
                 peli.setSipnosis(resultado.getString("Sipnosis"));
                 peli.setClasificacion(resultado.getInt("Clasificacion"));
                 peli.setTipo(resultado.getInt("Tipo"));

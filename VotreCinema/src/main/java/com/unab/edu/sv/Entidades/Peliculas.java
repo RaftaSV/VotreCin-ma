@@ -20,7 +20,7 @@ public class Peliculas {
     private String Nombre;
     private byte[] Portada;
     private Date Year;
-    private double  Duracion;
+    private Date  Duracion;
     private String Sipnosis;
     private int Tipo;
     private int clasificacion;

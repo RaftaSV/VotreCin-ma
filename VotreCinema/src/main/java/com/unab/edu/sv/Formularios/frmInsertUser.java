@@ -278,6 +278,7 @@ public class frmInsertUser extends javax.swing.JFrame {
                 rol.setPasword(txtPass.getText());
                 ClsRoles r = new ClsRoles();
                 r.InsertarAdmin(rol);
+                this.dispose();
             } catch (Exception e) {
             }
         }

@@ -347,7 +347,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         Peliculas peli = new Peliculas();
                                         peli.setNombre(txtNombreP.getText());
                                         peli.setPortada(icono);
-                                        peli.setDuracion(Double.valueOf(txtDuracion.getText()));
+                                      //  peli.setDuracion(Double.valueOf(txtDuracion.getText()));
                                         peli.setTipo(tipo);
                                         peli.setClasificacion(clasificacion);
                                         peli.setSipnosis(txtSinopsis.getText());
@@ -399,7 +399,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         for (var i : pel) {
                                             pelic.setPortada(i.getPortada());
                                         }
-                                        pelic.setDuracion(Double.valueOf(txtDuracion.getText()));
+//                                        pelic.setDuracion(Double.valueOf(txtDuracion.getText()));
                                         pelic.setTipo(tipo);
                                         pelic.setClasificacion(clasificacion);
                                         pelic.setSipnosis(txtSinopsis.getText());
@@ -425,7 +425,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         pelic.setIdPelicula(id);
                                         pelic.setNombre(txtNombreP.getText());
                                         pelic.setPortada(icono);
-                                        pelic.setDuracion(Double.valueOf(txtDuracion.getText()));
+//                                        pelic.setDuracion(Double.valueOf(txtDuracion.getText()));
                                         pelic.setTipo(tipo);
                                         pelic.setClasificacion(clasificacion);
                                         pelic.setSipnosis(txtSinopsis.getText());
