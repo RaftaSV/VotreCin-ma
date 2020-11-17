@@ -57,7 +57,7 @@ public class ClsPeliculas {
             call.setString("pNombre", peli.getNombre());
             call.setBytes("pPortada", peli.getPortada());
             call.setDate("pYear", new java.sql.Date(peli.getYear().getTime()));
-            call.setDate("pDuracion", new java.sql.Date(peli.getDuracion().getTime()));
+            call.setTime("pDuracion", peli.getDuracion());
             call.setString("pSipnosis", peli.getSipnosis());
             call.setInt("pTipo", peli.getTipo());
             call.setInt("pClasificacion", peli.getClasificacion());

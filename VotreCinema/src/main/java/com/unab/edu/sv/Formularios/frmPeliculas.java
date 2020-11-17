@@ -15,11 +15,15 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.naming.ldap.Rdn;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -43,12 +47,29 @@ public class frmPeliculas extends javax.swing.JFrame {
         this.setResizable(false);
         txtSinopsis.setLineWrap(true);
         txtSinopsis.setWrapStyleWord(true);
+        cargarcomboshora();
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             Logger.getLogger(frmPeliculas.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+
+    public void cargarcomboshora() {
+        DefaultComboBoxModel hora = new DefaultComboBoxModel();
+        hora.addElement("0");
+        for (int i = 1; i < 6; i++) {
+            hora.addElement(i);
+        }
+        horas.setModel(hora);
+        DefaultComboBoxModel minuto = new DefaultComboBoxModel();
+        minuto.addElement("0");
+        for (int i = 1; i < 61; i++) {
+            minuto.addElement(i);
+        }
+        minutos.setModel(minuto);
 
     }
 
@@ -70,7 +91,6 @@ public class frmPeliculas extends javax.swing.JFrame {
         lblYear = new javax.swing.JLabel();
         lblDuracion = new javax.swing.JLabel();
         lblSinopsis = new javax.swing.JLabel();
-        txtDuracion = new javax.swing.JTextField();
         rb3D = new javax.swing.JRadioButton();
         rb2D = new javax.swing.JRadioButton();
         rbTodos = new javax.swing.JRadioButton();
@@ -86,6 +106,10 @@ public class frmPeliculas extends javax.swing.JFrame {
         lblPortada = new javax.swing.JLabel();
         lblImagen = new javax.swing.JLabel();
         rbMayoresde18 = new javax.swing.JRadioButton();
+        horas = new javax.swing.JComboBox<>();
+        minutos = new javax.swing.JComboBox<>();
+        lblHoras = new javax.swing.JLabel();
+        lblMinutos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -120,48 +144,40 @@ public class frmPeliculas extends javax.swing.JFrame {
         lblDuracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblDuracion.setForeground(new java.awt.Color(255, 255, 255));
         lblDuracion.setText("Duracion");
-        panelFondo.add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 265, -1, -1));
+        panelFondo.add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
         lblSinopsis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblSinopsis.setForeground(new java.awt.Color(255, 255, 255));
         lblSinopsis.setText("Sinopsis");
-        panelFondo.add(lblSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 317, -1, -1));
-
-        txtDuracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtDuracion.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtDuracionKeyReleased(evt);
-            }
-        });
-        panelFondo.add(txtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 320, -1));
+        panelFondo.add(lblSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
 
         rb3D.setBackground(new java.awt.Color(0, 0, 0));
         Tipo.add(rb3D);
         rb3D.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rb3D.setForeground(new java.awt.Color(255, 255, 255));
         rb3D.setText("3D");
-        panelFondo.add(rb3D, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 438, -1, -1));
+        panelFondo.add(rb3D, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, -1, -1));
 
         rb2D.setBackground(new java.awt.Color(0, 0, 0));
         Tipo.add(rb2D);
         rb2D.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rb2D.setForeground(new java.awt.Color(255, 255, 255));
         rb2D.setText("2D");
-        panelFondo.add(rb2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 438, -1, -1));
+        panelFondo.add(rb2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
 
         rbTodos.setBackground(new java.awt.Color(0, 0, 0));
         Clasificacion.add(rbTodos);
         rbTodos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbTodos.setForeground(new java.awt.Color(255, 255, 255));
         rbTodos.setText("Toda la Familia");
-        panelFondo.add(rbTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 477, -1, -1));
+        panelFondo.add(rbTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, -1));
 
         rbMayoresde15.setBackground(new java.awt.Color(0, 0, 0));
         Clasificacion.add(rbMayoresde15);
         rbMayoresde15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbMayoresde15.setForeground(new java.awt.Color(255, 255, 255));
         rbMayoresde15.setText("Mayores de 15 años");
-        panelFondo.add(rbMayoresde15, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 477, -1, -1));
+        panelFondo.add(rbMayoresde15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 530, -1, -1));
 
         txtSeleccionar.setEditable(false);
         txtSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -183,7 +199,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                 btnInsertarActionPerformed(evt);
             }
         });
-        panelFondo.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
+        panelFondo.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, -1, -1));
 
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
@@ -192,7 +208,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        panelFondo.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 520, -1, -1));
+        panelFondo.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 580, -1, -1));
 
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -201,7 +217,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        panelFondo.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 520, -1, -1));
+        panelFondo.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, -1, -1));
 
         jdcAnio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         panelFondo.add(jdcAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 239, 320, -1));
@@ -211,7 +227,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         txtSinopsis.setRows(5);
         jScrollPane1.setViewportView(txtSinopsis);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 320, -1));
+        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 320, -1));
 
         lblPortada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPortada.setForeground(new java.awt.Color(255, 255, 255));
@@ -219,6 +235,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         panelFondo.add(lblPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 162, -1, -1));
 
         lblImagen.setBackground(new java.awt.Color(0, 0, 0));
+        lblImagen.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panelFondo.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 115, 260, 347));
 
         rbMayoresde18.setBackground(new java.awt.Color(0, 0, 0));
@@ -226,7 +243,23 @@ public class frmPeliculas extends javax.swing.JFrame {
         rbMayoresde18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbMayoresde18.setForeground(new java.awt.Color(255, 255, 255));
         rbMayoresde18.setText("Mayores de 18 años");
-        panelFondo.add(rbMayoresde18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 477, -1, -1));
+        panelFondo.add(rbMayoresde18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 530, -1, -1));
+
+        horas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelFondo.add(horas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 70, -1));
+
+        minutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelFondo.add(minutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 70, -1));
+
+        lblHoras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblHoras.setForeground(new java.awt.Color(255, 255, 255));
+        lblHoras.setText("Horas");
+        panelFondo.add(lblHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
+
+        lblMinutos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblMinutos.setForeground(new java.awt.Color(255, 255, 255));
+        lblMinutos.setText("Minutos");
+        panelFondo.add(lblMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,7 +269,9 @@ public class frmPeliculas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -248,10 +283,11 @@ public class frmPeliculas extends javax.swing.JFrame {
 
     public ArrayList<Peliculas> pel;
     byte[] imagen;
+    SimpleDateFormat formatohora = new SimpleDateFormat("hh:mm:ss");
 
     public void cargartextbox() throws IOException {
         for (var i : pel) {
-            txtDuracion.setText(String.valueOf(i.getDuracion()));
+            // txtDuracion.setText(String.valueOf(i.getDuracion()));
             txtNombreP.setText(i.getNombre());
             txtSinopsis.setText(i.getSipnosis());
             if (i.getTipo() == 0) {
@@ -283,7 +319,7 @@ public class frmPeliculas extends javax.swing.JFrame {
 
     public void Limpiar() {
         identificador = 0;
-        txtDuracion.setText(null);
+        // txtDuracion.setText(null);
         txtNombreP.setText(null);
         txtSeleccionar.setText(null);
         txtSinopsis.setText(null);
@@ -303,7 +339,8 @@ public class frmPeliculas extends javax.swing.JFrame {
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         radiobutton();
-
+        int min = Integer.valueOf(minutos.getSelectedIndex());
+        int hor = Integer.valueOf(horas.getSelectedIndex());
         byte[] icono = null;
 
         if (identificador == 0) {
@@ -325,9 +362,9 @@ public class frmPeliculas extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Debe asignar un año");
                     jdcAnio.requestFocus();
                 } else {
-                    if (txtDuracion.getText() == null || txtDuracion.getText() == "" || txtDuracion.getText().isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Debe de asignar una Duracion de la pelicula");
-                        txtDuracion.requestFocus();
+                    if (min == 0&&hor==0) {
+                        JOptionPane.showMessageDialog(null, "Debe de asignar una duracion");
+                        minutos.requestFocus();
                     } else {
                         if (txtSinopsis.getText() == null || txtSinopsis.getText() == "" || txtSinopsis.getText().isEmpty()) {
                             JOptionPane.showMessageDialog(null, "Debe de agregar una sinopsisi a la pelicula");
@@ -344,19 +381,22 @@ public class frmPeliculas extends javax.swing.JFrame {
                                     if (icono.length == 0) {
                                         JOptionPane.showMessageDialog(null, "Debe asignar una imagen");
                                     } else {
+                                        String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
                                         Peliculas peli = new Peliculas();
                                         peli.setNombre(txtNombreP.getText());
                                         peli.setPortada(icono);
-                                      //  peli.setDuracion(Double.valueOf(txtDuracion.getText()));
+                                        peli.setDuracion(Time.valueOf(hora + ":00"));
                                         peli.setTipo(tipo);
                                         peli.setClasificacion(clasificacion);
                                         peli.setSipnosis(txtSinopsis.getText());
                                         peli.setYear(jdcAnio.getDate());
                                         ClsPeliculas cls = new ClsPeliculas();
+                                        System.out.println(peli.getDuracion());
                                         cls.InsertarPelicula(peli);
                                         frmPrincipal f = new frmPrincipal();
                                         f.pelicula.cargartabla();
                                         f.pelicula.ajustartabla();
+                                        System.out.println(peli.getDuracion());
 
                                         Limpiar();
                                     }
@@ -375,10 +415,8 @@ public class frmPeliculas extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Debe asignar un año");
                     jdcAnio.requestFocus();
                 } else {
-                    if (txtDuracion.getText() == null || txtDuracion.getText() == "" || txtDuracion.getText().isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Debe de asignar una Duracion de la pelicula");
-                        txtDuracion.requestFocus();
-                    } else {
+
+                    {
                         if (txtSinopsis.getText() == null || txtSinopsis.getText() == "" || txtSinopsis.getText().isEmpty()) {
                             JOptionPane.showMessageDialog(null, "Debe de agregar una sinopsisi a la pelicula");
                             txtSinopsis.requestFocus();
@@ -435,7 +473,6 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         frmPrincipal f = new frmPrincipal();
                                         f.pelicula.cargartabla();
                                         f.pelicula.ajustartabla();
-                                    
 
                                     }
                                 }
@@ -476,15 +513,6 @@ public class frmPeliculas extends javax.swing.JFrame {
         pelicula = 1;
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
-    private void txtDuracionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDuracionKeyReleased
-        // TODO add your handling code here:
-        try {
-            double duracion = Double.valueOf(txtDuracion.getText());
-        } catch (Exception e) {
-            txtDuracion.setText("");
-        }
-    }//GEN-LAST:event_txtDuracionKeyReleased
-
     private void txtNombrePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombrePActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombrePActionPerformed
@@ -492,6 +520,11 @@ public class frmPeliculas extends javax.swing.JFrame {
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
         Limpiar();
+        String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
+
+        Time time = Time.valueOf(hora + ":00");
+        System.out.println(time);
+
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -571,22 +604,25 @@ public class frmPeliculas extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnSeleccionar;
+    private javax.swing.JComboBox<String> horas;
     private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser jdcAnio;
     private javax.swing.JLabel lblDuracion;
     private javax.swing.JLabel lblEncabezado;
+    private javax.swing.JLabel lblHoras;
     public javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblMinutos;
     private javax.swing.JLabel lblPelicula;
     private javax.swing.JLabel lblPortada;
     private javax.swing.JLabel lblSinopsis;
     private javax.swing.JLabel lblYear;
+    private javax.swing.JComboBox<String> minutos;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JRadioButton rb2D;
     private javax.swing.JRadioButton rb3D;
     private javax.swing.JRadioButton rbMayoresde15;
     private javax.swing.JRadioButton rbMayoresde18;
     private javax.swing.JRadioButton rbTodos;
-    private javax.swing.JTextField txtDuracion;
     private javax.swing.JTextField txtNombreP;
     private javax.swing.JTextField txtSeleccionar;
     private javax.swing.JTextArea txtSinopsis;
