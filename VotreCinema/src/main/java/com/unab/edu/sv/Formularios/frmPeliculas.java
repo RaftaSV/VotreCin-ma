@@ -289,13 +289,16 @@ public class frmPeliculas extends javax.swing.JFrame {
         String hora;
         String horass;
         String Minuto;
-        String Minutoss;
+
         for (var i : pel) {
-           hora=String.valueOf(i.getDuracion());
-           horass = hora.substring(0,3);
-           Minuto = String.valueOf(i.getDuracion());
-           Minutoss = Minuto.substring(3,5);
-           horas.setSelectedIndex(Integer.valueOf(horass));
+            hora = String.valueOf(i.getDuracion());
+            horass = hora.substring(0, 2);
+            String horaR = horass.replaceAll("0", "");
+            int h = Integer.valueOf(horaR);
+            Minuto = hora.substring(3, 5);
+            int m = Integer.valueOf(Minuto);
+            horas.setSelectedIndex(h);
+            minutos.setSelectedIndex(m);
             txtNombreP.setText(i.getNombre());
             txtSinopsis.setText(i.getSipnosis());
             if (i.getTipo() == 0) {
@@ -370,7 +373,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Debe asignar un año");
                     jdcAnio.requestFocus();
                 } else {
-                    if (min == 0&&hor==0) {
+                    if (min == 0 && hor == 0) {
                         JOptionPane.showMessageDialog(null, "Debe de asignar una duracion");
                         minutos.requestFocus();
                     } else {
@@ -400,11 +403,9 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         peli.setYear(jdcAnio.getDate());
                                         ClsPeliculas cls = new ClsPeliculas();
                                         cls.InsertarPelicula(peli);
-                                        frmPrincipal f = new frmPrincipal();
-                                        f.pelicula.cargartabla();
-                                        f.pelicula.ajustartabla();
-                                        System.out.println(peli.getDuracion());
-
+                                        frmLogin log = new frmLogin();
+                                        log.principal.pelicula.cargartabla();
+                                        log.principal.pelicula.ajustartabla();
                                         Limpiar();
                                     }
                                 }
@@ -444,16 +445,18 @@ public class frmPeliculas extends javax.swing.JFrame {
                                         for (var i : pel) {
                                             pelic.setPortada(i.getPortada());
                                         }
-                                        pelic.setDuracion(Time.valueOf(hor + ":00"));
+                                        String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
+
+                                        pelic.setDuracion(Time.valueOf(hora + ":00"));
                                         pelic.setTipo(tipo);
                                         pelic.setClasificacion(clasificacion);
                                         pelic.setSipnosis(txtSinopsis.getText());
                                         pelic.setYear(jdcAnio.getDate());
                                         ClsPeliculas cls = new ClsPeliculas();
                                         cls.ActualizarPelicula(pelic);
-                                        frmPrincipal f = new frmPrincipal();
-                                        f.pelicula.cargartabla();
-                                        f.pelicula.ajustartabla();
+                                       frmLogin log = new frmLogin();
+                                        log.principal.pelicula.cargartabla();
+                                        log.principal.pelicula.ajustartabla();
 
                                     } else {
                                         try {
@@ -466,21 +469,22 @@ public class frmPeliculas extends javax.swing.JFrame {
 
                                             System.out.println(ex);
                                         }
+                                        String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
+
                                         Peliculas pelic = new Peliculas();
                                         pelic.setIdPelicula(id);
                                         pelic.setNombre(txtNombreP.getText());
                                         pelic.setPortada(icono);
-                                        pelic.setDuracion(Time.valueOf(hor + ":00"));
+                                        pelic.setDuracion(Time.valueOf(hora + ":00"));
                                         pelic.setTipo(tipo);
                                         pelic.setClasificacion(clasificacion);
                                         pelic.setSipnosis(txtSinopsis.getText());
                                         pelic.setYear(jdcAnio.getDate());
                                         ClsPeliculas cls = new ClsPeliculas();
                                         cls.ActualizarPelicula(pelic);
-                                        frmPrincipal f = new frmPrincipal();
-                                        f.pelicula.cargartabla();
-                                        f.pelicula.ajustartabla();
-
+                                        frmLogin log = new frmLogin();
+                                        log.principal.pelicula.cargartabla();
+                                        log.principal.pelicula.ajustartabla();
                                     }
                                 }
                             }
