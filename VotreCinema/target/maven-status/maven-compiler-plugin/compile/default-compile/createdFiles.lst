@@ -3,6 +3,7 @@ com\unab\edu\sv\DAO\ClsSalas.class
 com\unab\edu\sv\Formularios\fProductos$6.class
 com\unab\edu\sv\Formularios\fProveedores$1.class
 com\unab\edu\sv\Entidades\Productos.class
+com\unab\edu\sv\Formularios\frmPeliculas$7.class
 com\unab\edu\sv\Formularios\fSalas.class
 com\unab\edu\sv\Formularios\fPeliculas$5.class
 com\unab\edu\sv\Formularios\frmPrincipal$2.class
@@ -22,6 +23,7 @@ com\unab\edu\sv\Formularios\fSalas$1.class
 com\unab\edu\sv\DAO\ClsPersona.class
 com\unab\edu\sv\Formularios\frmInsertUser$3.class
 com\unab\edu\sv\DAO\ClsProveedores.class
+com\unab\edu\sv\Formularios\frmPeliculas$1.class
 com\unab\edu\sv\DAO\ClsProductos.class
 com\unab\edu\sv\Formularios\frmPeliculas$4.class
 com\unab\edu\sv\Formularios\fProveedores$6.class
@@ -72,6 +74,7 @@ com\unab\edu\sv\Formularios\frmPrincipal$3.class
 com\unab\edu\sv\Formularios\fPersonas$4.class
 com\unab\edu\sv\Formularios\frmInsertUser.class
 com\unab\edu\sv\Formularios\fRoles$4.class
+com\unab\edu\sv\Formularios\frmPeliculas$2.class
 com\unab\edu\sv\Formularios\frmPrincipal$10.class
 com\unab\edu\sv\Entidades\Taquillas.class
 com\unab\edu\sv\Formularios\fPersonas$3.class

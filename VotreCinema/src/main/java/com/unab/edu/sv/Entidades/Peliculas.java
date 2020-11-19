@@ -25,6 +25,7 @@ public class Peliculas {
     private String Sipnosis;
     private int Tipo;
     private int clasificacion;
+    private double precio;
     
     
 }

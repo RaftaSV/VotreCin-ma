@@ -7,7 +7,6 @@ package com.unab.edu.sv.DAO;
 
 import com.unab.edu.sv.Entidades.Roles;
 import com.unab.edu.sv.Formularios.frmLogin;
-import com.unab.edu.sv.Formularios.frmPrincipal;
 import com.unab.edu.sv.mysql.conexionBD;
 import java.sql.CallableStatement;
 import java.sql.*;

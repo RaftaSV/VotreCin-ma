@@ -53,7 +53,7 @@ public class ClsPeliculas {
 
     public void InsertarPelicula(Peliculas peli) {
         try {
-            CallableStatement call = conectar.prepareCall("call SP_I_PELICULAS(?,?,?,?,?,?,?)");
+            CallableStatement call = conectar.prepareCall("call SP_I_PELICULAS(?,?,?,?,?,?,?,?)");
             call.setString("pNombre", peli.getNombre());
             call.setBytes("pPortada", peli.getPortada());
             call.setDate("pYear", new java.sql.Date(peli.getYear().getTime()));
@@ -61,6 +61,26 @@ public class ClsPeliculas {
             call.setString("pSipnosis", peli.getSipnosis());
             call.setInt("pTipo", peli.getTipo());
             call.setInt("pClasificacion", peli.getClasificacion());
+            call.setDouble("pPrecio", peli.getPrecio());
+            call.executeQuery();
+            JOptionPane.showMessageDialog(null, "Guardado exitosamente");
+            conectar.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+     public void InsertarPeliculamayores(Peliculas peli) {
+        try {
+            CallableStatement call = conectar.prepareCall("call SP_I_PELICULASMAYORES(?,?,?,?,?,?,?,?)");
+            call.setString("pNombre", peli.getNombre());
+            call.setBytes("pPortada", peli.getPortada());
+            call.setDate("pYear", new java.sql.Date(peli.getYear().getTime()));
+            call.setTime("pDuracion", peli.getDuracion());
+            call.setString("pSipnosis", peli.getSipnosis());
+            call.setInt("pTipo", peli.getTipo());
+            call.setInt("pClasificacion", peli.getClasificacion());
+            call.setDouble("pPrecio", peli.getPrecio());
             call.executeQuery();
             JOptionPane.showMessageDialog(null, "Guardado exitosamente");
             conectar.close();
@@ -70,9 +90,10 @@ public class ClsPeliculas {
 
     }
 
+
     public void ActualizarPelicula(Peliculas peli) {
         try {
-            CallableStatement call = conectar.prepareCall("call SP_U_PELICULAS(?,?,?,?,?,?,?,?)");
+            CallableStatement call = conectar.prepareCall("call SP_U_PELICULAS(?,?,?,?,?,?,?,?,?)");
             call.setInt("pID", peli.getIdPelicula());
             call.setString("pNombre", peli.getNombre());
             call.setBytes("pPortada", peli.getPortada());
@@ -81,6 +102,37 @@ public class ClsPeliculas {
             call.setString("pSipnosis", peli.getSipnosis());
             call.setInt("pTipo", peli.getTipo());
             call.setInt("pClasificacion", peli.getClasificacion());
+            call.setDouble("pPrecio", peli.getPrecio());
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.execute();
+                JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
+                 frmLogin log = new frmLogin();
+               log.principal.pelicula.f.Limpiar();
+                conectar.close();
+            } else {
+
+            }
+
+            conectar.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+
+    }
+    public void ActualizarPeliculaMayores(Peliculas peli) {
+        try {
+            CallableStatement call = conectar.prepareCall("call SP_U_PELICULASMAYORES(?,?,?,?,?,?,?,?,?)");
+            call.setInt("pID", peli.getIdPelicula());
+            call.setString("pNombre", peli.getNombre());
+            call.setBytes("pPortada", peli.getPortada());
+            call.setDate("pYear", new java.sql.Date(peli.getYear().getTime()));
+            call.setTime("pDuracion", peli.getDuracion());
+            call.setString("pSipnosis", peli.getSipnosis());
+            call.setInt("pTipo", peli.getTipo());
+            call.setInt("pClasificacion", peli.getClasificacion());
+            call.setDouble("pPrecio", peli.getPrecio());
             int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
             if (res == 0) {
                 call.execute();
@@ -115,6 +167,7 @@ public class ClsPeliculas {
                 peli.setSipnosis(resultado.getString("Sipnosis"));
                 peli.setClasificacion(resultado.getInt("Clasificacion"));
                 peli.setTipo(resultado.getInt("Tipo"));
+                peli.setPrecio(resultado.getDouble("Precio"));
                 peliculas.add(peli);
 
             }
