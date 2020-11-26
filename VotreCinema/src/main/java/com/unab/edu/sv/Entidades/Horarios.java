@@ -5,6 +5,7 @@
  */
 package com.unab.edu.sv.Entidades;
 
+import java.sql.Time;
 import java.util.Date;
 import lombok.*;
 
@@ -15,7 +16,6 @@ import lombok.*;
 @Data
 public class Horarios {
     private int idHorario;
-    private Date HoraInicio;
-    private Date HoraFin;
-    private Date Fecha; 
+    private Time HoraInicio;
+ 
 }

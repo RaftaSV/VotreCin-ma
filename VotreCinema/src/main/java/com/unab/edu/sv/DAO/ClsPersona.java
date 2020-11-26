@@ -48,7 +48,7 @@ public class ClsPersona {
             call.setString("pNombres", p.getNombres());
             call.setString("pApellidos", p.getApellidos());
             call.setString("pDUI", p.getDUI());
-            call.execute();
+            call.executeQuery();
             JOptionPane.showMessageDialog(null, "Guardado Exitoso");
         } catch (Exception e) {
             System.out.println("Error" + e);
@@ -65,7 +65,7 @@ public class ClsPersona {
             call.setString("pDUI", p.getDUI());
             int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
             if (res == 0) {
-                call.execute();
+                call.executeQuery();
                 JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
                 frmLogin log = new frmLogin();
                 log.principal.persona.limpiar();
@@ -86,7 +86,7 @@ public class ClsPersona {
             call.setInt("pId", per.idPersona);
             int res = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
             if (res == 0) {
-                call.execute();
+                call.executeQuery();
                 JOptionPane.showMessageDialog(null, "Eliminacion Exitosa");
             } else {
 

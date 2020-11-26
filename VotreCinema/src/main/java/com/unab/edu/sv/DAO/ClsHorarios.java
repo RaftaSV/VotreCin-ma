@@ -1,0 +1,97 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.unab.edu.sv.DAO;
+
+import com.unab.edu.sv.Entidades.Horarios;
+import com.unab.edu.sv.Formularios.frmLogin;
+import com.unab.edu.sv.mysql.conexionBD;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Rafael
+ */
+public class ClsHorarios {
+
+    conexionBD con = new conexionBD();
+    Connection conectar = con.retornarConexion();
+
+    public ArrayList<Horarios> cargarHorarios() {
+        ArrayList<Horarios> lista = new ArrayList<>();
+        try {
+            CallableStatement call = conectar.prepareCall("select *from horarios as a where a.idHorario>0 and a.estado=0 order by a.HoraInicio asc ");
+            ResultSet resultado = call.executeQuery();
+            while (resultado.next()) {
+                Horarios hor = new Horarios();
+                hor.setIdHorario(resultado.getInt("idHorario"));
+                hor.setHoraInicio(resultado.getTime("HoraInicio"));
+                lista.add(hor);
+            }
+            conectar.close();
+
+        } catch (Exception e) {
+        }
+        return lista;
+    }
+
+    public void InsertarHorario(Horarios ho) {
+        try {
+            CallableStatement call = conectar.prepareCall("call SP_I_HORARIOS(?)");
+            call.setTime("pHora", ho.getHoraInicio());
+            call.executeQuery();
+            JOptionPane.showMessageDialog(null, "Guardado exitosamente");
+            conectar.close();
+
+        } catch (Exception e) {
+            System.out.println("error " + e);
+        }
+
+    }
+
+    public void ActualizarHorario(Horarios ho) {
+        try {
+            CallableStatement call = conectar.prepareCall("call SP_U_HORARIOS(?,?)");
+            call.setInt("pId", ho.getIdHorario());
+            call.setTime("pHora", ho.getHoraInicio());
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.executeQuery();
+                JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
+                conectar.close();
+
+            } else {
+
+            }
+        } catch (Exception e) {
+            System.out.println("error " + e);
+        }
+
+    }
+ 
+    public void EliminarHorario(Horarios ho) {
+        try {
+            CallableStatement call = conectar.prepareCall("call SP_D_HORARIOS(?)");
+            call.setInt("pId", ho.getIdHorario());
+         
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.executeQuery();
+                JOptionPane.showMessageDialog(null, "Eliminacion Exitosa");
+                conectar.close();
+
+            } else {
+
+            }
+        } catch (Exception e) {
+            System.out.println("error " + e);
+        }
+
+    }
+}

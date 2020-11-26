@@ -28,6 +28,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
         initComponents();
         CargarTabla();
         ajustartabla();
+        lectura();
         Limpiar();
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -56,6 +57,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
         btnGuardar = new javax.swing.JButton();
         btnElimanar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        btnLectura = new javax.swing.JLabel();
 
         setClosable(true);
 
@@ -224,6 +226,15 @@ public class fProveedores extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        btnLectura.setForeground(new java.awt.Color(204, 255, 255));
+        btnLectura.setText("Lectura");
+        btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLectura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLecturaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
@@ -237,20 +248,25 @@ public class fProveedores extends javax.swing.JInternalFrame {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 1031, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLectura)
+                .addGap(207, 207, 207))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblEncabezado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLectura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))))
+                        .addGap(0, 178, Short.MAX_VALUE))
+                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -284,7 +300,19 @@ public void ajustartabla() {
         tbProveedores.getColumnModel().getColumn(3).setCellRenderer(al);
 
     }
-
+public int edicion =0;
+    public void lectura(){
+         if (edicion ==0){
+        panelCRUD.setVisible(false);
+         btnLectura.setText("Lectura");
+        edicion=1;
+        }else{
+         panelCRUD.setVisible(true);
+         btnLectura.setText("Edicion");
+        edicion=0;
+        }
+     Limpiar();
+    }
     void CargarTabla() {
 
         String TITULOS[] = {"ID", "Nombres", "Telefono", "Direccion"};
@@ -390,11 +418,17 @@ public void ajustartabla() {
         Limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
+    private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
+        // TODO add your handling code here:
+        lectura();
+    }//GEN-LAST:event_btnLecturaMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane TABLA;
     private javax.swing.JButton btnElimanar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JLabel btnLectura;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel lblDireccion;

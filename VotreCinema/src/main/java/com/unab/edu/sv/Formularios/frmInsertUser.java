@@ -44,29 +44,29 @@ public class frmInsertUser extends javax.swing.JFrame {
         lblUser = new javax.swing.JLabel();
         lblPass = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
+        pass = new javax.swing.JSeparator();
+        apellido = new javax.swing.JSeparator();
+        user = new javax.swing.JSeparator();
+        dui = new javax.swing.JSeparator();
+        nombre = new javax.swing.JSeparator();
         btnRegistrar = new javax.swing.JButton();
+        lblVer = new javax.swing.JLabel();
         lblEncabezado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        panelFondo.setBackground(new java.awt.Color(0, 153, 153));
+        panelFondo.setBackground(new java.awt.Color(0, 0, 0));
         panelFondo.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.setOpaque(false);
 
         lblNombres.setBackground(new java.awt.Color(51, 51, 51));
         lblNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNombres.setForeground(new java.awt.Color(255, 255, 255));
         lblNombres.setText("Nombres");
 
-        txtNombres.setBackground(new java.awt.Color(0, 153, 153));
+        txtNombres.setBackground(new java.awt.Color(0, 0, 0));
         txtNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNombres.setForeground(new java.awt.Color(255, 255, 255));
         txtNombres.setBorder(null);
@@ -80,7 +80,7 @@ public class frmInsertUser extends javax.swing.JFrame {
         lblApellidos.setForeground(new java.awt.Color(255, 255, 255));
         lblApellidos.setText("Apellidos");
 
-        txtApellido.setBackground(new java.awt.Color(0, 153, 153));
+        txtApellido.setBackground(new java.awt.Color(0, 0, 0));
         txtApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(255, 255, 255));
         txtApellido.setBorder(null);
@@ -89,12 +89,12 @@ public class frmInsertUser extends javax.swing.JFrame {
         lblDUI.setForeground(java.awt.Color.white);
         lblDUI.setText("DUI");
 
-        txtDui.setBackground(new java.awt.Color(0, 153, 153));
+        txtDui.setBackground(new java.awt.Color(0, 0, 0));
         txtDui.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDui.setForeground(new java.awt.Color(255, 255, 255));
         txtDui.setBorder(null);
 
-        txtUsu.setBackground(new java.awt.Color(0, 153, 153));
+        txtUsu.setBackground(new java.awt.Color(0, 0, 0));
         txtUsu.setForeground(new java.awt.Color(255, 255, 255));
         txtUsu.setBorder(null);
 
@@ -106,17 +106,28 @@ public class frmInsertUser extends javax.swing.JFrame {
         lblPass.setForeground(new java.awt.Color(255, 255, 255));
         lblPass.setText("Password");
 
-        txtPass.setBackground(new java.awt.Color(0, 153, 153));
+        txtPass.setBackground(new java.awt.Color(0, 0, 0));
         txtPass.setForeground(new java.awt.Color(255, 255, 255));
         txtPass.setBorder(null);
 
-        btnRegistrar.setBackground(new java.awt.Color(0, 153, 153));
+        btnRegistrar.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
+            }
+        });
+
+        lblVer.setBackground(new java.awt.Color(255, 255, 255));
+        lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png"))); // NOI18N
+        lblVer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVer.setOpaque(true);
+        lblVer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblVerMouseClicked(evt);
             }
         });
 
@@ -129,23 +140,18 @@ public class frmInsertUser extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtPass)
-                            .addComponent(txtUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator4)
-                            .addComponent(jSeparator3)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(lblUser)
-                            .addComponent(lblPass)
-                            .addComponent(lblDUI)
-                            .addComponent(lblApellidos)
-                            .addComponent(lblNombres))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(dui)
+                            .addComponent(user)
+                            .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblVer)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtUsu)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jSeparator2))
+                        .addComponent(apellido))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(txtDui))
@@ -156,13 +162,23 @@ public class frmInsertUser extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(txtNombres))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(94, 94, 94)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(lblUser)
+                                    .addComponent(lblPass)
+                                    .addComponent(lblDUI)
+                                    .addComponent(lblApellidos)
+                                    .addComponent(lblNombres)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(btnRegistrar)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(btnRegistrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,31 +188,34 @@ public class frmInsertUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblApellidos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblDUI)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dui, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUser)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(lblPass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVer, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegistrar)
                 .addContainerGap())
@@ -216,9 +235,9 @@ public class frmInsertUser extends javax.swing.JFrame {
                 .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addGap(61, 61, 61))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,6 +302,19 @@ public class frmInsertUser extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
+int ver=0;
+    private void lblVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerMouseClicked
+        // TODO add your handling code here:
+        if (ver == 0) {
+            txtPass.setEchoChar((char)0);
+            lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ciego.png")));
+            ver = 1;
+        } else {
+            ver=0;
+            txtPass.setEchoChar('*');
+            lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png")));
+        }
+    }//GEN-LAST:event_lblVerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -320,24 +352,25 @@ public class frmInsertUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSeparator apellido;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JSeparator dui;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblDUI;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JLabel lblNombres;
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblUser;
+    private javax.swing.JLabel lblVer;
+    private javax.swing.JSeparator nombre;
     private javax.swing.JPanel panelFondo;
+    private javax.swing.JSeparator pass;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtDui;
     private javax.swing.JTextField txtNombres;
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUsu;
+    private javax.swing.JSeparator user;
     // End of variables declaration//GEN-END:variables
 }

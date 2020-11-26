@@ -112,6 +112,9 @@ public class frmPeliculas extends javax.swing.JFrame {
         lblMinutos = new javax.swing.JLabel();
         lblSinopsis1 = new javax.swing.JLabel();
         txtNombreP1 = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -130,7 +133,11 @@ public class frmPeliculas extends javax.swing.JFrame {
         lblPelicula.setText("Pelicula");
         panelFondo.add(lblPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 115, -1, -1));
 
+        txtPrecio.setBackground(new java.awt.Color(0, 0, 0));
         txtPrecio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        txtPrecio.setBorder(null);
+        txtPrecio.setOpaque(false);
         txtPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrecioActionPerformed(evt);
@@ -187,8 +194,12 @@ public class frmPeliculas extends javax.swing.JFrame {
         panelFondo.add(rbMayoresde15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, -1, -1));
 
         txtSeleccionar.setEditable(false);
+        txtSeleccionar.setBackground(new java.awt.Color(0, 0, 0));
         txtSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        panelFondo.add(txtSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 186, 201, -1));
+        txtSeleccionar.setForeground(new java.awt.Color(255, 255, 255));
+        txtSeleccionar.setBorder(null);
+        txtSeleccionar.setOpaque(false);
+        panelFondo.add(txtSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 183, 201, 20));
 
         btnSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSeleccionar.setText("Seleccionar");
@@ -226,12 +237,19 @@ public class frmPeliculas extends javax.swing.JFrame {
         });
         panelFondo.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 630, -1, -1));
 
+        jdcAnio.setBackground(new java.awt.Color(0, 0, 0));
+        jdcAnio.setForeground(new java.awt.Color(255, 255, 255));
         jdcAnio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jdcAnio.setOpaque(false);
         panelFondo.add(jdcAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 239, 320, -1));
 
+        txtSinopsis.setBackground(new java.awt.Color(0, 0, 0));
         txtSinopsis.setColumns(20);
         txtSinopsis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtSinopsis.setForeground(new java.awt.Color(255, 255, 255));
         txtSinopsis.setRows(5);
+        txtSinopsis.setBorder(null);
+        txtSinopsis.setOpaque(false);
         jScrollPane1.setViewportView(txtSinopsis);
 
         panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 320, -1));
@@ -253,9 +271,16 @@ public class frmPeliculas extends javax.swing.JFrame {
         panelFondo.add(rbMayoresde18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, -1, -1));
 
         horas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        horas.setOpaque(false);
         panelFondo.add(horas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 70, -1));
 
         minutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        minutos.setOpaque(false);
+        minutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minutosActionPerformed(evt);
+            }
+        });
         panelFondo.add(minutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 70, -1));
 
         lblHoras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -273,13 +298,26 @@ public class frmPeliculas extends javax.swing.JFrame {
         lblSinopsis1.setText("Sinopsis");
         panelFondo.add(lblSinopsis1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
 
+        txtNombreP1.setBackground(new java.awt.Color(0, 0, 0));
         txtNombreP1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNombreP1.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombreP1.setBorder(null);
+        txtNombreP1.setOpaque(false);
         txtNombreP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreP1ActionPerformed(evt);
             }
         });
         panelFondo.add(txtNombreP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 133, 320, -1));
+
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        panelFondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 320, 10));
+
+        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
+        panelFondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 320, 10));
+
+        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
+        panelFondo.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 200, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -319,8 +357,9 @@ public class frmPeliculas extends javax.swing.JFrame {
             } else {
                 String horaR = horass.replaceAll("0", "");
                 h = Integer.valueOf(horaR);
-                Minuto = hora.substring(3, 5);
+               
             }
+             Minuto = hora.substring(3, 5);
             if (Minuto == null) {
                 m = 0;
             } else {
@@ -678,6 +717,10 @@ public class frmPeliculas extends javax.swing.JFrame {
             txtPrecio.setText("");
         }
     }//GEN-LAST:event_txtPrecioKeyReleased
+
+    private void minutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_minutosActionPerformed
     int clasificacion;
     int tipo;
 
@@ -746,6 +789,9 @@ public class frmPeliculas extends javax.swing.JFrame {
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JComboBox<String> horas;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private com.toedter.calendar.JDateChooser jdcAnio;
     private javax.swing.JLabel lblDuracion;
     private javax.swing.JLabel lblEncabezado;

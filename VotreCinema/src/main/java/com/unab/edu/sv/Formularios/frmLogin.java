@@ -24,23 +24,24 @@ public class frmLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         cargarRegistro();
+
     }
 
-    void cargarRegistro(){
+    void cargarRegistro() {
         try {
-              ClsRoles rol = new ClsRoles();
-        ArrayList<Roles> roll = rol.MostrarRoles();
-        if (roll.size() > 0) {
-            lblRegistro.setVisible(false);
-        } else {
-            lblRegistro.setVisible(true);
-        }
-            
+            ClsRoles rol = new ClsRoles();
+            ArrayList<Roles> roll = rol.MostrarRoles();
+            if (roll.size() > 0) {
+                lblRegistro.setVisible(false);
+            } else {
+                lblRegistro.setVisible(true);
+            }
+
         } catch (Exception e) {
         }
-      
-    
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,11 +58,22 @@ public class frmLogin extends javax.swing.JFrame {
         lblpass = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         lblRegistro = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        lblVer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         panelFondo.setBackground(new java.awt.Color(0, 153, 153));
 
+        txtUsuario.setBackground(new java.awt.Color(0, 153, 153));
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtUsuario.setBorder(null);
+
+        txtPass.setBackground(new java.awt.Color(0, 153, 153));
+        txtPass.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtPass.setBorder(null);
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPassActionPerformed(evt);
@@ -91,6 +103,14 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
+        lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png"))); // NOI18N
+        lblVer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblVerMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
@@ -104,11 +124,16 @@ public class frmLogin extends javax.swing.JFrame {
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnIngresar)
                                 .addGap(107, 107, 107))
-                            .addComponent(txtUsuario)
-                            .addComponent(txtPass))
-                        .addGap(94, 94, 94))))
+                            .addComponent(txtPass)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator1)
+                            .addComponent(jSeparator2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblVer)
+                        .addGap(56, 56, 56))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,15 +151,21 @@ public class frmLogin extends javax.swing.JFrame {
                 .addComponent(lblUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblpass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtPass)
+                    .addComponent(lblVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(btnIngresar)
                 .addGap(18, 18, 18)
                 .addComponent(lblRegistro)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelFondo, java.awt.BorderLayout.CENTER);
@@ -152,9 +183,9 @@ public class frmLogin extends javax.swing.JFrame {
         ClsLogin log = new ClsLogin();
         String usu = txtUsuario.getText();
         String pass = txtPass.getText();
-          
+
         var resutadoCon = log.Rol(usu, pass);
- 
+
         if (!usu.isEmpty() && !pass.isEmpty()) {
             if (resutadoCon == true) {
                 JOptionPane.showMessageDialog(null, "Wellcome " + txtUsuario.getText());
@@ -172,6 +203,20 @@ public class frmLogin extends javax.swing.JFrame {
         frmInsertUser user = new frmInsertUser();
         user.setVisible(true);
     }//GEN-LAST:event_lblRegistroMouseClicked
+
+    int ver = 0;
+    private void lblVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerMouseClicked
+        // TODO add your handling code here:
+        if (ver == 0) {
+            txtPass.setEchoChar((char)0);
+            lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ciego.png")));
+            ver = 1;
+        } else {
+            ver=0;
+            txtPass.setEchoChar('*');
+            lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png")));
+        }
+    }//GEN-LAST:event_lblVerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -205,15 +250,18 @@ public class frmLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmLogin().setVisible(true);
-               
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblRegistro;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lblVer;
     private javax.swing.JLabel lblpass;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPasswordField txtPass;

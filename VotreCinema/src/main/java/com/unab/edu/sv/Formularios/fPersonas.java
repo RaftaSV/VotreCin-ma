@@ -32,6 +32,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         limpiar();
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        lectura();
     }
 
     public void ajustartabla() {
@@ -88,7 +89,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         panelFondo = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        panelCRUD = new javax.swing.JPanel();
         lblNombres = new javax.swing.JLabel();
         txtNombres = new javax.swing.JTextField();
         lblApellidos = new javax.swing.JLabel();
@@ -101,11 +102,12 @@ public class fPersonas extends javax.swing.JInternalFrame {
         TABLA = new javax.swing.JScrollPane();
         tbPersonas = new javax.swing.JTable();
         lblEncabezado = new javax.swing.JLabel();
+        btnLectura = new javax.swing.JLabel();
 
         panelFondo.setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 204));
-        jPanel2.setOpaque(false);
+        panelCRUD.setBackground(new java.awt.Color(153, 255, 204));
+        panelCRUD.setOpaque(false);
 
         lblNombres.setBackground(new java.awt.Color(51, 51, 51));
         lblNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -147,19 +149,19 @@ public class fPersonas extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
+        panelCRUD.setLayout(panelCRUDLayout);
+        panelCRUDLayout.setHorizontalGroup(
+            panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNombres)
                             .addComponent(txtApellido)
                             .addComponent(txtDui)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
                                 .addGap(0, 8, Short.MAX_VALUE)
                                 .addComponent(btnGuardar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -167,20 +169,20 @@ public class fPersonas extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnLimpiar)
                                 .addGap(18, 18, 18))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addComponent(lblDUI))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(137, 137, 137)
                         .addComponent(lblApellidos))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(134, 134, 134)
                         .addComponent(lblNombres)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelCRUDLayout.setVerticalGroup(
+            panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCRUDLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblNombres)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -194,7 +196,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
                     .addComponent(btnEliminar)
                     .addComponent(btnGuardar))
@@ -241,6 +243,15 @@ public class fPersonas extends javax.swing.JInternalFrame {
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("PERSONAS");
 
+        btnLectura.setForeground(new java.awt.Color(204, 255, 255));
+        btnLectura.setText("Lectura");
+        btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLectura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLecturaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
@@ -250,50 +261,54 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLectura)
+                .addGap(140, 140, 140))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(lblEncabezado)
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLectura)
+                .addGap(22, 22, 22)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(139, Short.MAX_VALUE))
-                    .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 870, Short.MAX_VALUE)
+            .addGap(0, 912, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, 0)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(0, 0, 0)))
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 515, Short.MAX_VALUE)
+            .addGap(0, 581, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(2, 2, 2)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(2, 2, 2)))
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     int estado = 0;
     int id = 0;
-    
+
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (estado == 0) {
 
@@ -304,7 +319,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
             ClsPersona cls = new ClsPersona();
             if (txtNombres.getText() == "" || txtNombres.getText().isEmpty() || txtNombres.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es necesario agregar Nombre");
-                txtNombres.requestFocus(); 
+                txtNombres.requestFocus();
             } else if (txtApellido.getText() == "" || txtApellido.getText().isEmpty() || txtApellido.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es necesario agregar Apellido");
                 txtApellido.requestFocus();
@@ -317,17 +332,16 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 CargarTabla();
                 ajustartabla();
             }
-        } 
-       else if (estado == 1) {
-           Personas pers = new Personas();
+        } else if (estado == 1) {
+            Personas pers = new Personas();
             pers.setIdPersona(id);
             pers.setNombres(txtNombres.getText());
             pers.setApellidos(txtApellido.getText());
             pers.setDUI(txtDui.getText());
             ClsPersona cls = new ClsPersona();
-         if (txtNombres.getText() == "" || txtNombres.getText().isEmpty() || txtNombres.getText() == null) {
+            if (txtNombres.getText() == "" || txtNombres.getText().isEmpty() || txtNombres.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es necesario agregar Nombre");
-                txtNombres.requestFocus(); 
+                txtNombres.requestFocus();
             } else if (txtApellido.getText() == "" || txtApellido.getText().isEmpty() || txtApellido.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es necesario agregar Apellido");
                 txtApellido.requestFocus();
@@ -372,18 +386,37 @@ public class fPersonas extends javax.swing.JInternalFrame {
         txtDui.setText(Dui);
         txtNombres.setText(nombre);
     }//GEN-LAST:event_tbPersonasMouseClicked
+    public int edicion = 0;
+
+    void lectura() {
+        if (edicion == 0) {
+            panelCRUD.setVisible(false);
+            btnLectura.setText("Lectura");
+            edicion = 1;
+        } else {
+            btnLectura.setText("Edicion");
+            panelCRUD.setVisible(true);
+            edicion = 0;
+        }
+        limpiar();
+    }
+    private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
+        // TODO add your handling code here:
+        lectura();
+    }//GEN-LAST:event_btnLecturaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane TABLA;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JLabel btnLectura;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblDUI;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JLabel lblNombres;
+    private javax.swing.JPanel panelCRUD;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JTable tbPersonas;
     private javax.swing.JTextField txtApellido;

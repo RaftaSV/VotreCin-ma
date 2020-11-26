@@ -32,8 +32,22 @@ public class fRoles extends javax.swing.JInternalFrame {
         MostrarTablaRoles();
         displaymember();
         ajustartabla();
+        lectura();
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    }
+    public int edicion =0;
+    public void lectura(){
+         if (edicion ==0){
+        panelCRUD.setVisible(false);
+         btnLectura.setText("Lectura");
+        edicion=1;
+        }else{
+         panelCRUD.setVisible(true);
+         btnLectura.setText("Edicion");
+        edicion=0;
+        }
+     limpiar();
     }
 
     /**
@@ -47,27 +61,35 @@ public class fRoles extends javax.swing.JInternalFrame {
 
         Tipo = new javax.swing.ButtonGroup();
         panelFondo = new javax.swing.JPanel();
-        panelCrud = new javax.swing.JPanel();
+        lblEncabezado = new javax.swing.JLabel();
+        panelCRUD = new javax.swing.JPanel();
         lblpersona = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         txtUsu = new javax.swing.JTextField();
         lbltiporol = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
-        txtPass = new javax.swing.JTextField();
         cb_Idpersona5 = new javax.swing.JComboBox<>();
         jLabel34 = new javax.swing.JLabel();
         btnInsertar5 = new javax.swing.JButton();
         rbAdmin = new javax.swing.JRadioButton();
         rbCliente = new javax.swing.JRadioButton();
         rbCajero = new javax.swing.JRadioButton();
+        lblVer = new javax.swing.JLabel();
+        txtPass = new javax.swing.JPasswordField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbMostrarRol = new javax.swing.JTable();
-        lblEncabezado = new javax.swing.JLabel();
+        btnLectura = new javax.swing.JLabel();
 
         panelFondo.setBackground(new java.awt.Color(0, 0, 0));
 
-        panelCrud.setBackground(new java.awt.Color(0, 0, 0));
+        lblEncabezado.setBackground(new java.awt.Color(0, 0, 0));
+        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
+        lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblEncabezado.setText("roles");
+
+        panelCRUD.setBackground(new java.awt.Color(0, 0, 0));
 
         lblpersona.setForeground(new java.awt.Color(255, 255, 255));
         lblpersona.setText("Id Persona");
@@ -117,71 +139,96 @@ public class fRoles extends javax.swing.JInternalFrame {
         rbCajero.setForeground(new java.awt.Color(255, 255, 255));
         rbCajero.setText("Cajero");
 
-        javax.swing.GroupLayout panelCrudLayout = new javax.swing.GroupLayout(panelCrud);
-        panelCrud.setLayout(panelCrudLayout);
-        panelCrudLayout.setHorizontalGroup(
-            panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCrudLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCrudLayout.createSequentialGroup()
-                        .addComponent(rbAdmin)
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(rbCajero)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbCliente))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCrudLayout.createSequentialGroup()
-                        .addGroup(panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png"))); // NOI18N
+        lblVer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVer.setOpaque(true);
+        lblVer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblVerMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
+        panelCRUD.setLayout(panelCRUDLayout);
+        panelCRUDLayout.setHorizontalGroup(
+            panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel34)
-                                .addComponent(jLabel33))
-                            .addComponent(lblpersona))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsu)
-                            .addComponent(txtPass)
-                            .addComponent(cb_Idpersona5, 0, 185, Short.MAX_VALUE)))
-                    .addGroup(panelCrudLayout.createSequentialGroup()
-                        .addComponent(btnInsertar5)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLimpiar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGap(10, 10, 10)
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblVer))))
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addComponent(lbltiporol))
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblpersona)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                                        .addComponent(btnInsertar5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnEliminar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnLimpiar))
+                                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                                        .addComponent(rbAdmin)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(rbCajero)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbCliente)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(62, 62, 62))
-            .addGroup(panelCrudLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(lbltiporol)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        panelCrudLayout.setVerticalGroup(
-            panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCrudLayout.createSequentialGroup()
+        panelCRUDLayout.setVerticalGroup(
+            panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
                 .addGap(109, 109, 109)
-                .addGroup(panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(txtUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel34)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel34)
+                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblpersona)
                     .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
                 .addComponent(lbltiporol)
-                .addGap(18, 18, 18)
-                .addGroup(panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(16, 16, 16)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbAdmin)
-                    .addComponent(rbCliente)
-                    .addComponent(rbCajero))
+                    .addComponent(rbCajero)
+                    .addComponent(rbCliente))
                 .addGap(18, 18, 18)
-                .addGroup(panelCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertar5)
                     .addComponent(btnEliminar)
                     .addComponent(btnLimpiar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         tbMostrarRol = new javax.swing.JTable(){
@@ -209,11 +256,14 @@ public class fRoles extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tbMostrarRol);
 
-        lblEncabezado.setBackground(new java.awt.Color(0, 0, 0));
-        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
-        lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
-        lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblEncabezado.setText("roles");
+        btnLectura.setForeground(new java.awt.Color(204, 255, 255));
+        btnLectura.setText("Lectura");
+        btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLectura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLecturaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
@@ -221,29 +271,31 @@ public class fRoles extends javax.swing.JInternalFrame {
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelCrud, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(34, 34, 34)))
-                .addContainerGap())
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addComponent(btnLectura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelCRUD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lblEncabezado)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblEncabezado)
+                            .addComponent(btnLectura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelCrud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+                        .addGap(27, 27, 27)))
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -251,8 +303,8 @@ public class fRoles extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addGap(0, 0, 0)
+                .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,11 +313,6 @@ public class fRoles extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
-        limpiar();
-    }//GEN-LAST:event_btnLimpiarActionPerformed
     int estado = 0;
     int id = 0;
     int dat = 0;
@@ -368,19 +415,60 @@ public class fRoles extends javax.swing.JInternalFrame {
     }
 
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        if (id != 0) {
-            Roles rol = new Roles();
-            rol.setIdRol(id);
-            ClsRoles cls = new ClsRoles();
-            cls.EliminarRol(rol);
-            MostrarTablaRoles();
-            limpiar();
-            ajustartabla();
+    private void tbMostrarRolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMostrarRolMouseClicked
+        int fila = tbMostrarRol.getSelectedRow();
+        id = Integer.parseInt(String.valueOf(tbMostrarRol.getValueAt(fila, 0)));
+        String usuario = String.valueOf(tbMostrarRol.getValueAt(fila, 3));
+        String pasword = String.valueOf(tbMostrarRol.getValueAt(fila, 4));
+        String tiporol = String.valueOf(tbMostrarRol.getValueAt(fila, 5));
+        if (tiporol == "Administrador") {
+            rbAdmin.setSelected(true);
+            rbCajero.setSelected(false);
+            rbCliente.setSelected(false);
+        } else if (tiporol == "Cajero") {
+            rbAdmin.setSelected(false);
+            rbCajero.setSelected(true);
+            rbCliente.setSelected(false);
         } else {
-            JOptionPane.showMessageDialog(null, "Seleccione un rol a eliminar");
+            rbAdmin.setSelected(false);
+            rbCajero.setSelected(false);
+            rbCliente.setSelected(true);
         }
-    }//GEN-LAST:event_btnEliminarActionPerformed
+
+        String idpersona = String.valueOf(tbMostrarRol.getValueAt(fila, 2));
+        txtUsu.setText(usuario);
+        txtPass.setText(pasword);
+        txtUsu.setText(usuario);
+        txtPass.setText(pasword);
+
+        dat = 1;
+        int selectvista = 0;
+        for (var iterar : valuemember) {
+            if (idpersona.equals(iterar)) {
+                cb_Idpersona5.setSelectedIndex(selectvista);
+            }
+            selectvista += 1;
+        }
+        estado = 1;
+    }//GEN-LAST:event_tbMostrarRolMouseClicked
+
+    private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
+        // TODO add your handling code here:
+        lectura();
+    }//GEN-LAST:event_btnLecturaMouseClicked
+
+    private void lblVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerMouseClicked
+        // TODO add your handling code here:
+        if (ver == 0) {
+            txtPass.setEchoChar((char)0);
+            lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ciego.png")));
+            ver = 1;
+        } else {
+            ver=0;
+            txtPass.setEchoChar('*');
+            lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png")));
+        }
+    }//GEN-LAST:event_lblVerMouseClicked
 
     private void btnInsertar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertar5ActionPerformed
 
@@ -447,66 +535,49 @@ public class fRoles extends javax.swing.JInternalFrame {
             }
         }
 
-
     }//GEN-LAST:event_btnInsertar5ActionPerformed
 
-    private void tbMostrarRolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMostrarRolMouseClicked
-        int fila = tbMostrarRol.getSelectedRow();
-        id = Integer.parseInt(String.valueOf(tbMostrarRol.getValueAt(fila, 0)));
-        String usuario = String.valueOf(tbMostrarRol.getValueAt(fila, 3));
-        String pasword = String.valueOf(tbMostrarRol.getValueAt(fila, 4));
-        String tiporol = String.valueOf(tbMostrarRol.getValueAt(fila, 5));
-        if (tiporol == "Administrador") {
-            rbAdmin.setSelected(true);
-            rbCajero.setSelected(false);
-            rbCliente.setSelected(false);
-        } else if (tiporol == "Cajero") {
-            rbAdmin.setSelected(false);
-            rbCajero.setSelected(true);
-            rbCliente.setSelected(false);
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (id != 0) {
+            Roles rol = new Roles();
+            rol.setIdRol(id);
+            ClsRoles cls = new ClsRoles();
+            cls.EliminarRol(rol);
+            MostrarTablaRoles();
+            limpiar();
+            ajustartabla();
         } else {
-            rbAdmin.setSelected(false);
-            rbCajero.setSelected(false);
-            rbCliente.setSelected(true);
+            JOptionPane.showMessageDialog(null, "Seleccione un rol a eliminar");
         }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
-        String idpersona = String.valueOf(tbMostrarRol.getValueAt(fila, 2));
-        txtUsu.setText(usuario);
-        txtPass.setText(pasword);
-        txtUsu.setText(usuario);
-        txtPass.setText(pasword);
-
-        dat = 1;
-        int selectvista = 0;
-        for (var iterar : valuemember) {
-            if (idpersona.equals(iterar)) {
-                cb_Idpersona5.setSelectedIndex(selectvista);
-            }
-            selectvista += 1;
-        }
-        estado = 1;
-    }//GEN-LAST:event_tbMostrarRolMouseClicked
-
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        limpiar();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+  int ver =0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Tipo;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar5;
+    private javax.swing.JLabel btnLectura;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cb_Idpersona5;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblEncabezado;
+    private javax.swing.JLabel lblVer;
     private javax.swing.JLabel lblpersona;
     private javax.swing.JLabel lbltiporol;
-    private javax.swing.JPanel panelCrud;
+    private javax.swing.JPanel panelCRUD;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JRadioButton rbAdmin;
     private javax.swing.JRadioButton rbCajero;
     private javax.swing.JRadioButton rbCliente;
     private javax.swing.JTable tbMostrarRol;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUsu;
     // End of variables declaration//GEN-END:variables
 }

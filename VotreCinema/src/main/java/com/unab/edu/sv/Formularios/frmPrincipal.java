@@ -5,7 +5,6 @@
  */
 package com.unab.edu.sv.Formularios;
 
-
 import java.awt.AWTEventMulticaster;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
@@ -49,6 +48,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnRoles = new javax.swing.JButton();
         btnPersonas = new javax.swing.JButton();
         btnSalas = new javax.swing.JButton();
+        btnHorarios = new javax.swing.JButton();
         panelcontenedor = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -196,6 +196,15 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnHorarios.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnHorarios.setText("HORARIOS");
+        btnHorarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHorarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHorariosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
@@ -206,6 +215,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addComponent(btnRoles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
             .addComponent(btnPersonas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnSalas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnHorarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,7 +231,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         panelcontenedor.setBackground(new java.awt.Color(255, 51, 51));
@@ -284,24 +296,41 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarMenuMouseClicked
     public int cerrar = 0;
 
-    public void cerrar() {
+    void cerrarjinternal() {
+        try {
+            proveedor.dispose();
+        } catch (Exception e) {
+        }
+        try {
+            producto.dispose();
+        } catch (Exception e) {
+        }
+        try {
+            rol.dispose();
+        } catch (Exception e) {
+        }
+        try {
+            persona.dispose();
+        } catch (Exception e) {
+        }
+        try {
+            horario.dispose();
+        } catch (Exception e) {
+        }
+        try {
+            Sala.dispose();
+
+        } catch (Exception e) {
+        }
+        try {
+            pelicula.dispose();
+        } catch (Exception e) {
+        }
+    }
+
+    public void Mostrar() {
         if (cerrar == 1) {
-            try {
-                proveedor.dispose();
-            } catch (Exception e) {
-            }
-            try {
-                producto.dispose();
-            } catch (Exception e) {
-            }
-            try {
-                rol.dispose();
-            } catch (Exception e) {
-            }
-            try {
-                persona.dispose();
-            } catch (Exception e) {
-            }
+            cerrarjinternal();
             if (pelicula == null || pelicula.isClosed()) {
                 pelicula = new fPeliculas();
                 panelcontenedor.add(pelicula);
@@ -314,27 +343,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         } else {
             if (cerrar == 2) {
-                try {
-                    pelicula.dispose();
-
-                } catch (Exception e) {
-                }
-                try {
-                    proveedor.dispose();
-                } catch (Exception e) {
-                }
-                try {
-
-                } catch (Exception e) {
-                }
-                try {
-                    rol.dispose();
-                } catch (Exception e) {
-                }
-                try {
-                    persona.dispose();
-                } catch (Exception e) {
-                }
+                cerrarjinternal();
                 if (producto == null || producto.isClosed()) {
                     producto = new fProductos();
                     panelcontenedor.add(producto);
@@ -347,23 +356,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 }
             } else {
                 if (cerrar == 3) {
-                    try {
-                        producto.dispose();
-
-                    } catch (Exception e) {
-                    }
-                    try {
-                        pelicula.dispose();
-                    } catch (Exception e) {
-                    }
-                    try {
-                        rol.dispose();
-                    } catch (Exception e) {
-                    }
-                    try {
-                        persona.dispose();
-                    } catch (Exception e) {
-                    }
+                   cerrarjinternal();
                     if (proveedor == null || proveedor.isClosed()) {
                         proveedor = new fProveedores();
                         panelcontenedor.add(proveedor);
@@ -378,23 +371,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
                 } else {
                     if (cerrar == 4) {
-                        try {
-                            producto.dispose();
-
-                        } catch (Exception e) {
-                        }
-                        try {
-                            pelicula.dispose();
-                        } catch (Exception e) {
-                        }
-                        try {
-                            proveedor.dispose();
-                        } catch (Exception e) {
-                        }
-                        try {
-                            persona.dispose();
-                        } catch (Exception e) {
-                        }
+                        cerrarjinternal();
                         if (rol == null || rol.isClosed()) {
                             rol = new fRoles();
                             try {
@@ -407,25 +384,10 @@ public class frmPrincipal extends javax.swing.JFrame {
 
                     } else {
                         if (cerrar == 5) {
-                            try {
-                                producto.dispose();
-
-                            } catch (Exception e) {
-                            }
-                            try {
-                                pelicula.dispose();
-                            } catch (Exception e) {
-                            }
-                            try {
-                                proveedor.dispose();
-                            } catch (Exception e) {
-                            }
-                            try {
-                                rol.dispose();
-                            } catch (Exception e) {
-                            }
+                        cerrarjinternal();
                             if (persona == null || persona.isClosed()) {
                                 persona = new fPersonas();
+                                persona.edicion = 0;
                                 try {
                                     persona.setMaximum(true);
                                 } catch (Exception e) {
@@ -435,29 +397,10 @@ public class frmPrincipal extends javax.swing.JFrame {
                             }
                         } else {
                             if (cerrar == 6) {
-                                try {
-                                    producto.dispose();
-
-                                } catch (Exception e) {
-                                }
-                                try {
-                                    pelicula.dispose();
-                                } catch (Exception e) {
-                                }
-                                try {
-                                    proveedor.dispose();
-                                } catch (Exception e) {
-                                }
-                                try {
-                                    rol.dispose();
-                                } catch (Exception e) {
-                                }
-                                try {
-                                    persona.dispose();
-                                } catch (Exception e) {
-                                }
+                                cerrarjinternal();
                                 if (Sala == null || Sala.isClosed()) {
                                     Sala = new fSalas();
+                                    Sala.edicion = 0;
                                     try {
                                         Sala.setMaximum(true);
                                     } catch (Exception e) {
@@ -465,10 +408,28 @@ public class frmPrincipal extends javax.swing.JFrame {
                                     panelcontenedor.add(Sala);
                                     Sala.setVisible(true);
                                 }
+                            } else {
+                                if (cerrar == 7) {
+                                    cerrarjinternal();
+                                    if (horario == null || horario.isClosed()) {
+                                        horario = new fHorarios();
+                                        horario.edicion = 0;
+                                        horario.lectura();
+                                        try {
+                                            horario.setMaximum(true);
+                                        } catch (Exception e) {
+                                        }
+
+                                        panelcontenedor.add(horario);
+                                        horario.edicion = 0;
+                                        horario.setVisible(true);
+                                    }
+
+                                }
                             }
                         }
-                    }
 
+                    }
                 }
             }
         }
@@ -476,34 +437,35 @@ public class frmPrincipal extends javax.swing.JFrame {
     public fPeliculas pelicula;
     private void btnPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeliculasActionPerformed
         cerrar = 1;
-        cerrar();
+         Mostrar();
 
 
     }//GEN-LAST:event_btnPeliculasActionPerformed
     public fProveedores proveedor;
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
         cerrar = 3;
-        cerrar();
+         Mostrar();
 
 
     }//GEN-LAST:event_btnProveedoresActionPerformed
     public fProductos producto;
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
         cerrar = 2;
-        cerrar();
+        Mostrar();
 
     }//GEN-LAST:event_btnProductosActionPerformed
     public fRoles rol;
     private void btnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRolesActionPerformed
         // TODO add your handling code here:
         cerrar = 4;
-        cerrar();
+        Mostrar();
     }//GEN-LAST:event_btnRolesActionPerformed
     public fPersonas persona;
     private void btnPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonasActionPerformed
         // TODO add your handling code here:
         cerrar = 5;
-        cerrar();
+         Mostrar();
+         
     }//GEN-LAST:event_btnPersonasActionPerformed
 
     private void btnOcultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOcultarMouseClicked
@@ -517,7 +479,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         int res = JOptionPane.showConfirmDialog(this, "Desea salir?", "Advertencia", JOptionPane.YES_NO_OPTION);
         if (res == 0) {
-            this.dispose();
+            System.exit(0);
         } else {
 
         }
@@ -550,8 +512,16 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalasActionPerformed
         // TODO add your handling code here:
         cerrar = 6;
-        cerrar();
+        Mostrar();
     }//GEN-LAST:event_btnSalasActionPerformed
+    public fHorarios horario;
+    private void btnHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHorariosActionPerformed
+        // TODO add your handling code here:
+        cerrar = 7;
+
+         Mostrar();
+
+    }//GEN-LAST:event_btnHorariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -590,6 +560,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnCerrarMenu;
+    private javax.swing.JButton btnHorarios;
     private javax.swing.JLabel btnMinimizar;
     private javax.swing.JLabel btnOcultar;
     private javax.swing.JButton btnPeliculas;
