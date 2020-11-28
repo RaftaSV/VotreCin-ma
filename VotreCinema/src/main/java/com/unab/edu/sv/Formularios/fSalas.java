@@ -51,6 +51,8 @@ public class fSalas extends javax.swing.JInternalFrame {
         btnGuardar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         TABLA = new javax.swing.JScrollPane();
         tbSalas = new javax.swing.JTable();
         lblEncabezado = new javax.swing.JLabel();
@@ -65,13 +67,17 @@ public class fSalas extends javax.swing.JInternalFrame {
         lblCapacidad.setForeground(new java.awt.Color(255, 255, 255));
         lblCapacidad.setText("Capacidad");
 
+        txtCapacidad.setBackground(new java.awt.Color(0, 0, 0));
         txtCapacidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCapacidad.setBorder(null);
 
         lblNumerodeSala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNumerodeSala.setForeground(java.awt.Color.white);
         lblNumerodeSala.setText("Numero de Sala");
 
+        txtNumerodeSala.setBackground(new java.awt.Color(0, 0, 0));
         txtNumerodeSala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNumerodeSala.setBorder(null);
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -111,13 +117,15 @@ public class fSalas extends javax.swing.JInternalFrame {
                         .addGap(129, 129, 129)
                         .addComponent(lblCapacidad))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
+                        .addGap(113, 113, 113)
                         .addComponent(lblNumerodeSala))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNumerodeSala, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNumerodeSala, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                            .addComponent(txtCapacidad, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                            .addComponent(jSeparator1)
+                            .addComponent(jSeparator2))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
@@ -127,11 +135,15 @@ public class fSalas extends javax.swing.JInternalFrame {
                 .addComponent(lblCapacidad)
                 .addGap(18, 18, 18)
                 .addComponent(txtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(lblNumerodeSala)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtNumerodeSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
                     .addComponent(btnEliminar)
@@ -217,7 +229,7 @@ public class fSalas extends javax.swing.JInternalFrame {
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(107, Short.MAX_VALUE))
+                        .addContainerGap(148, Short.MAX_VALUE))
                     .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
@@ -384,6 +396,8 @@ public class fSalas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel btnLectura;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblCapacidad;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JLabel lblNumerodeSala;
