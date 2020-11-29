@@ -151,8 +151,8 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnPeliculas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnPeliculas.setText("PELICULAS");
+        btnPeliculas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnPeliculas.setText("PELICULA");
         btnPeliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPeliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +160,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnProductos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnProductos.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnProductos.setText("PRODUCTOS");
         btnProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProductos.addActionListener(new java.awt.event.ActionListener() {
