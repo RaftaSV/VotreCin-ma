@@ -61,16 +61,15 @@ public class fRoles extends javax.swing.JInternalFrame {
 
         Tipo = new javax.swing.ButtonGroup();
         panelFondo = new javax.swing.JPanel();
-        lblEncabezado = new javax.swing.JLabel();
         panelCRUD = new javax.swing.JPanel();
         lblpersona = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         txtUsu = new javax.swing.JTextField();
         lbltiporol = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         cb_Idpersona5 = new javax.swing.JComboBox<>();
-        jLabel34 = new javax.swing.JLabel();
+        lblPass = new javax.swing.JLabel();
         btnInsertar5 = new javax.swing.JButton();
         rbAdmin = new javax.swing.JRadioButton();
         rbCliente = new javax.swing.JRadioButton();
@@ -82,14 +81,9 @@ public class fRoles extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tbMostrarRol = new javax.swing.JTable();
         btnLectura = new javax.swing.JLabel();
+        lblEncabezado = new javax.swing.JLabel();
 
         panelFondo.setBackground(new java.awt.Color(0, 0, 0));
-
-        lblEncabezado.setBackground(new java.awt.Color(0, 0, 0));
-        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
-        lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
-        lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblEncabezado.setText("roles");
 
         panelCRUD.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -109,8 +103,8 @@ public class fRoles extends javax.swing.JInternalFrame {
         lbltiporol.setForeground(new java.awt.Color(255, 255, 255));
         lbltiporol.setText("Tipo Rol");
 
-        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("Usuario");
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setText("Usuario");
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,8 +113,8 @@ public class fRoles extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel34.setText("Password");
+        lblPass.setForeground(new java.awt.Color(255, 255, 255));
+        lblPass.setText("Password");
 
         btnInsertar5.setText("Guardar");
         btnInsertar5.addActionListener(new java.awt.event.ActionListener() {
@@ -162,13 +156,11 @@ public class fRoles extends javax.swing.JInternalFrame {
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel33))
-                            .addComponent(jLabel34))
+                            .addComponent(lblPass)
+                            .addComponent(lblNombre))
                         .addGap(18, 18, 18)
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -181,48 +173,44 @@ public class fRoles extends javax.swing.JInternalFrame {
                                 .addGap(2, 2, 2)
                                 .addComponent(lblVer))))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(lbltiporol))
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addGap(97, 97, 97)
-                                .addComponent(lbltiporol))
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                                        .addComponent(btnInsertar5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnEliminar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnLimpiar))
-                                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                                        .addComponent(rbAdmin)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rbCajero)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(rbCliente))))
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblpersona)
+                                .addComponent(btnInsertar5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 36, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(btnEliminar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLimpiar))
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addComponent(rbAdmin)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rbCajero)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbCliente))))
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblpersona)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel33)
-                    .addComponent(txtUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre))
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblVer, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel34)))
+                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPass))
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -241,7 +229,7 @@ public class fRoles extends javax.swing.JInternalFrame {
                     .addComponent(btnInsertar5)
                     .addComponent(btnEliminar)
                     .addComponent(btnLimpiar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         tbMostrarRol = new javax.swing.JTable(){
@@ -278,37 +266,44 @@ public class fRoles extends javax.swing.JInternalFrame {
             }
         });
 
+        lblEncabezado.setBackground(new java.awt.Color(0, 0, 0));
+        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
+        lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEncabezado.setText("roles");
+        lblEncabezado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblEncabezado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(btnLectura)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(121, 121, 121)
+                        .addComponent(btnLectura)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelCRUD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEncabezado)
-                            .addComponent(btnLectura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
-                        .addGap(27, 27, 27)))
-                .addGap(0, 0, 0))
+                        .addGap(15, 15, 15)
+                        .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(btnLectura)
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -577,12 +572,12 @@ public class fRoles extends javax.swing.JInternalFrame {
     private javax.swing.JLabel btnLectura;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cb_Idpersona5;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblEncabezado;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblVer;
     private javax.swing.JLabel lblpersona;
     private javax.swing.JLabel lbltiporol;
