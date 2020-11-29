@@ -5,6 +5,8 @@
  */
 package com.unab.edu.sv.Entidades;
 
+import java.sql.Time;
+import java.util.Date;
 import lombok.*;
 
 /**
@@ -12,12 +14,13 @@ import lombok.*;
  * @author Rafael
  */
 @Data
-public class Carteleras {
-    private int idcartelera;
-    private int Id_Pelicula;
+public class Carteleras extends Peliculas {
+    private int Idcartelera;
     private int  Id_Sala;
+    private int numero_sala;
     private int Id_Horario;
-    private int Tipo;
+    private Date fecha;
+    private Time horaInicio;
     private double precio;
     private int estado;
     

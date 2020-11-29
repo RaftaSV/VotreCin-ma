@@ -49,6 +49,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPersonas = new javax.swing.JButton();
         btnSalas = new javax.swing.JButton();
         btnHorarios = new javax.swing.JButton();
+        btnCarteleras = new javax.swing.JButton();
         panelcontenedor = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -205,6 +206,15 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnCarteleras.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCarteleras.setText("CARTELERAS");
+        btnCarteleras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCarteleras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCartelerasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
@@ -216,6 +226,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addComponent(btnPersonas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnSalas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnHorarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCarteleras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +244,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCarteleras, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelcontenedor.setBackground(new java.awt.Color(255, 51, 51));
@@ -246,7 +259,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         panelcontenedorLayout.setVerticalGroup(
             panelcontenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 580, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
@@ -326,6 +339,10 @@ public class frmPrincipal extends javax.swing.JFrame {
             pelicula.dispose();
         } catch (Exception e) {
         }
+        try {
+            cartelera.dispose();
+        } catch (Exception e) {
+        }
     }
 
     public void Mostrar() {
@@ -356,7 +373,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 }
             } else {
                 if (cerrar == 3) {
-                   cerrarjinternal();
+                    cerrarjinternal();
                     if (proveedor == null || proveedor.isClosed()) {
                         proveedor = new fProveedores();
                         panelcontenedor.add(proveedor);
@@ -384,10 +401,10 @@ public class frmPrincipal extends javax.swing.JFrame {
 
                     } else {
                         if (cerrar == 5) {
-                        cerrarjinternal();
+                            cerrarjinternal();
                             if (persona == null || persona.isClosed()) {
                                 persona = new fPersonas();
-                                persona.edicion = 0;
+                             
                                 try {
                                     persona.setMaximum(true);
                                 } catch (Exception e) {
@@ -400,7 +417,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 cerrarjinternal();
                                 if (Sala == null || Sala.isClosed()) {
                                     Sala = new fSalas();
-                                    Sala.edicion = 0;
+                                
                                     try {
                                         Sala.setMaximum(true);
                                     } catch (Exception e) {
@@ -421,14 +438,31 @@ public class frmPrincipal extends javax.swing.JFrame {
                                         }
 
                                         panelcontenedor.add(horario);
-                                        horario.edicion = 0;
+                                       
                                         horario.setVisible(true);
                                     }
 
+                                } else {
+                                    if (cerrar == 8) {
+                                        cerrarjinternal();
+                                        if (cartelera == null || cartelera.isClosed()) {
+                                            cartelera = new fCartelera();
+                                           
+                                            try {
+                                                cartelera.setMaximum(true);
+                                            } catch (Exception e) {
+                                            }
+
+                                            panelcontenedor.add(cartelera);
+                                           
+                                            cartelera.setVisible(true);
+                                        }
+
+                                    }
                                 }
                             }
-                        }
 
+                        }
                     }
                 }
             }
@@ -437,14 +471,14 @@ public class frmPrincipal extends javax.swing.JFrame {
     public fPeliculas pelicula;
     private void btnPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeliculasActionPerformed
         cerrar = 1;
-         Mostrar();
+        Mostrar();
 
 
     }//GEN-LAST:event_btnPeliculasActionPerformed
     public fProveedores proveedor;
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
         cerrar = 3;
-         Mostrar();
+        Mostrar();
 
 
     }//GEN-LAST:event_btnProveedoresActionPerformed
@@ -464,8 +498,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonasActionPerformed
         // TODO add your handling code here:
         cerrar = 5;
-         Mostrar();
-         
+        Mostrar();
+
     }//GEN-LAST:event_btnPersonasActionPerformed
 
     private void btnOcultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOcultarMouseClicked
@@ -519,9 +553,16 @@ public class frmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         cerrar = 7;
 
-         Mostrar();
+        Mostrar();
 
     }//GEN-LAST:event_btnHorariosActionPerformed
+
+    public fCartelera cartelera;
+    private void btnCartelerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartelerasActionPerformed
+        // TODO add your handling code here:
+        cerrar = 8;
+        Mostrar();
+    }//GEN-LAST:event_btnCartelerasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -559,6 +600,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCarteleras;
     private javax.swing.JLabel btnCerrarMenu;
     private javax.swing.JButton btnHorarios;
     private javax.swing.JLabel btnMinimizar;
