@@ -221,7 +221,7 @@ public class frmInsertUser extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        lblEncabezado.setFont(new java.awt.Font("Algerian_R", 1, 60)); // NOI18N
         lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("REGISTRO");

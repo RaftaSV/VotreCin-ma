@@ -143,7 +143,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         panelMenu.setBackground(new java.awt.Color(215, 172, 33));
 
-        btnProveedores.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnProveedores.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnProveedores.setText("PROVEEDORES");
         btnProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +170,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnRoles.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnRoles.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnRoles.setText("ROLES");
         btnRoles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRoles.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +179,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnPersonas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnPersonas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnPersonas.setText("PERSONAS");
         btnPersonas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPersonas.addActionListener(new java.awt.event.ActionListener() {
@@ -188,7 +188,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnSalas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSalas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnSalas.setText("SALAS");
         btnSalas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalas.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +197,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnHorarios.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnHorarios.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnHorarios.setText("HORARIOS");
         btnHorarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHorarios.addActionListener(new java.awt.event.ActionListener() {

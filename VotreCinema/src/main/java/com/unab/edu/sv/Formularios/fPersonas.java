@@ -119,6 +119,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
 
         txtNombres.setBackground(new java.awt.Color(0, 0, 0));
         txtNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNombres.setForeground(new java.awt.Color(255, 255, 255));
         txtNombres.setBorder(null);
 
         lblApellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -127,6 +128,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
 
         txtApellido.setBackground(new java.awt.Color(0, 0, 0));
         txtApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtApellido.setForeground(new java.awt.Color(255, 255, 255));
         txtApellido.setBorder(null);
 
         lblDUI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -135,6 +137,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
 
         txtDui.setBackground(new java.awt.Color(0, 0, 0));
         txtDui.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDui.setForeground(new java.awt.Color(255, 255, 255));
         txtDui.setBorder(null);
 
         btnGuardar.setBackground(new java.awt.Color(153, 102, 0));
@@ -259,7 +262,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         });
         TABLA.setViewportView(tbPersonas);
 
-        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        lblEncabezado.setFont(new java.awt.Font("Algerian_R", 1, 60)); // NOI18N
         lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("PERSONAS");
@@ -300,7 +303,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 .addComponent(btnLectura)
                 .addGap(17, 17, 17)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))

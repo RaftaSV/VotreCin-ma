@@ -98,6 +98,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         });
 
         txtUsu.setBackground(new java.awt.Color(0, 0, 0));
+        txtUsu.setForeground(new java.awt.Color(255, 255, 255));
         txtUsu.setBorder(null);
 
         lbltiporol.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,6 +149,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         });
 
         txtPass.setBackground(new java.awt.Color(0, 0, 0));
+        txtPass.setForeground(new java.awt.Color(255, 255, 255));
         txtPass.setBorder(null);
 
         javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
@@ -267,7 +269,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         });
 
         lblEncabezado.setBackground(new java.awt.Color(0, 0, 0));
-        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        lblEncabezado.setFont(new java.awt.Font("Algerian_R", 1, 60)); // NOI18N
         lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("roles");
