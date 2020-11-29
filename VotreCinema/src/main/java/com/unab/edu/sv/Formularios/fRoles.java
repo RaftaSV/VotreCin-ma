@@ -40,11 +40,11 @@ public class fRoles extends javax.swing.JInternalFrame {
     public void lectura(){
          if (edicion ==0){
         panelCRUD.setVisible(false);
-         btnLectura.setText("Lectura");
+        btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
         edicion=1;
         }else{
          panelCRUD.setVisible(true);
-         btnLectura.setText("Edicion");
+         btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
         edicion=0;
         }
      limpiar();
@@ -141,7 +141,6 @@ public class fRoles extends javax.swing.JInternalFrame {
 
         lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png"))); // NOI18N
         lblVer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblVer.setOpaque(true);
         lblVer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblVerMouseClicked(evt);
@@ -157,47 +156,44 @@ public class fRoles extends javax.swing.JInternalFrame {
         panelCRUDLayout.setHorizontalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPass)
+                    .addComponent(lblNombre))
+                .addGap(18, 18, 18)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jSeparator1)
+                        .addComponent(txtUsu, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                        .addGap(2, 2, 2)
+                        .addComponent(lblVer))))
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(lbltiporol))
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPass)
-                            .addComponent(lblNombre))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jSeparator1)
-                                .addComponent(txtUsu, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
-                                .addGap(2, 2, 2)
-                                .addComponent(lblVer))))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(lbltiporol))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addComponent(btnInsertar5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnEliminar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLimpiar))
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addComponent(rbAdmin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rbCajero)
-                                .addGap(18, 18, 18)
-                                .addComponent(rbCliente))))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblpersona)
+                        .addComponent(btnInsertar5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addComponent(btnEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiar))
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addComponent(rbAdmin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbCajero)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbCliente))))
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblpersona)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +227,7 @@ public class fRoles extends javax.swing.JInternalFrame {
                     .addComponent(btnInsertar5)
                     .addComponent(btnEliminar)
                     .addComponent(btnLimpiar))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         tbMostrarRol = new javax.swing.JTable(){
@@ -260,7 +256,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tbMostrarRol);
 
         btnLectura.setForeground(new java.awt.Color(204, 255, 255));
-        btnLectura.setText("Lectura");
+        btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png"))); // NOI18N
         btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLectura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -280,33 +276,28 @@ public class fRoles extends javax.swing.JInternalFrame {
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                .addComponent(btnLectura)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addComponent(btnLectura))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(4, 4, 4))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(btnLectura)))
+                    .addComponent(btnLectura))
+                .addGap(10, 10, 10)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                    .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -314,8 +305,9 @@ public class fRoles extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

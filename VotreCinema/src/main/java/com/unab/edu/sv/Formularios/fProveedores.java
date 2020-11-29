@@ -161,6 +161,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
         txtDireccion.setForeground(new java.awt.Color(255, 255, 255));
         txtDireccion.setBorder(null);
 
+        btnGuardar.setBackground(new java.awt.Color(153, 102, 0));
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +169,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
             }
         });
 
+        btnElimanar.setBackground(new java.awt.Color(153, 102, 0));
         btnElimanar.setText("Eliminar");
         btnElimanar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,6 +177,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
             }
         });
 
+        btnLimpiar.setBackground(new java.awt.Color(153, 102, 0));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,21 +202,6 @@ public class fProveedores extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnGuardar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnElimanar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLimpiar))
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
@@ -224,10 +212,25 @@ public class fProveedores extends javax.swing.JInternalFrame {
                                 .addContainerGap())))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btnGuardar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnElimanar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnLimpiar))
+                                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jSeparator3)
                             .addComponent(jSeparator2)
                             .addComponent(jSeparator1))
-                        .addContainerGap())))
+                        .addGap(3, 3, 3))))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,7 +262,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
         );
 
         btnLectura.setForeground(new java.awt.Color(204, 255, 255));
-        btnLectura.setText("Lectura");
+        btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png"))); // NOI18N
         btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLectura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -271,41 +274,32 @@ public class fProveedores extends javax.swing.JInternalFrame {
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
-                        .addGap(42, 42, 42))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(TABLA)))
+            .addGroup(fondoLayout.createSequentialGroup()
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLectura)))
-                .addGap(4, 4, 4))
+                .addGap(0, 0, 0))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addComponent(lblEncabezado)
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
-                        .addComponent(btnLectura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                    .addComponent(btnLectura)
+                    .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                     .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -343,11 +337,11 @@ public int edicion =0;
     public void lectura(){
          if (edicion ==0){
         panelCRUD.setVisible(false);
-         btnLectura.setText("Lectura");
+         btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
         edicion=1;
         }else{
          panelCRUD.setVisible(true);
-         btnLectura.setText("Edicion");
+         btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
         edicion=0;
         }
      Limpiar();

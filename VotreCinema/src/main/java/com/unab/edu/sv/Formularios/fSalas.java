@@ -197,7 +197,7 @@ public class fSalas extends javax.swing.JInternalFrame {
         lblEncabezado.setText("SALAS");
 
         btnLectura.setForeground(new java.awt.Color(204, 255, 255));
-        btnLectura.setText("Lectura");
+        btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png"))); // NOI18N
         btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLectura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -210,31 +210,33 @@ public class fSalas extends javax.swing.JInternalFrame {
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLectura)
-                .addGap(258, 258, 258))
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+                        .addGap(0, 0, 0)
+                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(156, 156, 156)
+                        .addComponent(btnLectura)))
+                .addContainerGap())
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lblEncabezado)
-                .addGap(22, 22, 22)
-                .addComponent(btnLectura)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(lblEncabezado))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnLectura)))
+                .addGap(42, 42, 42)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(181, Short.MAX_VALUE))
+                        .addContainerGap(185, Short.MAX_VALUE))
                     .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
@@ -375,25 +377,25 @@ public class fSalas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tbSalasMouseClicked
 
-    int edicion = 0;
-
-    void lectura() {
-        if (edicion == 0) {
-            panelCRUD.setVisible(false);
-            btnLectura.setText("Lectura");
-            edicion = 1;
-        } else {
-            btnLectura.setText("Edicion");
-            panelCRUD.setVisible(true);
-            edicion = 0;
-        }
-        limpiar();
-    }
     private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
         // TODO add your handling code here:
         lectura();
     }//GEN-LAST:event_btnLecturaMouseClicked
 
+    int edicion = 0;
+
+    void lectura() {
+        if (edicion == 0) {
+            panelCRUD.setVisible(false);
+           btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
+            edicion = 1;
+        } else {
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
+            panelCRUD.setVisible(true);
+            edicion = 0;
+        }
+        limpiar();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane TABLA;

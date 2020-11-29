@@ -74,9 +74,9 @@ public class fProductos extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        btnLectura = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbProductos = new javax.swing.JTable();
+        btnLectura = new javax.swing.JLabel();
 
         panelFondo.setBackground(new java.awt.Color(0, 0, 0));
         panelFondo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -245,17 +245,8 @@ public class fProductos extends javax.swing.JInternalFrame {
                     .addComponent(btnGuardar)
                     .addComponent(btnEliminar)
                     .addComponent(btnLimpiar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
-
-        btnLectura.setForeground(new java.awt.Color(204, 255, 255));
-        btnLectura.setText("Lectura");
-        btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLectura.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLecturaMouseClicked(evt);
-            }
-        });
 
         tbProductos = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int collIndex){
@@ -282,39 +273,41 @@ public class fProductos extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tbProductos);
 
+        btnLectura.setForeground(new java.awt.Color(204, 255, 255));
+        btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png"))); // NOI18N
+        btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLectura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLecturaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEncabezado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelFondoLayout.createSequentialGroup()
-                                .addGap(442, 442, 442)
-                                .addComponent(btnLectura)
-                                .addGap(18, 18, Short.MAX_VALUE))
-                            .addGroup(panelFondoLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2)
-                                .addGap(18, 18, 18)))
-                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLectura)
+                .addGap(6, 6, 6))
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblEncabezado)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLectura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(btnLectura)
+                    .addComponent(lblEncabezado))
+                .addGap(48, 48, 48)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -514,11 +507,11 @@ public void ajustartabla() {
     public void lectura(){
          if (edicion ==0){
         panelCRUD.setVisible(false);
-         btnLectura.setText("Lectura");
+        btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
         edicion=1;
         }else{
          panelCRUD.setVisible(true);
-         btnLectura.setText("Edicion");
+         btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
         edicion=0;
         }
      Limpiar();
@@ -527,11 +520,6 @@ public void ajustartabla() {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_panelFondoMouseClicked
-
-    private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
-        // TODO add your handling code here:
-        lectura();
-    }//GEN-LAST:event_btnLecturaMouseClicked
 
     private void tbProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductosMouseClicked
     int fila = tbProductos.getSelectedRow();
@@ -554,6 +542,11 @@ public void ajustartabla() {
             selectvista += 1;
         }
     }//GEN-LAST:event_tbProductosMouseClicked
+
+    private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
+        // TODO add your handling code here:
+        lectura();
+    }//GEN-LAST:event_btnLecturaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
