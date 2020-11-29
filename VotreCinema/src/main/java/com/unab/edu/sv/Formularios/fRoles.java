@@ -85,15 +85,6 @@ public class fRoles extends javax.swing.JInternalFrame {
 
         panelFondo.setBackground(new java.awt.Color(0, 0, 0));
 
-<<<<<<< Updated upstream
-=======
-        lblEncabezado.setBackground(new java.awt.Color(0, 0, 0));
-        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
-        lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
-        lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblEncabezado.setText("ROLES");
-
->>>>>>> Stashed changes
         panelCRUD.setBackground(new java.awt.Color(0, 0, 0));
 
         lblpersona.setForeground(new java.awt.Color(255, 255, 255));
@@ -267,7 +258,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tbMostrarRol);
 
         btnLectura.setForeground(new java.awt.Color(204, 255, 255));
-        btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png"))); // NOI18N
+        btnLectura.setText("Lectura");
         btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLectura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -290,14 +281,8 @@ public class fRoles extends javax.swing.JInternalFrame {
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-<<<<<<< Updated upstream
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))
-=======
-                        .addComponent(btnLectura, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> Stashed changes
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(btnLectura)))
@@ -311,7 +296,6 @@ public class fRoles extends javax.swing.JInternalFrame {
                 .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-<<<<<<< Updated upstream
                         .addGap(15, 15, 15)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
@@ -320,15 +304,6 @@ public class fRoles extends javax.swing.JInternalFrame {
                         .addComponent(btnLectura)
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-=======
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEncabezado)
-                            .addComponent(btnLectura, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
-                        .addGap(27, 27, 27)))
-                .addGap(0, 0, 0))
->>>>>>> Stashed changes
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
