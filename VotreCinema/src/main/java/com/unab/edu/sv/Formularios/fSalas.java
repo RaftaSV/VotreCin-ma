@@ -69,6 +69,7 @@ public class fSalas extends javax.swing.JInternalFrame {
 
         txtCapacidad.setBackground(new java.awt.Color(0, 0, 0));
         txtCapacidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCapacidad.setForeground(new java.awt.Color(255, 255, 255));
         txtCapacidad.setBorder(null);
 
         lblNumerodeSala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -77,8 +78,10 @@ public class fSalas extends javax.swing.JInternalFrame {
 
         txtNumerodeSala.setBackground(new java.awt.Color(0, 0, 0));
         txtNumerodeSala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNumerodeSala.setForeground(new java.awt.Color(255, 255, 255));
         txtNumerodeSala.setBorder(null);
 
+        btnGuardar.setBackground(new java.awt.Color(153, 102, 0));
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +89,7 @@ public class fSalas extends javax.swing.JInternalFrame {
             }
         });
 
+        btnEliminar.setBackground(new java.awt.Color(153, 102, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +97,7 @@ public class fSalas extends javax.swing.JInternalFrame {
             }
         });
 
+        btnLimpiar.setBackground(new java.awt.Color(153, 102, 0));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +191,7 @@ public class fSalas extends javax.swing.JInternalFrame {
         });
         TABLA.setViewportView(tbSalas);
 
-        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        lblEncabezado.setFont(new java.awt.Font("Algerian_R", 1, 60)); // NOI18N
         lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("SALAS");
@@ -229,7 +234,7 @@ public class fSalas extends javax.swing.JInternalFrame {
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(148, Short.MAX_VALUE))
+                        .addContainerGap(181, Short.MAX_VALUE))
                     .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 

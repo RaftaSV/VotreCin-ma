@@ -78,7 +78,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnLectura" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" pref="431" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" pref="459" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -93,7 +93,7 @@
         <Component class="javax.swing.JLabel" name="lblEncabezado">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Algerian" size="48" style="1"/>
+              <Font name="Algerian_R" size="48" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -137,11 +137,6 @@
                               <Component id="jSeparator1" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="lblPrecio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jSeparator2" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -162,6 +157,10 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblPrecio" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="lblCantidad" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>

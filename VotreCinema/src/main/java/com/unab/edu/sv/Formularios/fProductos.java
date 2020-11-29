@@ -85,7 +85,7 @@ public class fProductos extends javax.swing.JInternalFrame {
             }
         });
 
-        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        lblEncabezado.setFont(new java.awt.Font("Algerian_R", 1, 48)); // NOI18N
         lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("PRODUCTOS");
@@ -189,10 +189,6 @@ public class fProductos extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
                         .addComponent(jSeparator1)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblPrecio)
-                        .addGap(135, 135, 135))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addComponent(jSeparator2)
                         .addContainerGap())
@@ -209,6 +205,9 @@ public class fProductos extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                                .addComponent(lblPrecio)
+                                .addGap(135, 135, 135))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
                                 .addComponent(lblCantidad)
                                 .addGap(126, 126, 126))
@@ -312,7 +311,7 @@ public class fProductos extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnLectura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE))
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))

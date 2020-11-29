@@ -61,7 +61,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
         panelfondo.setBackground(new java.awt.Color(0, 0, 0));
 
         lblEncabezado.setBackground(new java.awt.Color(0, 0, 0));
-        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        lblEncabezado.setFont(new java.awt.Font("Algerian_R", 1, 48)); // NOI18N
         lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("PELICULAS");

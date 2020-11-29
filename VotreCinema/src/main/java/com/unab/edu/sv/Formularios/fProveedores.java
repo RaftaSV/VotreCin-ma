@@ -67,7 +67,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
         fondo.setBackground(new java.awt.Color(0, 0, 0));
 
         lblEncabezado.setBackground(new java.awt.Color(0, 0, 0));
-        lblEncabezado.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        lblEncabezado.setFont(new java.awt.Font("Algerian_R", 1, 48)); // NOI18N
         lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("PROVEEDORES");
@@ -140,6 +140,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
 
         txtNombre.setBackground(new java.awt.Color(0, 0, 0));
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
         txtNombre.setBorder(null);
 
         lblTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -148,6 +149,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
 
         txtTelefono.setBackground(new java.awt.Color(0, 0, 0));
         txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTelefono.setForeground(new java.awt.Color(255, 255, 255));
         txtTelefono.setBorder(null);
 
         lblDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -156,6 +158,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
 
         txtDireccion.setBackground(new java.awt.Color(0, 0, 0));
         txtDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDireccion.setForeground(new java.awt.Color(255, 255, 255));
         txtDireccion.setBorder(null);
 
         btnGuardar.setText("Guardar");
@@ -183,25 +186,6 @@ public class fProveedores extends javax.swing.JInternalFrame {
         panelCRUD.setLayout(panelCRUDLayout);
         panelCRUDLayout.setHorizontalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnGuardar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnElimanar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLimpiar))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,6 +198,21 @@ public class fProveedores extends javax.swing.JInternalFrame {
             .addGroup(panelCRUDLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnGuardar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnElimanar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLimpiar))
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +301,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
                         .addComponent(btnLectura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
