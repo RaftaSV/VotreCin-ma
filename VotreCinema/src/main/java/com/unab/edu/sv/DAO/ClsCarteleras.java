@@ -48,6 +48,7 @@ public class ClsCarteleras {
     }
     public void InsertarCartelera (Carteleras Cartel){
         //CallableStatement call = conectar.prepareCall("call ");
+        
     }
 
 }
