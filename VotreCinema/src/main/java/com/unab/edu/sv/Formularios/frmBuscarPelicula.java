@@ -16,9 +16,14 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -32,9 +37,34 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
     public frmBuscarPelicula() {
         initComponents();
         cargartabla();
+        ajustartabla();
+        this.setLocationRelativeTo(null);
         txtBuscar.setText("");
-        
-        
+
+    }
+
+    public void ajustartabla() {
+        // Ocultar la columna del ID de la pelicula
+        tbPeliculas.getColumnModel().getColumn(0).setMaxWidth(0);
+        tbPeliculas.getColumnModel().getColumn(0).setMinWidth(0);
+        tbPeliculas.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        tbPeliculas.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+        //Centrar en texto del encabezado de la tabla
+        DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbPeliculas.getTableHeader().getDefaultRenderer();
+        render.setHorizontalAlignment(SwingConstants.CENTER);
+        //Centrar el contenido de la tabla
+        DefaultTableCellRenderer al = new DefaultTableCellRenderer();
+        al.setHorizontalAlignment(SwingConstants.CENTER);
+        tbPeliculas.getColumnModel().getColumn(2).setCellRenderer(al);
+        tbPeliculas.getColumnModel().getColumn(3).setCellRenderer(al);
+        tbPeliculas.getColumnModel().getColumn(4).setCellRenderer(al);
+        tbPeliculas.getColumnModel().getColumn(5).setCellRenderer(al);
+
+        //Ajustar el tamaño de la celdas
+        TableColumn columna1;
+        columna1 = tbPeliculas.getColumnModel().getColumn(1);
+        columna1.setPreferredWidth(150);
+        tbPeliculas.setRowHeight(320);
     }
     Peliculas p = new Carteleras();
 
@@ -138,12 +168,12 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addGap(67, 67, 67)
                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,17 +193,19 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-  SimpleDateFormat formato = new SimpleDateFormat("d MMM y");
+
+    SimpleDateFormat formato = new SimpleDateFormat("d MMM y");
+
     public void cargartabla() {
         p.setNombre(txtBuscar.getText());
-        String[] Titulos = {"ID", "PORTADA", "NOMBRE", "FECHA DE ESTRENO", "DURACION", "CLASIFICACION", "TIPO", "SINOPSIS"};
+        String[] Titulos = {"ID", "PORTADA", "NOMBRE", "DURACION", "CLASIFICACION", "TIPO"};
         DefaultTableModel modelo = new DefaultTableModel(null, Titulos);
         tbPeliculas.setDefaultRenderer(Object.class, new Render());
         ClsPeliculas cls = new ClsPeliculas();
         ArrayList<Peliculas> lista = cls.ListaPeliculasBuscar(p);
         Object fila[] = new Object[8];
         for (var i : lista) {
-            fila[0] = "<HTML>" + "<p align=\"justify\">" + i.getIdPelicula() + "</HTML>";
+            fila[0] = i.getIdPelicula();
             try {
                 // Cargar la imagen en formato byte
                 byte[] bi = i.getPortada();
@@ -190,22 +222,19 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
             // En las jTables se puede utilizar codigo html, en este caso estamos alineando el texto 
             // a justicifado
             fila[2] = "<HTML>" + "<p align=\"justify\">" + i.getNombre() + "</HTML>";
-            fila[3] = "<HTML>" + "<p align=\"justify\">" + String.valueOf(formato.format(i.getYear())) + "</HTML>";
-            fila[4] = "<HTML>" + "<p align=\"justify\">" + i.getDuracion() + "</HTML>";
+            fila[3] = "<HTML>" + "<p align=\"justify\">" + i.getDuracion() + "</HTML>";
             if (i.getClasificacion() == 0) {
-                fila[5] = "<HTML>" + "<p align=\"justify\">" + "Para toda la familia" + "</HTML>";
+                fila[4] = "<HTML>" + "<p align=\"justify\">" + "Para toda la familia" + "</HTML>";
             } else if (i.getClasificacion() == 1) {
-                fila[5] = "<HTML>" + "<p align=\"justify\">" + "Para mayores de 15 años" + "</HTML>";
+                fila[4] = "<HTML>" + "<p align=\"justify\">" + "Para mayores de 15 años" + "</HTML>";
             } else if (i.getClasificacion() == 2) {
-                fila[5] = "<HTML>" + "<p align=\"justify\">" + "Para mayores de 18 años" + "</HTML>";
+                fila[4] = "<HTML>" + "<p align=\"justify\">" + "Para mayores de 18 años" + "</HTML>";
             }
             if (i.getTipo() == 0) {
-                fila[6] = "<HTML>" + "<p align=\"justify\">" + "2D" + "</HTML>";
+                fila[5] = "<HTML>" + "<p align=\"justify\">" + "2D" + "</HTML>";
             } else if (i.getTipo() == 1) {
-                fila[6] = "<HTML>" + "<p align=\"justify\">" + "3D" + "</HTML>";
+                fila[5] = "<HTML>" + "<p align=\"justify\">" + "3D" + "</HTML>";
             }
-
-            fila[7] = "<HTML>" + "<p align=\"justify\">" + i.getSipnosis() + "</HTML>";
             modelo.addRow(fila);
         }
         tbPeliculas.setModel(modelo);
@@ -213,19 +242,36 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
     }
     private void tbPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPeliculasMouseClicked
 
-        int fila = tbPeliculas.getSelectedRow();
-        String idd = String.valueOf(tbPeliculas.getValueAt(fila, 0));
-   
+        int res = JOptionPane.showConfirmDialog(null, "¿Desea Elegir esta pelicula?", "Advertencia", JOptionPane.YES_NO_OPTION);
+        if (res == 0) {
+            int fila = tbPeliculas.getSelectedRow();
+            String idd = String.valueOf(tbPeliculas.getValueAt(fila, 0));
+            int id = Integer.valueOf(idd);
+            frmLogin l = new frmLogin();
+            JLabel j = (JLabel) tbPeliculas.getModel().getValueAt(fila, 1);
+            Icon imgi = j.getIcon();
+            String nombre = String.valueOf(tbPeliculas.getValueAt(fila, 2));
+            String nombrer = nombre.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
+            l.principal.cartelera.insertar.txtpelicula.setText(nombrer);
+            l.principal.cartelera.insertar.lblPelicula.setIcon(imgi);
+            l.principal.cartelera.insertar.idpelicula = id;
+            this.dispose();
+
+        } else {
+
+        }
+
     }//GEN-LAST:event_tbPeliculasMouseClicked
 
     private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtBuscarKeyPressed
 
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
         // TODO add your handling code here:
         cargartabla();
+        ajustartabla();
     }//GEN-LAST:event_txtBuscarKeyReleased
 
     /**

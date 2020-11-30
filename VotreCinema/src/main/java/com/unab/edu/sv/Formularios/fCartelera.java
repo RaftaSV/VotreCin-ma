@@ -127,6 +127,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
         lblEncabezado = new javax.swing.JLabel();
         TABLA = new javax.swing.JScrollPane();
         tbCarteleras = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         panelFondo.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -172,13 +173,23 @@ public class fCartelera extends javax.swing.JInternalFrame {
         });
         TABLA.setViewportView(tbCarteleras);
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE))
+                .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap())
             .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelFondoLayout.createSequentialGroup()
                     .addContainerGap()
@@ -188,8 +199,12 @@ public class fCartelera extends javax.swing.JInternalFrame {
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addComponent(lblEncabezado)
-                .addContainerGap(405, Short.MAX_VALUE))
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEncabezado)
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jButton1)))
+                .addContainerGap(390, Short.MAX_VALUE))
             .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelFondoLayout.createSequentialGroup()
                     .addGap(74, 74, 74)
@@ -209,10 +224,16 @@ public class fCartelera extends javax.swing.JInternalFrame {
         id = Integer.valueOf(String.valueOf(tbCarteleras.getValueAt(fila, 0)));
 
     }//GEN-LAST:event_tbCartelerasMouseClicked
+public  fInsertarCartelera insertar = new fInsertarCartelera();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        insertar.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane TABLA;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JTable tbCarteleras;
