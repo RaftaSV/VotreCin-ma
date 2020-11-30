@@ -196,5 +196,31 @@ public class ClsPeliculas {
         }
 
     }
+       public ArrayList<Peliculas> ListaPeliculasBuscar(Peliculas p) {
+        ArrayList<Peliculas> peliculas = new ArrayList<>();
+        try {
+            CallableStatement Cal = conectar.prepareCall("call prueba.SP_BUSCARPELICULA(?)");
+            Cal.setString("pNombre", p.getNombre());
+            ResultSet resultado = Cal.executeQuery();
+            while (resultado.next()) {
+                Peliculas peli = new Peliculas();
+                peli.setIdPelicula(resultado.getInt("idPeliculas"));
+                peli.setNombre(resultado.getString("Nombre"));
+                peli.setPortada(resultado.getBytes("Portada"));
+                peli.setYear(resultado.getDate("Yearr"));
+                peli.setDuracion(resultado.getTime("Duracion"));
+                peli.setSipnosis(resultado.getString("Sipnosis"));
+                peli.setClasificacion(resultado.getInt("Clasificacion"));
+                peli.setTipo(resultado.getInt("Tipo"));
+                peliculas.add(peli);
+
+            }
+            conectar.close();
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+        return peliculas;
+    }
 
 }
