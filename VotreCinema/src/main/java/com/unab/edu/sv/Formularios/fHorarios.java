@@ -35,7 +35,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
         lectura();
     }
     int id = 0;
-    int contador = 1;
+    int contador = 0;
 public int edicion =0;
     public void lectura(){
          if (edicion ==0){
@@ -437,6 +437,7 @@ public int edicion =0;
         lectura();
     }//GEN-LAST:event_btnLecturaMouseClicked
     public void Limpiar() {
+        
         cmbHoras.setSelectedIndex(0);
         cmbMinutos.setSelectedIndex(0);
         indicador=0;
