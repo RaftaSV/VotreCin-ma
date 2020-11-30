@@ -199,7 +199,7 @@ public class ClsPeliculas {
        public ArrayList<Peliculas> ListaPeliculasBuscar(Peliculas p) {
         ArrayList<Peliculas> peliculas = new ArrayList<>();
         try {
-            CallableStatement Cal = conectar.prepareCall("call prueba.SP_BUSCARPELICULA(?)");
+            CallableStatement Cal = conectar.prepareCall("call SP_BUSCARPELICULA(?)");
             Cal.setString("pNombre", p.getNombre());
             ResultSet resultado = Cal.executeQuery();
             while (resultado.next()) {
