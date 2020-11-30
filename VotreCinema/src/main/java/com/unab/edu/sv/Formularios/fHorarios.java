@@ -35,7 +35,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
         lectura();
     }
     int id = 0;
-    int contador = 0;
+    int contador = 1;
 public int edicion =0;
     public void lectura(){
          if (edicion ==0){
@@ -376,7 +376,7 @@ public int edicion =0;
     int indicador = 0;
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        if (contador == 0) {
+        if (indicador == 0) {
             if (cmbHoras.getSelectedIndex() != 0) {
                 String horas = String.valueOf(cmbHoras.getSelectedIndex());
                 String minutos = String.valueOf(cmbMinutos.getSelectedIndex());
