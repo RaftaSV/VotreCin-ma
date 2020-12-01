@@ -198,6 +198,7 @@ public class fInsertarCartelera extends javax.swing.JFrame {
 frmBuscarPelicula buscar = new frmBuscarPelicula();
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 

@@ -12,6 +12,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,7 +48,19 @@ public class ClsCarteleras {
         return lista;
     }
     public void InsertarCartelera (Carteleras Cartel){
-        //CallableStatement call = conectar.prepareCall("call ");
+        try {
+            CallableStatement cs = conectar.prepareCall("call SP_I_CARTELERA (?,?,?,?)");
+            cs.setInt("PId_Pelicula", Cartel.getIdPelicula());
+            cs.setInt("PId_Horario",Cartel.getId_Horario());
+            cs.setInt("PId_sala", Cartel.getId_Sala());
+            cs.setDate("PFecha", new java.sql.Date(Cartel.getFecha().getTime()));
+            cs.executeQuery();
+            JOptionPane.showMessageDialog(null, "Guardado exitosamente");
+            conectar.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       
         
     }
 
