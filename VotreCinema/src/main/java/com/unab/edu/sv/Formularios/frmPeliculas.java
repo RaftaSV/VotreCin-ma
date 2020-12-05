@@ -198,6 +198,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         txtSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtSeleccionar.setForeground(new java.awt.Color(255, 255, 255));
         txtSeleccionar.setBorder(null);
+        txtSeleccionar.setCaretColor(new java.awt.Color(255, 255, 255));
         txtSeleccionar.setOpaque(false);
         panelFondo.add(txtSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 183, 201, 20));
 
@@ -302,6 +303,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         txtNombreP1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNombreP1.setForeground(new java.awt.Color(255, 255, 255));
         txtNombreP1.setBorder(null);
+        txtNombreP1.setCaretColor(new java.awt.Color(255, 255, 255));
         txtNombreP1.setOpaque(false);
         txtNombreP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
