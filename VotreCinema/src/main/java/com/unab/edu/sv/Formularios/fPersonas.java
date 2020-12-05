@@ -121,6 +121,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         txtNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNombres.setForeground(new java.awt.Color(255, 255, 255));
         txtNombres.setBorder(null);
+        txtNombres.setCaretColor(new java.awt.Color(255, 255, 255));
 
         lblApellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblApellidos.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,6 +131,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         txtApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(255, 255, 255));
         txtApellido.setBorder(null);
+        txtApellido.setCaretColor(new java.awt.Color(255, 255, 255));
 
         lblDUI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblDUI.setForeground(java.awt.Color.white);
@@ -139,6 +141,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         txtDui.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDui.setForeground(new java.awt.Color(255, 255, 255));
         txtDui.setBorder(null);
+        txtDui.setCaretColor(new java.awt.Color(255, 255, 255));
 
         btnGuardar.setBackground(new java.awt.Color(153, 102, 0));
         btnGuardar.setText("Guardar");
