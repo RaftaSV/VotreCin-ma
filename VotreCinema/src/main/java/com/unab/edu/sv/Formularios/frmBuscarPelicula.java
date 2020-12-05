@@ -136,6 +136,7 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
         txtBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtBuscar.setForeground(new java.awt.Color(255, 255, 255));
         txtBuscar.setBorder(null);
+        txtBuscar.setCaretColor(new java.awt.Color(255, 255, 255));
         txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscarKeyPressed(evt);
