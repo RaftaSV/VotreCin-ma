@@ -104,5 +104,26 @@ public class ClsProductos {
             System.out.println(e);
         }
     }
+   
+              public ArrayList<Productos> BuscarProductos(Productos p) {
+        ArrayList<Productos> lista = new ArrayList<>();
+        try {
+            CallableStatement call = conectar.prepareCall("Call  SP_BUSCARPRODUCTO(?)");
+            call.setString("pNombre", p.getNombre());
+            ResultSet resultado = call.executeQuery();
+            while (resultado.next()) {
+                Productos prod = new Productos();
+                prod.setIdProductos(resultado.getInt("idProducto"));
+                prod.setNombreprod(resultado.getString("Producto"));
+                prod.setPrecio(resultado.getDouble("precio"));
+                prod.setCantidad(resultado.getInt("Cantidad"));
+                lista.add(prod);
+            }
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+        return lista;
+    }
 
 }

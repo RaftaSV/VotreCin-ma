@@ -71,6 +71,7 @@ public class fSalas extends javax.swing.JInternalFrame {
         txtCapacidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCapacidad.setForeground(new java.awt.Color(255, 255, 255));
         txtCapacidad.setBorder(null);
+        txtCapacidad.setCaretColor(new java.awt.Color(255, 255, 255));
 
         lblNumerodeSala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNumerodeSala.setForeground(java.awt.Color.white);
@@ -80,6 +81,7 @@ public class fSalas extends javax.swing.JInternalFrame {
         txtNumerodeSala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNumerodeSala.setForeground(new java.awt.Color(255, 255, 255));
         txtNumerodeSala.setBorder(null);
+        txtNumerodeSala.setCaretColor(new java.awt.Color(255, 255, 255));
 
         btnGuardar.setBackground(new java.awt.Color(153, 102, 0));
         btnGuardar.setText("Guardar");

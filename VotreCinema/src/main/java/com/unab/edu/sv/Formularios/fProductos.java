@@ -101,6 +101,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(255, 255, 255));
         txtNombre.setBorder(null);
+        txtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
 
         lblPrecio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,6 +111,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         txtPrecio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtPrecio.setForeground(new java.awt.Color(255, 255, 255));
         txtPrecio.setBorder(null);
+        txtPrecio.setCaretColor(new java.awt.Color(255, 255, 255));
         txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPrecioKeyReleased(evt);
@@ -124,6 +126,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         txtCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCantidad.setForeground(new java.awt.Color(255, 255, 255));
         txtCantidad.setBorder(null);
+        txtCantidad.setCaretColor(new java.awt.Color(255, 255, 255));
         txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCantidadKeyReleased(evt);

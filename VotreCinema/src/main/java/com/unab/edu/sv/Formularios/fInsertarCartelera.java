@@ -47,7 +47,7 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -74,6 +74,7 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         txtpelicula.setBackground(new java.awt.Color(0, 0, 0));
         txtpelicula.setForeground(new java.awt.Color(255, 255, 255));
         txtpelicula.setBorder(null);
+        txtpelicula.setCaretColor(new java.awt.Color(255, 255, 255));
 
         btnSeleccionarP.setBackground(new java.awt.Color(153, 102, 0));
         btnSeleccionarP.setText("seleccionar");

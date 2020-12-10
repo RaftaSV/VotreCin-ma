@@ -100,6 +100,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         txtUsu.setBackground(new java.awt.Color(0, 0, 0));
         txtUsu.setForeground(new java.awt.Color(255, 255, 255));
         txtUsu.setBorder(null);
+        txtUsu.setCaretColor(new java.awt.Color(255, 255, 255));
 
         lbltiporol.setForeground(new java.awt.Color(255, 255, 255));
         lbltiporol.setText("Tipo Rol");
@@ -150,6 +151,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         txtPass.setBackground(new java.awt.Color(0, 0, 0));
         txtPass.setForeground(new java.awt.Color(255, 255, 255));
         txtPass.setBorder(null);
+        txtPass.setCaretColor(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
         panelCRUD.setLayout(panelCRUDLayout);

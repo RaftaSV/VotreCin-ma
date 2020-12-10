@@ -63,5 +63,33 @@ public class ClsCarteleras {
        
         
     }
+       public ArrayList<Carteleras> BuscarDatos(Carteleras c) {
+        ArrayList<Carteleras> lista = new ArrayList<>();
+        try {
+            CallableStatement call = conectar.prepareCall("call SP_BUSCARCARTELERA(?,?)");
+            call.setString("pNombre", c.getNombre());
+            call.setDate("pFecha", new java.sql.Date(c.getFecha().getTime()));
+            ResultSet resultado = call.executeQuery();
+            while(resultado.next()){
+            Carteleras cart = new Carteleras();
+            cart.setIdcartelera(resultado.getInt("idCarteleras"));
+            cart.setPortada(resultado.getBytes("portada"));
+            cart.setNombre(resultado.getString("Nombre"));
+            cart.setFecha(resultado.getDate("Fecha"));
+            cart.setHoraInicio(resultado.getTime("HoraInicio"));
+            cart.setNumero_sala(resultado.getInt("Numero_Sala"));
+            cart.setDuracion(resultado.getTime("Duracion"));
+            cart.setPrecio(resultado.getDouble("Precio"));
+            cart.setSipnosis(resultado.getString("Sipnosis"));
+            cart.setTipo(resultado.getInt("tipo"));
+            lista.add(cart);
+            }
+            lista.size();
+            conectar.close();
+           
+        } catch (Exception e) {
+        }
+        return lista;
+    }
 
 }

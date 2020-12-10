@@ -50,6 +50,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnSalas = new javax.swing.JButton();
         btnHorarios = new javax.swing.JButton();
         btnCarteleras = new javax.swing.JButton();
+        btnFacturar = new javax.swing.JButton();
         panelcontenedor = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -215,18 +216,28 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnFacturar.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnFacturar.setText("Facturar");
+        btnFacturar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFacturar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnPeliculas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnRoles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+            .addComponent(btnProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+            .addComponent(btnRoles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnPersonas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnSalas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnHorarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCarteleras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnFacturar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,6 +257,8 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCarteleras, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnFacturar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -255,11 +268,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelcontenedor.setLayout(panelcontenedorLayout);
         panelcontenedorLayout.setHorizontalGroup(
             panelcontenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 908, Short.MAX_VALUE)
+            .addGap(0, 904, Short.MAX_VALUE)
         );
         panelcontenedorLayout.setVerticalGroup(
             panelcontenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
+            .addGap(0, 663, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
@@ -343,6 +356,10 @@ public class frmPrincipal extends javax.swing.JFrame {
             cartelera.dispose();
         } catch (Exception e) {
         }
+        try {
+            facturar.dispose();
+        } catch (Exception e) {
+        }
     }
 
     public void Mostrar() {
@@ -404,7 +421,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                             cerrarjinternal();
                             if (persona == null || persona.isClosed()) {
                                 persona = new fPersonas();
-                             
+
                                 try {
                                     persona.setMaximum(true);
                                 } catch (Exception e) {
@@ -417,7 +434,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 cerrarjinternal();
                                 if (Sala == null || Sala.isClosed()) {
                                     Sala = new fSalas();
-                                
+
                                     try {
                                         Sala.setMaximum(true);
                                     } catch (Exception e) {
@@ -438,7 +455,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                                         }
 
                                         panelcontenedor.add(horario);
-                                       
+
                                         horario.setVisible(true);
                                     }
 
@@ -447,15 +464,32 @@ public class frmPrincipal extends javax.swing.JFrame {
                                         cerrarjinternal();
                                         if (cartelera == null || cartelera.isClosed()) {
                                             cartelera = new fCartelera();
-                                           
+
                                             try {
                                                 cartelera.setMaximum(true);
                                             } catch (Exception e) {
                                             }
 
                                             panelcontenedor.add(cartelera);
-                                           
+
                                             cartelera.setVisible(true);
+                                        }
+
+                                    } else {
+                                        if (cerrar == 9) {
+                                            cerrarjinternal();
+                                            if (facturar == null || facturar.isClosed()) {
+                                                facturar = new fFacturas();
+
+                                                try {
+                                                    facturar.setMaximum(true);
+                                                } catch (Exception e) {
+                                                }
+
+                                                panelcontenedor.add(facturar);
+
+                                                facturar.setVisible(true);
+                                            }
                                         }
 
                                     }
@@ -563,6 +597,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         cerrar = 8;
         Mostrar();
     }//GEN-LAST:event_btnCartelerasActionPerformed
+    public fFacturas facturar;
+    private void btnFacturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarActionPerformed
+        // TODO add your handling code here:
+        cerrar = 9;
+        Mostrar();
+    }//GEN-LAST:event_btnFacturarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -602,6 +642,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCarteleras;
     private javax.swing.JLabel btnCerrarMenu;
+    private javax.swing.JButton btnFacturar;
     private javax.swing.JButton btnHorarios;
     private javax.swing.JLabel btnMinimizar;
     private javax.swing.JLabel btnOcultar;
