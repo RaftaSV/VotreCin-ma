@@ -58,6 +58,7 @@ public class ClsHorarios {
             conectar.close();
 
         } catch (Exception e) {
+            System.out.println("Erro"+e);
         }
         return lista;
     }
