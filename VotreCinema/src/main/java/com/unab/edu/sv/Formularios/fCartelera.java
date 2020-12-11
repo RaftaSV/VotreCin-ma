@@ -227,6 +227,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
 public  fInsertarCartelera insertar = new fInsertarCartelera();
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
+        
         insertar.setVisible(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 

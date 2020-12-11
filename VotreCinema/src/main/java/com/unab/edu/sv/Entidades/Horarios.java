@@ -14,8 +14,10 @@ import lombok.*;
  * @author Rafael
  */
 @Data
-public class Horarios {
+public class Horarios extends Salas {
+    public int ids;
     private int idHorario;
     private Time HoraInicio;
+    private Date Fecha;
  
 }

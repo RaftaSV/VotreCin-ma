@@ -41,6 +41,27 @@ public class ClsHorarios {
         return lista;
     }
 
+    public ArrayList<Horarios> cargarHora(Horarios hor) {
+        ArrayList<Horarios> lista = new ArrayList<>();
+        try {
+            CallableStatement call = conectar.prepareCall("call SP_SELECCIONARHORARIO(?,?)");
+            call.setInt("pSala", hor.getIds());
+            call.setDate("pFecha",  new java.sql.Date(hor.getFecha().getTime()));
+            ResultSet resultado = call.executeQuery();
+            while (resultado.next()) {
+                Horarios horaa = new Horarios();
+                horaa.setIdHorario(resultado.getInt("idHorario"));
+                horaa.setHoraInicio(resultado.getTime("HoraInicio"));
+                lista.add(horaa);
+            }
+         
+            conectar.close();
+
+        } catch (Exception e) {
+        }
+        return lista;
+    }
+
     public void InsertarHorario(Horarios ho) {
         try {
             CallableStatement call = conectar.prepareCall("call SP_I_HORARIOS(?)");
@@ -74,12 +95,12 @@ public class ClsHorarios {
         }
 
     }
- 
+
     public void EliminarHorario(Horarios ho) {
         try {
             CallableStatement call = conectar.prepareCall("call SP_D_HORARIOS(?)");
             call.setInt("pId", ho.getIdHorario());
-         
+
             int res = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
             if (res == 0) {
                 call.executeQuery();
