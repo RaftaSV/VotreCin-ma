@@ -414,11 +414,8 @@ public class frmPeliculas extends javax.swing.JFrame {
         pelicula = 0;
         imagen = null;
         pelic = null;
-        rb2D.setSelected(false);
-        rb3D.setSelected(false);
-        rbMayoresde15.setSelected(false);
-        rbMayoresde18.setSelected(false);
-        rbTodos.setSelected(false);
+        Tipo.clearSelection();
+        Clasificacion.clearSelection();
         id = 0;
         lblImagen.setIcon(null);
     }
@@ -546,7 +543,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                           if (rbTodos.isSelected()){
                                             Peliculas pelic = new Peliculas();
                                             pelic.setIdPelicula(id);
-                                            pelic.setNombre(txtPrecio.getText());
+                                            pelic.setNombre(txtNombreP1.getText());
                                             for (var i : pel) {
                                                 pelic.setPortada(i.getPortada());
                                             }
@@ -563,10 +560,11 @@ public class frmPeliculas extends javax.swing.JFrame {
                                             frmLogin log = new frmLogin();
                                             log.principal.pelicula.cargartabla();
                                             log.principal.pelicula.ajustartabla();
+                                             this.dispose();
                                           }else{
                                             Peliculas pelic = new Peliculas();
                                             pelic.setIdPelicula(id);
-                                            pelic.setNombre(txtPrecio.getText());
+                                            pelic.setNombre(txtNombreP1.getText());
                                             for (var i : pel) {
                                                 pelic.setPortada(i.getPortada());
                                             }
@@ -583,6 +581,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                             frmLogin log = new frmLogin();
                                             log.principal.pelicula.cargartabla();
                                             log.principal.pelicula.ajustartabla();
+                                             this.dispose();
                                           }
 
                                         } else {
@@ -640,6 +639,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                             frmLogin log = new frmLogin();
                                             log.principal.pelicula.cargartabla();
                                             log.principal.pelicula.ajustartabla();
+                                             this.dispose();
                                             }
                                         }
                                     }

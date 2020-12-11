@@ -82,6 +82,7 @@ public class ClsCarteleras {
             cart.setPrecio(resultado.getDouble("Precio"));
             cart.setSipnosis(resultado.getString("Sipnosis"));
             cart.setTipo(resultado.getInt("tipo"));
+            cart.setIdPelicula(resultado.getInt("Id_Pelicula"));
             lista.add(cart);
             }
             lista.size();
