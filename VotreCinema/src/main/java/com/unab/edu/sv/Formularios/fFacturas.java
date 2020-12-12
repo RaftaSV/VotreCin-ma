@@ -51,16 +51,46 @@ public class fFacturas extends javax.swing.JInternalFrame {
         fechamaxima.add(Calendar.DAY_OF_MONTH, 8);
         this.jDateFecha.getDateEditor().setEnabled(false);
         this.jDateFecha.setSelectableDateRange(fecha, fechamaxima.getTime());
+        modeloDetalles = new DefaultTableModel(null, TitulosDETALLES);
+        tbDetalles.setModel(modeloDetalles);
         CargarDatos();
         CargarTablaCarteleras();
         ajustartablaProducto();
-        DefaultComboBoxModel Defaultcombobox = new DefaultComboBoxModel<>();
-        Defaultcombobox.addElement("");
-        cmbAsientos.setModel(Defaultcombobox);
+        //hacer mas grande la columna detalles
+         tbDetalles.getColumnModel().getColumn(0).setPreferredWidth(300);
+        // ocultar columanas tabla detalles
+        tbDetalles.getColumnModel().getColumn(2).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(2).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(2).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(2).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(3).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(3).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(3).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(3).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(4).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(4).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(4).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(5).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(5).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(5).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(5).setMinWidth(0);
+          //Centrar en texto del encabezado de la tabla
+        DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbDetalles.getTableHeader().getDefaultRenderer();
+        render.setHorizontalAlignment(JLabel.CENTER);
+        DefaultTableCellRenderer al = new DefaultTableCellRenderer();
+        al.setHorizontalAlignment(SwingConstants.CENTER);
+        tbDetalles.getColumnModel().getColumn(0).setCellRenderer(al);
+        tbDetalles.getColumnModel().getColumn(1).setCellRenderer(al);
+        
     }
 
+    String[] TitulosDETALLES = {"DETALLES", "PRECIO", "IDENTIFICADOR", "CARTELERA", "IDASIENTO", "IDPRECIO"};
+    Object[] filasDetalles = new Object[9];
+    DefaultTableModel modeloDetalles;
+
     public void ajustartablaProducto() {
-        // Ocultar la columna del ID de la pelicula
+        // Ocultar la columna del ID producto
         tbProducto.getColumnModel().getColumn(0).setMaxWidth(0);
         tbProducto.getColumnModel().getColumn(0).setMinWidth(0);
         tbProducto.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
@@ -73,6 +103,10 @@ public class fFacturas extends javax.swing.JInternalFrame {
         tbCarteleras.getColumnModel().getColumn(1).setMinWidth(0);
         tbCarteleras.getTableHeader().getColumnModel().getColumn(1).setMaxWidth(0);
         tbCarteleras.getTableHeader().getColumnModel().getColumn(1).setMinWidth(0);
+        tbCarteleras.getColumnModel().getColumn(6).setMaxWidth(0);
+        tbCarteleras.getColumnModel().getColumn(6).setMinWidth(0);
+        tbCarteleras.getTableHeader().getColumnModel().getColumn(6).setMaxWidth(0);
+        tbCarteleras.getTableHeader().getColumnModel().getColumn(6).setMinWidth(0);
         //Centrar en texto del encabezado de la tabla
         DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbProducto.getTableHeader().getDefaultRenderer();
         render.setHorizontalAlignment(JLabel.CENTER);
@@ -85,11 +119,13 @@ public class fFacturas extends javax.swing.JInternalFrame {
         DefaultTableCellRenderer rend = (DefaultTableCellRenderer) tbCarteleras.getTableHeader().getDefaultRenderer();
         rend.setHorizontalAlignment(JLabel.CENTER);
         DefaultTableCellRenderer alinear = new DefaultTableCellRenderer();
-        al.setHorizontalAlignment(SwingConstants.CENTER);
+        alinear.setHorizontalAlignment(SwingConstants.CENTER);
         tbCarteleras.getColumnModel().getColumn(2).setCellRenderer(alinear);
         tbCarteleras.getColumnModel().getColumn(3).setCellRenderer(alinear);
         tbCarteleras.getColumnModel().getColumn(4).setCellRenderer(alinear);
         tbCarteleras.getColumnModel().getColumn(5).setCellRenderer(alinear);
+
+    
     }
 
     void CargarDatos() {
@@ -144,6 +180,8 @@ public class fFacturas extends javax.swing.JInternalFrame {
         rbtnEstudiantes = new javax.swing.JRadioButton();
         rbtnAdultos = new javax.swing.JRadioButton();
         rbtnAdultosM = new javax.swing.JRadioButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbDetalles = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(893, 663));
 
@@ -350,13 +388,31 @@ public class fFacturas extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        tbDetalles = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int collIndex){
+                return false;
+            }
+        };
+        tbDetalles.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tbDetalles);
+
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelFondoLayout.createSequentialGroup()
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelFondoLayout.createSequentialGroup()
@@ -375,14 +431,18 @@ public class fFacturas extends javax.swing.JInternalFrame {
                                 .addComponent(txtBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(TABLA1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,19 +457,23 @@ public class fFacturas extends javax.swing.JInternalFrame {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6))
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtBuscarCarteleras, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jDateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtBuscarCarteleras, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(TABLA1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                            .addGap(2, 2, 2)
+                            .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TABLA1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -417,9 +481,8 @@ public class fFacturas extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -463,16 +526,16 @@ public class fFacturas extends javax.swing.JInternalFrame {
         for (var i : p) {
 
             if (i.getTipo() == 0) {
-                rbtnAdultos.setText("$"+String.valueOf(i.getPrecios())+" Adultos");
+                rbtnAdultos.setText("$" + String.valueOf(i.getPrecios()) + " Adultos");
 
             } else if (i.getTipo() == 1) {
-                rbtnChild.setText("$"+String.valueOf(i.getPrecios()) +" Niños");
+                rbtnChild.setText("$" + String.valueOf(i.getPrecios()) + " Niños");
                 rbtnChild.setEnabled(true);
 
             } else if (i.getTipo() == 2) {
-                rbtnEstudiantes.setText("$"+String.valueOf(i.getPrecios())+" Estudiantes");
+                rbtnEstudiantes.setText("$" + String.valueOf(i.getPrecios()) + " Estudiantes");
             } else if (i.getTipo() == 3) {
-                rbtnAdultosM.setText("$"+String.valueOf(i.getPrecios())+" Adultos mayores");
+                rbtnAdultosM.setText("$" + String.valueOf(i.getPrecios()) + " Adultos mayores");
             }
 
             if (p.size() == 3) {
@@ -576,6 +639,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblAsientos;
@@ -586,6 +650,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rbtnChild;
     private javax.swing.JRadioButton rbtnEstudiantes;
     private javax.swing.JTable tbCarteleras;
+    private javax.swing.JTable tbDetalles;
     private javax.swing.JTable tbProducto;
     private javax.swing.JTextField txtBuscarCarteleras;
     private javax.swing.JTextField txtBuscarProducto;
