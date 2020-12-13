@@ -14,6 +14,7 @@ import com.unab.edu.sv.Entidades.Peliculas;
 import com.unab.edu.sv.Entidades.Salas;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -27,6 +28,8 @@ public class fInsertarCartelera extends javax.swing.JFrame {
      */
     public fInsertarCartelera() {
         initComponents();
+        Date fecha = new Date();
+        jdcFecha.setDate(fecha);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         displaymember();
@@ -66,8 +69,18 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         cmbsala.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbsala.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                cmbsalaVetoableChange(evt);
+            }
+        });
 
         cmbhorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbhorario.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                cmbhorarioVetoableChange(evt);
+            }
+        });
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Fecha");
@@ -218,10 +231,17 @@ public class fInsertarCartelera extends javax.swing.JFrame {
     public void cargardatos() {
 
     }
+    int indicador = 0;
+    int id = 0;
 
     frmBuscarPelicula buscar = new frmBuscarPelicula();
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        Carteleras cart = new Carteleras();
+        if (indicador == 0) {
+//         if (){
+//         
+//         
+//         }
+        }
 
 
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -235,6 +255,17 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         // TODO add your handling code here:
         displaymembe();
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void cmbsalaVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_cmbsalaVetoableChange
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_cmbsalaVetoableChange
+
+    private void cmbhorarioVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_cmbhorarioVetoableChange
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_cmbhorarioVetoableChange
     String valuemember[];
     int contador = 1;
 
@@ -255,14 +286,16 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         }
         cmbsala.setModel(Defaultcombobox);
     }
+    int contado = 1;
 
     void displaymembe() {
+        DefaultComboBoxModel listahora = new DefaultComboBoxModel<>();
+
         String valuemembe[];
-        int contado = 1;
         Horarios horari = new Horarios();
         horari.setFecha(jdcFecha.getDate());
         horari.setIds(Integer.parseInt(valuemember[cmbsala.getSelectedIndex()]));
-        DefaultComboBoxModel listahora = new DefaultComboBoxModel<>();
+
         String DisplayMenber[] = new String[5];
         listahora.addElement("");
         ClsHorarios cls = new ClsHorarios();
@@ -293,6 +326,7 @@ public class fInsertarCartelera extends javax.swing.JFrame {
 
         }
         cmbhorario.setModel(listahora);
+
     }
 
     /**
