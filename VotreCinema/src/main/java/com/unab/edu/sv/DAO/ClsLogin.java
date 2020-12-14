@@ -22,6 +22,7 @@ public class ClsLogin {
     Connection conectar = con.retornarConexion();
     boolean res = false;
     public int rol=0;
+    public  int id;
     public boolean Rol(String usu, String pass) {
         ArrayList<Roles> listarUsuarioPass = new ArrayList<>();
         ArrayList<Roles> ListaPass = new ArrayList<>();
@@ -35,6 +36,7 @@ public class ClsLogin {
            rol.setUsuario(resul.getString("Usuario"));
            rol.setPasword(resul.getNString("Pasword"));
            rol.setTipoRol(resul.getInt("TipoRol"));
+           rol.setIdRol(resul.getInt("idRoles"));
            listarUsuarioPass.add(rol);
            }
            String usubase="";
@@ -43,6 +45,7 @@ public class ClsLogin {
            usubase=i.getUsuario();
            passbase= i.getPasword();
            rol = i.getTipoRol();
+           id=i.getIdRol();
            }
            CallableStatement st2 = conectar.prepareCall("call SP_S_CRIP(?)");
             st2.setString("PcripPass", pass);

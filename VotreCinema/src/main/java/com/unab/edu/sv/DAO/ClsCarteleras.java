@@ -73,7 +73,6 @@ public class ClsCarteleras {
             while(resultado.next()){
             Carteleras cart = new Carteleras();
             cart.setIdcartelera(resultado.getInt("idCarteleras"));
-            cart.setPortada(resultado.getBytes("portada"));
             cart.setNombre(resultado.getString("Nombre"));
             cart.setFecha(resultado.getDate("Fecha"));
             cart.setHoraInicio(resultado.getTime("HoraInicio"));

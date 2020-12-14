@@ -5,6 +5,7 @@
  */
 package com.unab.edu.sv.Entidades;
 
+import java.math.BigDecimal;
 import lombok.Data;
 
 /**
@@ -14,6 +15,6 @@ import lombok.Data;
 @Data
 public class Precios extends Peliculas{
     public int idprecio;
-    public double precios;
+    public BigDecimal precios;
     public int tipo;
 }

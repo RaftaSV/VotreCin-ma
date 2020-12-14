@@ -64,6 +64,36 @@ public class ClsRoles {
 
     }
 
+    public ArrayList<Roles> MostrarUsuarios() {
+    
+        ArrayList<Roles> Roll = new ArrayList<>();
+
+        try {
+            CallableStatement cs = conect.prepareCall("select b.idRoles,a.Nombres,a.idPersonas,b.Usuario,b.Pasword,b.TipoRol from personas as a inner join roles as b on a.idPersonas = b.Id_persona where b.estado=0 and b.tiporol=2;");
+            ResultSet resultado = cs.executeQuery();
+            while (resultado.next()) {
+                Roles Rol = new Roles();
+                Rol.setIdRol(resultado.getInt("idRoles"));
+                Rol.setUsuario(resultado.getString("Usuario"));
+                Rol.setPasword(resultado.getString("Pasword"));
+                Rol.setTipoRol(resultado.getInt("TipoRol"));
+                Rol.setNombres(resultado.getString("Nombres"));
+                Rol.setId_Persona(resultado.getInt("idPersonas"));
+                Roll.add(Rol);
+
+            }
+
+            conect.close();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        return Roll;
+    }
+
+  
+
     public void ActualizarRol(Roles r) {
         try {
             CallableStatement cs = conect.prepareCall("call SP_U_ROLES(?,?,?,?,?)");
@@ -72,11 +102,11 @@ public class ClsRoles {
             cs.setString("pPass", r.getPasword());
             cs.setInt("pTipoRol", r.getTipoRol());
             cs.setInt("pIdPersona", r.getId_Persona());
-          int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
             if (res == 0) {
                 cs.execute();
                 JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
-                 frmLogin log = new frmLogin();
+                frmLogin log = new frmLogin();
                 log.principal.rol.limpiar();
                 conect.close();
 
@@ -106,9 +136,10 @@ public class ClsRoles {
         }
 
     }
-    public void InsertarAdmin(Roles rol){
+
+    public void InsertarAdmin(Roles rol) {
         try {
-            CallableStatement call= conect.prepareCall("call  votrecinéma.SP_REGISTROADMIN(?,?,?,?,?)");
+            CallableStatement call = conect.prepareCall("call  votrecinéma.SP_REGISTROADMIN(?,?,?,?,?)");
             call.setString("pNombres", rol.getNombres());
             call.setString("pApellidos", rol.getApellidos());
             call.setString("pDUI", rol.getDUI());
@@ -117,7 +148,7 @@ public class ClsRoles {
             call.executeQuery();
             JOptionPane.showMessageDialog(null, "Registro exitoso");
         } catch (Exception e) {
-            System.out.println("error"+e);
+            System.out.println("error" + e);
         }
     }
 

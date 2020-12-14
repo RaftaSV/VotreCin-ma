@@ -190,6 +190,10 @@ public class frmLogin extends javax.swing.JFrame {
             if (resutadoCon == true) {
                 JOptionPane.showMessageDialog(null, "Wellcome " + txtUsuario.getText());
                 this.dispose();
+                String usuario = "Usuario: "+txtUsuario.getText();
+                usuario=usuario.toUpperCase();
+                principal.lblUsuario.setText(usuario);
+                principal.id=log.id;
                 principal.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Close");

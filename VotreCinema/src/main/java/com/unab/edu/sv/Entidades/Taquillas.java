@@ -14,10 +14,11 @@ import java.util.HashSet;
  * @author Rafael
  */
 @Data
-public class Taquillas{
+public class Taquillas extends DetallesFacturas{
   public int idTaquilla;
   private int Id_cartelera;
   private int Id_Asiento;
+  private int precio;
   private int estado;
  
 }

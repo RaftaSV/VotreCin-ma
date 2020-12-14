@@ -30,7 +30,7 @@ public class ClsPrecios {
             while (res.next()) {
                 Precios precios = new Precios();
                 precios.setIdprecio(res.getInt("idPrecio"));
-                precios.setPrecios(res.getDouble("Precio"));
+                precios.setPrecios(res.getBigDecimal("Precio"));
                 precios.setTipo(res.getInt("Tipo"));
                 lista.add(precios);
             }

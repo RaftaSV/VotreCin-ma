@@ -19,5 +19,6 @@ public class DetallesFacturas {
     private int Id_Taquilla;
     private double  Costo;
     private int  Estado;
+    private int diferenciador;
     
 }
