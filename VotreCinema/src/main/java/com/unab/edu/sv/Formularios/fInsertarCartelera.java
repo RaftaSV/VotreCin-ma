@@ -5,17 +5,19 @@
  */
 package com.unab.edu.sv.Formularios;
 
+import com.unab.edu.sv.DAO.ClsCarteleras;
 import com.unab.edu.sv.DAO.ClsHorarios;
 import com.unab.edu.sv.DAO.ClsPeliculas;
+import com.unab.edu.sv.DAO.ClsProductos;
 import com.unab.edu.sv.DAO.ClsSalas;
 import com.unab.edu.sv.Entidades.Carteleras;
 import com.unab.edu.sv.Entidades.Horarios;
-import com.unab.edu.sv.Entidades.Peliculas;
 import com.unab.edu.sv.Entidades.Salas;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,6 +37,7 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         displaymember();
 
     }
+
     public int idpelicula;
 
     /**
@@ -69,6 +72,11 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         cmbsala.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbsala.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbsalaItemStateChanged(evt);
+            }
+        });
         cmbsala.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
             public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
                 cmbsalaVetoableChange(evt);
@@ -76,6 +84,11 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         });
 
         cmbhorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbhorario.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbhorarioItemStateChanged(evt);
+            }
+        });
         cmbhorario.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
             public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
                 cmbhorarioVetoableChange(evt);
@@ -84,6 +97,17 @@ public class fInsertarCartelera extends javax.swing.JFrame {
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Fecha");
+
+        jdcFecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdcFechaPropertyChange(evt);
+            }
+        });
+        jdcFecha.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                jdcFechaVetoableChange(evt);
+            }
+        });
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("sala");
@@ -228,19 +252,67 @@ public class fInsertarCartelera extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void cargardatos() {
 
-    }
     int indicador = 0;
     int id = 0;
-
+    frmLogin l = new frmLogin();
     frmBuscarPelicula buscar = new frmBuscarPelicula();
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (indicador == 0) {
-//         if (){
-//         
-//         
-//         }
+            if (txtpelicula.getText() == "" || txtpelicula.getText() == null || txtpelicula.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Debe asignar una pelicula");
+                txtpelicula.requestFocus();
+            } else {
+                if (Integer.valueOf(cmbsala.getSelectedIndex()) == 0) {
+                    JOptionPane.showMessageDialog(null, "Debe de asignar una cartelera");
+                    cmbsala.requestFocus();
+
+                } else {
+                    if (Integer.valueOf(cmbhorario.getSelectedIndex()) == 0) {
+                        JOptionPane.showMessageDialog(null, "Debe de asignar una cartelera");
+                        cmbhorario.requestFocus();
+
+                    } else {
+                        Carteleras cart = new Carteleras();
+                        cart.setIdPelicula(idpelicula);
+                        cart.setFecha(jdcFecha.getDate());
+                        cart.setId_Sala(Integer.parseInt(valuemember[cmbsala.getSelectedIndex()]));
+                        cart.setId_Horario(Integer.parseInt(valuemembe[cmbhorario.getSelectedIndex()]));
+                        ClsCarteleras cls = new ClsCarteleras();
+                        cls.InsertarCartelera(cart);
+                        l.principal.cartelera.CargarTabla();
+
+                    }
+                }
+            }
+        } else {
+            if (txtpelicula.getText() == "" || txtpelicula.getText() == null || txtpelicula.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Debe asignar una pelicula");
+                txtpelicula.requestFocus();
+            } else {
+                if (Integer.valueOf(cmbsala.getSelectedIndex()) == 0) {
+                    JOptionPane.showMessageDialog(null, "Debe de asignar una cartelera");
+                    cmbsala.requestFocus();
+
+                } else {
+                    if (Integer.valueOf(cmbhorario.getSelectedIndex()) == 0) {
+                        JOptionPane.showMessageDialog(null, "Debe de asignar una cartelera");
+                        cmbhorario.requestFocus();
+
+                    } else {
+                        Carteleras cart = new Carteleras();
+                        cart.setIdcartelera(id);
+                        cart.setIdPelicula(idpelicula);
+                        cart.setFecha(jdcFecha.getDate());
+                        cart.setId_Sala(Integer.parseInt(valuemember[cmbsala.getSelectedIndex()]));
+                        cart.setId_Horario(Integer.parseInt(valuemembe[cmbhorario.getSelectedIndex()]));
+                        ClsCarteleras cls = new ClsCarteleras();
+                        cls.InsertarCartelera(cart);
+                        l.principal.cartelera.CargarTabla();
+
+                    }
+                }
+            }
         }
 
 
@@ -263,9 +335,38 @@ public class fInsertarCartelera extends javax.swing.JFrame {
 
     private void cmbhorarioVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_cmbhorarioVetoableChange
         // TODO add your handling code here:
-
+        displaymembe();
 
     }//GEN-LAST:event_cmbhorarioVetoableChange
+
+    private void cmbhorarioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbhorarioItemStateChanged
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_cmbhorarioItemStateChanged
+
+    private void cmbsalaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbsalaItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == evt.SELECTED) {
+
+            contado = 1;
+            listahora.removeAllElements();
+            displaymembe();
+
+        }
+    }//GEN-LAST:event_cmbsalaItemStateChanged
+
+    private void jdcFechaVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jdcFechaVetoableChange
+
+    }//GEN-LAST:event_jdcFechaVetoableChange
+
+    private void jdcFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdcFechaPropertyChange
+        // TODO add your handling code here:
+        contado = 1;
+        listahora.removeAllElements();
+        displaymembe();
+
+
+    }//GEN-LAST:event_jdcFechaPropertyChange
     String valuemember[];
     int contador = 1;
 
@@ -286,46 +387,53 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         }
         cmbsala.setModel(Defaultcombobox);
     }
+    String valuemembe[];
     int contado = 1;
+    DefaultComboBoxModel listahora = new DefaultComboBoxModel<>();
 
     void displaymembe() {
-        DefaultComboBoxModel listahora = new DefaultComboBoxModel<>();
 
-        String valuemembe[];
-        Horarios horari = new Horarios();
-        horari.setFecha(jdcFecha.getDate());
-        horari.setIds(Integer.parseInt(valuemember[cmbsala.getSelectedIndex()]));
+        try {
+            Horarios horari = new Horarios();
+            horari.setFecha(jdcFecha.getDate());
+            horari.setIds(Integer.parseInt(valuemember[cmbsala.getSelectedIndex()]));
 
-        String DisplayMenber[] = new String[5];
-        listahora.addElement("");
-        ClsHorarios cls = new ClsHorarios();
-        ArrayList<Horarios> horario = cls.cargarHora(horari);
-        valuemembe = new String[horario.size() + 1];
-        for (var i : horario) {
-            String hora = String.valueOf(i.getHoraInicio());
-            String Minuto = hora.substring(3, 5);
-            String horass = hora.substring(0, 2);
+            String DisplayMenber[] = new String[5];
+            ClsHorarios cls = new ClsHorarios();
+            listahora.addElement("");
+            ArrayList<Horarios> horario = cls.cargarHora(horari);
+            valuemembe = new String[horario.size() + 1];
+            String filas[] = new String[5];
+            for (var i : horario) {
+                filas[0] = String.valueOf(i.getIdHorario());
+                String hora = String.valueOf(i.getHoraInicio());
+                String Minuto = hora.substring(3, 5);
+                String horass = hora.substring(0, 2);
 
-            int c = Integer.valueOf(horass);
-            if (c < 12) {
-                if (c == 9) {
-                    DisplayMenber[0] = String.valueOf(c + ":" + Minuto + " am");
+                int c = Integer.valueOf(horass);
+                if (c < 12) {
+                    if (c == 9) {
+                        filas[1] = String.valueOf(c + ":" + Minuto + " am");
+                    } else {
+                        filas[1] = String.valueOf(c + ":" + Minuto + " am");
+                    }
+
+                } else if (c == 12) {
+                    filas[1] = String.valueOf(c + ":" + Minuto + " pm");
                 } else {
-                    DisplayMenber[0] = String.valueOf(c + ":" + Minuto + " am");
+                    int h = c - 12;
+                    filas[1] = String.valueOf(h + ":" + Minuto + " pm");
                 }
+                valuemembe[contado] = filas[0];
+                listahora.addElement(filas[1]);
+                contado++;
 
-            } else if (c == 12) {
-                DisplayMenber[0] = String.valueOf(c + ":" + Minuto + " pm");
-            } else {
-                int h = c - 12;
-                DisplayMenber[0] = String.valueOf(h + ":" + Minuto + " pm");
             }
-            valuemembe[contado] = DisplayMenber[1];
-            listahora.addElement(DisplayMenber[0]);
-            contado++;
-
+            cmbhorario.setModel(listahora);
+        } catch (Exception e) {
+            listahora.addElement("");
+            cmbhorario.setModel(listahora);
         }
-        cmbhorario.setModel(listahora);
 
     }
 

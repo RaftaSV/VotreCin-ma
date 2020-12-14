@@ -419,7 +419,7 @@ public void ajustartabla() {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        if (indicador == 0) {
+            if (indicador == 0) {
             if (txtNombre.getText() == "" || txtNombre.getText() == null || txtNombre.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Debe de asignar el nombre");
                 txtNombre.requestFocus();

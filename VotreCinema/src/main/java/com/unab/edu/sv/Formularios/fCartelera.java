@@ -6,8 +6,10 @@
 package com.unab.edu.sv.Formularios;
 
 import com.unab.edu.sv.DAO.ClsCarteleras;
+import com.unab.edu.sv.DAO.ClsHorarios;
 import com.unab.edu.sv.DAO.ClsSalas;
 import com.unab.edu.sv.Entidades.Carteleras;
+import com.unab.edu.sv.Entidades.Horarios;
 import com.unab.edu.sv.Entidades.Render;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -16,8 +18,10 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -38,6 +42,8 @@ public class fCartelera extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         CargarTabla();
         ajustartabla();
+        tbCarteleras.setColumnSelectionAllowed(isSelected);
+        tbCarteleras.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
         public void ajustartabla() {
         // Ocultar la columna del ID de la pelicula
@@ -170,6 +176,9 @@ public class fCartelera extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbCartelerasMouseClicked(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbCartelerasMouseReleased(evt);
+            }
         });
         TABLA.setViewportView(tbCarteleras);
 
@@ -231,6 +240,13 @@ public  fInsertarCartelera insertar = new fInsertarCartelera();
         insertar.setVisible(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
+    private void tbCartelerasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCartelerasMouseReleased
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_tbCartelerasMouseReleased
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane TABLA;

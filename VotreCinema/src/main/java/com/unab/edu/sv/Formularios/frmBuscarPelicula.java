@@ -267,7 +267,7 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
             this.dispose();
 
         } else {
-
+            
         }
 
     }//GEN-LAST:event_tbPeliculasMouseClicked

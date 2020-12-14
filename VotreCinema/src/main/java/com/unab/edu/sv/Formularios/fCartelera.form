@@ -122,6 +122,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbCartelerasMouseClicked"/>
+                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbCartelerasMouseReleased"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tbCarteleras = new javax.swing.JTable(){&#xa;public boolean isCellEditable(int rowIndex, int collIndex){&#xa;return false;&#xa;}&#xa;};"/>

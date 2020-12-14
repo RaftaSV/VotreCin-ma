@@ -675,7 +675,8 @@ public class frmPeliculas extends javax.swing.JFrame {
             String ruta = j.getSelectedFile().getAbsolutePath();
             txtSeleccionar.setText(ruta);
             ImageIcon im = new ImageIcon(ruta);
-            Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT));
+            Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(),
+            Image.SCALE_DEFAULT));
             lblImagen.setIcon(icono);
         }
         pelicula = 1;
