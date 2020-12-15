@@ -561,7 +561,7 @@ public void ajustartabla() {
         txtNombre.setText(nombre);
         txtPrecio.setText(precio);
         txtCantidad.setText(cantidad);
-
+        
         int selectvista = 0;
         for (var iterar : valuemember) {
             if (idprov.equals(iterar)) {
