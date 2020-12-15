@@ -216,10 +216,24 @@ public class frmLogin extends javax.swing.JFrame {
                     usuario = usuario.toUpperCase();
                     principal.lblUsuario.setText(usuario);
                     principal.id = log.id;
+                  
+                           if (principal.logo == null || principal.logo.isClosed()) {
+                        principal.logo = new fLogo();
+
+                        try {
+                            principal.logo.setMaximum(true);
+                        } catch (Exception e) {
+                        }
+
+                        principal.panelcontenedor.add(principal.logo);
+
+                        principal.logo.setVisible(true);
+                    }
+                  
+                 
                     principal.setVisible(true);
                     principal.btnFacturar.setVisible(true);
                     principal.panelBotones.setVisible(true);
-                   
 
                 } else if (tipo == 1) {
                     JOptionPane.showMessageDialog(null, "Wellcome " + txtUsuario.getText());
@@ -230,18 +244,42 @@ public class frmLogin extends javax.swing.JFrame {
                     principal.id = log.id;
                     principal.setVisible(true);
                     principal.panelBotones.setVisible(false);
-                    principal.cartelera.btnNuevo.setVisible(false);
+                    if (principal.logo == null || principal.logo.isClosed()) {
+                        principal.logo = new fLogo();
+
+                        try {
+                            principal.logo.setMaximum(true);
+                        } catch (Exception e) {
+                        }
+
+                        principal.panelcontenedor.add(principal.logo);
+
+                        principal.logo.setVisible(true);
+                    }
+//                    principal.cartelera.btnNuevo.setVisible(false);
                 } else if (tipo == 2) {
                     JOptionPane.showMessageDialog(null, "Wellcome " + txtUsuario.getText());
                     this.dispose();
                     String usuario = "Usuario: " + txtUsuario.getText();
                     usuario = usuario.toUpperCase();
+                    if (principal.logo == null || principal.logo.isClosed()) {
+                        principal.logo = new fLogo();
+
+                        try {
+                            principal.logo.setMaximum(true);
+                        } catch (Exception e) {
+                        }
+
+                        principal.panelcontenedor.add(principal.logo);
+
+                        principal.logo.setVisible(true);
+                    }
                     principal.lblUsuario.setText(usuario);
                     principal.id = log.id;
                     principal.setVisible(true);
                     principal.btnFacturar.setVisible(false);
                     principal.panelBotones.setVisible(false);
-                    principal.cartelera.btnNuevo.setVisible(false);
+//                    principal.cartelera.btnNuevo.setVisible(false);
 
                 }
 

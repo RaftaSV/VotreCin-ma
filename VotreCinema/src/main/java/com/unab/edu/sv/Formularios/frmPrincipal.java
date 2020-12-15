@@ -284,6 +284,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jPanel1.setOpaque(false);
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/logoPrincipalfrm.png"))); // NOI18N
+        lblLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblLogo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblLogoMouseClicked(evt);
@@ -291,6 +292,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/cerrar-sesion.png"))); // NOI18N
+        lblSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSalirMouseClicked(evt);
@@ -757,6 +759,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         int res = JOptionPane.showConfirmDialog(this, "Desea cerrar sesion?", "Advertencia", JOptionPane.YES_NO_OPTION);
         if (res == 0) {
+            cerrarjinternal();
             this.dispose();
             frmLogin f = new frmLogin();
             f.setVisible(true);
@@ -825,7 +828,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     public javax.swing.JPanel panelBotones;
     private javax.swing.JPanel panelFondo;
     public javax.swing.JPanel panelMenu;
-    private javax.swing.JDesktopPane panelcontenedor;
+    public javax.swing.JDesktopPane panelcontenedor;
     // End of variables declaration//GEN-END:variables
 
     private void setMaximumSize(boolean b) {
