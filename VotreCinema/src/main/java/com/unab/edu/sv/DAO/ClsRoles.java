@@ -118,6 +118,29 @@ public class ClsRoles {
         }
 
     }
+     public void ActualizarRolsinpass(Roles r) {
+        try {
+            CallableStatement cs = conect.prepareCall("call SP_U_ROLESSINPASS(?,?,?,?)");
+            cs.setInt("pId", r.getIdRol());
+            cs.setString("pUsuario", r.getUsuario());
+            cs.setInt("pTipoRol", r.getTipoRol());
+            cs.setInt("pIdPersona", r.getId_Persona());
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Actualizar dejando la contraseña antigua?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                cs.execute();
+                JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
+                frmLogin log = new frmLogin();
+                log.principal.rol.limpiar();
+                conect.close();
+
+            } else {
+
+            }
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+    }
 
     public void EliminarRol(Roles r) {
         try {

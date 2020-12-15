@@ -13,6 +13,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.*;
@@ -62,24 +63,28 @@ public class fFacturas extends javax.swing.JInternalFrame {
         displaymemberClientes();
         cmbClientes.setSelectedIndex(1);
         //hacer mas grande la columna detalles
-        tbDetalles.getColumnModel().getColumn(0).setPreferredWidth(300);
+        tbDetalles.getColumnModel().getColumn(0).setPreferredWidth(400);
         // ocultar columanas tabla detalles
-//        tbDetalles.getColumnModel().getColumn(2).setMaxWidth(0);
-//        tbDetalles.getColumnModel().getColumn(2).setMinWidth(0);
-//        tbDetalles.getTableHeader().getColumnModel().getColumn(2).setMaxWidth(0);
-//        tbDetalles.getTableHeader().getColumnModel().getColumn(2).setMinWidth(0);
-//        tbDetalles.getColumnModel().getColumn(3).setMaxWidth(0);
-//        tbDetalles.getColumnModel().getColumn(3).setMinWidth(0);
-//        tbDetalles.getTableHeader().getColumnModel().getColumn(3).setMaxWidth(0);
-//        tbDetalles.getTableHeader().getColumnModel().getColumn(3).setMinWidth(0);
-//        tbDetalles.getColumnModel().getColumn(4).setMaxWidth(0);
-//        tbDetalles.getColumnModel().getColumn(4).setMinWidth(0);
-//        tbDetalles.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(0);
-//        tbDetalles.getTableHeader().getColumnModel().getColumn(4).setMinWidth(0);
-//        tbDetalles.getColumnModel().getColumn(5).setMaxWidth(0);
-//        tbDetalles.getColumnModel().getColumn(5).setMinWidth(0);
-//        tbDetalles.getTableHeader().getColumnModel().getColumn(5).setMaxWidth(0);
-//        tbDetalles.getTableHeader().getColumnModel().getColumn(5).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(2).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(2).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(2).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(2).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(3).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(3).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(3).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(3).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(4).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(4).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(4).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(5).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(5).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(5).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(5).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(6).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(6).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(6).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(6).setMinWidth(0);
         //Centrar en texto del encabezado de la tabla
         DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbDetalles.getTableHeader().getDefaultRenderer();
         render.setHorizontalAlignment(JLabel.CENTER);
@@ -142,7 +147,9 @@ public class fFacturas extends javax.swing.JInternalFrame {
             String to = t.substring(1);
             total = total + Double.valueOf(to);
         }
-        lblSumatotal.setText("$" + String.valueOf(total));
+        DecimalFormat formato1 = new DecimalFormat("#.00");
+        String totalDecimales = formato1.format(total);
+        lblSumatotal.setText("$" + totalDecimales);
     }
     String valuememberClientes[];
     int contadorCliente = 1;
@@ -188,22 +195,11 @@ public class fFacturas extends javax.swing.JInternalFrame {
                 if (tbDetalles.getRowCount() != 0) {
                     contador = 0;
                     for (int i = 0; i < tbDetalles.getRowCount(); i++) {
-                        String identificado =  String.valueOf(tbDetalles.getValueAt(i, 2));
-                        int identificador = Integer.parseInt(identificado);
                         String cartelera = String.valueOf(tbCarteleras.getValueAt(fila, 0));
                         String carteleradetalles = String.valueOf(tbDetalles.getValueAt(i, 3));
                         int asiento = (Integer.parseInt(valuemember[cmbAsientos.getSelectedIndex()]));
                         String idasiento = String.valueOf(tbDetalles.getValueAt(i, 4));
                         int idasientoverificar = Integer.parseInt(idasiento);
-                        if(tbDetalles.getRowCount() ==1){
-                            if(identificador==1){
-                                System.out.println("hola");
-                                
-                            }
-                        
-                        }
-                        
-                        
                         if (cartelera.equals(carteleradetalles) && idasientoverificar == asiento) {
                             JOptionPane.showMessageDialog(null, "El asiento ya lo ha seleccionado ");
                             i = tbDetalles.getRowCount();
@@ -217,89 +213,104 @@ public class fFacturas extends javax.swing.JInternalFrame {
                     if (rbtnAdultos.isSelected()) {
                         precio = String.valueOf(rbtnAdultos.getText());
                         String preciotabla = precio.substring(0, 5);
-                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedIndex());
+                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedItem());
                         filasDetalles[1] = preciotabla;
                         filasDetalles[2] = 0;
                         filasDetalles[3] = tbCarteleras.getValueAt(fila, 0);
                         filasDetalles[4] = valuemember[cmbAsientos.getSelectedIndex()];
                         filasDetalles[5] = 0;
+                        modeloDetalles.addRow(filasDetalles);
+                        tbDetalles.setModel(modeloDetalles);
                     } else if (rbtnChild.isSelected()) {
                         precio = String.valueOf(rbtnChild.getText());
                         String preciotabla = precio.substring(0, 5);
-                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedIndex());
+                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedItem());
                         filasDetalles[1] = preciotabla;
                         filasDetalles[2] = 0;
                         filasDetalles[3] = tbCarteleras.getValueAt(fila, 0);
                         filasDetalles[4] = valuemember[cmbAsientos.getSelectedIndex()];
                         filasDetalles[5] = 1;
+                        modeloDetalles.addRow(filasDetalles);
+                        tbDetalles.setModel(modeloDetalles);
                     } else if (rbtnEstudiantes.isSelected()) {
                         precio = String.valueOf(rbtnEstudiantes.getText());
                         String preciotabla = precio.substring(0, 5);
-                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedIndex());
+                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedItem());
                         filasDetalles[1] = preciotabla;
                         filasDetalles[2] = 0;
                         filasDetalles[3] = tbCarteleras.getValueAt(fila, 0);
                         filasDetalles[4] = valuemember[cmbAsientos.getSelectedIndex()];
                         filasDetalles[5] = 2;
+                        modeloDetalles.addRow(filasDetalles);
+                        tbDetalles.setModel(modeloDetalles);
                     } else if (rbtnAdultosM.isSelected()) {
                         precio = String.valueOf(rbtnEstudiantes.getText());
-                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedIndex());
+                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedItem());
                         String preciotabla = precio.substring(0, 5);
                         filasDetalles[1] = preciotabla;
                         filasDetalles[2] = 0;
                         filasDetalles[3] = tbCarteleras.getValueAt(fila, 0);
                         filasDetalles[4] = valuemember[cmbAsientos.getSelectedIndex()];
                         filasDetalles[5] = 3;
+                        modeloDetalles.addRow(filasDetalles);
+                        tbDetalles.setModel(modeloDetalles);
                     }
-                    modeloDetalles.addRow(filasDetalles);
-                    tbDetalles.setModel(modeloDetalles);
+
                 }
                 if (contador == tbDetalles.getRowCount()) {
 
                     if (rbtnAdultos.isSelected()) {
                         precio = String.valueOf(rbtnAdultos.getText());
                         String preciotabla = precio.substring(0, 5);
-                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedIndex());
+                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedItem());
                         filasDetalles[1] = preciotabla;
                         filasDetalles[2] = 0;
                         filasDetalles[3] = tbCarteleras.getValueAt(fila, 0);
                         filasDetalles[4] = valuemember[cmbAsientos.getSelectedIndex()];
                         filasDetalles[5] = 0;
+                        modeloDetalles.addRow(filasDetalles);
+                        tbDetalles.setModel(modeloDetalles);
 
                     } else if (rbtnChild.isSelected()) {
                         precio = String.valueOf(rbtnChild.getText());
                         String preciotabla = precio.substring(0, 5);
-                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedIndex());
+                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedItem());
                         filasDetalles[1] = preciotabla;
                         filasDetalles[2] = 0;
                         filasDetalles[3] = tbCarteleras.getValueAt(fila, 0);
                         filasDetalles[4] = valuemember[cmbAsientos.getSelectedIndex()];
                         filasDetalles[5] = 1;
+                        modeloDetalles.addRow(filasDetalles);
+                        tbDetalles.setModel(modeloDetalles);
                     } else if (rbtnEstudiantes.isSelected()) {
                         precio = String.valueOf(rbtnEstudiantes.getText());
                         String preciotabla = precio.substring(0, 5);
-                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedIndex());
+                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedItem());
                         filasDetalles[1] = preciotabla;
                         filasDetalles[2] = 0;
                         filasDetalles[3] = tbCarteleras.getValueAt(fila, 0);
                         filasDetalles[4] = valuemember[cmbAsientos.getSelectedIndex()];
                         filasDetalles[5] = 2;
+                        modeloDetalles.addRow(filasDetalles);
+                        tbDetalles.setModel(modeloDetalles);
                     } else if (rbtnAdultosM.isSelected()) {
                         precio = String.valueOf(rbtnEstudiantes.getText());
                         String preciotabla = precio.substring(0, 5);
-                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedIndex());
+                        filasDetalles[0] = formato.format(fecha) + " hora " + horaa + " sala " + saala + " asiento " + String.valueOf(cmbAsientos.getSelectedItem());
                         filasDetalles[1] = preciotabla;
                         filasDetalles[2] = 0;
                         filasDetalles[3] = tbCarteleras.getValueAt(fila, 0);
                         filasDetalles[4] = valuemember[cmbAsientos.getSelectedIndex()];
                         filasDetalles[5] = 3;
+                        modeloDetalles.addRow(filasDetalles);
+                        tbDetalles.setModel(modeloDetalles);
                     }
-                    modeloDetalles.addRow(filasDetalles);
-                    tbDetalles.setModel(modeloDetalles);
 
                 }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Debe de seleccionar un asiento");
+
             }
         } catch (Exception e) {
 
@@ -372,10 +383,11 @@ public class fFacturas extends javax.swing.JInternalFrame {
         txtEfectivo = new javax.swing.JTextField();
         btnCombrar = new javax.swing.JButton();
         lblCambio = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
 
         setPreferredSize(new java.awt.Dimension(893, 663));
 
-        panelFondo.setBackground(new java.awt.Color(0, 255, 51));
+        panelFondo.setBackground(java.awt.Color.black);
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 102));
 
@@ -504,7 +516,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
 
         lblIconoBUscarCartelera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/buscarb.png"))); // NOI18N
 
-        panelPrecios.setBackground(new java.awt.Color(255, 102, 204));
+        panelPrecios.setBackground(java.awt.Color.black);
 
         lblPrecios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPrecios.setForeground(new java.awt.Color(255, 255, 255));
@@ -590,13 +602,16 @@ public class fFacturas extends javax.swing.JInternalFrame {
 
         cmbClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        panelTabla.setBackground(new java.awt.Color(255, 51, 51));
+        panelTabla.setBackground(java.awt.Color.black);
 
         tbDetalles = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int collIndex){
                 return false;
             }
         };
+        tbDetalles.setBackground(java.awt.Color.black);
+        tbDetalles.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tbDetalles.setForeground(new java.awt.Color(255, 255, 255));
         tbDetalles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -618,6 +633,8 @@ public class fFacturas extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tbDetalles);
 
+        btnAgregar.setBackground(new java.awt.Color(255, 255, 102));
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAgregar.setText("AGREGAR");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -625,6 +642,8 @@ public class fFacturas extends javax.swing.JInternalFrame {
             }
         });
 
+        btnQuitar.setBackground(new java.awt.Color(255, 255, 102));
+        btnQuitar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnQuitar.setText("QUITAR");
         btnQuitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -657,7 +676,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
                     .addComponent(btnAgregar)
                     .addComponent(btnQuitar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -676,8 +695,19 @@ public class fFacturas extends javax.swing.JInternalFrame {
         lblEfectivo.setText("EFECTIVO");
         lblEfectivo.setToolTipText("");
 
+        txtEfectivo.setBackground(new java.awt.Color(0, 0, 0));
+        txtEfectivo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtEfectivo.setForeground(new java.awt.Color(255, 255, 255));
+        txtEfectivo.setBorder(null);
+        txtEfectivo.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtEfectivo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEfectivoKeyReleased(evt);
+            }
+        });
+
+        btnCombrar.setBackground(new java.awt.Color(255, 255, 102));
         btnCombrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnCombrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCombrar.setText("FACTURAR");
         btnCombrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -685,8 +715,10 @@ public class fFacturas extends javax.swing.JInternalFrame {
             }
         });
 
-        lblCambio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCambio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCambio.setForeground(new java.awt.Color(255, 255, 255));
+
+        jSeparator3.setBackground(new java.awt.Color(255, 255, 102));
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
@@ -734,17 +766,17 @@ public class fFacturas extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtEfectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblt, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblt, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblCambio, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                             .addComponent(btnCombrar)
-                            .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblEfectivo)
-                                .addComponent(lblSumatotal, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblEfectivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtEfectivo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(lblSumatotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         panelFondoLayout.setVerticalGroup(
@@ -788,9 +820,11 @@ public class fFacturas extends javax.swing.JInternalFrame {
                         .addComponent(lblSumatotal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEfectivo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtEfectivo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
                         .addComponent(btnCombrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -860,14 +894,44 @@ public class fFacturas extends javax.swing.JInternalFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
+        lblCambio.setText("");
         detallesFactura();
+
         total();
     }//GEN-LAST:event_btnAgregarActionPerformed
     void eliminarDetalles() {
-        for (int i = 0; i < tbDetalles.getRowCount(); i++) {
-            modeloDetalles.removeRow(i);
-
-        }
+        modeloDetalles = null;
+        modeloDetalles = new DefaultTableModel(null, TitulosDETALLES);
+        tbDetalles.setModel(modeloDetalles);
+        tbDetalles.getColumnModel().getColumn(0).setPreferredWidth(400);
+        // ocultar columanas tabla detalles
+        tbDetalles.getColumnModel().getColumn(2).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(2).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(2).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(2).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(3).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(3).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(3).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(3).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(4).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(4).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(4).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(4).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(5).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(5).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(5).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(5).setMinWidth(0);
+        tbDetalles.getColumnModel().getColumn(6).setMaxWidth(0);
+        tbDetalles.getColumnModel().getColumn(6).setMinWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(6).setMaxWidth(0);
+        tbDetalles.getTableHeader().getColumnModel().getColumn(6).setMinWidth(0);
+        //Centrar en texto del encabezado de la tabla
+        DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbDetalles.getTableHeader().getDefaultRenderer();
+        render.setHorizontalAlignment(JLabel.CENTER);
+        DefaultTableCellRenderer al = new DefaultTableCellRenderer();
+        al.setHorizontalAlignment(SwingConstants.CENTER);
+        tbDetalles.getColumnModel().getColumn(0).setCellRenderer(al);
+        tbDetalles.getColumnModel().getColumn(1).setCellRenderer(al);
     }
     private void btnQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarActionPerformed
         int fila = tbDetalles.getSelectedRow();
@@ -924,9 +988,12 @@ public class fFacturas extends javax.swing.JInternalFrame {
         if (res == 0) {
             filasDetalles[0] = tbProducto.getValueAt(fila, 1);
             filasDetalles[1] = "$" + tbProducto.getValueAt(fila, 2);
+            filasDetalles[3] = 0;
+            filasDetalles[4] = 0;
             filasDetalles[2] = 1;
             filasDetalles[6] = tbProducto.getValueAt(fila, 0);
             modeloDetalles.addRow(filasDetalles);
+
             tbProducto.clearSelection();
         }
         total();
@@ -1001,9 +1068,19 @@ public class fFacturas extends javax.swing.JInternalFrame {
                 displaymember();
             }
         } catch (Exception e) {
+
         }
 
     }//GEN-LAST:event_btnCombrarActionPerformed
+
+    private void txtEfectivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEfectivoKeyReleased
+        // TODO add your handling code here:
+        try {
+            double precio = Double.valueOf(txtEfectivo.getText());
+        } catch (Exception e) {
+            txtEfectivo.setText("");
+        }
+    }//GEN-LAST:event_txtEfectivoKeyReleased
 
     public void CargarTablaCarteleras() {
         String TITULOS[] = {"ID", "PORTADA", "PELICULA", "HORA", "SALA", "TIPO", "Id pelicula"};
@@ -1083,6 +1160,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblAsientos;
     private javax.swing.JLabel lblCambio;
     private javax.swing.JLabel lblCliente;

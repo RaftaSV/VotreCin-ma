@@ -110,7 +110,7 @@ public class frmInsertUser extends javax.swing.JFrame {
         txtPass.setForeground(new java.awt.Color(255, 255, 255));
         txtPass.setBorder(null);
 
-        btnRegistrar.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setBackground(new java.awt.Color(255, 255, 102));
         btnRegistrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -124,7 +124,6 @@ public class frmInsertUser extends javax.swing.JFrame {
         lblVer.setBackground(new java.awt.Color(255, 255, 255));
         lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png"))); // NOI18N
         lblVer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblVer.setOpaque(true);
         lblVer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblVerMouseClicked(evt);

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -33,6 +34,9 @@ public class fPersonas extends javax.swing.JInternalFrame {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         lectura();
+        tbPersonas.setRowSelectionAllowed(isSelected);
+        tbPersonas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
     }
 
     public void ajustartabla() {
@@ -143,24 +147,30 @@ public class fPersonas extends javax.swing.JInternalFrame {
         txtDui.setBorder(null);
         txtDui.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        btnGuardar.setBackground(new java.awt.Color(153, 102, 0));
+        btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.setOpaque(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setBackground(new java.awt.Color(153, 102, 0));
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.setOpaque(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
-        btnLimpiar.setBackground(new java.awt.Color(153, 102, 0));
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.setOpaque(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -256,11 +266,15 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbPersonas.setCellSelectionEnabled(true);
+        tbPersonas.setColumnSelectionAllowed(true);
         tbPersonas.setGridColor(new java.awt.Color(0, 0, 0));
+        tbPersonas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tbPersonas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbPersonasMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbPersonasMouseReleased(evt);
             }
         });
         TABLA.setViewportView(tbPersonas);
@@ -292,7 +306,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
                         .addComponent(btnLectura)
                         .addContainerGap())
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -405,6 +419,16 @@ public class fPersonas extends javax.swing.JInternalFrame {
 
     private void tbPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPersonasMouseClicked
         // TODO add your handling code here:
+
+    }//GEN-LAST:event_tbPersonasMouseClicked
+
+    private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
+        // TODO add your handling code here:
+        lectura();
+    }//GEN-LAST:event_btnLecturaMouseClicked
+
+    private void tbPersonasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPersonasMouseReleased
+        // TODO add your handling code here:
         int fila = tbPersonas.getSelectedRow();
         id = Integer.valueOf(String.valueOf(tbPersonas.getValueAt(fila, 0)));
         String nombre = String.valueOf(tbPersonas.getValueAt(fila, 1));
@@ -414,12 +438,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         txtApellido.setText(apellido);
         txtDui.setText(Dui);
         txtNombres.setText(nombre);
-    }//GEN-LAST:event_tbPersonasMouseClicked
-
-    private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
-        // TODO add your handling code here:
-        lectura();
-    }//GEN-LAST:event_btnLecturaMouseClicked
+    }//GEN-LAST:event_tbPersonasMouseReleased
     public int edicion = 0;
 
     void lectura() {
@@ -428,7 +447,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
             btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
             edicion = 1;
         } else {
-           btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
             panelCRUD.setVisible(true);
             edicion = 0;
         }

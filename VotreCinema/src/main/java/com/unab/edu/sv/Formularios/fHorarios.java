@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -33,36 +34,40 @@ public class fHorarios extends javax.swing.JInternalFrame {
         cargarTabla();
         ajustartabla();
         lectura();
+        tbHorarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
     }
     int id = 0;
     int contador = 1;
-public int edicion =0;
-    public void lectura(){
-         if (edicion ==0){
-        panelCRUD.setVisible(false);
-         btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
-        edicion=1;
-        }else{
-         panelCRUD.setVisible(true);
-         btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
-        edicion=0;
+    public int edicion = 0;
+    
+    public void lectura() {
+        if (edicion == 0) {
+            panelCRUD.setVisible(false);
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
+            edicion = 1;
+        } else {
+            panelCRUD.setVisible(true);
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
+            edicion = 0;
         }
-     Limpiar();
+        Limpiar();
     }
+    
     public void cargarCombo() {
         DefaultComboBoxModel listahora = new DefaultComboBoxModel<>();
-
+        
         String DisplayMenber[] = new String[1];
         listahora.addElement("00");
         for (int i = 9; i < 23; i++) {
-
+            
             if (i < 12) {
                 if (i == 9) {
                     DisplayMenber[0] = String.valueOf("0" + i + " am");
                 } else {
                     DisplayMenber[0] = String.valueOf(i + " am");
                 }
-
+                
             } else if (i == 12) {
                 DisplayMenber[0] = String.valueOf(i + " pm");
             } else {
@@ -78,7 +83,7 @@ public int edicion =0;
         }
         cmbHoras.setModel(listahora);
         DefaultComboBoxModel listaminutos = new DefaultComboBoxModel<>();
-
+        
         listaminutos.addElement("00");
         for (int i = 1; i <= 60; i++) {
             if (i < 10) {
@@ -89,7 +94,7 @@ public int edicion =0;
         }
         cmbMinutos.setModel(listaminutos);
     }
-
+    
     public void ajustartabla() {
         // Ocultar la columna del ID de horarios tbHorarios.getColumnModel().getColumn(0).setMaxWidth(0);
         tbHorarios.getColumnModel().getColumn(0).setMinWidth(0);
@@ -109,19 +114,19 @@ public int edicion =0;
         al.setHorizontalAlignment(SwingConstants.CENTER);
         tbHorarios.getColumnModel().getColumn(1).setCellRenderer(al);
     }
-
+    
     public void cargarTabla() {
         String hora;
         String horass;
         String Minuto = null;
         int h = 0;
-
+        
         String[] Titulos = {"ID", "HORA DE INICIO", "hora"};
         DefaultTableModel modelo = new DefaultTableModel(null, Titulos);
         ClsHorarios cls = new ClsHorarios();
         ArrayList<Horarios> hor = cls.cargarHorarios();
         String[] horario = new String[3];
-
+        
         for (var i : hor) {
             horario[0] = String.valueOf(i.getIdHorario());
             hora = String.valueOf(i.getHoraInicio());
@@ -131,21 +136,21 @@ public int edicion =0;
             } else {
                 String horaR = horass.replaceAll("0", "");
                 h = Integer.valueOf(horaR);
-
+                
             }
             Minuto = hora.substring(3, 5);
-
+            
             if (h == 12) {
                 horario[1] = String.valueOf((h) + ":" + Minuto + " PM");
             } else if (h > 12) {
                 horario[1] = String.valueOf((h - 12) + ":" + Minuto + " PM");
-
+                
             } else {
                 horario[1] = String.valueOf(h + ":" + Minuto + " AM");
             }
             horario[2] = String.valueOf(i.getHoraInicio());
             modelo.addRow(horario);
-
+            
         }
         tbHorarios.setModel(modelo);
     }
@@ -187,7 +192,7 @@ public int edicion =0;
                 return false;
             }
         };
-        tbHorarios.setBackground(new java.awt.Color(0, 0, 0));
+        tbHorarios.setBackground(java.awt.Color.black);
         tbHorarios.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tbHorarios.setForeground(new java.awt.Color(255, 255, 255));
         tbHorarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -217,26 +222,41 @@ public int edicion =0;
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbHorariosMouseClicked(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbHorariosMouseReleased(evt);
+            }
         });
         TABLA.setViewportView(tbHorarios);
 
         panelCRUD.setBackground(new java.awt.Color(0, 0, 0));
 
+        btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setText("GUARDAR");
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.setOpaque(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.setOpaque(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimpiar.setOpaque(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -319,11 +339,11 @@ public int edicion =0;
                 .addGap(0, 0, 0)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(0, 0, 0)
-                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(btnLectura)
                         .addContainerGap())))
@@ -335,13 +355,12 @@ public int edicion =0;
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnLectura)
                     .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
+                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(0, 0, 0))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -359,18 +378,7 @@ public int edicion =0;
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbHorariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbHorariosMouseClicked
-        int fila = tbHorarios.getSelectedRow();
-        String idd = String.valueOf(tbHorarios.getValueAt(fila, 0));
-        id = Integer.valueOf(idd);
-        String hora = String.valueOf(tbHorarios.getValueAt(fila, 2));
-        String h = hora.substring(0, 2);
-        String m = hora.substring(3, 5);
-        int minu = Integer.valueOf(m);
-        int horac = Integer.valueOf(h);
-        cmbHoras.setSelectedIndex(horac - 8);
-        cmbMinutos.setSelectedIndex(minu);
-        indicador=1;
-
+        
 
     }//GEN-LAST:event_tbHorariosMouseClicked
     int indicador = 0;
@@ -384,7 +392,7 @@ public int edicion =0;
                 String hora = (ho + ":" + minutos);
                 Horarios horario = new Horarios();
                 horario.setHoraInicio(Time.valueOf(hora + ":00"));
-
+                
                 System.out.println(horario);
                 ClsHorarios cls = new ClsHorarios();
                 cls.InsertarHorario(horario);
@@ -403,7 +411,7 @@ public int edicion =0;
                 Horarios horar = new Horarios();
                 horar.setIdHorario(id);
                 horar.setHoraInicio(Time.valueOf(hora + ":00"));
-
+                
                 ClsHorarios cls = new ClsHorarios();
                 cls.ActualizarHorario(horar);
                 cargarTabla();
@@ -412,7 +420,7 @@ public int edicion =0;
             } else {
                 JOptionPane.showMessageDialog(null, "Debe seleccionar una hora");
             }
-
+            
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -436,11 +444,26 @@ public int edicion =0;
         // TODO add your handling code here:
         lectura();
     }//GEN-LAST:event_btnLecturaMouseClicked
+
+    private void tbHorariosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbHorariosMouseReleased
+        // TODO add your handling code here:
+        int fila = tbHorarios.getSelectedRow();
+        String idd = String.valueOf(tbHorarios.getValueAt(fila, 0));
+        id = Integer.valueOf(idd);
+        String hora = String.valueOf(tbHorarios.getValueAt(fila, 2));
+        String h = hora.substring(0, 2);
+        String m = hora.substring(3, 5);
+        int minu = Integer.valueOf(m);
+        int horac = Integer.valueOf(h);
+        cmbHoras.setSelectedIndex(horac - 8);
+        cmbMinutos.setSelectedIndex(minu);
+        indicador = 1;
+    }//GEN-LAST:event_tbHorariosMouseReleased
     public void Limpiar() {
         
         cmbHoras.setSelectedIndex(0);
         cmbMinutos.setSelectedIndex(0);
-        indicador=0;
+        indicador = 0;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

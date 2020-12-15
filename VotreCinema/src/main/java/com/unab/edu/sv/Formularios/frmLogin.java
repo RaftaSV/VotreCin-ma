@@ -63,17 +63,21 @@ public class frmLogin extends javax.swing.JFrame {
         lblVer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
-        panelFondo.setBackground(new java.awt.Color(0, 153, 153));
+        panelFondo.setBackground(new java.awt.Color(0, 0, 0));
+        panelFondo.setForeground(java.awt.Color.white);
 
-        txtUsuario.setBackground(new java.awt.Color(0, 153, 153));
+        txtUsuario.setBackground(new java.awt.Color(0, 0, 0));
         txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtUsuario.setForeground(java.awt.Color.white);
         txtUsuario.setBorder(null);
+        txtUsuario.setCaretColor(java.awt.Color.white);
 
-        txtPass.setBackground(new java.awt.Color(0, 153, 153));
+        txtPass.setBackground(new java.awt.Color(0, 0, 0));
         txtPass.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtPass.setForeground(java.awt.Color.white);
         txtPass.setBorder(null);
+        txtPass.setCaretColor(java.awt.Color.white);
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPassActionPerformed(evt);
@@ -81,11 +85,14 @@ public class frmLogin extends javax.swing.JFrame {
         });
 
         lblUsuario.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setText("Usuario");
 
         lblpass.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        lblpass.setForeground(new java.awt.Color(255, 255, 255));
         lblpass.setText("Pass");
 
+        btnIngresar.setBackground(new java.awt.Color(255, 255, 102));
         btnIngresar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +102,7 @@ public class frmLogin extends javax.swing.JFrame {
         });
 
         lblRegistro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblRegistro.setForeground(new java.awt.Color(255, 255, 255));
         lblRegistro.setText("Nuevo? aqui puedes registrarte");
         lblRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblRegistro.addMouseListener(new java.awt.event.MouseAdapter() {

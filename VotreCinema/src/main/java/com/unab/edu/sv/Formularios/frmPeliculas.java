@@ -202,8 +202,10 @@ public class frmPeliculas extends javax.swing.JFrame {
         txtSeleccionar.setOpaque(false);
         panelFondo.add(txtSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 183, 201, 20));
 
+        btnSeleccionar.setBackground(new java.awt.Color(255, 255, 102));
         btnSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.setOpaque(false);
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeleccionarActionPerformed(evt);
@@ -211,8 +213,10 @@ public class frmPeliculas extends javax.swing.JFrame {
         });
         panelFondo.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 185, -1, -1));
 
+        btnInsertar.setBackground(new java.awt.Color(255, 255, 102));
         btnInsertar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInsertar.setText("Guardar");
+        btnInsertar.setOpaque(false);
         btnInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertarActionPerformed(evt);
@@ -220,8 +224,10 @@ public class frmPeliculas extends javax.swing.JFrame {
         });
         panelFondo.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 630, -1, -1));
 
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.setOpaque(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -229,8 +235,10 @@ public class frmPeliculas extends javax.swing.JFrame {
         });
         panelFondo.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 630, -1, -1));
 
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.setOpaque(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -665,6 +673,7 @@ public class frmPeliculas extends javax.swing.JFrame {
 
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+
         // TODO add your handling code here:
         JFileChooser j = new JFileChooser();
         j.setDialogTitle("Buscar Imagen");

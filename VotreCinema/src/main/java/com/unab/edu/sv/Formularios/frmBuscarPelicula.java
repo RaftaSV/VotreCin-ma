@@ -20,6 +20,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -40,6 +41,8 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
         ajustartabla();
         this.setLocationRelativeTo(null);
         txtBuscar.setText("");
+        tbPeliculas.setColumnSelectionAllowed(false);
+        tbPeliculas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
     }
 
@@ -125,10 +128,14 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
         tbPeliculas.setCellSelectionEnabled(true);
         tbPeliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tbPeliculas.setGridColor(new java.awt.Color(255, 255, 255));
+        tbPeliculas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tbPeliculas.setShowGrid(true);
         tbPeliculas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbPeliculasMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbPeliculasMouseReleased(evt);
             }
         });
         TABLA.setViewportView(tbPeliculas);
@@ -251,6 +258,23 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
     }
     private void tbPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPeliculasMouseClicked
 
+
+    }//GEN-LAST:event_tbPeliculasMouseClicked
+
+    private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtBuscarKeyPressed
+
+    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
+        // TODO add your handling code here:
+        cargartabla();
+        ajustartabla();
+    }//GEN-LAST:event_txtBuscarKeyReleased
+
+    private void tbPeliculasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPeliculasMouseReleased
+        // TODO add your handling code here:
+
         int res = JOptionPane.showConfirmDialog(null, "¿Desea Elegir esta pelicula?", "Advertencia", JOptionPane.YES_NO_OPTION);
         if (res == 0) {
             int fila = tbPeliculas.getSelectedRow();
@@ -267,21 +291,9 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
             this.dispose();
 
         } else {
-            
+
         }
-
-    }//GEN-LAST:event_tbPeliculasMouseClicked
-
-    private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_txtBuscarKeyPressed
-
-    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
-        // TODO add your handling code here:
-        cargartabla();
-        ajustartabla();
-    }//GEN-LAST:event_txtBuscarKeyReleased
+    }//GEN-LAST:event_tbPeliculasMouseReleased
 
     /**
      * @param args the command line arguments

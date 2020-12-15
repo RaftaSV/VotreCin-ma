@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -28,26 +29,29 @@ public class fRoles extends javax.swing.JInternalFrame {
      */
     public fRoles() {
         initComponents();
-        
+
         MostrarTablaRoles();
         displaymember();
         ajustartabla();
         lectura();
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        tbMostrarRol.setColumnSelectionAllowed(isSelected);
+        tbMostrarRol.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
-    public int edicion =0;
-    public void lectura(){
-         if (edicion ==0){
-        panelCRUD.setVisible(false);
-        btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
-        edicion=1;
-        }else{
-         panelCRUD.setVisible(true);
-         btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
-        edicion=0;
+    public int edicion = 0;
+
+    public void lectura() {
+        if (edicion == 0) {
+            panelCRUD.setVisible(false);
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
+            edicion = 1;
+        } else {
+            panelCRUD.setVisible(true);
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
+            edicion = 0;
         }
-     limpiar();
+        limpiar();
     }
 
     /**
@@ -90,7 +94,10 @@ public class fRoles extends javax.swing.JInternalFrame {
         lblpersona.setForeground(new java.awt.Color(255, 255, 255));
         lblpersona.setText("Id Persona");
 
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.setOpaque(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -108,7 +115,10 @@ public class fRoles extends javax.swing.JInternalFrame {
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Usuario");
 
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.setOpaque(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -118,7 +128,10 @@ public class fRoles extends javax.swing.JInternalFrame {
         lblPass.setForeground(new java.awt.Color(255, 255, 255));
         lblPass.setText("Password");
 
+        btnInsertar5.setBackground(new java.awt.Color(255, 255, 102));
+        btnInsertar5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInsertar5.setText("Guardar");
+        btnInsertar5.setOpaque(false);
         btnInsertar5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertar5ActionPerformed(evt);
@@ -178,24 +191,24 @@ public class fRoles extends javax.swing.JInternalFrame {
                 .addComponent(lbltiporol))
             .addGroup(panelCRUDLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addComponent(btnInsertar5)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelCRUDLayout.createSequentialGroup()
+                            .addComponent(btnInsertar5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEliminar)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnLimpiar))
+                        .addGroup(panelCRUDLayout.createSequentialGroup()
+                            .addComponent(rbAdmin)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(rbCajero)
+                            .addGap(18, 18, 18)
+                            .addComponent(rbCliente)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelCRUDLayout.createSequentialGroup()
+                        .addComponent(lblpersona)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLimpiar))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addComponent(rbAdmin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rbCajero)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbCliente))))
-            .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblpersona)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,6 +266,9 @@ public class fRoles extends javax.swing.JInternalFrame {
         tbMostrarRol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbMostrarRolMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbMostrarRolMouseReleased(evt);
             }
         });
         jScrollPane2.setViewportView(tbMostrarRol);
@@ -421,40 +437,7 @@ public class fRoles extends javax.swing.JInternalFrame {
 
 
     private void tbMostrarRolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMostrarRolMouseClicked
-        int fila = tbMostrarRol.getSelectedRow();
-        id = Integer.parseInt(String.valueOf(tbMostrarRol.getValueAt(fila, 0)));
-        String usuario = String.valueOf(tbMostrarRol.getValueAt(fila, 3));
-        String pasword = String.valueOf(tbMostrarRol.getValueAt(fila, 4));
-        String tiporol = String.valueOf(tbMostrarRol.getValueAt(fila, 5));
-        if (tiporol == "Administrador") {
-            rbAdmin.setSelected(true);
-            rbCajero.setSelected(false);
-            rbCliente.setSelected(false);
-        } else if (tiporol == "Cajero") {
-            rbAdmin.setSelected(false);
-            rbCajero.setSelected(true);
-            rbCliente.setSelected(false);
-        } else {
-            rbAdmin.setSelected(false);
-            rbCajero.setSelected(false);
-            rbCliente.setSelected(true);
-        }
 
-        String idpersona = String.valueOf(tbMostrarRol.getValueAt(fila, 2));
-        txtUsu.setText(usuario);
-        txtPass.setText(pasword);
-        txtUsu.setText(usuario);
-        txtPass.setText(pasword);
-
-        dat = 1;
-        int selectvista = 0;
-        for (var iterar : valuemember) {
-            if (idpersona.equals(iterar)) {
-                cb_Idpersona5.setSelectedIndex(selectvista);
-            }
-            selectvista += 1;
-        }
-        estado = 1;
     }//GEN-LAST:event_tbMostrarRolMouseClicked
 
     private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
@@ -465,11 +448,11 @@ public class fRoles extends javax.swing.JInternalFrame {
     private void lblVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerMouseClicked
         // TODO add your handling code here:
         if (ver == 0) {
-            txtPass.setEchoChar((char)0);
+            txtPass.setEchoChar((char) 0);
             lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ciego.png")));
             ver = 1;
         } else {
-            ver=0;
+            ver = 0;
             txtPass.setEchoChar('*');
             lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png")));
         }
@@ -515,26 +498,33 @@ public class fRoles extends javax.swing.JInternalFrame {
             if (txtUsu.getText() == "" || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es necesario agregar Usuario");
                 txtUsu.requestFocus();
-            } else if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null) {
-                JOptionPane.showMessageDialog(null, "Es necesario agregar Password");
-                txtPass.requestFocus();
+
             } else if (Integer.valueOf(cb_Idpersona5.getSelectedIndex()) == 0) {
                 JOptionPane.showMessageDialog(null, "Es necesario seleccionar IdPersona");
                 cb_Idpersona5.requestFocus();
             } else {
                 if (radio != -1) {
-                    roles.setTipoRol(radio);
-                    ClsRoles clsrol = new ClsRoles();
-                    roles.setIdRol(id);
-                    roles.setUsuario(txtUsu.getText());
-                    roles.setPasword(txtPass.getText());
-                    roles.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
-                    clsrol.ActualizarRol(roles);
-                    MostrarTablaRoles();
-                    ajustartabla();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Debe seleccionar un rol");
-                    rbAdmin.requestFocus();
+                    if (txtPass.getText() == "" || txtPass.getText().isEmpty() || txtPass.getText() == null) {
+                        Roles rol = new Roles();
+                        rol.setTipoRol(radio);
+                        ClsRoles clsrol = new ClsRoles();
+                        rol.setIdRol(id);
+                        rol.setUsuario(txtUsu.getText());
+                        rol.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
+                        clsrol.ActualizarRolsinpass(rol);
+                        MostrarTablaRoles();
+                        ajustartabla();
+                    } else {
+                        roles.setTipoRol(radio);
+                        ClsRoles clsrol = new ClsRoles();
+                        roles.setIdRol(id);
+                        roles.setUsuario(txtUsu.getText());
+                        roles.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
+                        clsrol.ActualizarRolsinpass(roles);
+                        MostrarTablaRoles();
+                        ajustartabla();
+                    }
+
                 }
 
             }
@@ -560,7 +550,43 @@ public class fRoles extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
-  int ver =0;
+
+    private void tbMostrarRolMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMostrarRolMouseReleased
+        // TODO add your handling code here:
+        int fila = tbMostrarRol.getSelectedRow();
+        id = Integer.parseInt(String.valueOf(tbMostrarRol.getValueAt(fila, 0)));
+        String usuario = String.valueOf(tbMostrarRol.getValueAt(fila, 3));
+        String tiporol = String.valueOf(tbMostrarRol.getValueAt(fila, 5));
+        if (tiporol == "Administrador") {
+            rbAdmin.setSelected(true);
+            rbCajero.setSelected(false);
+            rbCliente.setSelected(false);
+        } else if (tiporol == "Cajero") {
+            rbAdmin.setSelected(false);
+            rbCajero.setSelected(true);
+            rbCliente.setSelected(false);
+        } else {
+            rbAdmin.setSelected(false);
+            rbCajero.setSelected(false);
+            rbCliente.setSelected(true);
+        }
+
+        String idpersona = String.valueOf(tbMostrarRol.getValueAt(fila, 2));
+        txtUsu.setText(usuario);
+
+        txtUsu.setText(usuario);
+
+        dat = 1;
+        int selectvista = 0;
+        for (var iterar : valuemember) {
+            if (idpersona.equals(iterar)) {
+                cb_Idpersona5.setSelectedIndex(selectvista);
+            }
+            selectvista += 1;
+        }
+        estado = 1;
+    }//GEN-LAST:event_tbMostrarRolMouseReleased
+    int ver = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Tipo;

@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -44,6 +45,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
         btnEliminar.setEnabled(false);
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        tbPeliculas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     @SuppressWarnings("unchecked")
@@ -101,24 +103,36 @@ public class fPeliculas extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbPeliculasMouseClicked(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbPeliculasMouseReleased(evt);
+            }
         });
         TABLA.setViewportView(tbPeliculas);
 
+        btnNuevo.setBackground(new java.awt.Color(255, 255, 102));
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnNuevo.setText("NUEVO");
+        btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
             }
         });
 
+        btnEditar.setBackground(new java.awt.Color(255, 255, 102));
+        btnEditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEditar.setText("EDITAR");
+        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
             }
         });
 
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -151,7 +165,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
                     .addComponent(btnEditar)
                     .addComponent(btnEliminar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -169,7 +183,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
       SimpleDateFormat formato = new SimpleDateFormat("d MMM y");
-      SimpleDateFormat formatohora = new SimpleDateFormat("hh:mm");
+    SimpleDateFormat formatohora = new SimpleDateFormat("hh:mm");
 
     public void ajustartabla() {
         // Ocultar la columna del ID de la pelicula
@@ -261,26 +275,6 @@ public class fPeliculas extends javax.swing.JInternalFrame {
     public frmPeliculas f = new frmPeliculas();
     private void tbPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPeliculasMouseClicked
 
-        int fila = tbPeliculas.getSelectedRow();
-        String idd = String.valueOf(tbPeliculas.getValueAt(fila, 0));
-        // Reemplazamos el codigo html por caracteres en blanco, para poder acceder al ID de la pelicula.
-        String idreemplazo = idd.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
-        int id = Integer.valueOf(idreemplazo);
-        // Creamos un procedimieno para buscar la pelicula por ID y luego en el formulario
-        // peliculas  poder hacer la edicion o eliminacion de la pelicula.
-        ClsPeliculas cls = new ClsPeliculas();
-        Peliculas p = new Peliculas();
-        p.setIdPelicula(id);
-        ArrayList<Peliculas> pelicula = cls.ListaPeliculasedi(p);
-        f.pel = pelicula;
-        try {
-            f.cargartextbox();
-        } catch (IOException ex) {
-           
-        }
-        f.identificador = 1;
-        btnEditar.setEnabled(true);
-        btnEliminar.setEnabled(true);
     }//GEN-LAST:event_tbPeliculasMouseClicked
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -306,6 +300,31 @@ public class fPeliculas extends javax.swing.JInternalFrame {
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void tbPeliculasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPeliculasMouseReleased
+        // TODO add your handling code here:
+
+        int fila = tbPeliculas.getSelectedRow();
+        String idd = String.valueOf(tbPeliculas.getValueAt(fila, 0));
+        // Reemplazamos el codigo html por caracteres en blanco, para poder acceder al ID de la pelicula.
+        String idreemplazo = idd.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
+        int id = Integer.valueOf(idreemplazo);
+        // Creamos un procedimieno para buscar la pelicula por ID y luego en el formulario
+        // peliculas  poder hacer la edicion o eliminacion de la pelicula.
+        ClsPeliculas cls = new ClsPeliculas();
+        Peliculas p = new Peliculas();
+        p.setIdPelicula(id);
+        ArrayList<Peliculas> pelicula = cls.ListaPeliculasedi(p);
+        f.pel = pelicula;
+        try {
+            f.cargartextbox();
+        } catch (IOException ex) {
+
+        }
+        f.identificador = 1;
+        btnEditar.setEnabled(true);
+        btnEliminar.setEnabled(true);
+    }//GEN-LAST:event_tbPeliculasMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

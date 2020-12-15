@@ -10,6 +10,7 @@ import com.unab.edu.sv.Entidades.Salas;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +32,8 @@ public class fSalas extends javax.swing.JInternalFrame {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         lectura();
+        tbSalas.setColumnSelectionAllowed(isSelected);
+        tbSalas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     /**
@@ -72,6 +75,11 @@ public class fSalas extends javax.swing.JInternalFrame {
         txtCapacidad.setForeground(new java.awt.Color(255, 255, 255));
         txtCapacidad.setBorder(null);
         txtCapacidad.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtCapacidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCapacidadKeyReleased(evt);
+            }
+        });
 
         lblNumerodeSala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNumerodeSala.setForeground(java.awt.Color.white);
@@ -82,25 +90,36 @@ public class fSalas extends javax.swing.JInternalFrame {
         txtNumerodeSala.setForeground(new java.awt.Color(255, 255, 255));
         txtNumerodeSala.setBorder(null);
         txtNumerodeSala.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtNumerodeSala.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNumerodeSalaKeyReleased(evt);
+            }
+        });
 
-        btnGuardar.setBackground(new java.awt.Color(153, 102, 0));
+        btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.setOpaque(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setBackground(new java.awt.Color(153, 102, 0));
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.setOpaque(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
-        btnLimpiar.setBackground(new java.awt.Color(153, 102, 0));
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.setOpaque(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -114,13 +133,6 @@ public class fSalas extends javax.swing.JInternalFrame {
             .addGroup(panelCRUDLayout.createSequentialGroup()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(btnGuardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLimpiar))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addComponent(lblCapacidad))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
@@ -128,11 +140,18 @@ public class fSalas extends javax.swing.JInternalFrame {
                         .addComponent(lblNumerodeSala))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNumerodeSala, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                            .addComponent(txtCapacidad, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                            .addComponent(jSeparator1)
-                            .addComponent(jSeparator2))))
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addComponent(btnGuardar)
+                                .addGap(17, 17, 17)
+                                .addComponent(btnEliminar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLimpiar))
+                            .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNumerodeSala, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                                .addComponent(txtCapacidad, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                                .addComponent(jSeparator1)
+                                .addComponent(jSeparator2)))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
@@ -190,6 +209,9 @@ public class fSalas extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbSalasMouseClicked(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbSalasMouseReleased(evt);
+            }
         });
         TABLA.setViewportView(tbSalas);
 
@@ -215,7 +237,7 @@ public class fSalas extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelFondoLayout.createSequentialGroup()
@@ -238,7 +260,7 @@ public class fSalas extends javax.swing.JInternalFrame {
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(185, Short.MAX_VALUE))
+                        .addContainerGap(187, Short.MAX_VALUE))
                     .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
@@ -308,7 +330,7 @@ public class fSalas extends javax.swing.JInternalFrame {
 
     int estado = 0;
     int id = 0;
-
+    int numerosala;
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (estado == 0) {
 
@@ -319,14 +341,39 @@ public class fSalas extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Es necesario agregar Numero de Sala");
                 txtNumerodeSala.requestFocus();
             } else {
-                Salas sa = new Salas();
-                sa.setCapacidad(Integer.valueOf(txtCapacidad.getText()));
-                sa.setNumero_Sala(Integer.valueOf(txtNumerodeSala.getText()));
-                ClsSalas sala = new ClsSalas();
-                sala.GuardarSala(sa);
-                limpiar();
-                CargarTabla();
-                ajustartabla();
+                int contador = tbSalas.getRowCount();
+                if (contador == 0) {
+                    Salas sa = new Salas();
+                    sa.setCapacidad(Integer.valueOf(txtCapacidad.getText()));
+                    sa.setNumero_Sala(Integer.valueOf(txtNumerodeSala.getText()));
+                    ClsSalas sala = new ClsSalas();
+                    sala.GuardarSala(sa);
+                    limpiar();
+                    CargarTabla();
+                    ajustartabla();
+                }
+                int contadorsala = 0;
+                for (int i = 0; i <= tbSalas.getRowCount(); i++) {
+                    String n = String.valueOf(tbSalas.getValueAt(i, 2));
+                    int numero = Integer.valueOf(n);
+                    if (numero == Integer.valueOf(txtNumerodeSala.getText())) {
+                        i = tbSalas.getRowCount();
+                    } else {
+                        contadorsala++;
+                    }
+                    if (contadorsala == tbSalas.getRowCount()) {
+                        Salas sa = new Salas();
+                        sa.setCapacidad(Integer.valueOf(txtCapacidad.getText()));
+                        sa.setNumero_Sala(Integer.valueOf(txtNumerodeSala.getText()));
+                        ClsSalas sala = new ClsSalas();
+                        sala.GuardarSala(sa);
+                        limpiar();
+                        CargarTabla();
+                        ajustartabla();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Este numero de sala ya existe");
+                    }
+                }
             }
         } else if (estado == 1) {
 
@@ -337,18 +384,21 @@ public class fSalas extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Es necesario agregar Numero de Sala");
                 txtNumerodeSala.requestFocus();
             } else {
-                Salas sal = new Salas();
-                sal.setIdSala(id);
-                sal.setCapacidad(Integer.valueOf(txtCapacidad.getText()));
-                sal.setNumero_Sala(Integer.valueOf(txtNumerodeSala.getText()));
-                ClsSalas salas = new ClsSalas();
-                salas.ActualizarSala(sal);
-
-                CargarTabla();
-                ajustartabla();
+                if (numerosala == Integer.valueOf(txtNumerodeSala.getText())) {
+                    Salas sal = new Salas();
+                    sal.setIdSala(id);
+                    sal.setCapacidad(Integer.valueOf(txtCapacidad.getText()));
+                    sal.setNumero_Sala(Integer.valueOf(txtNumerodeSala.getText()));
+                    ClsSalas salas = new ClsSalas();
+                    salas.ActualizarSala(sal);
+                    CargarTabla();
+                    ajustartabla();
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se puede realizar este cambio");
+                }
             }
-
         }
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -369,13 +419,6 @@ public class fSalas extends javax.swing.JInternalFrame {
 
     private void tbSalasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSalasMouseClicked
         // TODO add your handling code here:
-        int fila = tbSalas.getSelectedRow();
-        id = Integer.valueOf(String.valueOf(tbSalas.getValueAt(fila, 0)));
-        String Capaci = String.valueOf(tbSalas.getValueAt(fila, 1));
-        String numeroS = String.valueOf(tbSalas.getValueAt(fila, 2));
-        estado = 1;
-        txtCapacidad.setText(Capaci);
-        txtNumerodeSala.setText(numeroS);
 
     }//GEN-LAST:event_tbSalasMouseClicked
 
@@ -384,12 +427,42 @@ public class fSalas extends javax.swing.JInternalFrame {
         lectura();
     }//GEN-LAST:event_btnLecturaMouseClicked
 
+    private void txtCapacidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCapacidadKeyReleased
+        // TODO add your handling code here:
+        try {
+            int capacidad = Integer.parseInt(txtCapacidad.getText());
+        } catch (Exception e) {
+            txtCapacidad.setText("");
+        }
+    }//GEN-LAST:event_txtCapacidadKeyReleased
+
+    private void txtNumerodeSalaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumerodeSalaKeyReleased
+        // TODO add your handling code here:
+        try {
+            int numero = Integer.parseInt(txtNumerodeSala.getText());
+        } catch (Exception e) {
+            txtNumerodeSala.setText("");
+        }
+    }//GEN-LAST:event_txtNumerodeSalaKeyReleased
+
+    private void tbSalasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSalasMouseReleased
+        // TODO add your handling code here:
+        int fila = tbSalas.getSelectedRow();
+        id = Integer.valueOf(String.valueOf(tbSalas.getValueAt(fila, 0)));
+        String Capaci = String.valueOf(tbSalas.getValueAt(fila, 1));
+        String numeroS = String.valueOf(tbSalas.getValueAt(fila, 2));
+        estado = 1;
+        txtCapacidad.setText(Capaci);
+        txtNumerodeSala.setText(numeroS);
+        numerosala = Integer.valueOf(numeroS);
+    }//GEN-LAST:event_tbSalasMouseReleased
+
     int edicion = 0;
 
     void lectura() {
         if (edicion == 0) {
             panelCRUD.setVisible(false);
-           btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
             edicion = 1;
         } else {
             btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));

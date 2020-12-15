@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -34,18 +35,21 @@ public class fProductos extends javax.swing.JInternalFrame {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         lectura();
+          tbProductos.setRowSelectionAllowed(false);
+        tbProductos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+      
     }
     int indicador = 0;
     int id = 0;
 
-   public void Limpiar() {
+    public void Limpiar() {
         txtCantidad.setText(null);
         txtPrecio.setText(null);
         txtNombre.setText(null);
         cmbProveedor.setSelectedIndex(0);
         indicador = 0;
         id = 0;
-        
+
     }
 
     /**
@@ -145,27 +149,30 @@ public class fProductos extends javax.swing.JInternalFrame {
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(153, 102, 0));
+        btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
         btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setText("GUARDAR");
+        btnGuardar.setOpaque(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setBackground(new java.awt.Color(153, 102, 0));
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.setOpaque(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
-        btnLimpiar.setBackground(new java.awt.Color(153, 102, 0));
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.setOpaque(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -251,7 +258,7 @@ public class fProductos extends javax.swing.JInternalFrame {
                     .addComponent(btnGuardar)
                     .addComponent(btnEliminar)
                     .addComponent(btnLimpiar))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         tbProductos = new javax.swing.JTable(){
@@ -272,9 +279,13 @@ public class fProductos extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbProductos.setGridColor(new java.awt.Color(0, 0, 0));
         tbProductos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbProductosMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbProductosMouseReleased(evt);
             }
         });
         jScrollPane2.setViewportView(tbProductos);
@@ -419,7 +430,7 @@ public void ajustartabla() {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-            if (indicador == 0) {
+        if (indicador == 0) {
             if (txtNombre.getText() == "" || txtNombre.getText() == null || txtNombre.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Debe de asignar el nombre");
                 txtNombre.requestFocus();
@@ -509,26 +520,37 @@ public void ajustartabla() {
         // TODO add your handling code here:
         Limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
- public int edicion =0;
-    public void lectura(){
-         if (edicion ==0){
-        panelCRUD.setVisible(false);
-        btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
-        edicion=1;
-        }else{
-         panelCRUD.setVisible(true);
-         btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
-        edicion=0;
+    public int edicion = 0;
+
+    public void lectura() {
+        if (edicion == 0) {
+            panelCRUD.setVisible(false);
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
+            edicion = 1;
+        } else {
+            panelCRUD.setVisible(true);
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
+            edicion = 0;
         }
-     Limpiar();
+        Limpiar();
     }
     private void panelFondoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFondoMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_panelFondoMouseClicked
 
     private void tbProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductosMouseClicked
-    int fila = tbProductos.getSelectedRow();
+
+    }//GEN-LAST:event_tbProductosMouseClicked
+
+    private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
+        // TODO add your handling code here:
+        lectura();
+    }//GEN-LAST:event_btnLecturaMouseClicked
+
+    private void tbProductosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductosMouseReleased
+        // TODO add your handling code here:
+        int fila = tbProductos.getSelectedRow();
         String idp = String.valueOf(tbProductos.getValueAt(fila, 0));
         id = Integer.valueOf(idp);
         String nombre = String.valueOf(tbProductos.getValueAt(fila, 1));
@@ -547,12 +569,7 @@ public void ajustartabla() {
             }
             selectvista += 1;
         }
-    }//GEN-LAST:event_tbProductosMouseClicked
-
-    private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
-        // TODO add your handling code here:
-        lectura();
-    }//GEN-LAST:event_btnLecturaMouseClicked
+    }//GEN-LAST:event_tbProductosMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

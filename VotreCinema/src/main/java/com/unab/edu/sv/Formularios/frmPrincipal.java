@@ -43,6 +43,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btncerrar = new javax.swing.JLabel();
         btnMinimizar = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
         panelMenu = new javax.swing.JPanel();
         btnProveedores = new javax.swing.JButton();
         btnPeliculas = new javax.swing.JButton();
@@ -123,6 +124,8 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
+        lblID.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+
         javax.swing.GroupLayout panelBarraLayout = new javax.swing.GroupLayout(panelBarra);
         panelBarra.setLayout(panelBarraLayout);
         panelBarraLayout.setHorizontalGroup(
@@ -131,6 +134,8 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnCerrarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(185, 185, 185)
                 .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -151,7 +156,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBarraLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -276,6 +283,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
 
         panelcontenedor.setBackground(new java.awt.Color(255, 51, 51));
+        panelcontenedor.setOpaque(false);
 
         javax.swing.GroupLayout panelcontenedorLayout = new javax.swing.GroupLayout(panelcontenedor);
         panelcontenedor.setLayout(panelcontenedorLayout);
@@ -670,6 +678,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRoles;
     private javax.swing.JButton btnSalas;
     private javax.swing.JLabel btncerrar;
+    public javax.swing.JLabel lblID;
     public javax.swing.JLabel lblUsuario;
     private javax.swing.JPanel panelBarra;
     private javax.swing.JPanel panelFondo;

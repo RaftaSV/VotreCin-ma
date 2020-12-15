@@ -15,6 +15,7 @@ import com.unab.edu.sv.Entidades.Proveedores;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -32,6 +33,8 @@ public class fProveedores extends javax.swing.JInternalFrame {
         Limpiar();
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        tbProveedores.setColumnSelectionAllowed(false);
+        tbProveedores.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     /**
@@ -129,6 +132,9 @@ public class fProveedores extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbProveedoresMouseClicked(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbProveedoresMouseReleased(evt);
+            }
         });
         TABLA.setViewportView(tbProveedores);
 
@@ -164,24 +170,30 @@ public class fProveedores extends javax.swing.JInternalFrame {
         txtDireccion.setBorder(null);
         txtDireccion.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        btnGuardar.setBackground(new java.awt.Color(153, 102, 0));
+        btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.setOpaque(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        btnElimanar.setBackground(new java.awt.Color(153, 102, 0));
+        btnElimanar.setBackground(new java.awt.Color(255, 255, 102));
+        btnElimanar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnElimanar.setText("Eliminar");
+        btnElimanar.setOpaque(false);
         btnElimanar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnElimanarActionPerformed(evt);
             }
         });
 
-        btnLimpiar.setBackground(new java.awt.Color(153, 102, 0));
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.setOpaque(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -277,7 +289,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fondoLayout.createSequentialGroup()
@@ -331,23 +343,25 @@ public void ajustartabla() {
         tbProveedores.getColumnModel().getColumn(1).setCellRenderer(al);
         tbProveedores.getColumnModel().getColumn(2).setCellRenderer(al);
         tbProveedores.getColumnModel().getColumn(3).setCellRenderer(al);
-
+        
     }
-public int edicion =0;
-    public void lectura(){
-         if (edicion ==0){
-        panelCRUD.setVisible(false);
-         btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
-        edicion=1;
-        }else{
-         panelCRUD.setVisible(true);
-         btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
-        edicion=0;
+    public int edicion = 0;
+    
+    public void lectura() {
+        if (edicion == 0) {
+            panelCRUD.setVisible(false);
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/editar.png")));
+            edicion = 1;
+        } else {
+            panelCRUD.setVisible(true);
+            btnLectura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/lectura.png")));
+            edicion = 0;
         }
-     Limpiar();
+        Limpiar();
     }
+    
     void CargarTabla() {
-
+        
         String TITULOS[] = {"ID", "Nombres", "Telefono", "Direccion"};
         ClsProveedores proveedor = new ClsProveedores();
         DefaultTableModel model = new DefaultTableModel(null, TITULOS);
@@ -361,29 +375,21 @@ public int edicion =0;
             model.addRow(filas);
         }
         tbProveedores.setModel(model);
-
+        
     }
     int estado = 0;
     int id = 0;
     private void tbProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProveedoresMouseClicked
-        int fila = tbProveedores.getSelectedRow();
-        id = Integer.valueOf(String.valueOf(tbProveedores.getValueAt(fila, 0)));
-        String nombre = String.valueOf(tbProveedores.getValueAt(fila, 1));
-        String telefono = String.valueOf(tbProveedores.getValueAt(fila, 2));
-        String Direccion = String.valueOf(tbProveedores.getValueAt(fila, 3));
-        estado = 1;
-        txtNombre.setText(nombre);
-        txtDireccion.setText(Direccion);
-        txtTelefono.setText(telefono);
-    }//GEN-LAST:event_tbProveedoresMouseClicked
 
+    }//GEN-LAST:event_tbProveedoresMouseClicked
+    
     public void Limpiar() {
         txtDireccion.setText("");
         txtNombre.setText("");
         txtTelefono.setText("");
         estado = 0;
         id = 0;
-
+        
     }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (estado == 0) {
@@ -407,7 +413,7 @@ public int edicion =0;
                 CargarTabla();
                 ajustartabla();
             }
-
+            
         } else {
             Proveedores proo = new Proveedores();
             proo.setIdProveedor(id);
@@ -455,6 +461,19 @@ public int edicion =0;
         // TODO add your handling code here:
         lectura();
     }//GEN-LAST:event_btnLecturaMouseClicked
+
+    private void tbProveedoresMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProveedoresMouseReleased
+        // TODO add your handling code here:
+        int fila = tbProveedores.getSelectedRow();
+        id = Integer.valueOf(String.valueOf(tbProveedores.getValueAt(fila, 0)));
+        String nombre = String.valueOf(tbProveedores.getValueAt(fila, 1));
+        String telefono = String.valueOf(tbProveedores.getValueAt(fila, 2));
+        String Direccion = String.valueOf(tbProveedores.getValueAt(fila, 3));
+        estado = 1;
+        txtNombre.setText(nombre);
+        txtDireccion.setText(Direccion);
+        txtTelefono.setText(telefono);
+    }//GEN-LAST:event_tbProveedoresMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

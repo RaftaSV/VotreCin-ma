@@ -42,7 +42,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         CargarTabla();
         ajustartabla();
-        tbCarteleras.setColumnSelectionAllowed(isSelected);
+        tbCarteleras.setRowSelectionAllowed(isSelected);
         tbCarteleras.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
         public void ajustartabla() {
