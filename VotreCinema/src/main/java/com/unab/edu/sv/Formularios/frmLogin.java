@@ -98,6 +98,7 @@ public class frmLogin extends javax.swing.JFrame {
         btnIngresar.setBackground(new java.awt.Color(255, 255, 102));
         btnIngresar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         btnIngresar.setText("Ingresar");
+        btnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
@@ -284,7 +285,7 @@ public class frmLogin extends javax.swing.JFrame {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Close");
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Llene todos los campos");

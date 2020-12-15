@@ -45,7 +45,8 @@ public class fCartelera extends javax.swing.JInternalFrame {
         tbCarteleras.setRowSelectionAllowed(isSelected);
         tbCarteleras.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
-        public void ajustartabla() {
+
+    public void ajustartabla() {
         // Ocultar la columna del ID de la pelicula
         tbCarteleras.getColumnModel().getColumn(0).setMaxWidth(0);
         tbCarteleras.getColumnModel().getColumn(0).setMinWidth(0);
@@ -70,7 +71,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
         columna1 = tbCarteleras.getColumnModel().getColumn(1);
         columna1.setPreferredWidth(150);
         tbCarteleras.setRowHeight(320);
-   
+
         // Alinear el texto de la sinopsis arriba al inicio de la celda
         DefaultTableCellRenderer Alinear = new DefaultTableCellRenderer();
         Alinear.setHorizontalAlignment(SwingConstants.CENTER);
@@ -102,13 +103,13 @@ public class fCartelera extends javax.swing.JInternalFrame {
             } catch (Exception e) {
                 filas[1] = new JLabel("No hay imagen");
             }
-            filas[2] = "<HTML>" + "<p align=\"justify\">" + i.getNombre()+ "</HTML>";
-            filas[3] = "<HTML>" + "<p align=\"justify\">" + formato.format(i.getFecha())+ "</HTML>";
-            filas[4] = "<HTML>" + "<p align=\"justify\">" + i.getHoraInicio()+ "</HTML>";
-            filas[5] = "<HTML>" + "<p align=\"justify\">" + i.getNumero_sala()+ "</HTML>";
-            filas[6] = "<HTML>" + "<p align=\"justify\">" + i.getDuracion()+ "</HTML>";
-            filas[7] = "<HTML>" + "<p align=\"justify\">" +  "$" + i.getPrecio()+"0"+ "</HTML>";
-            filas[8] = "<HTML>" + "<p align=\"justify\">" +  "$" + i.getSipnosis()+ "</HTML>";
+            filas[2] = "<HTML>" + "<p align=\"justify\">" + i.getNombre() + "</HTML>";
+            filas[3] = "<HTML>" + "<p align=\"justify\">" + formato.format(i.getFecha()) + "</HTML>";
+            filas[4] = "<HTML>" + "<p align=\"justify\">" + i.getHoraInicio() + "</HTML>";
+            filas[5] = "<HTML>" + "<p align=\"justify\">" + i.getNumero_sala() + "</HTML>";
+            filas[6] = "<HTML>" + "<p align=\"justify\">" + i.getDuracion() + "</HTML>";
+            filas[7] = "<HTML>" + "<p align=\"justify\">" + "$" + i.getPrecio() + "0" + "</HTML>";
+            filas[8] = "<HTML>" + "<p align=\"justify\">" + "$" + i.getSipnosis() + "</HTML>";
             if (i.getTipo() == 0) {
                 filas[9] = "<HTML>" + "<p align=\"justify\">" + "2D" + "</HTML>";
             } else if (i.getTipo() == 1) {
@@ -233,38 +234,27 @@ public class fCartelera extends javax.swing.JInternalFrame {
         id = Integer.valueOf(String.valueOf(tbCarteleras.getValueAt(fila, 0)));
 
     }//GEN-LAST:event_tbCartelerasMouseClicked
-public  fInsertarCartelera insertar = new fInsertarCartelera();
+    public fInsertarCartelera insertar = new fInsertarCartelera();
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
-        
+
         insertar.setVisible(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
-    
-    int indicador =1;
+
+    int indicador = 1;
     private void tbCartelerasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCartelerasMouseReleased
-//        int fila = tbCarteleras.getSelectedRow();
-//        String idp = String.valueOf(tbCarteleras.getValueAt(fila, 0));
-//        id = Integer.valueOf(idp);
-//        String nombre = String.valueOf(tbCarteleras.getValueAt(fila, 1));
-//        String precio = String.valueOf(tbCarteleras.getValueAt(fila, 2));
-//        String cantidad = String.valueOf(tbCarteleras.getValueAt(fila, 3));
-//        String idprov = String.valueOf(tbCarteleras.getValueAt(fila, 4));
-//        indicador = 1;
-//        txtNombre.setText(nombre);
-//        txtPrecio.setText(precio);
-//        txtCantidad.setText(cantidad);
-//
-//        int selectvista = 0;
-//        for (var iterar : valuemem) {
-//            if (idprov.equals(iterar)) {
-//                cmbProveedor.setSelectedIndex(selectvista);
-//            }
-//            selectvista += 1;
-//        }
-//        
+
+        int fila = tbCarteleras.getSelectedRow();
+        String idc = String.valueOf(tbCarteleras.getValueAt(fila, 0));
+        id = Integer.valueOf(idc);
+        String pelicula = String.valueOf(tbCarteleras.getValueAt(fila, 1));
+        String fecha = String.valueOf(tbCarteleras.getValueAt(fila, 2));
+        indicador = 1;
+        fInsertarCartelera.txtpelicula.setText(pelicula);
+
+
     }//GEN-LAST:event_tbCartelerasMouseReleased
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane TABLA;

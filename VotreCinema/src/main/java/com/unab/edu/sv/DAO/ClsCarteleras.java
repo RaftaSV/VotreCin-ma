@@ -74,11 +74,30 @@ public class ClsCarteleras {
             cs.setInt("PId_sala", cartele.getId_Sala());
             cs.setDate("PFecha", new java.sql.Date(cartele.getFecha().getTime()));
             cs.executeQuery();
-            JOptionPane.showMessageDialog(null, "Guardado exitosamente");
+            JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
             conectar.close();
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+    
+    public void EliminarCartelera(Carteleras cartele){
+     try {
+            CallableStatement call = conectar.prepareCall("call SP_D_CARTELERA(?)");
+            call.setInt("pId", cartele.getIdcartelera());
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar este registro?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                call.execute();
+                JOptionPane.showMessageDialog(null, "Eliminado exitosamente");
+            } else {
+
+            }
+            conectar.close();
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+    
     }
     
     
