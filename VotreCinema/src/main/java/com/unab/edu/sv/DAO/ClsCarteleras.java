@@ -63,6 +63,25 @@ public class ClsCarteleras {
        
         
     }
+    
+    public void ActualizarCartelera(Carteleras cartele){
+        try {
+            
+            CallableStatement cs = conectar.prepareCall("call SP_U_CARTELERA (?,?,?,?)");
+            cs.setInt("PId int", cartele.getIdcartelera());
+            cs.setInt("PId_Pelicula", cartele.getIdPelicula());
+            cs.setInt("PId_Horario",cartele.getId_Horario());
+            cs.setInt("PId_sala", cartele.getId_Sala());
+            cs.setDate("PFecha", new java.sql.Date(cartele.getFecha().getTime()));
+            cs.executeQuery();
+            JOptionPane.showMessageDialog(null, "Guardado exitosamente");
+            conectar.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    
        public ArrayList<Carteleras> BuscarDatos(Carteleras c) {
         ArrayList<Carteleras> lista = new ArrayList<>();
         try {

@@ -239,10 +239,28 @@ public  fInsertarCartelera insertar = new fInsertarCartelera();
         
         insertar.setVisible(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
-
+    
+    int indicador =1;
     private void tbCartelerasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCartelerasMouseReleased
-        // TODO add your handling code here:
-        
+        int fila = tbCarteleras.getSelectedRow();
+        String idp = String.valueOf(tbCarteleras.getValueAt(fila, 0));
+        id = Integer.valueOf(idp);
+        String nombre = String.valueOf(tbCarteleras.getValueAt(fila, 1));
+        String precio = String.valueOf(tbCarteleras.getValueAt(fila, 2));
+        String cantidad = String.valueOf(tbCarteleras.getValueAt(fila, 3));
+        String idprov = String.valueOf(tbCarteleras.getValueAt(fila, 4));
+        indicador = 1;
+        txtNombre.setText(nombre);
+        txtPrecio.setText(precio);
+        txtCantidad.setText(cantidad);
+
+        int selectvista = 0;
+        for (var iterar : valuemem) {
+            if (idprov.equals(iterar)) {
+                cmbProveedor.setSelectedIndex(selectvista);
+            }
+            selectvista += 1;
+        }
         
     }//GEN-LAST:event_tbCartelerasMouseReleased
     

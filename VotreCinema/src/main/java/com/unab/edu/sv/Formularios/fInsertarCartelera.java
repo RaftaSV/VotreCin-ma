@@ -253,7 +253,7 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    int indicador = 0;
+    public int indicador = 0;
     int id = 0;
     frmLogin l = new frmLogin();
     frmBuscarPelicula buscar = new frmBuscarPelicula();
@@ -281,6 +281,7 @@ public class fInsertarCartelera extends javax.swing.JFrame {
                         ClsCarteleras cls = new ClsCarteleras();
                         cls.InsertarCartelera(cart);
                         l.principal.cartelera.CargarTabla();
+                        this.dispose();
 
                     }
                 }
@@ -309,6 +310,7 @@ public class fInsertarCartelera extends javax.swing.JFrame {
                         ClsCarteleras cls = new ClsCarteleras();
                         cls.InsertarCartelera(cart);
                         l.principal.cartelera.CargarTabla();
+                        this.dispose();
 
                     }
                 }
@@ -435,6 +437,96 @@ public class fInsertarCartelera extends javax.swing.JFrame {
             cmbhorario.setModel(listahora);
         }
 
+    }
+    
+    String value[];
+    DefaultComboBoxModel listahor = new DefaultComboBoxModel<>();
+
+    void displaym() {
+        if (indicador == 0) {
+            try {
+                Horarios horari = new Horarios();
+                horari.setFecha(jdcFecha.getDate());
+                horari.setIds(Integer.parseInt(valuemember[cmbsala.getSelectedIndex()]));
+
+                String DisplayMenber[] = new String[5];
+                ClsHorarios cls = new ClsHorarios();
+                listahora.addElement("");
+                ArrayList<Horarios> horario = cls.cargarHora(horari);
+                valuemembe = new String[horario.size() + 1];
+                String filas[] = new String[5];
+                for (var i : horario) {
+                    filas[0] = String.valueOf(i.getIdHorario());
+                    String hora = String.valueOf(i.getHoraInicio());
+                    String Minuto = hora.substring(3, 5);
+                    String horass = hora.substring(0, 2);
+
+                    int c = Integer.valueOf(horass);
+                    if (c < 12) {
+                        if (c == 9) {
+                            filas[1] = String.valueOf(c + ":" + Minuto + " am");
+                        } else {
+                            filas[1] = String.valueOf(c + ":" + Minuto + " am");
+                        }
+
+                    } else if (c == 12) {
+                        filas[1] = String.valueOf(c + ":" + Minuto + " pm");
+                    } else {
+                        int h = c - 12;
+                        filas[1] = String.valueOf(h + ":" + Minuto + " pm");
+                    }
+                    valuemembe[contado] = filas[0];
+                    listahora.addElement(filas[1]);
+                    contado++;
+
+                }
+                cmbhorario.setModel(listahora);
+            } catch (Exception e) {
+                listahora.addElement("");
+                cmbhorario.setModel(listahora);
+            }
+        } else {
+            try {
+                Horarios horari = new Horarios();
+                horari.setFecha(jdcFecha.getDate());
+                horari.setIds(Integer.parseInt(valuemember[cmbsala.getSelectedIndex()]));
+                String DisplayMenber[] = new String[5];
+                ClsHorarios cls = new ClsHorarios();
+                listahora.addElement("");
+                ArrayList<Horarios> horario = cls.cargarHorarios();
+                valuemembe = new String[horario.size() + 1];
+                String filas[] = new String[5];
+                for (var i : horario) {
+                    filas[0] = String.valueOf(i.getIdHorario());
+                    String hora = String.valueOf(i.getHoraInicio());
+                    String Minuto = hora.substring(3, 5);
+                    String horass = hora.substring(0, 2);
+
+                    int c = Integer.valueOf(horass);
+                    if (c < 12) {
+                        if (c == 9) {
+                            filas[1] = String.valueOf(c + ":" + Minuto + " am");
+                        } else {
+                            filas[1] = String.valueOf(c + ":" + Minuto + " am");
+                        }
+
+                    } else if (c == 12) {
+                        filas[1] = String.valueOf(c + ":" + Minuto + " pm");
+                    } else {
+                        int h = c - 12;
+                        filas[1] = String.valueOf(h + ":" + Minuto + " pm");
+                    }
+                    valuemembe[contado] = filas[0];
+                    listahora.addElement(filas[1]);
+                    contado++;
+
+                }
+                cmbhorario.setModel(listahora);
+            } catch (Exception e) {
+                listahora.addElement("");
+                cmbhorario.setModel(listahora);
+            }
+        }
     }
 
     /**
