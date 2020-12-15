@@ -24,8 +24,10 @@ public class frmLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         cargarRegistro();
+        this.setResizable(false);
 
     }
+    public int tipo;
 
     void cargarRegistro() {
         try {
@@ -61,6 +63,7 @@ public class frmLogin extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         lblVer = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,13 +87,13 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        lblUsuario.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsuario.setText("Usuario");
+        lblUsuario.setText("USUARIO");
 
-        lblpass.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        lblpass.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblpass.setForeground(new java.awt.Color(255, 255, 255));
-        lblpass.setText("Pass");
+        lblpass.setText("CONTRASEÑA");
 
         btnIngresar.setBackground(new java.awt.Color(255, 255, 102));
         btnIngresar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
@@ -119,61 +122,70 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/logo.png"))); // NOI18N
+
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(533, 533, 533)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblRegistro)
-                        .addContainerGap())
+                        .addGap(50, 50, 50)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelFondoLayout.createSequentialGroup()
+                                .addComponent(lblRegistro)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(panelFondoLayout.createSequentialGroup()
+                                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelFondoLayout.createSequentialGroup()
+                                            .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(lblpass, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lblVer)))
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(45, Short.MAX_VALUE))))
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnIngresar)
-                                .addGap(107, 107, 107))
-                            .addComponent(txtPass)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator1)
-                            .addComponent(jSeparator2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblVer)
-                        .addGap(56, 56, 56))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(208, 208, 208))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblpass, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(213, 213, 213))))
+                            .addGroup(panelFondoLayout.createSequentialGroup()
+                                .addGap(134, 134, 134)
+                                .addComponent(btnIngresar))
+                            .addGroup(panelFondoLayout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addComponent(lblUsuario)))
+                        .addContainerGap())))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(lblUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblpass)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPass)
-                    .addComponent(lblVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(btnIngresar)
-                .addGap(18, 18, 18)
-                .addComponent(lblRegistro)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(lblUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblpass)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtPass)
+                            .addComponent(lblVer))
+                        .addGap(0, 0, 0)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnIngresar)
+                        .addGap(29, 29, 29)
+                        .addComponent(lblRegistro)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelFondo, java.awt.BorderLayout.CENTER);
@@ -196,13 +208,43 @@ public class frmLogin extends javax.swing.JFrame {
 
         if (!usu.isEmpty() && !pass.isEmpty()) {
             if (resutadoCon == true) {
-                JOptionPane.showMessageDialog(null, "Wellcome " + txtUsuario.getText());
-                this.dispose();
-                String usuario = "Usuario: "+txtUsuario.getText();
-                usuario=usuario.toUpperCase();
-                principal.lblUsuario.setText(usuario);
-                principal.id=log.id;
-                principal.setVisible(true);
+                tipo = log.rol;
+                if (tipo == 0) {
+                    JOptionPane.showMessageDialog(null, "Wellcome " + txtUsuario.getText());
+                    this.dispose();
+                    String usuario = "Usuario: " + txtUsuario.getText();
+                    usuario = usuario.toUpperCase();
+                    principal.lblUsuario.setText(usuario);
+                    principal.id = log.id;
+                    principal.setVisible(true);
+                    principal.btnFacturar.setVisible(true);
+                    principal.panelBotones.setVisible(true);
+                   
+
+                } else if (tipo == 1) {
+                    JOptionPane.showMessageDialog(null, "Wellcome " + txtUsuario.getText());
+                    this.dispose();
+                    String usuario = "Usuario: " + txtUsuario.getText();
+                    usuario = usuario.toUpperCase();
+                    principal.lblUsuario.setText(usuario);
+                    principal.id = log.id;
+                    principal.setVisible(true);
+                    principal.panelBotones.setVisible(false);
+                    principal.cartelera.btnNuevo.setVisible(false);
+                } else if (tipo == 2) {
+                    JOptionPane.showMessageDialog(null, "Wellcome " + txtUsuario.getText());
+                    this.dispose();
+                    String usuario = "Usuario: " + txtUsuario.getText();
+                    usuario = usuario.toUpperCase();
+                    principal.lblUsuario.setText(usuario);
+                    principal.id = log.id;
+                    principal.setVisible(true);
+                    principal.btnFacturar.setVisible(false);
+                    principal.panelBotones.setVisible(false);
+                    principal.cartelera.btnNuevo.setVisible(false);
+
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Close");
             }
@@ -214,17 +256,18 @@ public class frmLogin extends javax.swing.JFrame {
     private void lblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseClicked
         frmInsertUser user = new frmInsertUser();
         user.setVisible(true);
+        lblRegistro.setVisible(false);
     }//GEN-LAST:event_lblRegistroMouseClicked
 
     int ver = 0;
     private void lblVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerMouseClicked
         // TODO add your handling code here:
         if (ver == 0) {
-            txtPass.setEchoChar((char)0);
+            txtPass.setEchoChar((char) 0);
             lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ciego.png")));
             ver = 1;
         } else {
-            ver=0;
+            ver = 0;
             txtPass.setEchoChar('*');
             lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png")));
         }
@@ -269,6 +312,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblRegistro;

@@ -268,7 +268,7 @@ public  fInsertarCartelera insertar = new fInsertarCartelera();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane TABLA;
-    private javax.swing.JButton btnNuevo;
+    public javax.swing.JButton btnNuevo;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JTable tbCarteleras;
