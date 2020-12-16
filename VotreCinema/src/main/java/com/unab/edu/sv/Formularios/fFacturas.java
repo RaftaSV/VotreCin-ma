@@ -411,7 +411,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
             }
         };
         tbProducto.setBackground(new java.awt.Color(0, 0, 0));
-        tbProducto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tbProducto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbProducto.setForeground(new java.awt.Color(255, 255, 255));
         tbProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -458,6 +458,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
             }
         };
         tbCarteleras.setBackground(new java.awt.Color(0, 0, 0));
+        tbCarteleras.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbCarteleras.setForeground(java.awt.Color.white);
         tbCarteleras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -528,6 +529,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
         lblAsientos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAsientos.setText("ASIENTOS");
 
+        cmbAsientos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmbAsientos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         rbtnChild.setBackground(new java.awt.Color(0, 0, 0));
@@ -596,7 +598,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        lblCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCliente.setForeground(new java.awt.Color(255, 255, 255));
         lblCliente.setText("CLIENTE");
 
@@ -610,7 +612,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
             }
         };
         tbDetalles.setBackground(java.awt.Color.black);
-        tbDetalles.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tbDetalles.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tbDetalles.setForeground(new java.awt.Color(255, 255, 255));
         tbDetalles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

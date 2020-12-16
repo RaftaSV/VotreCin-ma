@@ -193,7 +193,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
             }
         };
         tbHorarios.setBackground(java.awt.Color.black);
-        tbHorarios.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tbHorarios.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbHorarios.setForeground(new java.awt.Color(255, 255, 255));
         tbHorarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -231,7 +231,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
         panelCRUD.setBackground(new java.awt.Color(0, 0, 0));
 
         btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnGuardar.setText("GUARDAR");
         btnGuardar.setBorderPainted(false);
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -242,7 +242,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
         });
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.setBorderPainted(false);
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -253,7 +253,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
         });
 
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
-        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setBorderPainted(false);
         btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -263,19 +263,19 @@ public class fHorarios extends javax.swing.JInternalFrame {
             }
         });
 
-        cmbHoras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbHoras.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbHoras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        cmbMinutos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbMinutos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbMinutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblHora.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblHora.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblHora.setForeground(new java.awt.Color(255, 255, 255));
-        lblHora.setText("Hora");
+        lblHora.setText("HORA");
 
-        lblMinuto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblMinuto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblMinuto.setForeground(new java.awt.Color(255, 255, 255));
-        lblMinuto.setText("Minutos");
+        lblMinuto.setText("MINUTOS");
 
         javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
         panelCRUD.setLayout(panelCRUDLayout);
@@ -288,29 +288,31 @@ public class fHorarios extends javax.swing.JInternalFrame {
                         .addComponent(btnGuardar)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btnLimpiar))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(cmbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(cmbMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(lblHora)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblMinuto)
-                .addGap(61, 61, 61))
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCRUDLayout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addComponent(cmbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblHora)
+                                .addGap(57, 57, 57)))
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMinuto)
+                            .addComponent(cmbMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHora, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblMinuto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHora))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -339,9 +341,10 @@ public class fHorarios extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                        .addComponent(TABLA, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -355,10 +358,12 @@ public class fHorarios extends javax.swing.JInternalFrame {
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnLectura)
                     .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
                     .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );

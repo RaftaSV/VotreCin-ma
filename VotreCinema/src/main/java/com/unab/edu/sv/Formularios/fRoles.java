@@ -91,12 +91,13 @@ public class fRoles extends javax.swing.JInternalFrame {
 
         panelCRUD.setBackground(new java.awt.Color(0, 0, 0));
 
+        lblpersona.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblpersona.setForeground(new java.awt.Color(255, 255, 255));
-        lblpersona.setText("Id Persona");
+        lblpersona.setText("IDPERSONA");
 
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
-        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,19 +106,22 @@ public class fRoles extends javax.swing.JInternalFrame {
         });
 
         txtUsu.setBackground(new java.awt.Color(0, 0, 0));
+        txtUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtUsu.setForeground(new java.awt.Color(255, 255, 255));
         txtUsu.setBorder(null);
         txtUsu.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        lbltiporol.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbltiporol.setForeground(new java.awt.Color(255, 255, 255));
-        lbltiporol.setText("Tipo Rol");
+        lbltiporol.setText("TIPO ROL");
 
+        lblNombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombre.setText("Usuario");
+        lblNombre.setText("USUARIO");
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEliminar.setText("ELIMINAR");
         btnEliminar.setBorderPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,12 +129,15 @@ public class fRoles extends javax.swing.JInternalFrame {
             }
         });
 
+        cb_Idpersona5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        lblPass.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPass.setForeground(new java.awt.Color(255, 255, 255));
-        lblPass.setText("Password");
+        lblPass.setText("PASSWORD");
 
         btnInsertar5.setBackground(new java.awt.Color(255, 255, 102));
-        btnInsertar5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnInsertar5.setText("Guardar");
+        btnInsertar5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnInsertar5.setText("GUARDAR");
         btnInsertar5.setBorderPainted(false);
         btnInsertar5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,18 +147,21 @@ public class fRoles extends javax.swing.JInternalFrame {
 
         rbAdmin.setBackground(new java.awt.Color(0, 0, 0));
         Tipo.add(rbAdmin);
+        rbAdmin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rbAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        rbAdmin.setText("Administrador");
+        rbAdmin.setText("ADMINISTRADOR");
 
         rbCliente.setBackground(new java.awt.Color(0, 0, 0));
         Tipo.add(rbCliente);
+        rbCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rbCliente.setForeground(new java.awt.Color(255, 255, 255));
-        rbCliente.setText("Cliente");
+        rbCliente.setText("CLIENTE");
 
         rbCajero.setBackground(new java.awt.Color(0, 0, 0));
         Tipo.add(rbCajero);
+        rbCajero.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rbCajero.setForeground(new java.awt.Color(255, 255, 255));
-        rbCajero.setText("Cajero");
+        rbCajero.setText("CAJERO");
 
         lblVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/ojo.png"))); // NOI18N
         lblVer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -162,6 +172,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         });
 
         txtPass.setBackground(new java.awt.Color(0, 0, 0));
+        txtPass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtPass.setForeground(new java.awt.Color(255, 255, 255));
         txtPass.setBorder(null);
         txtPass.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -187,9 +198,6 @@ public class fRoles extends javax.swing.JInternalFrame {
                         .addGap(2, 2, 2)
                         .addComponent(lblVer))))
             .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(lbltiporol))
-            .addGroup(panelCRUDLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,14 +209,18 @@ public class fRoles extends javax.swing.JInternalFrame {
                             .addComponent(btnLimpiar))
                         .addGroup(panelCRUDLayout.createSequentialGroup()
                             .addComponent(rbAdmin)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(rbCajero)
                             .addGap(18, 18, 18)
-                            .addComponent(rbCliente)))
+                            .addComponent(rbCajero)
+                            .addGap(16, 16, 16)
+                            .addComponent(rbCliente)
+                            .addGap(0, 0, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelCRUDLayout.createSequentialGroup()
                         .addComponent(lblpersona)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addComponent(lbltiporol))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,9 +242,9 @@ public class fRoles extends javax.swing.JInternalFrame {
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_Idpersona5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblpersona))
-                .addGap(26, 26, 26)
+                .addGap(24, 24, 24)
                 .addComponent(lbltiporol)
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbAdmin)
                     .addComponent(rbCajero)
@@ -251,6 +263,7 @@ public class fRoles extends javax.swing.JInternalFrame {
             }
         };
         tbMostrarRol.setBackground(new java.awt.Color(0, 0, 0));
+        tbMostrarRol.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbMostrarRol.setForeground(new java.awt.Color(255, 255, 255));
         tbMostrarRol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

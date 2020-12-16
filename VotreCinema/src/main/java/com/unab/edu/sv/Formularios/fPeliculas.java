@@ -73,7 +73,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
         jPanel1.setBackground(java.awt.Color.black);
 
         btnEditar.setBackground(new java.awt.Color(255, 255, 102));
-        btnEditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditar.setText("EDITAR");
         btnEditar.setBorderPainted(false);
         btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -84,7 +84,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
         });
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.setBorderPainted(false);
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -95,7 +95,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
         });
 
         btnNuevo.setBackground(new java.awt.Color(255, 255, 102));
-        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnNuevo.setText("NUEVA");
         btnNuevo.setBorderPainted(false);
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +132,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
             }
         };
         tbPeliculas.setBackground(new java.awt.Color(0, 0, 0));
+        tbPeliculas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbPeliculas.setForeground(new java.awt.Color(255, 255, 255));
         tbPeliculas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -166,7 +167,7 @@ public class fPeliculas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelfondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelfondoLayout.createSequentialGroup()
-                        .addGap(0, 510, Short.MAX_VALUE)
+                        .addGap(0, 478, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE))
                 .addContainerGap())

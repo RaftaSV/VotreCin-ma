@@ -99,7 +99,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         panelCRUD.setBackground(new java.awt.Color(0, 0, 0));
         panelCRUD.setOpaque(false);
 
-        lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("NOMBRE");
 
@@ -109,7 +109,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         txtNombre.setBorder(null);
         txtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        lblPrecio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPrecio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
         lblPrecio.setText("PRECIO");
 
@@ -124,7 +124,7 @@ public class fProductos extends javax.swing.JInternalFrame {
             }
         });
 
-        lblCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCantidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCantidad.setForeground(new java.awt.Color(255, 255, 255));
         lblCantidad.setText("CANTIDAD");
 
@@ -139,11 +139,11 @@ public class fProductos extends javax.swing.JInternalFrame {
             }
         });
 
-        lblProveedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblProveedor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblProveedor.setForeground(new java.awt.Color(255, 255, 255));
         lblProveedor.setText("PROVEEDOR");
 
-        cmbProveedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbProveedor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cmbProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +152,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         });
 
         btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnGuardar.setText("GUARDAR");
         btnGuardar.setBorderPainted(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +162,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         });
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.setBorderPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +172,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         });
 
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
-        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -186,21 +186,15 @@ public class fProductos extends javax.swing.JInternalFrame {
         panelCRUDLayout.setHorizontalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btnGuardar)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnLimpiar)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnLimpiar)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
                         .addComponent(jSeparator1)
                         .addContainerGap())
@@ -229,13 +223,17 @@ public class fProductos extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
                                 .addComponent(lblProveedor)
                                 .addGap(118, 118, 118))))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(lblNombre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,6 +267,7 @@ public class fProductos extends javax.swing.JInternalFrame {
             }
         };
         tbProductos.setBackground(new java.awt.Color(0, 0, 0));
+        tbProductos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbProductos.setForeground(new java.awt.Color(255, 255, 255));
         tbProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

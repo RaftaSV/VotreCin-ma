@@ -71,13 +71,13 @@ public class frmLogin extends javax.swing.JFrame {
         panelFondo.setForeground(java.awt.Color.white);
 
         txtUsuario.setBackground(new java.awt.Color(0, 0, 0));
-        txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtUsuario.setForeground(java.awt.Color.white);
         txtUsuario.setBorder(null);
         txtUsuario.setCaretColor(java.awt.Color.white);
 
         txtPass.setBackground(new java.awt.Color(0, 0, 0));
-        txtPass.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtPass.setForeground(java.awt.Color.white);
         txtPass.setBorder(null);
         txtPass.setCaretColor(java.awt.Color.white);
@@ -96,7 +96,7 @@ public class frmLogin extends javax.swing.JFrame {
         lblpass.setText("CONTRASEÑA");
 
         btnIngresar.setBackground(new java.awt.Color(255, 255, 102));
-        btnIngresar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnIngresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnIngresar.setText("Ingresar");
         btnIngresar.setBorderPainted(false);
         btnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -106,7 +106,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        lblRegistro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblRegistro.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRegistro.setForeground(new java.awt.Color(255, 255, 255));
         lblRegistro.setText("Nuevo? aqui puedes registrarte");
         lblRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -154,14 +154,13 @@ public class frmLogin extends javax.swing.JFrame {
                                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(45, Short.MAX_VALUE))))
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelFondoLayout.createSequentialGroup()
-                                .addGap(134, 134, 134)
-                                .addComponent(btnIngresar))
-                            .addGroup(panelFondoLayout.createSequentialGroup()
-                                .addGap(114, 114, 114)
-                                .addComponent(lblUsuario)))
-                        .addContainerGap())))
+                        .addGap(134, 134, 134)
+                        .addComponent(btnIngresar)
+                        .addContainerGap(131, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblUsuario)
+                        .addGap(114, 114, 114))))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

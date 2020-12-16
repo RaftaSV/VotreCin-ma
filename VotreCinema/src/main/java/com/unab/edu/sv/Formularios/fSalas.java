@@ -66,9 +66,9 @@ public class fSalas extends javax.swing.JInternalFrame {
         panelCRUD.setBackground(new java.awt.Color(153, 255, 204));
         panelCRUD.setOpaque(false);
 
-        lblCapacidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCapacidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCapacidad.setForeground(new java.awt.Color(255, 255, 255));
-        lblCapacidad.setText("Capacidad");
+        lblCapacidad.setText("CAPACIDAD");
 
         txtCapacidad.setBackground(new java.awt.Color(0, 0, 0));
         txtCapacidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -81,9 +81,9 @@ public class fSalas extends javax.swing.JInternalFrame {
             }
         });
 
-        lblNumerodeSala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNumerodeSala.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNumerodeSala.setForeground(java.awt.Color.white);
-        lblNumerodeSala.setText("Numero de Sala");
+        lblNumerodeSala.setText("NUMERO DE SALA");
 
         txtNumerodeSala.setBackground(new java.awt.Color(0, 0, 0));
         txtNumerodeSala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -97,8 +97,8 @@ public class fSalas extends javax.swing.JInternalFrame {
         });
 
         btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnGuardar.setText("Guardar");
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardar.setText("GUARDAR");
         btnGuardar.setBorderPainted(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,8 +107,8 @@ public class fSalas extends javax.swing.JInternalFrame {
         });
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEliminar.setText("ELIMINAR");
         btnEliminar.setBorderPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,8 +117,8 @@ public class fSalas extends javax.swing.JInternalFrame {
         });
 
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
-        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +183,7 @@ public class fSalas extends javax.swing.JInternalFrame {
             }
         };
         tbSalas.setBackground(new java.awt.Color(0, 0, 0));
+        tbSalas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbSalas.setForeground(java.awt.Color.white);
         tbSalas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -241,7 +242,7 @@ public class fSalas extends javax.swing.JInternalFrame {
                         .addGap(156, 156, 156)
                         .addComponent(btnLectura))
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))

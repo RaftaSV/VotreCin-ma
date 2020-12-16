@@ -172,10 +172,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelBotones.setBackground(new java.awt.Color(215, 172, 33));
         panelBotones.setOpaque(false);
 
-        btnProveedores.setBackground(new java.awt.Color(102, 255, 102));
+        btnProveedores.setBackground(new java.awt.Color(0, 0, 0));
         btnProveedores.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnProveedores.setForeground(new java.awt.Color(255, 255, 255));
+        btnProveedores.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\producto.png")); // NOI18N
         btnProveedores.setText("PROVEEDORES");
-        btnProveedores.setBorderPainted(false);
+        btnProveedores.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProveedores.setPreferredSize(new java.awt.Dimension(267, 30));
         btnProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -184,10 +186,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnProductos.setBackground(new java.awt.Color(102, 255, 102));
+        btnProductos.setBackground(new java.awt.Color(0, 0, 0));
         btnProductos.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnProductos.setForeground(new java.awt.Color(255, 255, 255));
+        btnProductos.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\caja.png")); // NOI18N
         btnProductos.setText("PRODUCTOS");
-        btnProductos.setBorderPainted(false);
+        btnProductos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProductos.setPreferredSize(new java.awt.Dimension(267, 30));
         btnProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -196,10 +200,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnPeliculas.setBackground(new java.awt.Color(102, 255, 102));
+        btnPeliculas.setBackground(new java.awt.Color(0, 0, 0));
         btnPeliculas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnPeliculas.setForeground(new java.awt.Color(255, 255, 255));
+        btnPeliculas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\camara-de-video.png")); // NOI18N
         btnPeliculas.setText("PELICULA");
-        btnPeliculas.setBorder(null);
+        btnPeliculas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnPeliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPeliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,10 +213,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnRoles.setBackground(new java.awt.Color(102, 255, 102));
+        btnRoles.setBackground(new java.awt.Color(0, 0, 0));
         btnRoles.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnRoles.setForeground(new java.awt.Color(255, 255, 255));
+        btnRoles.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\admin-con-ruedas-dentadas.png")); // NOI18N
         btnRoles.setText("ROLES");
-        btnRoles.setBorderPainted(false);
+        btnRoles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnRoles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRoles.setPreferredSize(new java.awt.Dimension(267, 30));
         btnRoles.addActionListener(new java.awt.event.ActionListener() {
@@ -219,10 +227,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnPersonas.setBackground(new java.awt.Color(102, 255, 102));
+        btnPersonas.setBackground(new java.awt.Color(0, 0, 0));
         btnPersonas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnPersonas.setForeground(new java.awt.Color(255, 255, 255));
+        btnPersonas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\agregue-el-simbolo-de-la-interfaz-de-personas-de-la-persona-negra-de-cerca-con-el-signo-mas-en-un-circulo-pequeno.png")); // NOI18N
         btnPersonas.setText("PERSONAS");
-        btnPersonas.setBorderPainted(false);
+        btnPersonas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnPersonas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPersonas.setPreferredSize(new java.awt.Dimension(267, 30));
         btnPersonas.addActionListener(new java.awt.event.ActionListener() {
@@ -231,10 +241,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnSalas.setBackground(new java.awt.Color(102, 255, 102));
+        btnSalas.setBackground(new java.awt.Color(0, 0, 0));
         btnSalas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnSalas.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\boton-salir-a-la-aplicacion.png")); // NOI18N
         btnSalas.setText("SALAS");
-        btnSalas.setBorderPainted(false);
+        btnSalas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnSalas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalas.setPreferredSize(new java.awt.Dimension(267, 30));
         btnSalas.addActionListener(new java.awt.event.ActionListener() {
@@ -243,10 +255,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnHorarios.setBackground(new java.awt.Color(102, 255, 102));
+        btnHorarios.setBackground(new java.awt.Color(0, 0, 0));
         btnHorarios.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnHorarios.setForeground(new java.awt.Color(255, 255, 255));
+        btnHorarios.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\paso-del-tiempo.png")); // NOI18N
         btnHorarios.setText("HORARIOS");
-        btnHorarios.setBorderPainted(false);
+        btnHorarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnHorarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHorarios.setPreferredSize(new java.awt.Dimension(267, 30));
         btnHorarios.addActionListener(new java.awt.event.ActionListener() {
@@ -270,9 +284,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelBotonesLayout.setVerticalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonesLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -326,10 +339,12 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         panelBotonesFacturas.setOpaque(false);
 
-        btnCarteleras.setBackground(new java.awt.Color(102, 255, 102));
-        btnCarteleras.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCarteleras.setBackground(new java.awt.Color(0, 0, 0));
+        btnCarteleras.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnCarteleras.setForeground(new java.awt.Color(255, 255, 255));
+        btnCarteleras.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\cartelera.png")); // NOI18N
         btnCarteleras.setText("CARTELERAS");
-        btnCarteleras.setBorderPainted(false);
+        btnCarteleras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnCarteleras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCarteleras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,10 +352,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnFacturar.setBackground(new java.awt.Color(102, 255, 102));
+        btnFacturar.setBackground(new java.awt.Color(0, 0, 0));
         btnFacturar.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
+        btnFacturar.setForeground(new java.awt.Color(255, 255, 255));
+        btnFacturar.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\facturas.png")); // NOI18N
         btnFacturar.setText("Facturar");
-        btnFacturar.setBorderPainted(false);
+        btnFacturar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnFacturar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnFacturar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,7 +369,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelBotonesFacturas.setLayout(panelBotonesFacturasLayout);
         panelBotonesFacturasLayout.setHorizontalGroup(
             panelBotonesFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCarteleras, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+            .addComponent(btnCarteleras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnFacturar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelBotonesFacturasLayout.setVerticalGroup(
@@ -370,7 +387,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(panelBotonesFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelBotonesFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,7 +417,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(panelcontenedor))
             .addComponent(panelBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

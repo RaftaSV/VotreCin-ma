@@ -81,6 +81,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
             }
         };
         tbProveedores.setBackground(new java.awt.Color(0, 0, 0));
+        tbProveedores.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbProveedores.setForeground(new java.awt.Color(255, 255, 255));
         tbProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -140,9 +141,9 @@ public class fProveedores extends javax.swing.JInternalFrame {
 
         panelCRUD.setBackground(new java.awt.Color(0, 0, 0));
 
-        lblNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNombres.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNombres.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombres.setText("Nombre");
+        lblNombres.setText("NOMBRE");
 
         txtNombre.setBackground(new java.awt.Color(0, 0, 0));
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -150,9 +151,9 @@ public class fProveedores extends javax.swing.JInternalFrame {
         txtNombre.setBorder(null);
         txtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        lblTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTelefono.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblTelefono.setForeground(new java.awt.Color(255, 255, 255));
-        lblTelefono.setText("Telefono");
+        lblTelefono.setText("TELEFONO");
 
         txtTelefono.setBackground(new java.awt.Color(0, 0, 0));
         txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -160,9 +161,9 @@ public class fProveedores extends javax.swing.JInternalFrame {
         txtTelefono.setBorder(null);
         txtTelefono.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        lblDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDireccion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblDireccion.setForeground(new java.awt.Color(255, 255, 255));
-        lblDireccion.setText("Direccion");
+        lblDireccion.setText("DIRECCION");
 
         txtDireccion.setBackground(new java.awt.Color(0, 0, 0));
         txtDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -171,8 +172,8 @@ public class fProveedores extends javax.swing.JInternalFrame {
         txtDireccion.setCaretColor(new java.awt.Color(255, 255, 255));
 
         btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnGuardar.setText("Guardar");
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardar.setText("GUARDAR");
         btnGuardar.setBorderPainted(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,8 +182,8 @@ public class fProveedores extends javax.swing.JInternalFrame {
         });
 
         btnElimanar.setBackground(new java.awt.Color(255, 255, 102));
-        btnElimanar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnElimanar.setText("Eliminar");
+        btnElimanar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnElimanar.setText("ELIMINAR");
         btnElimanar.setBorderPainted(false);
         btnElimanar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,8 +192,8 @@ public class fProveedores extends javax.swing.JInternalFrame {
         });
 
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
-        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,45 +205,34 @@ public class fProveedores extends javax.swing.JInternalFrame {
         panelCRUD.setLayout(panelCRUDLayout);
         panelCRUDLayout.setHorizontalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                        .addComponent(lblTelefono)
-                        .addGap(101, 101, 101))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                        .addComponent(lblDireccion)
-                        .addGap(99, 99, 99))))
             .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                                .addComponent(lblNombres)
-                                .addGap(107, 107, 107))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnGuardar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnElimanar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLimpiar))
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jSeparator3)
-                            .addComponent(jSeparator2)
-                            .addComponent(jSeparator1))
-                        .addGap(3, 3, 3))))
+                        .addComponent(btnGuardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnElimanar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiar))
+                    .addComponent(jSeparator3)
+                    .addComponent(jSeparator2)
+                    .addComponent(jSeparator1))
+                .addGap(3, 3, 3))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblNombres)
+                    .addComponent(lblTelefono)
+                    .addComponent(lblDireccion))
+                .addGap(101, 101, 101))
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +284,7 @@ public class fProveedores extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
+                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLectura)))
                 .addGap(0, 0, 0))

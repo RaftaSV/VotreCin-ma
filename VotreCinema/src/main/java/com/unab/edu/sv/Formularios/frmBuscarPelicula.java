@@ -105,7 +105,7 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
             }
         };
         tbPeliculas.setBackground(new java.awt.Color(0, 0, 0));
-        tbPeliculas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tbPeliculas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbPeliculas.setForeground(new java.awt.Color(255, 255, 255));
         tbPeliculas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

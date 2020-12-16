@@ -128,10 +128,10 @@ public class frmPeliculas extends javax.swing.JFrame {
         lblEncabezado.setText("PELICULAS");
         panelFondo.add(lblEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 654, 70));
 
-        lblPelicula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPelicula.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPelicula.setForeground(new java.awt.Color(255, 255, 255));
-        lblPelicula.setText("Pelicula");
-        panelFondo.add(lblPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 115, -1, -1));
+        lblPelicula.setText("PELICULA");
+        panelFondo.add(lblPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         txtPrecio.setBackground(new java.awt.Color(0, 0, 0));
         txtPrecio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -150,48 +150,48 @@ public class frmPeliculas extends javax.swing.JFrame {
         });
         panelFondo.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 320, -1));
 
-        lblYear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblYear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblYear.setForeground(new java.awt.Color(255, 255, 255));
-        lblYear.setText("Fecha de estreno");
+        lblYear.setText("FECHA DE ESTRENO");
         panelFondo.add(lblYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
-        lblDuracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDuracion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblDuracion.setForeground(new java.awt.Color(255, 255, 255));
-        lblDuracion.setText("Duracion");
+        lblDuracion.setText("DURACION");
         panelFondo.add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
-        lblPrecio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPrecio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
-        lblPrecio.setText("Precio");
+        lblPrecio.setText("PRECIO");
         panelFondo.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, -1, -1));
 
         rb3D.setBackground(new java.awt.Color(0, 0, 0));
         Tipo.add(rb3D);
-        rb3D.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rb3D.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rb3D.setForeground(new java.awt.Color(255, 255, 255));
         rb3D.setText("3D");
         panelFondo.add(rb3D, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, -1, -1));
 
         rb2D.setBackground(new java.awt.Color(0, 0, 0));
         Tipo.add(rb2D);
-        rb2D.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rb2D.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rb2D.setForeground(new java.awt.Color(255, 255, 255));
         rb2D.setText("2D");
         panelFondo.add(rb2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, -1, -1));
 
         rbTodos.setBackground(new java.awt.Color(0, 0, 0));
         Clasificacion.add(rbTodos);
-        rbTodos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbTodos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rbTodos.setForeground(new java.awt.Color(255, 255, 255));
-        rbTodos.setText("Toda la Familia");
+        rbTodos.setText("TODA LA FAMILIA");
         panelFondo.add(rbTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
 
         rbMayoresde15.setBackground(new java.awt.Color(0, 0, 0));
         Clasificacion.add(rbMayoresde15);
-        rbMayoresde15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbMayoresde15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rbMayoresde15.setForeground(new java.awt.Color(255, 255, 255));
-        rbMayoresde15.setText("Mayores de 15 años");
-        panelFondo.add(rbMayoresde15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, -1, -1));
+        rbMayoresde15.setText("MAYORES DE 15 AÑOS");
+        panelFondo.add(rbMayoresde15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, -1, -1));
 
         txtSeleccionar.setEditable(false);
         txtSeleccionar.setBackground(new java.awt.Color(0, 0, 0));
@@ -203,8 +203,8 @@ public class frmPeliculas extends javax.swing.JFrame {
         panelFondo.add(txtSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 183, 201, 20));
 
         btnSeleccionar.setBackground(new java.awt.Color(255, 255, 102));
-        btnSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSeleccionar.setText("SELECCIONAR");
         btnSeleccionar.setBorderPainted(false);
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,8 +214,8 @@ public class frmPeliculas extends javax.swing.JFrame {
         panelFondo.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 185, -1, -1));
 
         btnInsertar.setBackground(new java.awt.Color(255, 255, 102));
-        btnInsertar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnInsertar.setText("Guardar");
+        btnInsertar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnInsertar.setText("GUARDAR");
         btnInsertar.setBorderPainted(false);
         btnInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,8 +225,8 @@ public class frmPeliculas extends javax.swing.JFrame {
         panelFondo.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 630, -1, -1));
 
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
-        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,8 +236,8 @@ public class frmPeliculas extends javax.swing.JFrame {
         panelFondo.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 630, -1, -1));
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEliminar.setText("ELIMINAR");
         btnEliminar.setBorderPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,26 +262,28 @@ public class frmPeliculas extends javax.swing.JFrame {
 
         panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 320, -1));
 
-        lblPortada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPortada.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPortada.setForeground(new java.awt.Color(255, 255, 255));
-        lblPortada.setText("portada");
+        lblPortada.setText("PORTADA");
         panelFondo.add(lblPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 162, -1, -1));
 
         lblImagen.setBackground(new java.awt.Color(0, 0, 0));
         lblImagen.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        panelFondo.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 115, 260, 347));
+        panelFondo.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 260, 347));
 
         rbMayoresde18.setBackground(new java.awt.Color(0, 0, 0));
         Clasificacion.add(rbMayoresde18);
-        rbMayoresde18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbMayoresde18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rbMayoresde18.setForeground(new java.awt.Color(255, 255, 255));
-        rbMayoresde18.setText("Mayores de 18 años");
-        panelFondo.add(rbMayoresde18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, -1, -1));
+        rbMayoresde18.setText("MAYORES DE 18 AÑOS");
+        panelFondo.add(rbMayoresde18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, -1, -1));
 
+        horas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         horas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         horas.setOpaque(false);
-        panelFondo.add(horas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 70, -1));
+        panelFondo.add(horas, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 70, -1));
 
+        minutos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         minutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         minutos.setOpaque(false);
         minutos.addActionListener(new java.awt.event.ActionListener() {
@@ -289,21 +291,21 @@ public class frmPeliculas extends javax.swing.JFrame {
                 minutosActionPerformed(evt);
             }
         });
-        panelFondo.add(minutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 70, -1));
+        panelFondo.add(minutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 70, -1));
 
-        lblHoras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblHoras.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblHoras.setForeground(new java.awt.Color(255, 255, 255));
-        lblHoras.setText("Horas");
+        lblHoras.setText("HORAS");
         panelFondo.add(lblHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
 
-        lblMinutos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblMinutos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblMinutos.setForeground(new java.awt.Color(255, 255, 255));
-        lblMinutos.setText("Minutos");
+        lblMinutos.setText("MINUTOS");
         panelFondo.add(lblMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
 
-        lblSinopsis1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSinopsis1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblSinopsis1.setForeground(new java.awt.Color(255, 255, 255));
-        lblSinopsis1.setText("Sinopsis");
+        lblSinopsis1.setText("SINOPSIS");
         panelFondo.add(lblSinopsis1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
 
         txtNombreP1.setBackground(new java.awt.Color(0, 0, 0));
@@ -332,7 +334,9 @@ public class frmPeliculas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

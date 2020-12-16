@@ -60,7 +60,7 @@
                           <Component id="btnLectura" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="TABLA" pref="479" max="32767" attributes="0"/>
+                          <Component id="TABLA" pref="409" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="panelCRUD" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -167,12 +167,12 @@
             <Component class="javax.swing.JLabel" name="lblCapacidad">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
+                  <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Capacidad"/>
+                <Property name="text" type="java.lang.String" value="CAPACIDAD"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCapacidad">
@@ -200,12 +200,12 @@
             <Component class="javax.swing.JLabel" name="lblNumerodeSala">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
+                  <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Numero de Sala"/>
+                <Property name="text" type="java.lang.String" value="NUMERO DE SALA"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNumerodeSala">
@@ -236,9 +236,9 @@
                   <Color blue="66" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
+                  <Font name="Tahoma" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Guardar"/>
+                <Property name="text" type="java.lang.String" value="GUARDAR"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
@@ -251,9 +251,9 @@
                   <Color blue="66" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
+                  <Font name="Tahoma" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Eliminar"/>
+                <Property name="text" type="java.lang.String" value="ELIMINAR"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
@@ -266,9 +266,9 @@
                   <Color blue="66" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
+                  <Font name="Tahoma" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Limpiar"/>
+                <Property name="text" type="java.lang.String" value="LIMPIAR"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
@@ -292,6 +292,9 @@
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>

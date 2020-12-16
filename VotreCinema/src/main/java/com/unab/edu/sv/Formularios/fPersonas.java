@@ -117,9 +117,9 @@ public class fPersonas extends javax.swing.JInternalFrame {
         panelCRUD.setOpaque(false);
 
         lblNombres.setBackground(new java.awt.Color(51, 51, 51));
-        lblNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNombres.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNombres.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombres.setText("Nombres");
+        lblNombres.setText("NOMBRES");
 
         txtNombres.setBackground(new java.awt.Color(0, 0, 0));
         txtNombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -127,9 +127,9 @@ public class fPersonas extends javax.swing.JInternalFrame {
         txtNombres.setBorder(null);
         txtNombres.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        lblApellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblApellidos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblApellidos.setForeground(new java.awt.Color(255, 255, 255));
-        lblApellidos.setText("Apellidos");
+        lblApellidos.setText("APELLIDOS");
 
         txtApellido.setBackground(new java.awt.Color(0, 0, 0));
         txtApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -137,7 +137,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         txtApellido.setBorder(null);
         txtApellido.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        lblDUI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDUI.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblDUI.setForeground(java.awt.Color.white);
         lblDUI.setText("DUI");
 
@@ -148,8 +148,8 @@ public class fPersonas extends javax.swing.JInternalFrame {
         txtDui.setCaretColor(new java.awt.Color(255, 255, 255));
 
         btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnGuardar.setText("Guardar");
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardar.setText("GUARDAR");
         btnGuardar.setBorderPainted(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,8 +158,8 @@ public class fPersonas extends javax.swing.JInternalFrame {
         });
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEliminar.setText("ELIMINAR");
         btnEliminar.setBorderPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,8 +168,8 @@ public class fPersonas extends javax.swing.JInternalFrame {
         });
 
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
-        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,33 +182,29 @@ public class fPersonas extends javax.swing.JInternalFrame {
         panelCRUDLayout.setHorizontalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(lblNombres))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(lblApellidos))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(lblDUI))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombres)
-                            .addComponent(txtApellido)
-                            .addComponent(txtDui)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                                .addGap(0, 8, Short.MAX_VALUE)
-                                .addComponent(btnGuardar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnEliminar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLimpiar)
-                                .addGap(18, 18, 18))
-                            .addComponent(jSeparator1)
-                            .addComponent(jSeparator2)
-                            .addComponent(jSeparator3))))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblNombres)
+                    .addComponent(lblApellidos)
+                    .addComponent(lblDUI))
+                .addGap(175, 175, 175))
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNombres)
+                    .addComponent(txtApellido)
+                    .addComponent(txtDui)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                        .addGap(0, 8, Short.MAX_VALUE)
+                        .addComponent(btnGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimpiar)
+                        .addGap(18, 18, 18))
+                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator2)
+                    .addComponent(jSeparator3))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
@@ -226,9 +222,9 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lblDUI)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(9, 9, 9)
                 .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,6 +256,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
             }
         };
         tbPersonas.setBackground(new java.awt.Color(0, 0, 0));
+        tbPersonas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbPersonas.setForeground(new java.awt.Color(255, 255, 255));
         tbPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -291,13 +288,13 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
                         .addGap(177, 177, 177)
                         .addComponent(btnLectura)
                         .addContainerGap())
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -315,27 +312,25 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 188, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)))
+                        .addGap(0, 163, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 912, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 585, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
         );
 
         pack();
