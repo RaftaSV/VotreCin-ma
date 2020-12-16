@@ -82,6 +82,8 @@ public class fProductos extends javax.swing.JInternalFrame {
         tbProductos = new javax.swing.JTable();
         btnLectura = new javax.swing.JLabel();
 
+        setOpaque(true);
+
         panelFondo.setBackground(new java.awt.Color(0, 0, 0));
         panelFondo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -89,7 +91,7 @@ public class fProductos extends javax.swing.JInternalFrame {
             }
         });
 
-        lblEncabezado.setFont(new java.awt.Font("Algerian_R", 1, 48)); // NOI18N
+        lblEncabezado.setFont(new java.awt.Font("Algerian_R", 1, 60)); // NOI18N
         lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("PRODUCTOS");
@@ -152,7 +154,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
         btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setText("GUARDAR");
-        btnGuardar.setOpaque(false);
+        btnGuardar.setBorderPainted(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -162,7 +164,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR");
-        btnEliminar.setOpaque(false);
+        btnEliminar.setBorderPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -172,7 +174,7 @@ public class fProductos extends javax.swing.JInternalFrame {
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("LIMPIAR");
-        btnLimpiar.setOpaque(false);
+        btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -258,7 +260,7 @@ public class fProductos extends javax.swing.JInternalFrame {
                     .addComponent(btnGuardar)
                     .addComponent(btnEliminar)
                     .addComponent(btnLimpiar))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         tbProductos = new javax.swing.JTable(){
@@ -324,7 +326,7 @@ public class fProductos extends javax.swing.JInternalFrame {
                 .addGap(48, 48, 48)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -34,8 +34,8 @@ public class fPersonas extends javax.swing.JInternalFrame {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         lectura();
-        tbPersonas.setRowSelectionAllowed(isSelected);
         tbPersonas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+      
 
     }
 
@@ -106,10 +106,10 @@ public class fPersonas extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        TABLA = new javax.swing.JScrollPane();
-        tbPersonas = new javax.swing.JTable();
         lblEncabezado = new javax.swing.JLabel();
         btnLectura = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbPersonas = new javax.swing.JTable();
 
         panelFondo.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -150,7 +150,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
         btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar");
-        btnGuardar.setOpaque(false);
+        btnGuardar.setBorderPainted(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -160,7 +160,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
-        btnEliminar.setOpaque(false);
+        btnEliminar.setBorderPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -170,7 +170,7 @@ public class fPersonas extends javax.swing.JInternalFrame {
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
-        btnLimpiar.setOpaque(false);
+        btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -240,45 +240,6 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        tbPersonas = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int collIndex){
-                return false;
-            }
-        };
-        tbPersonas.setBackground(new java.awt.Color(0, 0, 0));
-        tbPersonas.setForeground(java.awt.Color.white);
-        tbPersonas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbPersonas.setColumnSelectionAllowed(true);
-        tbPersonas.setGridColor(new java.awt.Color(0, 0, 0));
-        tbPersonas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        tbPersonas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbPersonasMouseClicked(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                tbPersonasMouseReleased(evt);
-            }
-        });
-        TABLA.setViewportView(tbPersonas);
-
         lblEncabezado.setFont(new java.awt.Font("Algerian_R", 1, 60)); // NOI18N
         lblEncabezado.setForeground(new java.awt.Color(255, 255, 255));
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -293,6 +254,35 @@ public class fPersonas extends javax.swing.JInternalFrame {
             }
         });
 
+        tbPersonas = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int collIndex){
+                return false;
+            }
+        };
+        tbPersonas.setBackground(new java.awt.Color(0, 0, 0));
+        tbPersonas.setForeground(new java.awt.Color(255, 255, 255));
+        tbPersonas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbPersonas.setGridColor(new java.awt.Color(0, 0, 0));
+        tbPersonas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbPersonasMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbPersonasMouseReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tbPersonas);
+
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
@@ -301,13 +291,14 @@ public class fPersonas extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
                         .addGap(177, 177, 177)
                         .addComponent(btnLectura)
                         .addContainerGap())
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         panelFondoLayout.setVerticalGroup(
@@ -322,10 +313,10 @@ public class fPersonas extends javax.swing.JInternalFrame {
                         .addComponent(btnLectura)))
                 .addGap(42, 42, 42)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 188, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -417,19 +408,18 @@ public class fPersonas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void tbPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPersonasMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_tbPersonasMouseClicked
-
     private void btnLecturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLecturaMouseClicked
         // TODO add your handling code here:
         lectura();
     }//GEN-LAST:event_btnLecturaMouseClicked
 
+    private void tbPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPersonasMouseClicked
+
+    }//GEN-LAST:event_tbPersonasMouseClicked
+
     private void tbPersonasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPersonasMouseReleased
         // TODO add your handling code here:
-        int fila = tbPersonas.getSelectedRow();
+     int fila = tbPersonas.getSelectedRow();
         id = Integer.valueOf(String.valueOf(tbPersonas.getValueAt(fila, 0)));
         String nombre = String.valueOf(tbPersonas.getValueAt(fila, 1));
         String apellido = String.valueOf(tbPersonas.getValueAt(fila, 2));
@@ -437,9 +427,10 @@ public class fPersonas extends javax.swing.JInternalFrame {
         estado = 1;
         txtApellido.setText(apellido);
         txtDui.setText(Dui);
-        txtNombres.setText(nombre);
+        txtNombres.setText(nombre);  
     }//GEN-LAST:event_tbPersonasMouseReleased
-    public int edicion = 0;
+ 
+        public int edicion = 0;
 
     void lectura() {
         if (edicion == 0) {
@@ -455,11 +446,11 @@ public class fPersonas extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane TABLA;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel btnLectura;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

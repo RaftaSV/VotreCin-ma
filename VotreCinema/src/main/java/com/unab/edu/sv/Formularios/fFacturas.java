@@ -636,6 +636,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
         btnAgregar.setBackground(new java.awt.Color(255, 255, 102));
         btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAgregar.setText("AGREGAR");
+        btnAgregar.setBorderPainted(false);
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -645,6 +646,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
         btnQuitar.setBackground(new java.awt.Color(255, 255, 102));
         btnQuitar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnQuitar.setText("QUITAR");
+        btnQuitar.setBorderPainted(false);
         btnQuitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuitarActionPerformed(evt);
@@ -709,6 +711,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
         btnCombrar.setBackground(new java.awt.Color(255, 255, 102));
         btnCombrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnCombrar.setText("FACTURAR");
+        btnCombrar.setBorderPainted(false);
         btnCombrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCombrarActionPerformed(evt);
@@ -773,9 +776,8 @@ public class fFacturas extends javax.swing.JInternalFrame {
                             .addComponent(lblCambio, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                             .addComponent(btnCombrar)
                             .addComponent(lblEfectivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtEfectivo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(txtEfectivo, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                            .addComponent(jSeparator3)
                             .addComponent(lblSumatotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );

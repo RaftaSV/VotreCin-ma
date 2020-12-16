@@ -135,19 +135,22 @@ public class fInsertarCartelera extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(153, 102, 0));
+        btnGuardar.setBackground(new java.awt.Color(255, 255, 102));
         btnGuardar.setText("Guardar");
+        btnGuardar.setBorderPainted(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setBackground(new java.awt.Color(153, 102, 0));
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setText("Eliminar");
+        btnEliminar.setBorderPainted(false);
 
-        btnLimpiar.setBackground(new java.awt.Color(153, 102, 0));
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);

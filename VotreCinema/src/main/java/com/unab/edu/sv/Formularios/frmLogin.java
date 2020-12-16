@@ -96,8 +96,9 @@ public class frmLogin extends javax.swing.JFrame {
         lblpass.setText("CONTRASEÑA");
 
         btnIngresar.setBackground(new java.awt.Color(255, 255, 102));
-        btnIngresar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        btnIngresar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnIngresar.setText("Ingresar");
+        btnIngresar.setBorderPainted(false);
         btnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

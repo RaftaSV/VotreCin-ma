@@ -205,7 +205,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         btnSeleccionar.setBackground(new java.awt.Color(255, 255, 102));
         btnSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSeleccionar.setText("Seleccionar");
-        btnSeleccionar.setOpaque(false);
+        btnSeleccionar.setBorderPainted(false);
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeleccionarActionPerformed(evt);
@@ -216,7 +216,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         btnInsertar.setBackground(new java.awt.Color(255, 255, 102));
         btnInsertar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInsertar.setText("Guardar");
-        btnInsertar.setOpaque(false);
+        btnInsertar.setBorderPainted(false);
         btnInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertarActionPerformed(evt);
@@ -227,7 +227,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
-        btnLimpiar.setOpaque(false);
+        btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -238,7 +238,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
-        btnEliminar.setOpaque(false);
+        btnEliminar.setBorderPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -249,7 +249,6 @@ public class frmPeliculas extends javax.swing.JFrame {
         jdcAnio.setBackground(new java.awt.Color(0, 0, 0));
         jdcAnio.setForeground(new java.awt.Color(255, 255, 255));
         jdcAnio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jdcAnio.setOpaque(false);
         panelFondo.add(jdcAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 239, 320, -1));
 
         txtSinopsis.setBackground(new java.awt.Color(0, 0, 0));
@@ -258,7 +257,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         txtSinopsis.setForeground(new java.awt.Color(255, 255, 255));
         txtSinopsis.setRows(5);
         txtSinopsis.setBorder(null);
-        txtSinopsis.setOpaque(false);
+        txtSinopsis.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(txtSinopsis);
 
         panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 320, -1));

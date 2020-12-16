@@ -97,7 +97,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
-        btnLimpiar.setOpaque(false);
+        btnLimpiar.setBorderPainted(false);
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -118,7 +118,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
-        btnEliminar.setOpaque(false);
+        btnEliminar.setBorderPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -131,7 +131,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         btnInsertar5.setBackground(new java.awt.Color(255, 255, 102));
         btnInsertar5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInsertar5.setText("Guardar");
-        btnInsertar5.setOpaque(false);
+        btnInsertar5.setBorderPainted(false);
         btnInsertar5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertar5ActionPerformed(evt);
@@ -313,7 +313,7 @@ public class fRoles extends javax.swing.JInternalFrame {
                     .addComponent(btnLectura))
                 .addGap(10, 10, 10)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
                     .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );

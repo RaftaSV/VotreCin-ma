@@ -43,6 +43,7 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
         txtBuscar.setText("");
         tbPeliculas.setColumnSelectionAllowed(false);
         tbPeliculas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+      
 
     }
 
