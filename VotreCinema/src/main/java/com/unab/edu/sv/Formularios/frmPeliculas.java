@@ -200,7 +200,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         txtSeleccionar.setBorder(null);
         txtSeleccionar.setCaretColor(new java.awt.Color(255, 255, 255));
         txtSeleccionar.setOpaque(false);
-        panelFondo.add(txtSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 183, 201, 20));
+        panelFondo.add(txtSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 201, 20));
 
         btnSeleccionar.setBackground(new java.awt.Color(255, 255, 102));
         btnSeleccionar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
