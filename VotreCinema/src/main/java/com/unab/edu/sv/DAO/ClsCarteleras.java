@@ -19,10 +19,10 @@ import javax.swing.JOptionPane;
  * @author Rafael
  */
 public class ClsCarteleras {
-    
+
     conexionBD con = new conexionBD();
     Connection conectar = con.retornarConexion();
-    
+
     public ArrayList<Carteleras> CargarDatos() {
         ArrayList<Carteleras> lista = new ArrayList<>();
         try {
@@ -46,12 +46,12 @@ public class ClsCarteleras {
                 lista.add(cart);
             }
             conectar.close();
-            
+
         } catch (Exception e) {
         }
         return lista;
     }
-    
+
     public void InsertarCartelera(Carteleras Cartel) {
         try {
             CallableStatement cs = conectar.prepareCall("call SP_I_CARTELERA (?,?,?,?)");
@@ -65,26 +65,33 @@ public class ClsCarteleras {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+
     }
-    
+
     public void ActualizarCartelera(Carteleras cartele) {
         try {
-            
+
             CallableStatement cs = conectar.prepareCall("call SP_U_CARTELERA (?,?,?,?,?)");
             cs.setInt("PId", cartele.getIdcartelera());
             cs.setInt("PId_Pelicula", cartele.getIdPelicula());
             cs.setInt("PId_Horario", cartele.getId_Horario());
             cs.setInt("PId_sala", cartele.getId_Sala());
             cs.setDate("PFecha", new java.sql.Date(cartele.getFecha().getTime()));
-            cs.executeQuery();
-            JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
+            int res = JOptionPane.showConfirmDialog(null, "¿Si actualiza se eliminaran los registros de esta sala y fecha?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if (res == 0) {
+                cs.executeQuery();
+                JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
+
+            } else {
+
+            }
+
             conectar.close();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-    
+
     public void EliminarCartelera(Carteleras cartele) {
         try {
             CallableStatement call = conectar.prepareCall("call SP_D_CARTELERA(?)");
@@ -94,16 +101,16 @@ public class ClsCarteleras {
                 call.execute();
                 JOptionPane.showMessageDialog(null, "Eliminado exitosamente");
             } else {
-                
+
             }
             conectar.close();
-            
+
         } catch (Exception e) {
             System.out.println("Error" + e);
         }
-        
+
     }
-    
+
     public ArrayList<Carteleras> BuscarDatos(Carteleras c) {
         ArrayList<Carteleras> lista = new ArrayList<>();
         try {
@@ -127,10 +134,10 @@ public class ClsCarteleras {
             }
             lista.size();
             conectar.close();
-            
+
         } catch (Exception e) {
         }
         return lista;
     }
-    
+
 }

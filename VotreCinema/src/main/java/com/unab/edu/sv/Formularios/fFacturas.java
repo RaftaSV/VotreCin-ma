@@ -776,11 +776,11 @@ public class fFacturas extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
                         .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblCambio, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                            .addComponent(btnCombrar)
                             .addComponent(lblEfectivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtEfectivo, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                             .addComponent(jSeparator3)
-                            .addComponent(lblSumatotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblSumatotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCombrar))
                         .addContainerGap())))
         );
         panelFondoLayout.setVerticalGroup(
@@ -1028,7 +1028,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
                     String subtotal = String.valueOf(total);
                     factura.setTotal(Double.valueOf(subtotal));
                     ClsFacturas clsf = new ClsFacturas();
-                    // clsf.AgregarFactura(factura);
+                     clsf.AgregarFactura(factura);
 
                     for (int i = 0; i < tbDetalles.getRowCount(); i++) {
                         String identificador = String.valueOf(tbDetalles.getValueAt(i, 2));
@@ -1043,7 +1043,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
                             String idprecio = String.valueOf(tbDetalles.getValueAt(i, 5));
                             taquilla.setDiferenciador(Integer.valueOf(idprecio));
                             ClsTaquilla clsTaquilla = new ClsTaquilla();
-                            //   clsTaquilla.InsertarTaquilla(taquilla);
+                               clsTaquilla.InsertarTaquilla(taquilla);
 
                         } else if (tipo == 1) {
                             DetallesFacturas det = new DetallesFacturas();
@@ -1054,7 +1054,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
                             String idproducto = String.valueOf(tbDetalles.getValueAt(i, 6));
                             det.setId_Producto(Integer.valueOf(idproducto));
                             ClsDetallesFactura detalle = new ClsDetallesFactura();
-                            // detalle.insertarDetalle(det);
+                             detalle.insertarDetalle(det);
 
                         }
 

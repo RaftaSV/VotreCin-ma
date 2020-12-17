@@ -111,11 +111,11 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblCambio" pref="116" max="32767" attributes="0"/>
-                              <Component id="btnCombrar" min="-2" max="-2" attributes="0"/>
                               <Component id="lblEfectivo" alignment="1" max="32767" attributes="0"/>
                               <Component id="txtEfectivo" alignment="0" pref="116" max="32767" attributes="0"/>
                               <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblSumatotal" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnCombrar" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
