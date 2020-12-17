@@ -92,7 +92,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
         tbCarteleras.setRowHeight(320);
         tbCarteleras.getColumnModel().getColumn(2).setPreferredWidth(100);
         tbCarteleras.getColumnModel().getColumn(4).setPreferredWidth(55);
-        tbCarteleras.getColumnModel().getColumn(4).setMaxWidth(55);
+        tbCarteleras.getColumnModel().getColumn(4).setMaxWidth(70);
         tbCarteleras.getColumnModel().getColumn(5).setPreferredWidth(50);
         tbCarteleras.getColumnModel().getColumn(5).setMaxWidth(50);
         tbCarteleras.getColumnModel().getColumn(7).setPreferredWidth(60);
@@ -103,7 +103,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
         columna9.setMaxWidth(40);
         TableColumn columna8;
         columna8 = tbCarteleras.getColumnModel().getColumn(8);
-        columna8.setPreferredWidth(200);
+        columna8.setPreferredWidth(210);
 
         // Alinear el texto de la sinopsis arriba al inicio de la celda
         DefaultTableCellRenderer Alinear = new DefaultTableCellRenderer();
@@ -112,6 +112,10 @@ public class fCartelera extends javax.swing.JInternalFrame {
         tbCarteleras.getColumnModel().getColumn(8).setCellRenderer(Alinear);
 
     }
+    String hora;
+    String horass;
+    String Minuto = null;
+    int h = 0;
 
     public void CargarTabla() {
         String TITULOS[] = {"ID", "PORTADA", "PELICULA", "FECHA", "HORA", "SALA", "DURACION", "PRECIO", "SINOPSIS", "TIPO", "IDPELICULA", "IDHORARIO", "IDSALA"};
@@ -138,11 +142,30 @@ public class fCartelera extends javax.swing.JInternalFrame {
             }
             filas[2] = "<HTML>" + "<p align=\"justify\">" + i.getNombre() + "</HTML>";
             filas[3] = "<HTML>" + "<p align=\"justify\">" + formato.format(i.getFecha()) + "</HTML>";
-            filas[4] = "<HTML>" + "<p align=\"justify\">" + i.getHoraInicio() + "</HTML>";
+            hora = String.valueOf(i.getHoraInicio());
+            horass = hora.substring(0, 2);
+            if (horass.equals("00")) {
+                h = 0;
+            } else {
+                String horaR = horass.replaceAll("0", "");
+                h = Integer.valueOf(horaR);
+
+            }
+            Minuto = hora.substring(3, 5);
+
+            if (h == 12) {
+                filas[4] = "<HTML>" + "<p align=\"justify\">" + String.valueOf((h) + ":" + Minuto + " PM") + "</HTML>";
+            } else if (h > 12) {
+                filas[4] = "<HTML>" + "<p align=\"justify\">" + String.valueOf((h - 12) + ":" + Minuto + " PM") + "</HTML>";
+
+            } else {
+                filas[4] = "<HTML>" + "<p align=\"justify\">" + String.valueOf(h + ":" + Minuto + " AM") + "</HTML>";
+            }
+
             filas[5] = "<HTML>" + "<p align=\"justify\">" + i.getNumero_sala() + "</HTML>";
             filas[6] = "<HTML>" + "<p align=\"justify\">" + i.getDuracion() + "</HTML>";
             filas[7] = "<HTML>" + "<p align=\"justify\">" + "$" + i.getPrecio() + "0" + "</HTML>";
-            filas[8] = "<HTML>" + "<p align=\"justify\">" +  i.getSipnosis() + "</HTML>";
+            filas[8] = "<HTML>" + "<p align=\"justify\">" + i.getSipnosis() + "</HTML>";
             if (i.getTipo() == 0) {
                 filas[9] = "<HTML>" + "<p align=\"justify\">" + "2D" + "</HTML>";
             } else if (i.getTipo() == 1) {
@@ -349,58 +372,61 @@ public class fCartelera extends javax.swing.JInternalFrame {
         insertar.lblPelicula.setIcon(imgi);
         insertar.txtpelicula.setText(pelicula);
         insertar.jdcFecha.setDate(fechaa);
+        try {
+            {
+                // Cargar y asignar el id de la sal
+                String valuemember[];
+                int contador = 1;
+                ClsSalas cls = new ClsSalas();
+                ArrayList<Salas> sala = cls.MostrarSalas();
+                valuemember = new String[sala.size() + 1];
+                String filas[] = new String[5];
 
-        {
-            // Cargar y asignar el id de la sal
-            String valuemember[];
-            int contador = 1;
-            ClsSalas cls = new ClsSalas();
-            ArrayList<Salas> sala = cls.MostrarSalas();
-            valuemember = new String[sala.size() + 1];
-            String filas[] = new String[5];
-
-            for (var i : sala) {
-                filas[0] = String.valueOf(i.getIdSala());
-                valuemember[contador] = filas[0];
-                contador++;
-            }
-            int selectvista = 0;
-            for (var iterar : valuemember) {
-                if (idsala.equals(iterar)) {
-                    insertar.displaymember();
-                    insertar.cmbsala.setSelectedIndex(selectvista);
-
+                for (var i : sala) {
+                    filas[0] = String.valueOf(i.getIdSala());
+                    valuemember[contador] = filas[0];
+                    contador++;
                 }
-                selectvista += 1;
-            }
-        }
-        int select = 0;
-        {
-            //cargar y asignar el id del h
+                int selectvista = 0;
+                for (var iterar : valuemember) {
+                    if (idsala.equals(iterar)) {
+                        insertar.displaymember();
+                        insertar.cmbsala.setSelectedIndex(selectvista);
 
-            String valuemembe[];
-            int contado = 1;
-            String DisplayMenber[] = new String[5];
-            ClsHorarios clshorario = new ClsHorarios();
-
-            ArrayList<Horarios> horario = clshorario.cargarHorarios();
-            valuemembe = new String[horario.size() + 1];
-            String filass[] = new String[5];
-            for (var i : horario) {
-                filass[0] = String.valueOf(i.getIdHorario());
-                valuemembe[contado] = filass[0];
-                contado++;
-            }
-
-            for (var iterar : valuemembe) {
-                if (idhora.equals(iterar)) {
-                    insertar.horarios();
-                    insertar.cmbhorario.setSelectedIndex(select);
+                    }
+                    selectvista += 1;
                 }
-                select += 1;
             }
+            int select = 0;
+            {
+                //cargar y asignar el id del h
 
+                String valuemembe[];
+                int contado = 1;
+                String DisplayMenber[] = new String[5];
+                ClsHorarios clshorario = new ClsHorarios();
+
+                ArrayList<Horarios> horario = clshorario.cargarHorarios();
+                valuemembe = new String[horario.size() + 1];
+                String filass[] = new String[5];
+                for (var i : horario) {
+                    filass[0] = String.valueOf(i.getIdHorario());
+                    valuemembe[contado] = filass[0];
+                    contado++;
+                }
+
+                for (var iterar : valuemembe) {
+                    if (idhora.equals(iterar)) {
+                        insertar.horarios();
+                        insertar.cmbhorario.setSelectedIndex(select);
+                    }
+                    select += 1;
+                }
+
+            }
+        } catch (Exception e) {
         }
+
         insertar.idpelicula = Integer.parseInt(peliculaid);
 
         btnEditar.setEnabled(true);

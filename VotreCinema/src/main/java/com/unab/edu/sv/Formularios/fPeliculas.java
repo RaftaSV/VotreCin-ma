@@ -289,7 +289,10 @@ public class fPeliculas extends javax.swing.JInternalFrame {
     }
     public frmPeliculas f = new frmPeliculas();
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        f.nuevoActualizarOeliminar(0);
+
+        f.btnLimpiar.setEnabled(true);
+        f.btnEliminar.setEnabled(false);
+        f.btnInsertar.setEnabled(true);
         f.show();
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
@@ -297,7 +300,10 @@ public class fPeliculas extends javax.swing.JInternalFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        f.nuevoActualizarOeliminar(1);
+
+        f.btnLimpiar.setEnabled(false);
+        f.btnEliminar.setEnabled(true);
+        f.btnInsertar.setEnabled(false);
         f.show();
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
@@ -333,9 +339,11 @@ public class fPeliculas extends javax.swing.JInternalFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
-        f.nuevoActualizarOeliminar(0);
-        f.Limpiar();
 
+        f.btnLimpiar.setEnabled(true);
+        f.btnEliminar.setEnabled(false);
+        f.btnInsertar.setEnabled(true);
+        f.Limpiar();
         f.show();
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);

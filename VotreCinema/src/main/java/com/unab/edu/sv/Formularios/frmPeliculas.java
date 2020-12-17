@@ -98,7 +98,6 @@ public class frmPeliculas extends javax.swing.JFrame {
         txtSeleccionar = new javax.swing.JTextField();
         btnSeleccionar = new javax.swing.JButton();
         btnInsertar = new javax.swing.JButton();
-        javax.swing.JButton btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jdcAnio = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -115,6 +114,7 @@ public class frmPeliculas extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -224,17 +224,6 @@ public class frmPeliculas extends javax.swing.JFrame {
         });
         panelFondo.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 630, -1, -1));
 
-        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
-        btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnLimpiar.setText("LIMPIAR");
-        btnLimpiar.setBorderPainted(false);
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
-            }
-        });
-        panelFondo.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 630, -1, -1));
-
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR");
@@ -244,7 +233,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        panelFondo.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 630, -1, -1));
+        panelFondo.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 630, -1, -1));
 
         jdcAnio.setBackground(new java.awt.Color(0, 0, 0));
         jdcAnio.setForeground(new java.awt.Color(255, 255, 255));
@@ -330,6 +319,17 @@ public class frmPeliculas extends javax.swing.JFrame {
         jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
         panelFondo.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 200, 10));
 
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.setBorderPainted(false);
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        panelFondo.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 630, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -356,7 +356,7 @@ public class frmPeliculas extends javax.swing.JFrame {
     byte[] imagen;
     SimpleDateFormat formatohora = new SimpleDateFormat("hh:mm:ss");
 
-    public void cargartextbox() throws IOException{
+    public void cargartextbox() throws IOException {
         String hora;
         String horass;
         String Minuto = null;
@@ -370,9 +370,9 @@ public class frmPeliculas extends javax.swing.JFrame {
             } else {
                 String horaR = horass.replaceAll("0", "");
                 h = Integer.valueOf(horaR);
-               
+
             }
-             Minuto = hora.substring(3, 5);
+            Minuto = hora.substring(3, 5);
             if (Minuto == null) {
                 m = 0;
             } else {
@@ -551,106 +551,106 @@ public class frmPeliculas extends javax.swing.JFrame {
                                     } else {
                                         if (pelicula == 0) {
 
-                                          if (rbTodos.isSelected()){
-                                            Peliculas pelic = new Peliculas();
-                                            pelic.setIdPelicula(id);
-                                            pelic.setNombre(txtNombreP1.getText());
-                                            for (var i : pel) {
-                                                pelic.setPortada(i.getPortada());
-                                            }
-                                            String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
+                                            if (rbTodos.isSelected()) {
+                                                Peliculas pelic = new Peliculas();
+                                                pelic.setIdPelicula(id);
+                                                pelic.setNombre(txtNombreP1.getText());
+                                                for (var i : pel) {
+                                                    pelic.setPortada(i.getPortada());
+                                                }
+                                                String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
 
-                                            pelic.setDuracion(Time.valueOf(hora + ":00"));
-                                            pelic.setTipo(tipo);
-                                            pelic.setClasificacion(clasificacion);
-                                            pelic.setSipnosis(txtSinopsis.getText());
-                                            pelic.setYear(jdcAnio.getDate());
-                                            pelic.setPrecio(Double.valueOf(txtPrecio.getText()));
-                                            ClsPeliculas cls = new ClsPeliculas();
-                                            cls.ActualizarPelicula(pelic);
-                                            frmLogin log = new frmLogin();
-                                            log.principal.pelicula.cargartabla();
-                                            log.principal.pelicula.ajustartabla();
-                                             this.dispose();
-                                          }else{
-                                            Peliculas pelic = new Peliculas();
-                                            pelic.setIdPelicula(id);
-                                            pelic.setNombre(txtNombreP1.getText());
-                                            for (var i : pel) {
-                                                pelic.setPortada(i.getPortada());
-                                            }
-                                            String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
+                                                pelic.setDuracion(Time.valueOf(hora + ":00"));
+                                                pelic.setTipo(tipo);
+                                                pelic.setClasificacion(clasificacion);
+                                                pelic.setSipnosis(txtSinopsis.getText());
+                                                pelic.setYear(jdcAnio.getDate());
+                                                pelic.setPrecio(Double.valueOf(txtPrecio.getText()));
+                                                ClsPeliculas cls = new ClsPeliculas();
+                                                cls.ActualizarPelicula(pelic);
+                                                frmLogin log = new frmLogin();
+                                                log.principal.pelicula.cargartabla();
+                                                log.principal.pelicula.ajustartabla();
+                                                this.dispose();
+                                            } else {
+                                                Peliculas pelic = new Peliculas();
+                                                pelic.setIdPelicula(id);
+                                                pelic.setNombre(txtNombreP1.getText());
+                                                for (var i : pel) {
+                                                    pelic.setPortada(i.getPortada());
+                                                }
+                                                String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
 
-                                            pelic.setDuracion(Time.valueOf(hora + ":00"));
-                                            pelic.setTipo(tipo);
-                                            pelic.setClasificacion(clasificacion);
-                                            pelic.setSipnosis(txtSinopsis.getText());
-                                            pelic.setYear(jdcAnio.getDate());
-                                            pelic.setPrecio(Double.valueOf(txtPrecio.getText()));
-                                            ClsPeliculas cls = new ClsPeliculas();
-                                            cls.ActualizarPeliculaMayores(pelic);
-                                            frmLogin log = new frmLogin();
-                                            log.principal.pelicula.cargartabla();
-                                            log.principal.pelicula.ajustartabla();
-                                             this.dispose();
-                                          }
+                                                pelic.setDuracion(Time.valueOf(hora + ":00"));
+                                                pelic.setTipo(tipo);
+                                                pelic.setClasificacion(clasificacion);
+                                                pelic.setSipnosis(txtSinopsis.getText());
+                                                pelic.setYear(jdcAnio.getDate());
+                                                pelic.setPrecio(Double.valueOf(txtPrecio.getText()));
+                                                ClsPeliculas cls = new ClsPeliculas();
+                                                cls.ActualizarPeliculaMayores(pelic);
+                                                frmLogin log = new frmLogin();
+                                                log.principal.pelicula.cargartabla();
+                                                log.principal.pelicula.ajustartabla();
+                                                this.dispose();
+                                            }
 
                                         } else {
-                                            if(rbTodos.isSelected()){
-                                            try {
-                                                File ruta = new File(txtSeleccionar.getText());
-                                                icono = new byte[(int) ruta.length()];
-                                                InputStream input = new FileInputStream(ruta);
-                                                input.read(icono);
+                                            if (rbTodos.isSelected()) {
+                                                try {
+                                                    File ruta = new File(txtSeleccionar.getText());
+                                                    icono = new byte[(int) ruta.length()];
+                                                    InputStream input = new FileInputStream(ruta);
+                                                    input.read(icono);
 
-                                            } catch (Exception ex) {
+                                                } catch (Exception ex) {
 
-                                                System.out.println(ex);
-                                            }
-                                            String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
-                                            Peliculas pelic = new Peliculas();
-                                            pelic.setIdPelicula(id);
-                                            pelic.setNombre(txtPrecio.getText());
-                                            pelic.setPortada(icono);
-                                            pelic.setDuracion(Time.valueOf(hora + ":00"));
-                                            pelic.setTipo(tipo);
-                                            pelic.setClasificacion(clasificacion);
-                                            pelic.setSipnosis(txtSinopsis.getText());
-                                            pelic.setYear(jdcAnio.getDate());
-                                            pelic.setPrecio(Double.valueOf(txtPrecio.getText()));
-                                            ClsPeliculas cls = new ClsPeliculas();
-                                            cls.ActualizarPelicula(pelic);
-                                            frmLogin log = new frmLogin();
-                                            log.principal.pelicula.cargartabla();
-                                            log.principal.pelicula.ajustartabla();
-                                            }else{
-                                              try {
-                                                File ruta = new File(txtSeleccionar.getText());
-                                                icono = new byte[(int) ruta.length()];
-                                                InputStream input = new FileInputStream(ruta);
-                                                input.read(icono);
+                                                    System.out.println(ex);
+                                                }
+                                                String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
+                                                Peliculas pelic = new Peliculas();
+                                                pelic.setIdPelicula(id);
+                                                pelic.setNombre(txtPrecio.getText());
+                                                pelic.setPortada(icono);
+                                                pelic.setDuracion(Time.valueOf(hora + ":00"));
+                                                pelic.setTipo(tipo);
+                                                pelic.setClasificacion(clasificacion);
+                                                pelic.setSipnosis(txtSinopsis.getText());
+                                                pelic.setYear(jdcAnio.getDate());
+                                                pelic.setPrecio(Double.valueOf(txtPrecio.getText()));
+                                                ClsPeliculas cls = new ClsPeliculas();
+                                                cls.ActualizarPelicula(pelic);
+                                                frmLogin log = new frmLogin();
+                                                log.principal.pelicula.cargartabla();
+                                                log.principal.pelicula.ajustartabla();
+                                            } else {
+                                                try {
+                                                    File ruta = new File(txtSeleccionar.getText());
+                                                    icono = new byte[(int) ruta.length()];
+                                                    InputStream input = new FileInputStream(ruta);
+                                                    input.read(icono);
 
-                                            } catch (Exception ex) {
+                                                } catch (Exception ex) {
 
-                                                System.out.println(ex);
-                                            }
-                                            String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
-                                            Peliculas pelic = new Peliculas();
-                                            pelic.setIdPelicula(id);
-                                            pelic.setNombre(txtPrecio.getText());
-                                            pelic.setPortada(icono);
-                                            pelic.setDuracion(Time.valueOf(hora + ":00"));
-                                            pelic.setTipo(tipo);
-                                            pelic.setClasificacion(clasificacion);
-                                            pelic.setSipnosis(txtSinopsis.getText());
-                                            pelic.setYear(jdcAnio.getDate());
-                                            pelic.setPrecio(Double.valueOf(txtPrecio.getText()));
-                                            ClsPeliculas cls = new ClsPeliculas();
-                                            cls.ActualizarPeliculaMayores(pelic);
-                                            frmLogin log = new frmLogin();
-                                            log.principal.pelicula.cargartabla();
-                                            log.principal.pelicula.ajustartabla();
-                                             this.dispose();
+                                                    System.out.println(ex);
+                                                }
+                                                String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
+                                                Peliculas pelic = new Peliculas();
+                                                pelic.setIdPelicula(id);
+                                                pelic.setNombre(txtPrecio.getText());
+                                                pelic.setPortada(icono);
+                                                pelic.setDuracion(Time.valueOf(hora + ":00"));
+                                                pelic.setTipo(tipo);
+                                                pelic.setClasificacion(clasificacion);
+                                                pelic.setSipnosis(txtSinopsis.getText());
+                                                pelic.setYear(jdcAnio.getDate());
+                                                pelic.setPrecio(Double.valueOf(txtPrecio.getText()));
+                                                ClsPeliculas cls = new ClsPeliculas();
+                                                cls.ActualizarPeliculaMayores(pelic);
+                                                frmLogin log = new frmLogin();
+                                                log.principal.pelicula.cargartabla();
+                                                log.principal.pelicula.ajustartabla();
+                                                this.dispose();
                                             }
                                         }
                                     }
@@ -664,13 +664,15 @@ public class frmPeliculas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     public void nuevoActualizarOeliminar(int i) {
-        if (i == 0) {
-            btnEliminar.hide();
-            btnInsertar.show();
-        } else {
-            btnEliminar.show();
-            btnInsertar.hide();
-        }
+//        if (i == 0) {
+//            btnLimpiar.show();
+//            btnEliminar.hide();
+//            btnInsertar.show();
+//        } else {
+//            btnEliminar.show();
+//            btnLimpiar.hide();
+//            btnInsertar.hide();
+//        }
 
     }
 
@@ -688,7 +690,7 @@ public class frmPeliculas extends javax.swing.JFrame {
             txtSeleccionar.setText(ruta);
             ImageIcon im = new ImageIcon(ruta);
             Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(),
-            Image.SCALE_DEFAULT));
+                    Image.SCALE_DEFAULT));
             lblImagen.setIcon(icono);
         }
         pelicula = 1;
@@ -697,16 +699,6 @@ public class frmPeliculas extends javax.swing.JFrame {
     private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecioActionPerformed
-
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
-        Limpiar();
-        String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
-
-        Time time = Time.valueOf(hora + ":00");
-        System.out.println(time);
-
-    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
@@ -736,6 +728,15 @@ public class frmPeliculas extends javax.swing.JFrame {
     private void minutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minutosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_minutosActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        Limpiar();
+        String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
+
+        Time time = Time.valueOf(hora + ":00");
+        System.out.println(time);
+    }//GEN-LAST:event_btnLimpiarActionPerformed
     int clasificacion;
     int tipo;
 
@@ -799,8 +800,9 @@ public class frmPeliculas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Clasificacion;
     private javax.swing.ButtonGroup Tipo;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnInsertar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnInsertar;
+    public javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JComboBox<String> horas;
     private javax.swing.JScrollPane jScrollPane1;
