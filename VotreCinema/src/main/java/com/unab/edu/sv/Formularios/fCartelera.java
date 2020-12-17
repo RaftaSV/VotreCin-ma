@@ -58,6 +58,18 @@ public class fCartelera extends javax.swing.JInternalFrame {
         tbCarteleras.getColumnModel().getColumn(0).setMinWidth(0);
         tbCarteleras.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
         tbCarteleras.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+        tbCarteleras.getColumnModel().getColumn(10).setMaxWidth(0);
+        tbCarteleras.getColumnModel().getColumn(10).setMinWidth(0);
+        tbCarteleras.getTableHeader().getColumnModel().getColumn(10).setMaxWidth(0);
+        tbCarteleras.getTableHeader().getColumnModel().getColumn(10).setMinWidth(0);
+        tbCarteleras.getColumnModel().getColumn(11).setMaxWidth(0);
+        tbCarteleras.getColumnModel().getColumn(11).setMinWidth(0);
+        tbCarteleras.getTableHeader().getColumnModel().getColumn(11).setMaxWidth(0);
+        tbCarteleras.getTableHeader().getColumnModel().getColumn(11).setMinWidth(0);
+        tbCarteleras.getColumnModel().getColumn(12).setMaxWidth(0);
+        tbCarteleras.getColumnModel().getColumn(12).setMinWidth(0);
+        tbCarteleras.getTableHeader().getColumnModel().getColumn(12).setMaxWidth(0);
+        tbCarteleras.getTableHeader().getColumnModel().getColumn(12).setMinWidth(0);
         //Centrar en texto del encabezado de la tabla
         DefaultTableCellRenderer render = (DefaultTableCellRenderer) tbCarteleras.getTableHeader().getDefaultRenderer();
         render.setHorizontalAlignment(JLabel.CENTER);
@@ -77,6 +89,17 @@ public class fCartelera extends javax.swing.JInternalFrame {
         columna1 = tbCarteleras.getColumnModel().getColumn(1);
         columna1.setPreferredWidth(150);
         tbCarteleras.setRowHeight(320);
+        tbCarteleras.setRowHeight(320);
+        tbCarteleras.getColumnModel().getColumn(2).setPreferredWidth(100);
+        tbCarteleras.getColumnModel().getColumn(4).setPreferredWidth(60);
+        tbCarteleras.getColumnModel().getColumn(4).setMaxWidth(60);
+        TableColumn columna9;
+        columna9 = tbCarteleras.getColumnModel().getColumn(9);
+        columna9.setPreferredWidth(40);
+        columna9.setMaxWidth(60);
+        TableColumn columna8;
+        columna8 = tbCarteleras.getColumnModel().getColumn(8);
+        columna8.setPreferredWidth(200);
 
         // Alinear el texto de la sinopsis arriba al inicio de la celda
         DefaultTableCellRenderer Alinear = new DefaultTableCellRenderer();
