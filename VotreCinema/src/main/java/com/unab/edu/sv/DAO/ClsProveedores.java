@@ -73,14 +73,14 @@ public class ClsProveedores {
             if (res == 0) {
                 call.execute();
                 JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
-               frmLogin log = new frmLogin();
+                frmLogin log = new frmLogin();
                 log.principal.proveedor.Limpiar();
                 conectar.close();
 
             } else {
 
             }
-            JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
+
         } catch (Exception e) {
             System.out.println("Error" + e);
         }

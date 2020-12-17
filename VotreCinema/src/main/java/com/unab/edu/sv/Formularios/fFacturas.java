@@ -1014,44 +1014,108 @@ public class fFacturas extends javax.swing.JInternalFrame {
             Double total = Double.valueOf(to.substring(1));
 
             Double efectivo = Double.valueOf(txtEfectivo.getText());
+            if (0 == Integer.valueOf(cmbClientes.getSelectedIndex())) {
+                cmbClientes.setSelectedIndex(1);
 
-            if (efectivo >= total) {
-                BigDecimal totall = BigDecimal.valueOf(efectivo - total);
-                totall = totall.setScale(2, RoundingMode.HALF_UP);
-                lblCambio.setText("Cambio " + "$" + String.valueOf(totall));
-                Facturas factura = new Facturas();
-                frmLogin login = new frmLogin();
-                factura.setCajero(login.principal.id);
-                factura.setCliente(Integer.valueOf(valuememberClientes[cmbClientes.getSelectedIndex()]));
-                String subtotal = String.valueOf(total);
-                factura.setTotal(Double.valueOf(subtotal));
-                ClsFacturas clsf = new ClsFacturas();
-                clsf.AgregarFactura(factura);
-                for (int i = 0; i < tbDetalles.getRowCount(); i++) {
-                    String identificador = String.valueOf(tbDetalles.getValueAt(i, 2));
-                    int tipo = Integer.valueOf(identificador);
-                    if (tipo == 0) {
-                        Taquillas taquilla = new Taquillas();
-                        taquilla.setDiferenciador(tipo);
-                        String idcartelera = String.valueOf(tbDetalles.getValueAt(i, 3));
-                        taquilla.setId_cartelera(Integer.parseInt(idcartelera));
-                        String idasiento = String.valueOf(tbDetalles.getValueAt(i, 4));
-                        taquilla.setId_Asiento(Integer.valueOf(idasiento));
-                        String idprecio = String.valueOf(tbDetalles.getValueAt(i, 5));
-                        taquilla.setDiferenciador(Integer.valueOf(idprecio));
-                        ClsTaquilla clsTaquilla = new ClsTaquilla();
-                        clsTaquilla.InsertarTaquilla(taquilla);
+                if (efectivo >= total) {
+                    BigDecimal totall = BigDecimal.valueOf(efectivo - total);
+                    totall = totall.setScale(2, RoundingMode.HALF_UP);
+                    lblCambio.setText("Cambio " + "$" + String.valueOf(totall));
+                    Facturas factura = new Facturas();
+                    frmLogin login = new frmLogin();
+                    factura.setCajero(login.principal.id);
+                    factura.setCliente(Integer.valueOf(valuememberClientes[cmbClientes.getSelectedIndex()]));
+                    String subtotal = String.valueOf(total);
+                    factura.setTotal(Double.valueOf(subtotal));
+                    ClsFacturas clsf = new ClsFacturas();
+                    // clsf.AgregarFactura(factura);
 
-                    } else if (tipo == 1) {
-                        DetallesFacturas det = new DetallesFacturas();
-                        String costo = String.valueOf(tbDetalles.getValueAt(i, 1));
-                        costo = costo.substring(1);
-                        det.setCosto(Double.valueOf(costo));
-                        det.setDiferenciador(tipo);
-                        String idproducto = String.valueOf(tbDetalles.getValueAt(i, 6));
-                        det.setId_Producto(Integer.valueOf(idproducto));
-                        ClsDetallesFactura detalle = new ClsDetallesFactura();
-                        detalle.insertarDetalle(det);
+                    for (int i = 0; i < tbDetalles.getRowCount(); i++) {
+                        String identificador = String.valueOf(tbDetalles.getValueAt(i, 2));
+                        int tipo = Integer.valueOf(identificador);
+                        if (tipo == 0) {
+                            Taquillas taquilla = new Taquillas();
+                            taquilla.setDiferenciador(tipo);
+                            String idcartelera = String.valueOf(tbDetalles.getValueAt(i, 3));
+                            taquilla.setId_cartelera(Integer.parseInt(idcartelera));
+                            String idasiento = String.valueOf(tbDetalles.getValueAt(i, 4));
+                            taquilla.setId_Asiento(Integer.valueOf(idasiento));
+                            String idprecio = String.valueOf(tbDetalles.getValueAt(i, 5));
+                            taquilla.setDiferenciador(Integer.valueOf(idprecio));
+                            ClsTaquilla clsTaquilla = new ClsTaquilla();
+                            //   clsTaquilla.InsertarTaquilla(taquilla);
+
+                        } else if (tipo == 1) {
+                            DetallesFacturas det = new DetallesFacturas();
+                            String costo = String.valueOf(tbDetalles.getValueAt(i, 1));
+                            costo = costo.substring(1);
+                            det.setCosto(Double.valueOf(costo));
+                            det.setDiferenciador(tipo);
+                            String idproducto = String.valueOf(tbDetalles.getValueAt(i, 6));
+                            det.setId_Producto(Integer.valueOf(idproducto));
+                            ClsDetallesFactura detalle = new ClsDetallesFactura();
+                            // detalle.insertarDetalle(det);
+
+                        }
+
+                    }
+
+                }
+                tbCarteleras.clearSelection();
+                tbProducto.clearSelection();
+                GroupPrecios.clearSelection();
+                rbtnAdultos.setText("");
+                rbtnAdultosM.setText("");
+                rbtnChild.setText("");
+                rbtnEstudiantes.setText("");
+                cmbClientes.setSelectedIndex(1);
+                id = 0;
+                txtEfectivo.setText("");
+                eliminarDetalles();
+                lblSumatotal.setText("");
+                displaymember();
+                CargarDatos();
+            } else {
+                if (efectivo >= total) {
+                    BigDecimal totall = BigDecimal.valueOf(efectivo - total);
+                    totall = totall.setScale(2, RoundingMode.HALF_UP);
+                    lblCambio.setText("Cambio " + "$" + String.valueOf(totall));
+                    Facturas factura = new Facturas();
+                    frmLogin login = new frmLogin();
+                    factura.setCajero(login.principal.id);
+                    factura.setCliente(Integer.valueOf(valuememberClientes[cmbClientes.getSelectedIndex()]));
+                    String subtotal = String.valueOf(total);
+                    factura.setTotal(Double.valueOf(subtotal));
+                    ClsFacturas clsf = new ClsFacturas();
+                    clsf.AgregarFactura(factura);
+
+                    for (int i = 0; i < tbDetalles.getRowCount(); i++) {
+                        String identificador = String.valueOf(tbDetalles.getValueAt(i, 2));
+                        int tipo = Integer.valueOf(identificador);
+                        if (tipo == 0) {
+                            Taquillas taquilla = new Taquillas();
+                            taquilla.setDiferenciador(tipo);
+                            String idcartelera = String.valueOf(tbDetalles.getValueAt(i, 3));
+                            taquilla.setId_cartelera(Integer.parseInt(idcartelera));
+                            String idasiento = String.valueOf(tbDetalles.getValueAt(i, 4));
+                            taquilla.setId_Asiento(Integer.valueOf(idasiento));
+                            String idprecio = String.valueOf(tbDetalles.getValueAt(i, 5));
+                            taquilla.setDiferenciador(Integer.valueOf(idprecio));
+                            ClsTaquilla clsTaquilla = new ClsTaquilla();
+                               clsTaquilla.InsertarTaquilla(taquilla);
+
+                        } else if (tipo == 1) {
+                            DetallesFacturas det = new DetallesFacturas();
+                            String costo = String.valueOf(tbDetalles.getValueAt(i, 1));
+                            costo = costo.substring(1);
+                            det.setCosto(Double.valueOf(costo));
+                            det.setDiferenciador(tipo);
+                            String idproducto = String.valueOf(tbDetalles.getValueAt(i, 6));
+                            det.setId_Producto(Integer.valueOf(idproducto));
+                            ClsDetallesFactura detalle = new ClsDetallesFactura();
+                             detalle.insertarDetalle(det);
+
+                        }
 
                     }
 
@@ -1070,11 +1134,12 @@ public class fFacturas extends javax.swing.JInternalFrame {
                 eliminarDetalles();
                 lblSumatotal.setText("");
                 displaymember();
+                CargarDatos();
             }
         } catch (Exception e) {
 
         }
-
+        
     }//GEN-LAST:event_btnCombrarActionPerformed
 
     private void txtEfectivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEfectivoKeyReleased

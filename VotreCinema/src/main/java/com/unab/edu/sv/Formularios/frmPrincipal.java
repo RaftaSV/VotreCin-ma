@@ -175,7 +175,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnProveedores.setBackground(new java.awt.Color(0, 0, 0));
         btnProveedores.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnProveedores.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< Updated upstream
         btnProveedores.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\producto.png")); // NOI18N
+=======
+>>>>>>> Stashed changes
         btnProveedores.setText("PROVEEDORES");
         btnProveedores.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -189,7 +192,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnProductos.setBackground(new java.awt.Color(0, 0, 0));
         btnProductos.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnProductos.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< Updated upstream
         btnProductos.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\caja.png")); // NOI18N
+=======
+>>>>>>> Stashed changes
         btnProductos.setText("PRODUCTOS");
         btnProductos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -203,7 +209,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPeliculas.setBackground(new java.awt.Color(0, 0, 0));
         btnPeliculas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnPeliculas.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< Updated upstream
         btnPeliculas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\camara-de-video.png")); // NOI18N
+=======
+>>>>>>> Stashed changes
         btnPeliculas.setText("PELICULA");
         btnPeliculas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnPeliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -216,7 +225,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnRoles.setBackground(new java.awt.Color(0, 0, 0));
         btnRoles.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnRoles.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< Updated upstream
         btnRoles.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\admin-con-ruedas-dentadas.png")); // NOI18N
+=======
+>>>>>>> Stashed changes
         btnRoles.setText("ROLES");
         btnRoles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnRoles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -230,7 +242,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPersonas.setBackground(new java.awt.Color(0, 0, 0));
         btnPersonas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnPersonas.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< Updated upstream
         btnPersonas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\agregue-el-simbolo-de-la-interfaz-de-personas-de-la-persona-negra-de-cerca-con-el-signo-mas-en-un-circulo-pequeno.png")); // NOI18N
+=======
+>>>>>>> Stashed changes
         btnPersonas.setText("PERSONAS");
         btnPersonas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnPersonas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -244,7 +259,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnSalas.setBackground(new java.awt.Color(0, 0, 0));
         btnSalas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnSalas.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< Updated upstream
         btnSalas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\boton-salir-a-la-aplicacion.png")); // NOI18N
+=======
+>>>>>>> Stashed changes
         btnSalas.setText("SALAS");
         btnSalas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnSalas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -258,7 +276,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnHorarios.setBackground(new java.awt.Color(0, 0, 0));
         btnHorarios.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnHorarios.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< Updated upstream
         btnHorarios.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\paso-del-tiempo.png")); // NOI18N
+=======
+>>>>>>> Stashed changes
         btnHorarios.setText("HORARIOS");
         btnHorarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnHorarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -279,15 +300,16 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addComponent(btnPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(btnSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(btnHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(btnPeliculas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnPeliculas, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
         );
         panelBotonesLayout.setVerticalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonesLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(btnPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -342,7 +364,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnCarteleras.setBackground(new java.awt.Color(0, 0, 0));
         btnCarteleras.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnCarteleras.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< Updated upstream
         btnCarteleras.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\cartelera.png")); // NOI18N
+=======
+>>>>>>> Stashed changes
         btnCarteleras.setText("CARTELERAS");
         btnCarteleras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnCarteleras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -355,7 +380,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnFacturar.setBackground(new java.awt.Color(0, 0, 0));
         btnFacturar.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnFacturar.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< Updated upstream
         btnFacturar.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\facturas.png")); // NOI18N
+=======
+>>>>>>> Stashed changes
         btnFacturar.setText("Facturar");
         btnFacturar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnFacturar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -369,7 +397,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelBotonesFacturas.setLayout(panelBotonesFacturasLayout);
         panelBotonesFacturasLayout.setHorizontalGroup(
             panelBotonesFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCarteleras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCarteleras, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnFacturar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelBotonesFacturasLayout.setVerticalGroup(
@@ -378,23 +406,23 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnCarteleras, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFacturar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(panelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(panelBotonesFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelBotonesFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
                 .addComponent(panelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelBotonesFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -417,7 +445,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(panelcontenedor))
             .addComponent(panelBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

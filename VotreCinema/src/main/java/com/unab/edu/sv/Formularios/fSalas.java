@@ -155,7 +155,7 @@ public class fSalas extends javax.swing.JInternalFrame {
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(lblNumerodeSala)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,8 +245,8 @@ public class fSalas extends javax.swing.JInternalFrame {
                         .addGap(156, 156, 156)
                         .addComponent(btnLectura))
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                        .addGap(0, 0, 0)
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
@@ -260,7 +260,7 @@ public class fSalas extends javax.swing.JInternalFrame {
                     .addComponent(lblEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -344,8 +344,8 @@ public class fSalas extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Es necesario agregar Numero de Sala");
                 txtNumerodeSala.requestFocus();
             } else {
-                int contador = tbSalas.getRowCount();
-                if (contador == 0) {
+
+                if (tbSalas.getRowCount() == 0) {
                     Salas sa = new Salas();
                     sa.setCapacidad(Integer.valueOf(txtCapacidad.getText()));
                     sa.setNumero_Sala(Integer.valueOf(txtNumerodeSala.getText()));
@@ -354,15 +354,18 @@ public class fSalas extends javax.swing.JInternalFrame {
                     limpiar();
                     CargarTabla();
                     ajustartabla();
-                }
-                int contadorsala = 0;
-                for (int i = 0; i <= tbSalas.getRowCount(); i++) {
-                    String n = String.valueOf(tbSalas.getValueAt(i, 2));
-                    int numero = Integer.valueOf(n);
-                    if (numero == Integer.valueOf(txtNumerodeSala.getText())) {
-                        i = tbSalas.getRowCount();
-                    } else {
-                        contadorsala++;
+                } else {
+                    int contadorsala = 0;
+                    for (int i = 0; i < tbSalas.getRowCount(); i++) {
+                        String n = String.valueOf(tbSalas.getValueAt(i, 2));
+
+                        if (n.equals(txtNumerodeSala.getText())) {
+                            i = tbSalas.getRowCount();
+                            JOptionPane.showMessageDialog(null, "Este numero de sala ya existe");
+                        } else {
+                            contadorsala++;
+                        }
+
                     }
                     if (contadorsala == tbSalas.getRowCount()) {
                         Salas sa = new Salas();
@@ -373,8 +376,6 @@ public class fSalas extends javax.swing.JInternalFrame {
                         limpiar();
                         CargarTabla();
                         ajustartabla();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Este numero de sala ya existe");
                     }
                 }
             }
