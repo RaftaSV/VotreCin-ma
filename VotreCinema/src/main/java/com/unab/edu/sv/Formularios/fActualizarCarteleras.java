@@ -22,7 +22,8 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
      */
     public fActualizarCarteleras() {
         initComponents();
-      
+        this.setLocationRelativeTo(null);
+
     }
     frmLogin l = new frmLogin();
     frmBuscarPelicula buscar = new frmBuscarPelicula();
@@ -252,7 +253,9 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
 
     private void btnSeleccionarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarPActionPerformed
         // TODO add your handling code here:
+        buscar.indicador = 1;
         buscar.setVisible(true);
+        displaymember();
     }//GEN-LAST:event_btnSeleccionarPActionPerformed
     String valuemembe[];
     public int contador = 1;
@@ -263,21 +266,21 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
         DefaultComboBoxModel Defaultcombobox = new DefaultComboBoxModel<>();
         ClsSalas cls = new ClsSalas();
         ArrayList<Salas> sala = cls.MostrarSalas();
-        valuemember = new String[sala.size() + 1];
+        valuemembe = new String[sala.size() + 1];
         String filas[] = new String[5];
         Defaultcombobox.addElement("");
 
         for (var i : sala) {
             filas[0] = String.valueOf(i.getIdSala());
             filas[1] = String.valueOf(i.getNumero_Sala());
-            valuemember[contador] = filas[0];
+            valuemembe[contador] = filas[0];
             Defaultcombobox.addElement(filas[1]);
             contador++;
         }
         cmbsala.setModel(Defaultcombobox);
 
     }
-    
+
     String valuemember[];
     int contado = 1;
     DefaultComboBoxModel listahora = new DefaultComboBoxModel<>();
@@ -316,7 +319,6 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
 
         }
         cmbhorario.setModel(listahora);
-   
 
     }
     int id;
