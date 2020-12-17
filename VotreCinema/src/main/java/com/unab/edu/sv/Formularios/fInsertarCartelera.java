@@ -364,17 +364,7 @@ public class fInsertarCartelera extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        if (id != 0) {
-            Carteleras c = new Carteleras();
-            c.setIdcartelera(id);
-            ClsCarteleras cls = new ClsCarteleras();
-            cls.EliminarCartelera(c);
-            Limpiar();
-            l.principal.cartelera.CargarTabla();
-           
-        } else {
-            JOptionPane.showMessageDialog(null, "Debe de seleccionar un producto");
-        }
+
     }//GEN-LAST:event_btnEliminarActionPerformed
     String valuemember[];
     int contador = 1;
