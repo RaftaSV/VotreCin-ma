@@ -332,7 +332,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Downloads\iconos\producto.png"/>
+                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\producto.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="PROVEEDORES"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -368,7 +368,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Downloads\iconos\caja.png"/>
+                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\caja.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="PRODUCTOS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -404,7 +404,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Downloads\iconos\camara-de-video.png"/>
+                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\camara-de-video.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="PELICULA"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -437,7 +437,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Downloads\iconos\admin-con-ruedas-dentadas.png"/>
+                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\admin-con-ruedas-dentadas.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="ROLES"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -473,7 +473,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Downloads\iconos\agregue-el-simbolo-de-la-interfaz-de-personas-de-la-persona-negra-de-cerca-con-el-signo-mas-en-un-circulo-pequeno.png"/>
+                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\agregue-el-simbolo-de-la-interfaz-de-personas-de-la-persona-negra-de-cerca-con-el-signo-mas-en-un-circulo-pequeno.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="PERSONAS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -509,7 +509,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Downloads\iconos\boton-salir-a-la-aplicacion.png"/>
+                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\boton-salir-a-la-aplicacion.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="SALAS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -545,7 +545,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Downloads\iconos\paso-del-tiempo.png"/>
+                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\paso-del-tiempo.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="HORARIOS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -664,7 +664,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Downloads\iconos\cartelera.png"/>
+                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\cartelera.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="CARTELERAS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -697,7 +697,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Downloads\iconos\facturas.png"/>
+                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\facturas.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Facturar"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

@@ -175,7 +175,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnProveedores.setBackground(new java.awt.Color(0, 0, 0));
         btnProveedores.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnProveedores.setForeground(new java.awt.Color(255, 255, 255));
-        btnProveedores.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\producto.png")); // NOI18N
+        btnProveedores.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\producto.png")); // NOI18N
         btnProveedores.setText("PROVEEDORES");
         btnProveedores.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -189,7 +189,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnProductos.setBackground(new java.awt.Color(0, 0, 0));
         btnProductos.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnProductos.setForeground(new java.awt.Color(255, 255, 255));
-        btnProductos.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\caja.png")); // NOI18N
+        btnProductos.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\caja.png")); // NOI18N
         btnProductos.setText("PRODUCTOS");
         btnProductos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -203,7 +203,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPeliculas.setBackground(new java.awt.Color(0, 0, 0));
         btnPeliculas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnPeliculas.setForeground(new java.awt.Color(255, 255, 255));
-        btnPeliculas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\camara-de-video.png")); // NOI18N
+        btnPeliculas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\camara-de-video.png")); // NOI18N
         btnPeliculas.setText("PELICULA");
         btnPeliculas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnPeliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -216,7 +216,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnRoles.setBackground(new java.awt.Color(0, 0, 0));
         btnRoles.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnRoles.setForeground(new java.awt.Color(255, 255, 255));
-        btnRoles.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\admin-con-ruedas-dentadas.png")); // NOI18N
+        btnRoles.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\admin-con-ruedas-dentadas.png")); // NOI18N
         btnRoles.setText("ROLES");
         btnRoles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnRoles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -230,7 +230,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPersonas.setBackground(new java.awt.Color(0, 0, 0));
         btnPersonas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnPersonas.setForeground(new java.awt.Color(255, 255, 255));
-        btnPersonas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\agregue-el-simbolo-de-la-interfaz-de-personas-de-la-persona-negra-de-cerca-con-el-signo-mas-en-un-circulo-pequeno.png")); // NOI18N
+        btnPersonas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\agregue-el-simbolo-de-la-interfaz-de-personas-de-la-persona-negra-de-cerca-con-el-signo-mas-en-un-circulo-pequeno.png")); // NOI18N
         btnPersonas.setText("PERSONAS");
         btnPersonas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnPersonas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -244,7 +244,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnSalas.setBackground(new java.awt.Color(0, 0, 0));
         btnSalas.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnSalas.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\boton-salir-a-la-aplicacion.png")); // NOI18N
+        btnSalas.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\boton-salir-a-la-aplicacion.png")); // NOI18N
         btnSalas.setText("SALAS");
         btnSalas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnSalas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -258,7 +258,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnHorarios.setBackground(new java.awt.Color(0, 0, 0));
         btnHorarios.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnHorarios.setForeground(new java.awt.Color(255, 255, 255));
-        btnHorarios.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\paso-del-tiempo.png")); // NOI18N
+        btnHorarios.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\paso-del-tiempo.png")); // NOI18N
         btnHorarios.setText("HORARIOS");
         btnHorarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnHorarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -342,7 +342,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnCarteleras.setBackground(new java.awt.Color(0, 0, 0));
         btnCarteleras.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnCarteleras.setForeground(new java.awt.Color(255, 255, 255));
-        btnCarteleras.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\cartelera.png")); // NOI18N
+        btnCarteleras.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\cartelera.png")); // NOI18N
         btnCarteleras.setText("CARTELERAS");
         btnCarteleras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnCarteleras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -355,7 +355,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnFacturar.setBackground(new java.awt.Color(0, 0, 0));
         btnFacturar.setFont(new java.awt.Font("Algerian_R", 1, 18)); // NOI18N
         btnFacturar.setForeground(new java.awt.Color(255, 255, 255));
-        btnFacturar.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Downloads\\iconos\\facturas.png")); // NOI18N
+        btnFacturar.setIcon(new javax.swing.ImageIcon("C:\\Users\\14-ck0013lab\\Documents\\GitHub\\VotreCinema\\VotreCinema\\src\\main\\Resources\\imagen\\facturas.png")); // NOI18N
         btnFacturar.setText("Facturar");
         btnFacturar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnFacturar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -291,6 +291,8 @@ public class fInsertarCartelera extends javax.swing.JFrame {
                         ClsCarteleras cls = new ClsCarteleras();
                         cls.InsertarCartelera(cart);
                         l.principal.cartelera.CargarTabla();
+                       
+                        Limpiar();
                         this.dispose();
 
                     }
