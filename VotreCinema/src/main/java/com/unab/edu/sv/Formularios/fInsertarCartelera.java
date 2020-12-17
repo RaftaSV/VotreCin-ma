@@ -149,6 +149,11 @@ public class fInsertarCartelera extends javax.swing.JFrame {
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setText("Eliminar");
         btnEliminar.setBorderPainted(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
         btnLimpiar.setText("Limpiar");
@@ -295,6 +300,17 @@ public class fInsertarCartelera extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    public void Limpiar() {
+    txtpelicula.setText(null);
+    jdcFecha.setDate(null);
+    cmbsala.setSelectedIndex(0);
+    cmbhorario.setSelectedIndex(0);
+    lblPelicula.setIcon(null);
+    indicador = 0;
+    id=0;
+        
+    }
+    
     private void btnSeleccionarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarPActionPerformed
         // TODO add your handling code here:
         buscar.setVisible(true);
@@ -343,6 +359,21 @@ public class fInsertarCartelera extends javax.swing.JFrame {
             displaymembe();
         }
     }//GEN-LAST:event_cmbsalaItemStateChanged
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        if (id != 0) {
+            Carteleras c = new Carteleras();
+            c.setIdcartelera(id);
+            ClsCarteleras cls = new ClsCarteleras();
+            cls.EliminarCartelera(c);
+            Limpiar();
+            l.principal.cartelera.CargarTabla();
+           
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe de seleccionar un producto");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
     String valuemember[];
     int contador = 1;
 

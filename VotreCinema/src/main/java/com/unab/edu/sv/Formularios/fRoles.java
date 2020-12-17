@@ -533,7 +533,7 @@ public class fRoles extends javax.swing.JInternalFrame {
                         roles.setIdRol(id);
                         roles.setUsuario(txtUsu.getText());
                         roles.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
-                        clsrol.ActualizarRolsinpass(roles);
+                        clsrol.ActualizarRol(roles);
                         MostrarTablaRoles();
                         ajustartabla();
                     }
