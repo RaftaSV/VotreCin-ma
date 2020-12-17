@@ -123,6 +123,11 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setText("Eliminar");
         btnEliminar.setBorderPainted(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
         btnLimpiar.setText("Limpiar");
@@ -357,6 +362,19 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        if (id != 0) {
+            Carteleras c = new Carteleras();
+            c.setIdcartelera(id);
+            ClsCarteleras cls = new ClsCarteleras();
+            cls.EliminarCartelera(c);
+            l.principal.cartelera.CargarTabla();
+            this.dispose();
+
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
