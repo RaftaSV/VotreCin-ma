@@ -87,16 +87,20 @@ public class fCartelera extends javax.swing.JInternalFrame {
         //Ajustar el tamaño de la celdas para mostrar la portada de la pelicula
         TableColumn columna1;
         columna1 = tbCarteleras.getColumnModel().getColumn(1);
-        columna1.setPreferredWidth(150);
+        columna1.setPreferredWidth(170);
         tbCarteleras.setRowHeight(320);
         tbCarteleras.setRowHeight(320);
         tbCarteleras.getColumnModel().getColumn(2).setPreferredWidth(100);
-        tbCarteleras.getColumnModel().getColumn(4).setPreferredWidth(60);
-        tbCarteleras.getColumnModel().getColumn(4).setMaxWidth(60);
+        tbCarteleras.getColumnModel().getColumn(4).setPreferredWidth(55);
+        tbCarteleras.getColumnModel().getColumn(4).setMaxWidth(55);
+        tbCarteleras.getColumnModel().getColumn(5).setPreferredWidth(55);
+        tbCarteleras.getColumnModel().getColumn(5).setMaxWidth(55);
+         tbCarteleras.getColumnModel().getColumn(7).setPreferredWidth(60);
+        tbCarteleras.getColumnModel().getColumn(7).setMaxWidth(60);
         TableColumn columna9;
         columna9 = tbCarteleras.getColumnModel().getColumn(9);
         columna9.setPreferredWidth(40);
-        columna9.setMaxWidth(60);
+        columna9.setMaxWidth(40);
         TableColumn columna8;
         columna8 = tbCarteleras.getColumnModel().getColumn(8);
         columna8.setPreferredWidth(200);
