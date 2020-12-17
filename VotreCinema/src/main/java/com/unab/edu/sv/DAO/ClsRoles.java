@@ -69,7 +69,7 @@ public class ClsRoles {
         ArrayList<Roles> Roll = new ArrayList<>();
 
         try {
-            CallableStatement cs = conect.prepareCall("select b.idRoles,a.Nombres,a.idPersonas,b.Usuario,b.Pasword,b.TipoRol from personas as a inner join roles as b on a.idPersonas = b.Id_persona where b.estado=0 and b.tiporol=2;");
+            CallableStatement cs = conect.prepareCall("select b.idRoles,a.Nombres,a.idPersonas,b.Usuario,b.Pasword,b.TipoRol from personas as a inner join roles as b on a.idPersonas = b.Id_persona where b.estado=0 and b.tiporol=2 order by idroles desc;");
             ResultSet resultado = cs.executeQuery();
             while (resultado.next()) {
                 Roles Rol = new Roles();

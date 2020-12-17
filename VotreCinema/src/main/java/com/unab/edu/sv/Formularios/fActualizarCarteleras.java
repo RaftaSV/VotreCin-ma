@@ -54,7 +54,7 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         cmbsala = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         panelFondo.setBackground(new java.awt.Color(0, 0, 0));
 
