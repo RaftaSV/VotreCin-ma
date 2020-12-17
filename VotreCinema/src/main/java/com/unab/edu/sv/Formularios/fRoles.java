@@ -29,7 +29,7 @@ public class fRoles extends javax.swing.JInternalFrame {
      */
     public fRoles() {
         initComponents();
-
+        
         MostrarTablaRoles();
         displaymember();
         ajustartabla();
@@ -40,7 +40,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         tbMostrarRol.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
     public int edicion = 0;
-
+    
     public void lectura() {
         if (edicion == 0) {
             panelCRUD.setVisible(false);
@@ -350,7 +350,7 @@ public class fRoles extends javax.swing.JInternalFrame {
     int estado = 0;
     int id = 0;
     int dat = 0;
-
+    
     public void ajustartabla() {
         // Ocultar la columna del ID de la pelicula
         tbMostrarRol.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -374,16 +374,16 @@ public class fRoles extends javax.swing.JInternalFrame {
         tbMostrarRol.getColumnModel().getColumn(1).setCellRenderer(al);
         tbMostrarRol.getColumnModel().getColumn(3).setCellRenderer(al);
         tbMostrarRol.getColumnModel().getColumn(5).setCellRenderer(al);
-
+        
     }
-
+    
     void MostrarTablaRoles() {
         String Titulos[] = {"ID", "PERSONA", "IDPERSONA", "USUARIO", "PASSWORD", "TIPO ROL"};
         DefaultTableModel df = new DefaultTableModel(null, Titulos);
         ClsRoles ClsRol = new ClsRoles();
         var MostrarRoles = ClsRol.MostrarRoles();
         String filas[] = new String[6];
-
+        
         for (var iterador : MostrarRoles) {
             filas[0] = String.valueOf(iterador.getIdRol());
             filas[1] = iterador.getNombres();
@@ -399,25 +399,25 @@ public class fRoles extends javax.swing.JInternalFrame {
             }
             df.addRow(filas);
         }
-
+        
         tbMostrarRol.setModel(df);
     }
     int radio = -1;
-
+    
     void Button() {
         if (rbAdmin.isSelected()) {
-
+            
             radio = 0;
-
+            
         } else if (rbCajero.isSelected()) {
-
+            
             radio = 1;
         } else if (rbCliente.isSelected()) {
-
+            
             radio = 2;
         }
     }
-
+    
     public void limpiar() {
         radio = -1;
         txtUsu.setText("");
@@ -429,7 +429,7 @@ public class fRoles extends javax.swing.JInternalFrame {
     }
     String valuemember[];
     int contador = 1;
-
+    
     void displaymember() {
         DefaultComboBoxModel Defaultcombobox = new DefaultComboBoxModel<>();
         ClsPersona persona = new ClsPersona();
@@ -437,7 +437,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         valuemember = new String[Persona.size() + 1];
         String filas[] = new String[5];
         Defaultcombobox.addElement("");
-
+        
         for (var i : Persona) {
             filas[0] = String.valueOf(i.getIdPersona());
             filas[1] = i.getNombres();
@@ -447,7 +447,7 @@ public class fRoles extends javax.swing.JInternalFrame {
         }
         cb_Idpersona5.setModel(Defaultcombobox);
     }
-
+    
 
     private void tbMostrarRolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMostrarRolMouseClicked
 
@@ -472,11 +472,11 @@ public class fRoles extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_lblVerMouseClicked
 
     private void btnInsertar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertar5ActionPerformed
-
+        
         if (estado == 0) {
             Button();
             Roles rol = new Roles();
-
+            
             if (txtUsu.getText() == "" || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es necesario agregar Usuario");
                 txtUsu.requestFocus();
@@ -501,17 +501,17 @@ public class fRoles extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar un rol");
                     rbAdmin.requestFocus();
                 }
-
+                
             }
-
+            
         } else {
             Button();
             Roles roles = new Roles();
-
+            
             if (txtUsu.getText() == "" || txtUsu.getText().isEmpty() || txtUsu.getText() == null) {
                 JOptionPane.showMessageDialog(null, "Es necesario agregar Usuario");
                 txtUsu.requestFocus();
-
+                
             } else if (Integer.valueOf(cb_Idpersona5.getSelectedIndex()) == 0) {
                 JOptionPane.showMessageDialog(null, "Es necesario seleccionar IdPersona");
                 cb_Idpersona5.requestFocus();
@@ -532,14 +532,15 @@ public class fRoles extends javax.swing.JInternalFrame {
                         ClsRoles clsrol = new ClsRoles();
                         roles.setIdRol(id);
                         roles.setUsuario(txtUsu.getText());
+                        roles.setPasword(txtPass.getText());
                         roles.setId_Persona(Integer.parseInt(valuemember[cb_Idpersona5.getSelectedIndex()]));
                         clsrol.ActualizarRol(roles);
                         MostrarTablaRoles();
                         ajustartabla();
                     }
-
+                    
                 }
-
+                
             }
         }
 
@@ -583,12 +584,12 @@ public class fRoles extends javax.swing.JInternalFrame {
             rbCajero.setSelected(false);
             rbCliente.setSelected(true);
         }
-
+        
         String idpersona = String.valueOf(tbMostrarRol.getValueAt(fila, 2));
         txtUsu.setText(usuario);
-
+        
         txtUsu.setText(usuario);
-
+        
         dat = 1;
         int selectvista = 0;
         for (var iterar : valuemember) {
