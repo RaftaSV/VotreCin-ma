@@ -301,11 +301,10 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnPeliculas" min="-2" pref="51" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnProductos" min="-2" pref="51" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnProductos" min="-2" pref="51" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnProveedores" min="-2" pref="51" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnRoles" min="-2" pref="51" max="-2" attributes="0"/>
@@ -332,12 +331,9 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-<<<<<<< Updated upstream
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\producto.png"/>
+                      <Image iconType="3" name="/imagen/producto.png"/>
                     </Property>
-=======
->>>>>>> Stashed changes
                     <Property name="text" type="java.lang.String" value="PROVEEDORES"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -371,12 +367,9 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-<<<<<<< Updated upstream
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\caja.png"/>
+                      <Image iconType="3" name="/imagen/caja.png"/>
                     </Property>
-=======
->>>>>>> Stashed changes
                     <Property name="text" type="java.lang.String" value="PRODUCTOS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -410,12 +403,9 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-<<<<<<< Updated upstream
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\camara-de-video.png"/>
+                      <Image iconType="3" name="/imagen/camara-de-video.png"/>
                     </Property>
-=======
->>>>>>> Stashed changes
                     <Property name="text" type="java.lang.String" value="PELICULA"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -446,12 +436,9 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-<<<<<<< Updated upstream
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\admin-con-ruedas-dentadas.png"/>
+                      <Image iconType="3" name="/imagen/admin-con-ruedas-dentadas.png"/>
                     </Property>
-=======
->>>>>>> Stashed changes
                     <Property name="text" type="java.lang.String" value="ROLES"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -485,12 +472,9 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-<<<<<<< Updated upstream
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\agregue-el-simbolo-de-la-interfaz-de-personas-de-la-persona-negra-de-cerca-con-el-signo-mas-en-un-circulo-pequeno.png"/>
+                      <Image iconType="3" name="/imagen/agregue-el-simbolo-de-la-interfaz-de-personas-de-la-persona-negra-de-cerca-con-el-signo-mas-en-un-circulo-pequeno.png"/>
                     </Property>
-=======
->>>>>>> Stashed changes
                     <Property name="text" type="java.lang.String" value="PERSONAS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -524,12 +508,9 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-<<<<<<< Updated upstream
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\boton-salir-a-la-aplicacion.png"/>
+                      <Image iconType="3" name="/imagen/boton-salir-a-la-aplicacion.png"/>
                     </Property>
-=======
->>>>>>> Stashed changes
                     <Property name="text" type="java.lang.String" value="SALAS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -563,12 +544,9 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-<<<<<<< Updated upstream
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\paso-del-tiempo.png"/>
+                      <Image iconType="3" name="/imagen/paso-del-tiempo.png"/>
                     </Property>
-=======
->>>>>>> Stashed changes
                     <Property name="text" type="java.lang.String" value="HORARIOS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -658,7 +636,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnCarteleras" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                      <Component id="btnCarteleras" alignment="0" pref="241" max="32767" attributes="0"/>
                       <Component id="btnFacturar" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
@@ -668,7 +646,7 @@
                           <Component id="btnCarteleras" min="-2" pref="48" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnFacturar" min="-2" pref="51" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -685,12 +663,9 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-<<<<<<< Updated upstream
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\cartelera.png"/>
+                      <Image iconType="3" name="/imagen/cartelera.png"/>
                     </Property>
-=======
->>>>>>> Stashed changes
                     <Property name="text" type="java.lang.String" value="CARTELERAS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -721,12 +696,9 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-<<<<<<< Updated upstream
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\14-ck0013lab\Documents\GitHub\VotreCinema\VotreCinema\src\main\Resources\imagen\facturas.png"/>
+                      <Image iconType="3" name="/imagen/facturas.png"/>
                     </Property>
-=======
->>>>>>> Stashed changes
                     <Property name="text" type="java.lang.String" value="Facturar"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
