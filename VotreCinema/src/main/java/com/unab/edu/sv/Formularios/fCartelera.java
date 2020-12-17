@@ -47,11 +47,22 @@ public class fCartelera extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         CargarTabla();
         ajustartabla();
-
         tbCarteleras.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        frmLogin f = new frmLogin();
+        
+        if (f.principal.tipo == 0) {
+
+            btnEliminar.setVisible(true);
+            btnNuevo.setVisible(true);
+            btnEditar.setVisible(true);
+        } else {
+            btnEliminar.setVisible(false);
+            btnNuevo.setVisible(false);
+            btnEditar.setVisible(false);
+        }
     }
     frmLogin l = new frmLogin();
-
+public int tipo;
     public void ajustartabla() {
         // Ocultar la columna del ID de la pelicula
         tbCarteleras.getColumnModel().getColumn(0).setMaxWidth(0);

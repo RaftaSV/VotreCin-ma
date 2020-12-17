@@ -199,9 +199,10 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPassActionPerformed
 
     public static frmPrincipal principal = new frmPrincipal();
+    public ClsLogin log = new ClsLogin();
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        ClsLogin log = new ClsLogin();
+
         String usu = txtUsuario.getText();
         String pass = txtPass.getText();
 
@@ -217,8 +218,8 @@ public class frmLogin extends javax.swing.JFrame {
                     usuario = usuario.toUpperCase();
                     principal.lblUsuario.setText(usuario);
                     principal.id = log.id;
-                  
-                           if (principal.logo == null || principal.logo.isClosed()) {
+
+                    if (principal.logo == null || principal.logo.isClosed()) {
                         principal.logo = new fLogo();
 
                         try {
@@ -230,8 +231,7 @@ public class frmLogin extends javax.swing.JFrame {
 
                         principal.logo.setVisible(true);
                     }
-                  
-                 
+
                     principal.setVisible(true);
                     principal.btnFacturar.setVisible(true);
                     principal.panelBotones.setVisible(true);
@@ -280,9 +280,9 @@ public class frmLogin extends javax.swing.JFrame {
                     principal.setVisible(true);
                     principal.btnFacturar.setVisible(false);
                     principal.panelBotones.setVisible(false);
-//                    principal.cartelera.btnNuevo.setVisible(false);
 
                 }
+                principal.tipo=log.rol;
 
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");

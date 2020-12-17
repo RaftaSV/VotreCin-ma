@@ -449,7 +449,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public int tipo;
     int ocultarMenu = 0;
     private void btnCerrarMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMenuMouseClicked
         // TODO add your handling code here:
