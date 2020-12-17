@@ -43,9 +43,9 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
         txtBuscar.setText("");
         tbPeliculas.setColumnSelectionAllowed(false);
         tbPeliculas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-      
 
     }
+    public int indicador = 0;
 
     public void ajustartabla() {
         // Ocultar la columna del ID de la pelicula
@@ -278,18 +278,33 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
 
         int res = JOptionPane.showConfirmDialog(null, "¿Desea Elegir esta pelicula?", "Advertencia", JOptionPane.YES_NO_OPTION);
         if (res == 0) {
-            int fila = tbPeliculas.getSelectedRow();
-            String idd = String.valueOf(tbPeliculas.getValueAt(fila, 0));
-            int id = Integer.valueOf(idd);
-            frmLogin l = new frmLogin();
-            JLabel j = (JLabel) tbPeliculas.getModel().getValueAt(fila, 1);
-            Icon imgi = j.getIcon();
-            String nombre = String.valueOf(tbPeliculas.getValueAt(fila, 2));
-            String nombrer = nombre.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
-            l.principal.cartelera.insertarpelicula.txtpelicula.setText(nombrer);
-            l.principal.cartelera.insertarpelicula.lblPelicula.setIcon(imgi);
-            l.principal.cartelera.insertarpelicula.idpelicula = id;
-            this.dispose();
+            if (indicador == 0) {
+                int fila = tbPeliculas.getSelectedRow();
+                String idd = String.valueOf(tbPeliculas.getValueAt(fila, 0));
+                int id = Integer.valueOf(idd);
+                frmLogin l = new frmLogin();
+                JLabel j = (JLabel) tbPeliculas.getModel().getValueAt(fila, 1);
+                Icon imgi = j.getIcon();
+                String nombre = String.valueOf(tbPeliculas.getValueAt(fila, 2));
+                String nombrer = nombre.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
+                l.principal.cartelera.insertarpelicula.txtpelicula.setText(nombrer);
+                l.principal.cartelera.insertarpelicula.lblPelicula.setIcon(imgi);
+                l.principal.cartelera.insertarpelicula.idpelicula = id;
+                this.dispose();
+            } else {
+
+                int fila = tbPeliculas.getSelectedRow();
+                String idd = String.valueOf(tbPeliculas.getValueAt(fila, 0));
+                int id = Integer.valueOf(idd);
+                frmLogin l = new frmLogin();
+                JLabel j = (JLabel) tbPeliculas.getModel().getValueAt(fila, 1);
+                Icon imgi = j.getIcon();
+                String nombre = String.valueOf(tbPeliculas.getValueAt(fila, 2));
+                String nombrer = nombre.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
+                l.principal.cartelera.insertar.txtpelicula.setText(nombrer);
+                l.principal.cartelera.insertar.lblPelicula.setIcon(imgi);
+                l.principal.cartelera.insertar.idpelicula = id;
+            }
 
         } else {
 
