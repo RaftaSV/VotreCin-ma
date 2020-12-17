@@ -5,20 +5,25 @@
  */
 package com.unab.edu.sv.Formularios;
 
-import com.unab.edu.sv.DAO.ClsCarteleras;
-import com.unab.edu.sv.DAO.ClsHorarios;
-import com.unab.edu.sv.DAO.ClsSalas;
+import com.unab.edu.sv.DAO.*;
+
 import com.unab.edu.sv.Entidades.Carteleras;
 import com.unab.edu.sv.Entidades.Horarios;
 import com.unab.edu.sv.Entidades.Render;
+import com.unab.edu.sv.Entidades.Salas;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.ListSelectionModel;
@@ -42,9 +47,10 @@ public class fCartelera extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         CargarTabla();
         ajustartabla();
-        tbCarteleras.setRowSelectionAllowed(isSelected);
+
         tbCarteleras.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
+    frmLogin l = new frmLogin();
 
     public void ajustartabla() {
         // Ocultar la columna del ID de la pelicula
@@ -81,12 +87,12 @@ public class fCartelera extends javax.swing.JInternalFrame {
     }
 
     public void CargarTabla() {
-        String TITULOS[] = {"ID", "PORTADA", "PELICULA", "FECHA", "HORA", "SALA", "DURACION", "PRECIO", "SINOPSIS", "TIPO"};
+        String TITULOS[] = {"ID", "PORTADA", "PELICULA", "FECHA", "HORA", "SALA", "DURACION", "PRECIO", "SINOPSIS", "TIPO", "IDPELICULA", "IDHORARIO", "IDSALA"};
         DefaultTableModel model = new DefaultTableModel(null, TITULOS);
         tbCarteleras.setDefaultRenderer(Object.class, new Render());
         ClsCarteleras cls = new ClsCarteleras();
         ArrayList<Carteleras> lista = cls.CargarDatos();
-        Object filas[] = new Object[10];
+        Object filas[] = new Object[13];
         SimpleDateFormat formato = new SimpleDateFormat("d MMM y");
         for (var i : lista) {
             filas[0] = i.getIdcartelera();
@@ -115,6 +121,9 @@ public class fCartelera extends javax.swing.JInternalFrame {
             } else if (i.getTipo() == 1) {
                 filas[9] = "<HTML>" + "<p align=\"justify\">" + "3D" + "</HTML>";
             }
+            filas[10] = i.getIdPelicula();
+            filas[11] = i.getId_Horario();
+            filas[12] = i.getId_Sala();
             model.addRow(filas);
 
         }
@@ -132,9 +141,11 @@ public class fCartelera extends javax.swing.JInternalFrame {
 
         panelFondo = new javax.swing.JPanel();
         lblEncabezado = new javax.swing.JLabel();
-        TABLA = new javax.swing.JScrollPane();
-        tbCarteleras = new javax.swing.JTable();
         btnNuevo = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbCarteleras = new javax.swing.JTable();
 
         panelFondo.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -144,13 +155,46 @@ public class fCartelera extends javax.swing.JInternalFrame {
         lblEncabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEncabezado.setText("Carteleras");
 
+        btnNuevo.setBackground(new java.awt.Color(255, 255, 102));
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNuevo.setText("Nuevo");
+        btnNuevo.setBorderPainted(false);
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setBackground(new java.awt.Color(255, 255, 102));
+        btnEditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.setBorderPainted(false);
+        btnEditar.setEnabled(false);
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setEnabled(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         tbCarteleras = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int collIndex){
                 return false;
             }
         };
-        tbCarteleras.setBackground(new java.awt.Color(0, 0, 0));
-        tbCarteleras.setForeground(java.awt.Color.white);
+        tbCarteleras.setBackground(java.awt.Color.black);
+        tbCarteleras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tbCarteleras.setForeground(new java.awt.Color(255, 255, 255));
         tbCarteleras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -161,18 +205,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbCarteleras.setCellSelectionEnabled(true);
-        tbCarteleras.setGridColor(new java.awt.Color(255, 255, 255));
-        tbCarteleras.setShowGrid(true);
+        ));
         tbCarteleras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbCartelerasMouseClicked(evt);
@@ -181,14 +214,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
                 tbCartelerasMouseReleased(evt);
             }
         });
-        TABLA.setViewportView(tbCarteleras);
-
-        btnNuevo.setText("Nuevo");
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
-            }
-        });
+        jScrollPane1.setViewportView(tbCarteleras);
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
@@ -196,15 +222,19 @@ public class fCartelera extends javax.swing.JInternalFrame {
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnNuevo)
-                .addContainerGap())
-            .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelFondoLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addComponent(lblEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNuevo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEliminar)
+                        .addGap(25, 25, 25))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,14 +242,14 @@ public class fCartelera extends javax.swing.JInternalFrame {
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEncabezado)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnNuevo)))
-                .addContainerGap(390, Short.MAX_VALUE))
-            .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelFondoLayout.createSequentialGroup()
-                    .addGap(74, 74, 74)
-                    .addComponent(TABLA, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
-                    .addContainerGap()))
+                        .addGap(43, 43, 43)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnNuevo)
+                            .addComponent(btnEditar)
+                            .addComponent(btnEliminar))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                .addGap(51, 51, 51))
         );
 
         getContentPane().add(panelFondo, java.awt.BorderLayout.CENTER);
@@ -227,38 +257,133 @@ public class fCartelera extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    int id;
-    private void tbCartelerasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCartelerasMouseClicked
-        // TODO add your handling code here:
-        int fila = tbCarteleras.getSelectedRow();
-        id = Integer.valueOf(String.valueOf(tbCarteleras.getValueAt(fila, 0)));
+    public fActualizarCarteleras insertar = new fActualizarCarteleras();
 
-    }//GEN-LAST:event_tbCartelerasMouseClicked
-    public fInsertarCartelera insertar = new fInsertarCartelera();
+    public fInsertarCartelera insertarpelicula = new fInsertarCartelera();
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        // TODO add your handling code here:
 
-        insertar.setVisible(true);
+        insertarpelicula.setVisible(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
-    int indicador = 1;
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        btnEliminar.setEnabled(false);
+        l.principal.cerrar = 8;
+        l.principal.Mostrar();
+        insertar.setVisible(true);
+        btnEditar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        btnEliminar.setEnabled(false);
+        l.principal.cerrar = 8;
+        l.principal.Mostrar();
+        insertar.setVisible(true);
+        btnEditar.setEnabled(false);
+
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void tbCartelerasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCartelerasMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_tbCartelerasMouseClicked
+
     private void tbCartelerasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCartelerasMouseReleased
 
+        int id;
+        Date fechaa = null;
         int fila = tbCarteleras.getSelectedRow();
         String idc = String.valueOf(tbCarteleras.getValueAt(fila, 0));
+        JLabel j = (JLabel) tbCarteleras.getModel().getValueAt(fila, 1);
+        Icon imgi = j.getIcon();
         id = Integer.valueOf(idc);
-        String pelicula = String.valueOf(tbCarteleras.getValueAt(fila, 1));
-        String fecha = String.valueOf(tbCarteleras.getValueAt(fila, 2));
-        indicador = 1;
-        fInsertarCartelera.txtpelicula.setText(pelicula);
+        String pelicula = String.valueOf(tbCarteleras.getValueAt(fila, 2));
+        pelicula = pelicula.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
+        String fecha = String.valueOf(tbCarteleras.getValueAt(fila, 3));
+        fecha = fecha.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
+        SimpleDateFormat formato = new SimpleDateFormat("d MMM y");
+        try {
+            fechaa = formato.parse(fecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(fCartelera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String peliculaid = String.valueOf(tbCarteleras.getValueAt(fila, 10));
+        String idhora = String.valueOf(tbCarteleras.getValueAt(fila, 11));
+        String idsala = String.valueOf(tbCarteleras.getValueAt(fila, 12));
 
+        insertar.id = id;
+        insertar.lblPelicula.setIcon(imgi);
+        insertar.txtpelicula.setText(pelicula);
+        insertar.jdcFecha.setDate(fechaa);
+
+        {
+            // Cargar y asignar el id de la sal
+            String valuemember[];
+            int contador = 1;
+            ClsSalas cls = new ClsSalas();
+            ArrayList<Salas> sala = cls.MostrarSalas();
+            valuemember = new String[sala.size() + 1];
+            String filas[] = new String[5];
+
+            for (var i : sala) {
+                filas[0] = String.valueOf(i.getIdSala());
+                valuemember[contador] = filas[0];
+                contador++;
+            }
+            int selectvista = 0;
+            for (var iterar : valuemember) {
+                if (idsala.equals(iterar)) {
+                    insertar.displaymember();
+                    insertar.cmbsala.setSelectedIndex(selectvista);
+                   
+                    
+                }
+                selectvista += 1;
+            }
+        }
+         int select = 0;
+        {
+            //cargar y asignar el id del h
+
+            String valuemembe[];
+            int contado = 1;
+            String DisplayMenber[] = new String[5];
+            ClsHorarios clshorario = new ClsHorarios();
+
+            ArrayList<Horarios> horario = clshorario.cargarHorarios();
+            valuemembe = new String[horario.size() + 1];
+            String filass[] = new String[5];
+            for (var i : horario) {
+                filass[0] = String.valueOf(i.getIdHorario());
+                valuemembe[contado] = filass[0];
+                contado++;
+            }
+           
+            for (var iterar : valuemembe) {
+                if (idhora.equals(iterar)) {
+                    insertar.horarios();
+                    insertar.cmbhorario.setSelectedIndex(select);
+                }
+                select += 1;
+            }
+
+        }
+        insertar.idpelicula = Integer.parseInt(peliculaid);
+
+        btnEditar.setEnabled(true);
+        btnEliminar.setEnabled(true);
 
     }//GEN-LAST:event_tbCartelerasMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane TABLA;
+    public javax.swing.JButton btnEditar;
+    public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnNuevo;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JTable tbCarteleras;

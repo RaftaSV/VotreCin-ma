@@ -286,9 +286,9 @@ public class frmBuscarPelicula extends javax.swing.JFrame {
             Icon imgi = j.getIcon();
             String nombre = String.valueOf(tbPeliculas.getValueAt(fila, 2));
             String nombrer = nombre.replaceAll("<HTML>", "").replaceAll("<p align=\"justify\">", "").replaceAll("</HTML>", "");
-            l.principal.cartelera.insertar.txtpelicula.setText(nombrer);
-            l.principal.cartelera.insertar.lblPelicula.setIcon(imgi);
-            l.principal.cartelera.insertar.idpelicula = id;
+            l.principal.cartelera.insertarpelicula.txtpelicula.setText(nombrer);
+            l.principal.cartelera.insertarpelicula.lblPelicula.setIcon(imgi);
+            l.principal.cartelera.insertarpelicula.idpelicula = id;
             this.dispose();
 
         } else {
