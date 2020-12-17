@@ -49,7 +49,6 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
         btnSeleccionarP = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         cmbsala = new javax.swing.JComboBox<>();
@@ -129,15 +128,6 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
             }
         });
 
-        btnLimpiar.setBackground(new java.awt.Color(255, 255, 102));
-        btnLimpiar.setText("Limpiar");
-        btnLimpiar.setBorderPainted(false);
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Algerian_R", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("CARTELERA");
@@ -153,10 +143,8 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addComponent(btnGuardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                        .addComponent(btnEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                        .addComponent(btnLimpiar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                        .addComponent(btnEliminar))
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -178,7 +166,7 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
                                     .addComponent(jSeparator1))
                                 .addGap(21, 21, 21)
                                 .addComponent(btnSeleccionarP)))
-                        .addGap(28, 28, 28)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -216,7 +204,6 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnEliminar)
-                            .addComponent(btnLimpiar)
                             .addComponent(btnGuardar))
                         .addContainerGap(50, Short.MAX_VALUE))
                     .addGroup(panelFondoLayout.createSequentialGroup()
@@ -358,11 +345,6 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnLimpiarActionPerformed
-
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         if (id != 0) {
@@ -371,6 +353,8 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
             ClsCarteleras cls = new ClsCarteleras();
             cls.EliminarCartelera(c);
             l.principal.cartelera.CargarTabla();
+            l.principal.cartelera.ajustartabla();
+
             this.dispose();
 
         }
@@ -412,9 +396,8 @@ public class fActualizarCarteleras extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnLimpiar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSeleccionarP;
     public javax.swing.JComboBox<String> cmbhorario;
     public javax.swing.JComboBox<String> cmbsala;

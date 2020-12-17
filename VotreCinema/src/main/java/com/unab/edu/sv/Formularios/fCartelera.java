@@ -93,9 +93,9 @@ public class fCartelera extends javax.swing.JInternalFrame {
         tbCarteleras.getColumnModel().getColumn(2).setPreferredWidth(100);
         tbCarteleras.getColumnModel().getColumn(4).setPreferredWidth(55);
         tbCarteleras.getColumnModel().getColumn(4).setMaxWidth(55);
-        tbCarteleras.getColumnModel().getColumn(5).setPreferredWidth(55);
-        tbCarteleras.getColumnModel().getColumn(5).setMaxWidth(55);
-         tbCarteleras.getColumnModel().getColumn(7).setPreferredWidth(60);
+        tbCarteleras.getColumnModel().getColumn(5).setPreferredWidth(50);
+        tbCarteleras.getColumnModel().getColumn(5).setMaxWidth(50);
+        tbCarteleras.getColumnModel().getColumn(7).setPreferredWidth(60);
         tbCarteleras.getColumnModel().getColumn(7).setMaxWidth(60);
         TableColumn columna9;
         columna9 = tbCarteleras.getColumnModel().getColumn(9);
@@ -142,7 +142,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
             filas[5] = "<HTML>" + "<p align=\"justify\">" + i.getNumero_sala() + "</HTML>";
             filas[6] = "<HTML>" + "<p align=\"justify\">" + i.getDuracion() + "</HTML>";
             filas[7] = "<HTML>" + "<p align=\"justify\">" + "$" + i.getPrecio() + "0" + "</HTML>";
-            filas[8] = "<HTML>" + "<p align=\"justify\">" + "$" + i.getSipnosis() + "</HTML>";
+            filas[8] = "<HTML>" + "<p align=\"justify\">" +  i.getSipnosis() + "</HTML>";
             if (i.getTipo() == 0) {
                 filas[9] = "<HTML>" + "<p align=\"justify\">" + "2D" + "</HTML>";
             } else if (i.getTipo() == 1) {
@@ -288,15 +288,17 @@ public class fCartelera extends javax.swing.JInternalFrame {
 
     public fInsertarCartelera insertarpelicula = new fInsertarCartelera();
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-   
+
         insertarpelicula.setVisible(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        btnEliminar.setEnabled(false);
+
         l.principal.cerrar = 8;
         l.principal.Mostrar();
+        insertar.btnEliminar.setEnabled(false);
+        insertar.btnGuardar.setEnabled(true);
         insertar.setVisible(true);
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
@@ -308,6 +310,8 @@ public class fCartelera extends javax.swing.JInternalFrame {
         btnEliminar.setEnabled(false);
         l.principal.cerrar = 8;
         l.principal.Mostrar();
+        insertar.btnEliminar.setEnabled(true);
+        insertar.btnGuardar.setEnabled(false);
         insertar.setVisible(true);
         btnEditar.setEnabled(false);
 
@@ -365,13 +369,12 @@ public class fCartelera extends javax.swing.JInternalFrame {
                 if (idsala.equals(iterar)) {
                     insertar.displaymember();
                     insertar.cmbsala.setSelectedIndex(selectvista);
-                   
-                    
+
                 }
                 selectvista += 1;
             }
         }
-         int select = 0;
+        int select = 0;
         {
             //cargar y asignar el id del h
 
@@ -388,7 +391,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
                 valuemembe[contado] = filass[0];
                 contado++;
             }
-           
+
             for (var iterar : valuemembe) {
                 if (idhora.equals(iterar)) {
                     insertar.horarios();
