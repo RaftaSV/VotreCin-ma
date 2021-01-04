@@ -49,7 +49,7 @@ public class fCartelera extends javax.swing.JInternalFrame {
         ajustartabla();
         tbCarteleras.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         frmLogin f = new frmLogin();
-        
+
         if (f.principal.tipo == 0) {
 
             btnEliminar.setVisible(true);
@@ -62,7 +62,8 @@ public class fCartelera extends javax.swing.JInternalFrame {
         }
     }
     frmLogin l = new frmLogin();
-public int tipo;
+    public int tipo;
+
     public void ajustartabla() {
         // Ocultar la columna del ID de la pelicula
         tbCarteleras.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -158,8 +159,12 @@ public int tipo;
             if (horass.equals("00")) {
                 h = 0;
             } else {
-                String horaR = horass.replaceAll("0", "");
-                h = Integer.valueOf(horaR);
+                if (horass.equals("10")) {
+                    h = Integer.valueOf(horass);
+                } else {
+                    String horaR = horass.replaceAll("0", "");
+                    h = Integer.valueOf(horaR);
+                }
 
             }
             Minuto = hora.substring(3, 5);
@@ -318,7 +323,7 @@ public int tipo;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public fActualizarCarteleras insertar = new fActualizarCarteleras();
+    public fActualizarCarteleras  insertar = new fActualizarCarteleras();
 
     public fInsertarCartelera insertarpelicula = new fInsertarCartelera();
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -328,7 +333,7 @@ public int tipo;
 
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-
+       
         l.principal.cerrar = 8;
         l.principal.Mostrar();
         insertar.btnEliminar.setEnabled(false);
@@ -341,6 +346,7 @@ public int tipo;
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+       
         btnEliminar.setEnabled(false);
         l.principal.cerrar = 8;
         l.principal.Mostrar();

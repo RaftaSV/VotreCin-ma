@@ -40,7 +40,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
     int id = 0;
     int contador = 1;
     public int edicion = 0;
-    
+
     public void lectura() {
         if (edicion == 0) {
             panelCRUD.setVisible(false);
@@ -53,21 +53,21 @@ public class fHorarios extends javax.swing.JInternalFrame {
         }
         Limpiar();
     }
-    
+
     public void cargarCombo() {
         DefaultComboBoxModel listahora = new DefaultComboBoxModel<>();
-        
+
         String DisplayMenber[] = new String[1];
         listahora.addElement("00");
         for (int i = 9; i < 23; i++) {
-            
+
             if (i < 12) {
                 if (i == 9) {
                     DisplayMenber[0] = String.valueOf("0" + i + " am");
                 } else {
                     DisplayMenber[0] = String.valueOf(i + " am");
                 }
-                
+
             } else if (i == 12) {
                 DisplayMenber[0] = String.valueOf(i + " pm");
             } else {
@@ -83,7 +83,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
         }
         cmbHoras.setModel(listahora);
         DefaultComboBoxModel listaminutos = new DefaultComboBoxModel<>();
-        
+
         listaminutos.addElement("00");
         for (int i = 1; i <= 60; i++) {
             if (i < 10) {
@@ -94,7 +94,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
         }
         cmbMinutos.setModel(listaminutos);
     }
-    
+
     public void ajustartabla() {
         // Ocultar la columna del ID de horarios tbHorarios.getColumnModel().getColumn(0).setMaxWidth(0);
         tbHorarios.getColumnModel().getColumn(0).setMinWidth(0);
@@ -114,19 +114,19 @@ public class fHorarios extends javax.swing.JInternalFrame {
         al.setHorizontalAlignment(SwingConstants.CENTER);
         tbHorarios.getColumnModel().getColumn(1).setCellRenderer(al);
     }
-    
+
     public void cargarTabla() {
         String hora;
         String horass;
         String Minuto = null;
         int h = 0;
-        
+
         String[] Titulos = {"ID", "HORA DE INICIO", "hora"};
         DefaultTableModel modelo = new DefaultTableModel(null, Titulos);
         ClsHorarios cls = new ClsHorarios();
         ArrayList<Horarios> hor = cls.cargarHorarios();
         String[] horario = new String[3];
-        
+
         for (var i : hor) {
             horario[0] = String.valueOf(i.getIdHorario());
             hora = String.valueOf(i.getHoraInicio());
@@ -134,23 +134,28 @@ public class fHorarios extends javax.swing.JInternalFrame {
             if (horass.equals("00")) {
                 h = 0;
             } else {
-                String horaR = horass.replaceAll("0", "");
-                h = Integer.valueOf(horaR);
-                
+
+                if (horass.equals("10")) {
+                    h = Integer.valueOf(horass);
+                } else {
+                    String horaR = horass.replaceAll("0", "");
+                    h = Integer.valueOf(horaR);
+                }
+
             }
             Minuto = hora.substring(3, 5);
-            
+
             if (h == 12) {
                 horario[1] = String.valueOf((h) + ":" + Minuto + " PM");
             } else if (h > 12) {
                 horario[1] = String.valueOf((h - 12) + ":" + Minuto + " PM");
-                
+
             } else {
                 horario[1] = String.valueOf(h + ":" + Minuto + " AM");
             }
             horario[2] = String.valueOf(i.getHoraInicio());
             modelo.addRow(horario);
-            
+
         }
         tbHorarios.setModel(modelo);
     }
@@ -382,7 +387,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbHorariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbHorariosMouseClicked
-        
+
 
     }//GEN-LAST:event_tbHorariosMouseClicked
     int indicador = 0;
@@ -396,7 +401,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
                 String hora = (ho + ":" + minutos);
                 Horarios horario = new Horarios();
                 horario.setHoraInicio(Time.valueOf(hora + ":00"));
-                
+
                 System.out.println(horario);
                 ClsHorarios cls = new ClsHorarios();
                 cls.InsertarHorario(horario);
@@ -415,7 +420,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
                 Horarios horar = new Horarios();
                 horar.setIdHorario(id);
                 horar.setHoraInicio(Time.valueOf(hora + ":00"));
-                
+
                 ClsHorarios cls = new ClsHorarios();
                 cls.ActualizarHorario(horar);
                 cargarTabla();
@@ -424,7 +429,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Debe seleccionar una hora");
             }
-            
+
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -464,7 +469,7 @@ public class fHorarios extends javax.swing.JInternalFrame {
         indicador = 1;
     }//GEN-LAST:event_tbHorariosMouseReleased
     public void Limpiar() {
-        
+
         cmbHoras.setSelectedIndex(0);
         cmbMinutos.setSelectedIndex(0);
         indicador = 0;

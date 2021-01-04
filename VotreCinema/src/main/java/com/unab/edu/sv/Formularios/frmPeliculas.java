@@ -610,7 +610,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                                 String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
                                                 Peliculas pelic = new Peliculas();
                                                 pelic.setIdPelicula(id);
-                                                pelic.setNombre(txtPrecio.getText());
+                                                pelic.setNombre(txtNombreP1.getText());
                                                 pelic.setPortada(icono);
                                                 pelic.setDuracion(Time.valueOf(hora + ":00"));
                                                 pelic.setTipo(tipo);
@@ -637,7 +637,7 @@ public class frmPeliculas extends javax.swing.JFrame {
                                                 String hora = String.valueOf(horas.getSelectedIndex() + ":" + minutos.getSelectedIndex());
                                                 Peliculas pelic = new Peliculas();
                                                 pelic.setIdPelicula(id);
-                                                pelic.setNombre(txtPrecio.getText());
+                                                pelic.setNombre(txtNombreP1.getText());
                                                 pelic.setPortada(icono);
                                                 pelic.setDuracion(Time.valueOf(hora + ":00"));
                                                 pelic.setTipo(tipo);
