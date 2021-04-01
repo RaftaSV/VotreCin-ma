@@ -1014,6 +1014,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
             Double total = Double.valueOf(to.substring(1));
 
             Double efectivo = Double.valueOf(txtEfectivo.getText());
+            if (efectivo >= total) {
             if (0 == Integer.valueOf(cmbClientes.getSelectedIndex())) {
                 cmbClientes.setSelectedIndex(1);
 
@@ -1054,12 +1055,16 @@ public class fFacturas extends javax.swing.JInternalFrame {
                             String idproducto = String.valueOf(tbDetalles.getValueAt(i, 6));
                             det.setId_Producto(Integer.valueOf(idproducto));
                             ClsDetallesFactura detalle = new ClsDetallesFactura();
-                             detalle.insertarDetalle(det);
+                            detalle.insertarDetalle(det);
 
                         }
 
                     }
 
+                }
+                else {
+                
+                
                 }
                 tbCarteleras.clearSelection();
                 tbProducto.clearSelection();
@@ -1135,6 +1140,7 @@ public class fFacturas extends javax.swing.JInternalFrame {
                 lblSumatotal.setText("");
                 displaymember();
                 CargarDatos();
+            }
             }
         } catch (Exception e) {
 
