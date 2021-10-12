@@ -354,7 +354,7 @@ public class frmPeliculas extends javax.swing.JFrame {
 
     public ArrayList<Peliculas> pel;
     byte[] imagen;
-    SimpleDateFormat formatohora = new SimpleDateFormat("hh:mm:ss");
+   // SimpleDateFormat formatohora = new SimpleDateFormat("hh:mm:ss");
 
     public void cargartextbox() throws IOException {
         String hora;
